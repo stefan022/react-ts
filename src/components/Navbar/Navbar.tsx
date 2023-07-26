@@ -1,11 +1,10 @@
-import React, { useContext, Context } from "react";
+import React from "react";
 
 import logo from "../../assets/logo.png";
 import ContentMiddle from "../../content/ContentMiddle";
 import ContentFull from "../../content/ContentFull";
 
 import { BsCart3 } from "react-icons/bs";
-import { IProfileDropdownContext } from "../../ts/interfaces/IProfileDropdownContext";
 
 const Navbar = () => {
 	return (
