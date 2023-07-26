@@ -3,5 +3,7 @@ export const Routes = {
     LOGIN: "/login",
     REGISTER: "/register",
     PROFILE: "/profile",
+    PROFILE_INFO: "/profile-info",
+    WISHLIST: "/wishlist",
     NOT_FOUND: "*"
 }

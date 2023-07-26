@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import ContentMiddle from '../../content/ContentMiddle'
+import { Link } from 'react-router-dom';
+import { Routes } from '../../router/Routes';
 
-const Profile = () => {
+interface IProps {
+    children?: ReactNode;
+}
+
+const Profile = ({ children }: IProps) => {
     return (
         <div>
             <div className='bg-blue-300 h-[150px] w-full flex items-center justify-center'>
@@ -17,6 +23,20 @@ const Profile = () => {
                     </div>
                     <div className='flex items-center'>
                         <div>Go to Shopping</div>
+                    </div>
+                </div>
+                <div className="flex">
+                    <div className="border border-gray-400">
+                        <ul>
+                            <li><Link to={`${Routes.PROFILE}${Routes.PROFILE_INFO}`}>Profile Info</Link></li>
+                            <li><Link to={`${Routes.PROFILE}${Routes.WISHLIST}`}>Wishlist</Link></li>
+                            <li>Orders</li>
+                            <li>Settings</li>
+                            <li>Logout</li>
+                        </ul>
+                    </div>
+                    <div className="border border-gray-400">
+                        {children}
                     </div>
                 </div>
             </ContentMiddle>
