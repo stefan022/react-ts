@@ -2,7 +2,7 @@ import React from "react";
 
 import { BrowserRouter, Route, Routes as BrowserRoutes } from "react-router-dom";
 
-import { Home, Login, NotFound, Orders, Profile, Wishlist, Register, Settings } from "../pages";
+import { Home, Login, NotFound, Orders, Profile, Wishlist, Register, Settings, Products, Blogs, Faq, Support, Cart } from "../pages";
 import { PrivateLayout, PublicLayout } from "../layouts";
 import { Routes } from "./Routes";
 
@@ -11,12 +11,58 @@ const Router = () => {
 		<BrowserRouter>
 			<BrowserRoutes>
                 {/* Private */}
-				{/* Home Page */}
+				{/* Navigation */}
 				<Route
 					path={Routes.HOME}
 					element={
 						<PrivateLayout>
 							<Home />
+						</PrivateLayout>
+					}
+				/>
+
+				<Route
+					path={Routes.PRODUCTS}
+					element={
+						<PrivateLayout>
+							<Products />
+						</PrivateLayout>
+					}
+				/>
+
+				<Route
+					path={Routes.BLOGS}
+					element={
+						<PrivateLayout>
+							<Blogs />
+						</PrivateLayout>
+					}
+				/>
+
+				<Route
+					path={Routes.FAQ}
+					element={
+						<PrivateLayout>
+							<Faq />
+						</PrivateLayout>
+					}
+				/>
+
+				<Route
+					path={Routes.SUPPORT}
+					element={
+						<PrivateLayout>
+							<Support />
+						</PrivateLayout>
+					}
+				/>
+
+				{/* Cart Page */}
+				<Route
+					path={Routes.CART}
+					element={
+						<PrivateLayout>
+							<Cart/>
 						</PrivateLayout>
 					}
 				/>
