@@ -32,17 +32,6 @@ const Router = () => {
 				/>
 
 				<Route
-					path={`${Routes.PROFILE}${Routes.PROFILE_INFO}`}
-					element={
-						<PrivateLayout>
-							<Profile>
-                                <ProfileInfo/>
-                            </Profile>
-						</PrivateLayout>
-					}
-				/>
-
-				<Route
 					path={`${Routes.PROFILE}${Routes.WISHLIST}`}
 					element={
 						<PrivateLayout>

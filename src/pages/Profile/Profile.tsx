@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react'
 import ContentMiddle from '../../content/ContentMiddle'
 import { Link } from 'react-router-dom';
 import { Routes } from '../../router/Routes';
+import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 interface IProps {
     children?: ReactNode;
@@ -10,7 +11,7 @@ interface IProps {
 const Profile = ({ children }: IProps) => {
     return (
         <div>
-            <div className='bg-blue-300 h-[150px] w-full flex items-center justify-center'>
+            <div className='bg-blue-400 h-[150px] w-full flex items-center justify-center'>
                 <h2 className="text-2xl text-white">Account Information</h2>
             </div>
             <ContentMiddle>
@@ -25,18 +26,18 @@ const Profile = ({ children }: IProps) => {
                         <div>Go to Shopping</div>
                     </div>
                 </div>
-                <div className="flex">
-                    <div className="border border-gray-400">
-                        <ul>
-                            <li><Link to={`${Routes.PROFILE}${Routes.PROFILE_INFO}`}>Profile Info</Link></li>
-                            <li><Link to={`${Routes.PROFILE}${Routes.WISHLIST}`}>Wishlist</Link></li>
-                            <li>Orders</li>
-                            <li>Settings</li>
-                            <li>Logout</li>
+                <div className="flex w-full">
+                    <div className="border border-gray-400 w-1/6 flex flex-col items-center p-4">
+                        <ul className="w-full text-center">
+                            <Link to={Routes.PROFILE}><li className="bg-blue-400 mb-3 rounded-lg">Profile</li></Link>
+                            <Link to={`${Routes.PROFILE}${Routes.WISHLIST}`}><li className="bg-blue-400 mb-3 rounded-lg">Wishlist</li></Link>
+                            <li className="bg-blue-400 mb-3 rounded-lg">Orders</li>
+                            <li className="bg-blue-400 mb-3 rounded-lg">Settings</li>
+                            <li className="bg-blue-400 rounded-lg">Logout</li>
                         </ul>
                     </div>
-                    <div className="border border-gray-400">
-                        {children}
+                    <div className="border border-gray-400 w-5/6 p-4">
+                        {children ? children : <ProfileInfo/>}
                     </div>
                 </div>
             </ContentMiddle>
