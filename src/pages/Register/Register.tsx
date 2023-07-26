@@ -1,7 +1,7 @@
 import React from "react";
 import SignUp from "../../components/Forms/SignUp/SignUp";
 
-import logo from "../../assets/logo.jpg";
+import logo from "../../assets/logo.png";
 import wallpaper from "../../assets/wallpaper.jpg";
 
 const Register = () => {
@@ -11,7 +11,7 @@ const Register = () => {
 				<img
 					className="absolute top-0 right-0 z-10"
 					src={logo}
-					alt="logo.jpg"
+					alt="logo.png"
 				/>
 				<img
 					className="w-full h-screen relative"

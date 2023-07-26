@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import Navbar from "../../components/Navbar/Navbar";
 
 interface IProps {
 	children: ReactNode;
@@ -26,7 +27,12 @@ const PrivateLayout = ({ children }: IProps): JSX.Element | null => {
 	return null;
     */
 
-	return <div>{children}</div>;
+	return (
+		<div>
+			<Navbar/>
+			{children}
+		</div>
+	);
 };
 
 export default PrivateLayout;
