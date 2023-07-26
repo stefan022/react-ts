@@ -9,13 +9,13 @@ const Profile = () => {
             </div>
             <ContentMiddle>
                 <div className="flex justify-between items-center">
-                    <div className="flex items-center relative">
-                        <div className="w-[100px] h-[100px] rounded-full border border-gray-700 absolute z-10 bg-white"></div>
-                    </div>
-                    <div className="ml-2">
+                    <div className="flex items-center">
+                        <div className="w-[100px] h-[100px] rounded-full border border-gray-700 relative z-10 bg-white -top-8"></div> 
+                        <div className="ml-2">
                         <p>First Name / Last Name</p>
                     </div>
-                    <div>
+                    </div>
+                    <div className='flex items-center'>
                         <div>Go to Shopping</div>
                     </div>
                 </div>
