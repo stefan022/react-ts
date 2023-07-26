@@ -1,10 +1,12 @@
-import React from 'react'
-import { HelloWorld } from '../../components'
+import React from "react";
+import ContentMiddle from "../../content/ContentMiddle";
 
 const Home = () => {
-    return (
-        <div><HelloWorld/></div>
-    )
-}
+	return (
+		<ContentMiddle>
+			<div>Home</div>
+        </ContentMiddle>
+	);
+};
 
-export default Home
+export default Home;

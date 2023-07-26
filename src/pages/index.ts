@@ -1,4 +1,9 @@
 export { default as Home } from "./Home/Home";
 export { default as Login } from "./Login/Login";
 export { default as Register } from "./Register/Register";
+export { default as Products } from "./Products/Products";
+export { default as Blogs } from "./Blogs/Blogs";
+export { default as Faq } from "./Faq/Faq";
+export { default as Support } from "./Support/Support";
+export { default as Profile } from "./Profile/Profile";
 export { default as NotFound } from "./NotFound/NotFound";

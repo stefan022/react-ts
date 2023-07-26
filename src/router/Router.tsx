@@ -2,7 +2,7 @@ import React from "react";
 
 import { BrowserRouter, Route, Routes as BrowserRoutes } from "react-router-dom";
 
-import { Home, Login, NotFound, Register } from "../pages";
+import { Home, Login, NotFound, Profile, Register } from "../pages";
 import { PrivateLayout, PublicLayout } from "../layouts";
 import { Routes } from "./Routes";
 
@@ -16,6 +16,15 @@ const Router = () => {
 					element={
 						<PrivateLayout>
 							<Home />
+						</PrivateLayout>
+					}
+				/>
+
+				<Route
+					path={Routes.PROFILE}
+					element={
+						<PrivateLayout>
+							<Profile />
 						</PrivateLayout>
 					}
 				/>

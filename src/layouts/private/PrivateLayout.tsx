@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 
 interface IProps {
 	children: ReactNode;
@@ -30,7 +31,10 @@ const PrivateLayout = ({ children }: IProps): JSX.Element | null => {
 	return (
 		<div>
 			<Navbar/>
-			{children}
+			<div className="min-h-screen">
+				{children}
+			</div>
+			<Footer/>
 		</div>
 	);
 };
