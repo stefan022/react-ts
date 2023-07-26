@@ -1,9 +1,29 @@
-import React from 'react'
+import React from "react";
+import SignUp from "../../components/Forms/SignUp/SignUp";
+
+import logo from "../../assets/logo.jpg";
+import wallpaper from "../../assets/wallpaper.jpg";
 
 const Register = () => {
-  return (
-    <div>Register</div>
-  )
-}
+	return (
+		<div className="flex items-center">
+			<div className="relative w-1/2">
+				<img
+					className="absolute top-0 right-0 z-10"
+					src={logo}
+					alt="logo.jpg"
+				/>
+				<img
+					className="w-full h-screen relative"
+					src={wallpaper}
+					alt="wallpaper.jpg"
+				/>
+			</div>
+			<div className="w-1/2">
+				<SignUp />
+			</div>
+		</div>
+	);
+};
 
-export default Register
+export default Register;
