@@ -1,9 +1,6 @@
 import React, { ReactNode } from 'react'
 import ContentMiddle from '../../content/ContentMiddle'
-import { Link } from 'react-router-dom';
-import { Routes } from '../../router/Routes';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
-import ProfileDropdown from '../../components/Profile/ProfileDropdown/ProfileDropdown';
 import ProfileSidebar from '../../components/Profile/ProfileSidebar/ProfileSidebar';
 
 interface IProps {

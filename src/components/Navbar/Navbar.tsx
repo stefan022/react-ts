@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 
 import ContentMiddle from "../../content/ContentMiddle";
 
@@ -8,17 +8,27 @@ import { Routes } from "../../router/Routes";
 import Logo from "./Logo/Logo";
 import Navigation from "./Navigation/Navigation";
 import ProfileDropdown from "../Profile/ProfileDropdown/ProfileDropdown";
+import { IProfileDropdownContext } from "../../ts/interfaces/IProfileDropdownContext";
+import { ProfileDropdownContext } from "../../context/ProfileDropdownContext";
 
 const Navbar = () => {
+	const { isActive, setIsActive } = useContext(ProfileDropdownContext as React.Context<IProfileDropdownContext>);
+
+	const handleHideProfileDropdown = () => setIsActive(false);
+
 	return (
 		<ContentMiddle>
 			<div className="flex justify-between items-center border border-gray-400 relative">
 				<Logo/>
 				<Navigation/>
 				<div className="flex items-center gap-4">
-					<div>
+					<Link 
+						to={Routes.CART} 
+						className="hover:bg-gray-100 w-[40px] h-[40px] rounded-full flex items-center justify-center cursor-pointer"
+						onMouseEnter={handleHideProfileDropdown}
+					>
 						<BsCart3 size={20} color="gray" />
-					</div>
+					</Link>
 					<ProfileDropdown/>
 				</div>
 			</div>

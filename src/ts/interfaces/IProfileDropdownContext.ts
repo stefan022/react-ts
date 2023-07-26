@@ -1,4 +1,4 @@
 export interface IProfileDropdownContext {
-    profileDropdownActive: boolean;
-    setProfileDropdownActive: (arg: boolean) => void;
+    isActive: boolean;
+    setIsActive: (arg: boolean) => void;
 }
