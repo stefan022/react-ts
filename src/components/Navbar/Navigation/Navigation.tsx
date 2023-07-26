@@ -11,7 +11,7 @@ const Navigation = () => {
                         const { id, route, text } = nav;
 
                         return (
-                            <Fragment>
+                            <Fragment key={id}>
                                 <Link
                                     className="bg-blue-400 hover:bg-blue-500 text-white py-1 px-3 rounded-lg" 
                                     to={route}

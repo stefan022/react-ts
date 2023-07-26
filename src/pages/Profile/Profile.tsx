@@ -3,6 +3,8 @@ import ContentMiddle from '../../content/ContentMiddle'
 import { Link } from 'react-router-dom';
 import { Routes } from '../../router/Routes';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
+import ProfileDropdown from '../../components/Profile/ProfileDropdown/ProfileDropdown';
+import ProfileSidebar from '../../components/Profile/ProfileSidebar/ProfileSidebar';
 
 interface IProps {
     children?: ReactNode;
@@ -23,19 +25,12 @@ const Profile = ({ children }: IProps) => {
                     </div>
                     </div>
                     <div className='flex items-center'>
-                        <div>Go to Shopping</div>
+                        <button className="bg-red-400 hover:bg-red-500 py-1 px-3 rounded-lg text-white">Dashboard</button>
+                        <button className="ml-2 bg-green-400 hover:bg-green-500 py-1 px-3 rounded-lg text-white">Shopping Now</button>
                     </div>
                 </div>
                 <div className="flex w-full">
-                    <div className="border border-gray-400 w-1/6 flex flex-col items-center p-4">
-                        <ul className="w-full text-center">
-                            <Link to={Routes.PROFILE}><li className="bg-blue-400 mb-3 rounded-lg">Profile</li></Link>
-                            <Link to={`${Routes.PROFILE}${Routes.WISHLIST}`}><li className="bg-blue-400 mb-3 rounded-lg">Wishlist</li></Link>
-                            <li className="bg-blue-400 mb-3 rounded-lg">Orders</li>
-                            <li className="bg-blue-400 mb-3 rounded-lg">Settings</li>
-                            <li className="bg-blue-400 rounded-lg">Logout</li>
-                        </ul>
-                    </div>
+                    <ProfileSidebar/>
                     <div className="border border-gray-400 w-5/6 p-4">
                         {children ? children : <ProfileInfo/>}
                     </div>

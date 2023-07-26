@@ -2,17 +2,16 @@ import React from "react";
 
 import { BrowserRouter, Route, Routes as BrowserRoutes } from "react-router-dom";
 
-import { Home, Login, NotFound, Profile, Register } from "../pages";
+import { Home, Login, NotFound, Orders, Profile, Wishlist, Register, Settings } from "../pages";
 import { PrivateLayout, PublicLayout } from "../layouts";
 import { Routes } from "./Routes";
-import ProfileInfo from "../pages/Profile/ProfileInfo/ProfileInfo";
-import Wishlist from "../pages/Profile/Wishlist/Wishlist";
 
 const Router = () => {
 	return (
 		<BrowserRouter>
 			<BrowserRoutes>
                 {/* Private */}
+				{/* Home Page */}
 				<Route
 					path={Routes.HOME}
 					element={
@@ -22,6 +21,7 @@ const Router = () => {
 					}
 				/>
 
+				{/* Profile Pages */}
 				<Route
 					path={Routes.PROFILE}
 					element={
@@ -42,7 +42,30 @@ const Router = () => {
 					}
 				/>
 
+				<Route
+					path={`${Routes.PROFILE}${Routes.ORDERS}`}
+					element={
+						<PrivateLayout>
+							<Profile>
+                                <Orders/>
+                            </Profile>
+						</PrivateLayout>
+					}
+				/>
+
+				<Route
+					path={`${Routes.PROFILE}${Routes.SETTINGS}`}
+					element={
+						<PrivateLayout>
+							<Profile>
+                                <Settings/>
+                            </Profile>
+						</PrivateLayout>
+					}
+				/>
+
                 {/* Public */}
+				{/* Login Page */}
                 <Route
                     path={Routes.LOGIN}
                     element={
@@ -52,6 +75,7 @@ const Router = () => {
                     }
                 />
 
+				{/* Register Page */}
                 <Route
                     path={Routes.REGISTER}
                     element={
@@ -61,6 +85,7 @@ const Router = () => {
                     }
                 />
 
+				{/* Not Found Page */}
                 <Route
                     path={Routes.NOT_FOUND}
                     element={
