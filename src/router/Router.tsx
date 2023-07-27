@@ -2,7 +2,7 @@ import React from "react";
 
 import { BrowserRouter, Route, Routes as BrowserRoutes } from "react-router-dom";
 
-import { Home, Login, NotFound, Orders, Profile, Wishlist, Register, Settings, Products, Blogs, Faq, Support, Cart, Messages, Dashboard } from "../pages";
+import { Home, Login, NotFound, Orders, Profile, Wishlist, Register, Settings, Products, Blogs, Faq, Support, Cart, Messages, Dashboard, Phones, Tablets, Laptops, Televisions, Others } from "../pages";
 import { PrivateLayout, PublicLayout, AdminLayout } from "../layouts";
 import { Routes } from "./Routes";
 
@@ -56,6 +56,53 @@ const Router = () => {
 						</PrivateLayout>
 					}
 				/>
+
+				{/* Products */}
+				<Route
+					path={`${Routes.PRODUCTS}${Routes.PHONES}`}
+					element={
+						<PrivateLayout>
+							<Phones />
+						</PrivateLayout>
+					}
+				/>
+
+				<Route
+					path={`${Routes.PRODUCTS}${Routes.TABLETS}`}
+					element={
+						<PrivateLayout>
+							<Tablets />
+						</PrivateLayout>
+					}
+				/>
+
+				<Route
+					path={`${Routes.PRODUCTS}${Routes.LAPTOPS}`}
+					element={
+						<PrivateLayout>
+							<Laptops />
+						</PrivateLayout>
+					}
+				/>
+
+				<Route
+					path={`${Routes.PRODUCTS}${Routes.TELEVISIONS}`}
+					element={
+						<PrivateLayout>
+							<Televisions />
+						</PrivateLayout>
+					}
+				/>
+
+				<Route
+					path={`${Routes.PRODUCTS}${Routes.OTHERS}`}
+					element={
+						<PrivateLayout>
+							<Others />
+						</PrivateLayout>
+					}
+				/>
+
 				{/* Messages Page */}
 				<Route
 					path={Routes.MESSAGES}

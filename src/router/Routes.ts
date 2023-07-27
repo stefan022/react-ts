@@ -5,7 +5,12 @@ export const Routes = {
     // PRIVATE
     HOME: "/",
     PRODUCTS: "/products",
+    PHONES: "/phones",
+    TABLETS: "/tablets",
+    LAPTOPS: "/laptops",
+    TELEVISIONS: "/televisions",
     BLOGS: "/blogs",
+    OTHERS: "/others",
     FAQ: "/faq",
     SUPPORT: "/support",
     MESSAGES: "/messages",
