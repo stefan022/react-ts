@@ -2,6 +2,8 @@ import React, { ReactNode } from 'react'
 import ContentMiddle from '../../content/ContentMiddle'
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 import ProfileSidebar from '../../components/Profile/ProfileSidebar/ProfileSidebar';
+import { Link } from 'react-router-dom';
+import { Routes } from '../../router/Routes';
 
 interface IProps {
     children?: ReactNode;
@@ -22,7 +24,11 @@ const Profile = ({ children }: IProps) => {
                     </div>
                     </div>
                     <div className='flex items-center'>
-                        <button className="bg-red-400 hover:bg-red-500 py-1 px-3 rounded-lg text-white">Dashboard</button>
+                        <Link to={Routes.DASHBOARD}>
+                            <button className="bg-red-400 hover:bg-red-500 py-1 px-3 rounded-lg text-white">
+                                Dashboard
+                            </button>
+                        </Link>
                         <button className="ml-2 bg-green-400 hover:bg-green-500 py-1 px-3 rounded-lg text-white">Shopping Now</button>
                     </div>
                 </div>

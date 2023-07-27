@@ -16,6 +16,8 @@ export const Routes = {
     WISHLIST: "/wishlist",
     ORDERS: "/orders",
     SETTINGS: "/settings",
+    // DASHBOARD
+    DASHBOARD: "/dashboard",
     // NOT FOUND
     NOT_FOUND: "*"
 }

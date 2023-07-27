@@ -12,4 +12,5 @@ export { default as ProfileInfo } from "./Profile/ProfileInfo/ProfileInfo";
 export { default as Wishlist } from "./Profile/Wishlist/Wishlist";
 export { default as Orders } from "./Profile/Orders/Orders";
 export { default as Settings } from "./Profile/Settings/Settings";
+export { default as Dashboard } from "./Admin/Dashboard/Dashboard";
 export { default as NotFound } from "./NotFound/NotFound";

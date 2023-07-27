@@ -2,8 +2,8 @@ import React from "react";
 
 import { BrowserRouter, Route, Routes as BrowserRoutes } from "react-router-dom";
 
-import { Home, Login, NotFound, Orders, Profile, Wishlist, Register, Settings, Products, Blogs, Faq, Support, Cart, Messages } from "../pages";
-import { PrivateLayout, PublicLayout } from "../layouts";
+import { Home, Login, NotFound, Orders, Profile, Wishlist, Register, Settings, Products, Blogs, Faq, Support, Cart, Messages, Dashboard } from "../pages";
+import { PrivateLayout, PublicLayout, AdminLayout } from "../layouts";
 import { Routes } from "./Routes";
 
 const Router = () => {
@@ -116,6 +116,16 @@ const Router = () => {
                                 <Settings/>
                             </Profile>
 						</PrivateLayout>
+					}
+				/>
+
+				{/* Dashboard */}
+				<Route
+					path={Routes.DASHBOARD}
+					element={
+						<AdminLayout>
+							<Dashboard/>
+						</AdminLayout>
 					}
 				/>
 
