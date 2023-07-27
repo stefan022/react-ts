@@ -1,9 +1,12 @@
 import React from 'react'
+import { Banner } from '../../components'
 
 const Cart = () => {
-  return (
-    <div>Cart</div>
-  )
+    return (
+        <div>
+            <Banner title="Cart"/>
+        </div>
+    )
 }
 
 export default Cart

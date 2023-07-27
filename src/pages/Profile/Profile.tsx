@@ -2,6 +2,8 @@ import React, { ReactNode } from 'react'
 import ContentMiddle from '../../content/ContentMiddle'
 import { Banner, ProfileBody, ProfileHeader } from '../../components';
 
+import profile from "../../assets/profile.jpg";
+
 interface IProps {
     children?: ReactNode
 }
@@ -11,6 +13,7 @@ const Profile = ({ children }: IProps) => {
         <div>
             <Banner
                 title="Account Information"
+                image={profile}
             />
             <ContentMiddle>
                 <ProfileHeader/>
