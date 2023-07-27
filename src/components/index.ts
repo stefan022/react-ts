@@ -8,3 +8,5 @@ export { default as ProfileDropdown } from "./Profile/ProfileDropdown/ProfileDro
 export { default as ProfileSidebar } from "./Profile/ProfileSidebar/ProfileSidebar";
 export { default as ProfileHeader } from "./Profile/ProfileHeader/ProfileHeader";
 export { default as ProfileBody } from "./Profile/ProfileBody/ProfileBody";
+export { default as CartSidebar } from "./Cart/CartSidebar/CartSidebar";
+export { default as CartOverlay } from "./Cart/CartOverlay/CartOverlay";
