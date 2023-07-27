@@ -4,6 +4,8 @@ export { default as Footer } from "./Footer/Footer";
 export { default as SignIn } from "./Forms/SignIn/SignIn";
 export { default as SignUp } from "./Forms/SignUp/SignUp";
 export { default as Navbar } from "./Navbar/Navbar";
+export { default as Logo } from "./Navbar/Logo/Logo";
+export { default as Navigation } from "./Navbar/Navigation/Navigation";
 export { default as ProfileDropdown } from "./Profile/ProfileDropdown/ProfileDropdown";
 export { default as ProfileSidebar } from "./Profile/ProfileSidebar/ProfileSidebar";
 export { default as ProfileHeader } from "./Profile/ProfileHeader/ProfileHeader";

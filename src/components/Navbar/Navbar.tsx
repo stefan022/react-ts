@@ -1,22 +1,19 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 
 import ContentMiddle from "../../content/ContentMiddle";
 
 import { BsCart3, BsInbox } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { Routes } from "../../router/Routes";
-import Logo from "./Logo/Logo";
-import Navigation from "./Navigation/Navigation";
-import ProfileDropdown from "../Profile/ProfileDropdown/ProfileDropdown";
-import { IProfileDropdownContext } from "../../ts/interfaces/IProfileDropdownContext";
-import { ProfileDropdownContext } from "../../context/ProfileDropdownContext";
-import { CartSidebar, CartOverlay } from "../../components";
+import { CartSidebar, CartOverlay, Logo, Navigation, ProfileDropdown } from "../../components";
 
 const Navbar = () => {
+	const [ profileDropdown, setProfileDropdown ] = useState<boolean>(false);
 	const [ displayCart, setDisplayCart ] = useState<boolean>(false);
-	const { setIsActive } = useContext(ProfileDropdownContext as React.Context<IProfileDropdownContext>);
 
-	const handleHideProfileDropdown = () => setIsActive(false);
+	const handleHideProfileDropdown = () => setProfileDropdown(false);
+	const handleDisplayProfileDropdown = () => setProfileDropdown(true);
+
 	const handleDisplayCart = () => setDisplayCart(!displayCart);
 	const handleHideCart = () => setDisplayCart(!displayCart);
 
@@ -41,7 +38,11 @@ const Navbar = () => {
 						>
 							<BsCart3 size={20} color="gray" />
 						</div>
-						<ProfileDropdown/>
+						<ProfileDropdown
+							profileDropdown={profileDropdown}
+							handleHideProfileDropdown={handleHideProfileDropdown}
+							handleDisplayProfileDropdown={handleDisplayProfileDropdown}
+						/>
 					</div>
 				</div>
 			</ContentMiddle>

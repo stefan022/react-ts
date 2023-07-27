@@ -1,15 +1,14 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment, MouseEventHandler } from "react";
 import { Link } from "react-router-dom";
 import { profileData } from "../profileData";
-import { ProfileDropdownContext } from "../../../context/ProfileDropdownContext";
-import { IProfileDropdownContext } from "../../../ts/interfaces/IProfileDropdownContext";
 
-const ProfileDropdown = () => {
-    const { isActive, setIsActive } = useContext(ProfileDropdownContext as React.Context<IProfileDropdownContext>);
+interface IProps {
+    profileDropdown: boolean;
+    handleHideProfileDropdown: MouseEventHandler<HTMLDivElement>;
+    handleDisplayProfileDropdown: MouseEventHandler<HTMLDivElement>;
+}
 
-	const handleDisplayProfileDropdown = () => setIsActive(true);
-	const handleHideProfileDropdown = () => setIsActive(false);
-
+const ProfileDropdown = ({ profileDropdown, handleHideProfileDropdown, handleDisplayProfileDropdown }: IProps) => {
 	return (
 		<div 
             onMouseEnter={handleDisplayProfileDropdown}
@@ -17,7 +16,7 @@ const ProfileDropdown = () => {
         >
             <div 
                 onMouseLeave={handleHideProfileDropdown}
-                className={`${isActive ? "" : "hidden"} border border-gray-400 z-10 absolute top-14 right-0 bg-white py-4 px-8`}
+                className={`${profileDropdown ? "" : "hidden"} border border-gray-400 z-10 absolute top-14 right-0 bg-white py-4 px-8`}
             >
                 <ul>
                     {
