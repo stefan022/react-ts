@@ -2,7 +2,7 @@ import React from "react";
 
 import { BrowserRouter, Route, Routes as BrowserRoutes } from "react-router-dom";
 
-import { Home, Login, NotFound, Orders, Profile, Wishlist, Register, Settings, Products, Blogs, Faq, Support, Cart } from "../pages";
+import { Home, Login, NotFound, Orders, Profile, Wishlist, Register, Settings, Products, Blogs, Faq, Support, Cart, Messages } from "../pages";
 import { PrivateLayout, PublicLayout } from "../layouts";
 import { Routes } from "./Routes";
 
@@ -53,6 +53,15 @@ const Router = () => {
 					element={
 						<PrivateLayout>
 							<Support />
+						</PrivateLayout>
+					}
+				/>
+				{/* Messages Page */}
+				<Route
+					path={Routes.MESSAGES}
+					element={
+						<PrivateLayout>
+							<Messages />
 						</PrivateLayout>
 					}
 				/>

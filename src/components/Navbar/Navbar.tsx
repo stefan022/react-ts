@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 import ContentMiddle from "../../content/ContentMiddle";
 
-import { BsCart3 } from "react-icons/bs";
+import { BsCart3, BsInbox } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { Routes } from "../../router/Routes";
 import Logo from "./Logo/Logo";
@@ -21,7 +21,14 @@ const Navbar = () => {
 			<div className="flex justify-between items-center border border-gray-400 relative">
 				<Logo/>
 				<Navigation/>
-				<div className="flex items-center gap-4">
+				<div className="flex items-center gap-2">
+					<Link
+						to={Routes.MESSAGES} 
+						className="hover:bg-gray-100 w-[40px] h-[40px] rounded-full flex items-center justify-center cursor-pointer"
+						onMouseEnter={handleHideProfileDropdown}
+					>
+						<BsInbox size={20} color="gray"/>
+					</Link>
 					<Link 
 						to={Routes.CART} 
 						className="hover:bg-gray-100 w-[40px] h-[40px] rounded-full flex items-center justify-center cursor-pointer"

@@ -15,34 +15,6 @@ const SignUp = () => {
             <div className="mb-4">
 				<label
 					className="block text-gray-700 text-sm font-bold mb-2"
-					htmlFor="signUpFirstName"
-				>
-					First Name
-				</label>
-				<input
-					className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-					id="signUpFirstName"
-					type="text"
-					placeholder="Eliot"
-				/>
-			</div>
-            <div className="mb-4">
-				<label
-					className="block text-gray-700 text-sm font-bold mb-2"
-					htmlFor="signUpLastName"
-				>
-					Last Name
-				</label>
-				<input
-					className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-					id="signUpLastName"
-					type="text"
-					placeholder="Alderson"
-				/>
-			</div>
-            <div className="mb-4">
-				<label
-					className="block text-gray-700 text-sm font-bold mb-2"
 					htmlFor="signUpUsername"
 				>
 					Username
@@ -114,7 +86,7 @@ const SignUp = () => {
 				</button>
             </div>
             <div className="flex text-base justify-center mb-4">
-                <p>Have an account??</p>
+                <p>Have an account?</p>
                 <Link 
                     className="text-blue-400 hover:text-blue-500 font-bold ml-1"
                     to={Routes.LOGIN}

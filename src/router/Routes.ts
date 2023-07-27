@@ -1,12 +1,15 @@
 export const Routes = {
+    // PUBLIC
+    LOGIN: "/login",
+    REGISTER: "/register",
+    // PRIVATE
     HOME: "/",
     PRODUCTS: "/products",
     BLOGS: "/blogs",
     FAQ: "/faq",
     SUPPORT: "/support",
+    MESSAGES: "/messages",
     CART: "/cart",
-    LOGIN: "/login",
-    REGISTER: "/register",
     // PROFILE
     PROFILE: "/profile",
     PROFILE_INFO: "/profile-info",
