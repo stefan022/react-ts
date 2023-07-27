@@ -17,9 +17,7 @@ const Navbar = () => {
 	const { setIsActive } = useContext(ProfileDropdownContext as React.Context<IProfileDropdownContext>);
 
 	const handleHideProfileDropdown = () => setIsActive(false);
-
 	const handleDisplayCart = () => setDisplayCart(!displayCart);
-
 	const handleHideCart = () => setDisplayCart(!displayCart);
 
 	return (
@@ -36,20 +34,20 @@ const Navbar = () => {
 						>
 							<BsInbox size={20} color="gray"/>
 						</Link>
-						<Link 
-							to={Routes.CART} 
+						<div 
 							className="hover:bg-gray-100 w-[40px] h-[40px] rounded-full flex items-center justify-center cursor-pointer"
 							onMouseEnter={handleHideProfileDropdown}
 							onClick={handleDisplayCart}
 						>
 							<BsCart3 size={20} color="gray" />
-						</Link>
+						</div>
 						<ProfileDropdown/>
 					</div>
 				</div>
 			</ContentMiddle>
 			<CartSidebar
 				displayCart={displayCart}
+				handleHideCart={handleHideCart}
 			/>
 			<CartOverlay
 				displayCart={displayCart}
