@@ -4,8 +4,6 @@ import ContentMiddle from '../../content/ContentMiddle'
 
 import { FaqComponent } from "../../components";
 
-import "./Faq.scss";
-
 const Faq = () => {
     return (
         <div>
