@@ -2,7 +2,7 @@ import React from 'react'
 
 interface IProps {
     title: string;
-    bgPosition: string;
+    bgPosition?: string;
     bgNoRepeat?: string;
     image?: string;
 }

@@ -8,7 +8,7 @@ import "./Home.scss"
 const Home = () => {
 	return (
 		<ContentMiddle>
-			<div className="flex flex-col items-center justify-center h-5/6 text-3xl">
+			<div className="flex flex-col items-center justify-center pt-56 text-3xl">
 				<p className="flex items-center">Hey! <SiHey className="mx-1 text-blue-400" size={30}/> My name is Stefan</p>
 				<p>and I'm a <span className="text-blue-400 font-bold on_off">FE/React developer!</span></p>
 			</div>
