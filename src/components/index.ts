@@ -3,6 +3,7 @@ export { default as Banner } from "./Banner/Banner";
 export { default as Footer } from "./Footer/Footer";
 export { default as SignIn } from "./Forms/SignIn/SignIn";
 export { default as SignUp } from "./Forms/SignUp/SignUp";
+export { default as Support } from "./Forms/Support/Support";
 export { default as Navbar } from "./Navbar/Navbar";
 export { default as Logo } from "./Navbar/Logo/Logo";
 export { default as Navigation } from "./Navbar/Navigation/Navigation";
