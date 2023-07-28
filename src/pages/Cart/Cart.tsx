@@ -4,7 +4,10 @@ import { Banner } from '../../components'
 const Cart = () => {
     return (
         <div>
-            <Banner title="Cart"/>
+            <Banner 
+                title="Cart"
+                bgPosition="bg-center"
+            />
         </div>
     )
 }

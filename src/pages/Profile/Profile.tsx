@@ -13,6 +13,7 @@ const Profile = ({ children }: IProps) => {
         <div>
             <Banner
                 title="Account Information"
+                bgPosition="bg-bottom"
                 image={profile}
             />
             <ContentMiddle>
