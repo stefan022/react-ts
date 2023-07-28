@@ -1,0 +1,35 @@
+.faq__question {
+    @apply flex items-center justify-between p-4 border border-gray-300 transition-all;
+
+    &-active {
+        @apply bg-blue-200;
+    }
+    
+    &-inactive {
+        @apply bg-white;
+    }
+}
+
+.faq__title {
+    @apply font-bold;
+
+    &-active {
+        @apply text-blue-500;
+    }
+
+    &-inactive {
+        @apply text-gray-700;
+    }
+}
+
+.faq__icon {
+    @apply rotate-180 transition-all cursor-pointer;
+
+    &-active {
+        @apply text-blue-500;
+    }
+
+    &-transition {
+        @apply transition-all cursor-pointer;
+    }
+}

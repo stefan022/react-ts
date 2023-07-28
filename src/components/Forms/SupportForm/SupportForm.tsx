@@ -1,6 +1,6 @@
 import React from "react";
 
-const Support = () => {
+const SupportForm = () => {
 	return (
 		<form className="w-full">
 			<h3 className="text-center text-xl mb-10 font-bold">Send us a message for more information</h3>
@@ -77,4 +77,4 @@ const Support = () => {
 	);
 };
 
-export default Support;
+export default SupportForm;

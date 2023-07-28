@@ -5,7 +5,7 @@ import ContentMiddle from '../../content/ContentMiddle'
 import { MdEmail, MdLocationPin } from "react-icons/md"
 import { AiFillPhone } from "react-icons/ai"
 
-import { Support as SupportForm } from "../../components";
+import { SupportForm } from "../../components";
 
 const Support = () => {
     return (
