@@ -4,9 +4,9 @@ import { faqData } from './faqData';
 
 const FaqComponent = () => {
     const [ currentActive, setCurrentActive ] = React.useState(1);
-    const handleFaqToggle = (index: number) => {
-        if (currentActive !== index) {
-            setCurrentActive(index);
+    const handleFaqToggle = (id: number) => {
+        if (currentActive !== id) {
+            setCurrentActive(id);
 
             return;
         }

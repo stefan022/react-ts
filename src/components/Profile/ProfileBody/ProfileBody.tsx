@@ -8,7 +8,7 @@ interface IProps {
 
 const ProfileBody = ({ children }: IProps) => {
     return (
-        <div className="flex w-full">
+        <div className="flex w-full gap-6">
             <ProfileSidebar/>
             <div className="border border-gray-400 w-5/6 p-4">
                 {children ? children : <ProfileInfo/>}
