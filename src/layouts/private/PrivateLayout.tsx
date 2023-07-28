@@ -31,7 +31,7 @@ const PrivateLayout = ({ children }: IProps): JSX.Element | null => {
 	return (
 		<div>
 			<Navbar/>
-			<div className="min-h-screen">
+			<div className="h-screen">
 				{children}
 			</div>
 			<Footer/>
