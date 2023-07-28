@@ -1,9 +1,104 @@
 import React from 'react'
 
 const Wishlist = () => {
-  return (
-    <div>Wishlist</div>
-  )
+    return (
+        <div>
+            <div className='p-4 flex justify-between border border-gray-300'>
+                <div className='w-3/6'>
+                    <p>Product Name</p>
+                </div>
+                <div className='w-1/6'>
+                    <p>Price</p>
+                </div>
+                <div className='w-1/6'>
+                    <p>Status</p>                
+                </div>
+                <div className='w-1/6'>
+                    <p>Action</p>
+                </div>
+            </div>
+            <div className='border border-gray-300 p-4 flex items-center'>
+                <div className='w-3/6 flex gap-2'>
+                    <div className='bg-red-300 h-[50px] w-[50px]'>
+                    </div>
+                    <div className='flex flex-col justify-between'>
+                        <p>$productName</p>
+                        <p className='text-gray-400 text-sm'>$category</p>
+                    </div>
+                </div>
+                <div className='w-1/6'>
+                    <p>$price</p>
+                </div>
+                <div className='w-1/6'>
+                    <p className='text-green-800 bg-green-300 border py-0.5 px-2 rounded-md inline-block'>$status</p>
+                </div>
+                <div className='w-1/6 flex gap-2'>
+                    <div>Cart</div>
+                    <div>Remove</div>
+                </div>
+            </div>
+            <div className='border border-gray-300 p-4 flex items-center'>
+                <div className='w-3/6 flex gap-2'>
+                    <div className='bg-red-300 h-[50px] w-[50px]'>
+                    </div>
+                    <div className='flex flex-col justify-between'>
+                        <p>$productName</p>
+                        <p className='text-gray-400 text-sm'>$category</p>
+                    </div>
+                </div>
+                <div className='w-1/6'>
+                    <p>$price</p>
+                </div>
+                <div className='w-1/6'>
+                    <p className='text-green-800 bg-green-300 border py-0.5 px-2 rounded-md inline-block'>$status</p>
+                </div>
+                <div className='w-1/6 flex gap-2'>
+                    <div>Cart</div>
+                    <div>Remove</div>
+                </div>
+            </div>
+            <div className='border border-gray-300 p-4 flex items-center'>
+                <div className='w-3/6 flex gap-2'>
+                    <div className='bg-red-300 h-[50px] w-[50px]'>
+                    </div>
+                    <div className='flex flex-col justify-between'>
+                        <p>$productName</p>
+                        <p className='text-gray-400 text-sm'>$category</p>
+                    </div>
+                </div>
+                <div className='w-1/6'>
+                    <p>$price</p>
+                </div>
+                <div className='w-1/6'>
+                    <p className='text-green-800 bg-green-300 border py-0.5 px-2 rounded-md inline-block'>$status</p>
+                </div>
+                <div className='w-1/6 flex gap-2'>
+                    <div>Cart</div>
+                    <div>Remove</div>
+                </div>
+            </div>
+            <div className='border border-gray-300 p-4 flex items-center'>
+                <div className='w-3/6 flex gap-2'>
+                    <div className='bg-red-300 h-[50px] w-[50px]'>
+                    </div>
+                    <div className='flex flex-col justify-between'>
+                        <p>$productName</p>
+                        <p className='text-gray-400 text-sm'>$category</p>
+                    </div>
+                </div>
+                <div className='w-1/6'>
+                    <p>$price</p>
+                </div>
+                <div className='w-1/6'>
+                    <p className='text-green-800 bg-green-300 border py-0.5 px-2 rounded-md inline-block'>$status</p>
+                </div>
+                <div className='w-1/6 flex gap-2'>
+                    <div>Cart</div>
+                    <div>Remove</div>
+                </div>
+            </div>
+        </div>
+    )
 }
 
 export default Wishlist

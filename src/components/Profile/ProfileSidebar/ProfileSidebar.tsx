@@ -9,7 +9,7 @@ const ProfileSidebar = () => {
     const handleChangeActive = (id: number) => setCurrentActive(id);
 
     return (
-        <div className="border border-gray-400 w-1/6 p-4">
+        <div className="border border-gray-400 w-1/6 p-4 h-full">
             <ul>
                 {
                     profileData.map((data) => {
