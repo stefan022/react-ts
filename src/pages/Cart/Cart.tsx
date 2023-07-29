@@ -10,6 +10,8 @@ import cartCertificate from "../../assets/cart-certificate.png";
 import cartSupport from "../../assets/cart-support.png";
 
 const Cart = () => {
+    console.log(window.location.origin);
+
     return (
         <div>
             <Banner 
