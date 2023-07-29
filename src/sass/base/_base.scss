@@ -66,3 +66,20 @@ h6 {
 #__next {
 	isolation: isolate;
 }
+
+::-webkit-scrollbar {
+	@apply w-2;
+}
+
+::-webkit-scrollbar-thumb {
+	border-right: 2px white solid;
+	@apply bg-blue-400 rounded-lg;
+}
+
+::-webkit-scrollbar-track {
+	@apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	@apply bg-blue-500;
+}
