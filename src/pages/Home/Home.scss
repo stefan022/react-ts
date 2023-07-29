@@ -27,3 +27,55 @@
 	  left: 0;
 	}
 }
+
+// CAROUSEL INFINITE LINEAR LOOP
+.carousel {
+	overflow: hidden;
+	white-space: nowrap;
+	margin: auto;
+	position: relative;
+
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		height: 100%;
+		width: 100px;
+		z-index: 100;
+	}
+
+	&::before {
+		left: 0;
+		background: linear-gradient(90deg, rgba(255,255,255,.8) 0%, rgba(255,255,255,0) 100%);
+	}
+
+	&::after {
+		right: 0;
+		background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.8) 100%);
+	}
+
+	&:hover &__slide {
+		animation-play-state: paused;
+	}
+
+	&__slide {
+		display: inline-block;
+		animation: carousel 10s infinite linear;
+	
+		&-icon {
+			display: inline-block;
+			padding: 10px 35px;
+			border-radius: 10px;
+		}
+	}
+}
+
+@keyframes carousel {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-100%);
+	}
+}

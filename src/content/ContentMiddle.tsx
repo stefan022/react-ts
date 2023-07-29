@@ -6,7 +6,7 @@ interface IProps {
 
 const ContentMiddle = ({ children }: IProps) => {
     return (
-        <div className="w-[1280px] mx-auto relative h-full">
+        <div className="w-[1280px] mx-auto">
             {children}
         </div>
     )
