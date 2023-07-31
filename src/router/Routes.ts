@@ -14,6 +14,7 @@ export const Routes = {
     OTHERS: "/others",
     FAQ: "/faq",
     SUPPORT: "/support",
+    CHAT: "/chat",
     MESSAGES: "/messages",
     CART: "/cart",
     // PROFILE

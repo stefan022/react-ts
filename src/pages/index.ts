@@ -10,6 +10,7 @@ export { default as Others } from "./Products/Others/Others";
 export { default as Blogs } from "./Blogs/Blogs";
 export { default as Faq } from "./Faq/Faq";
 export { default as Support } from "./Support/Support";
+export { default as Chat } from "./Chat/Chat";
 export { default as Messages } from "./Messages/Messages";
 export { default as Cart } from "./Cart/Cart";
 export { default as Profile } from "./Profile/Profile";
