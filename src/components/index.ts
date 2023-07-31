@@ -4,6 +4,8 @@ export { default as Footer } from "./Footer/Footer";
 export { default as SignIn } from "./Forms/SignIn/SignIn";
 export { default as SignUp } from "./Forms/SignUp/SignUp";
 export { default as SupportForm } from "./Forms/SupportForm/SupportForm";
+export { default as ReviewForm } from "./Forms/ReviewForm/ReviewForm";
+export { default as PostForm } from "./Forms/PostForm/PostForm";
 export { default as Navbar } from "./Navbar/Navbar";
 export { default as Logo } from "./Navbar/Logo/Logo";
 export { default as Navigation } from "./Navbar/Navigation/Navigation";

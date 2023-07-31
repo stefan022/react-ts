@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes as BrowserRoutes } from "react-router-dom"
 import { Home, Login, NotFound, Orders, Profile, Wishlist, Register, Settings, Products, Blogs, Faq, Support, Cart, Messages, Dashboard, Phones, Tablets, Laptops, Televisions, Others } from "../pages";
 import { PrivateLayout, PublicLayout, AdminLayout } from "../layouts";
 import { Routes } from "./Routes";
+import ProductDetails from "../pages/ProductDetails/ProductDetails";
 
 const Router = () => {
 	return (
@@ -99,6 +100,17 @@ const Router = () => {
 					element={
 						<PrivateLayout>
 							<Others />
+						</PrivateLayout>
+					}
+				/>
+
+				{/* Product Details */}
+
+				<Route
+					path={`${Routes.PRODUCTS}${Routes.PRODUCT_DETAILS}`}
+					element={
+						<PrivateLayout>
+							<ProductDetails />
 						</PrivateLayout>
 					}
 				/>

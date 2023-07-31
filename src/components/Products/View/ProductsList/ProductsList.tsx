@@ -1,11 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { Routes } from '../../../../router/Routes'
 
 const ProductsList = () => {
     return (
         <div className='flex flex-wrap'>
             <div className='border border-gray-300 w-full p-2'>
                 <div className='border border-gray-300 h-[200px] flex'>
-                    <div className='border border-gray-300 h-full w-[250px] bg-red-300'></div>
+                    <Link to={`${Routes.PRODUCTS}${Routes.PRODUCT_DETAILS}`}>
+                        <div className='border border-gray-300 h-full w-[200px] bg-red-300'></div>
+                    </Link>
                     <div className='p-2 w-full flex flex-col justify-between'>
                         <div>
                             <div>5 &#9733;</div>

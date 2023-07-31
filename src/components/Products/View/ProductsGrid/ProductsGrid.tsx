@@ -1,11 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { Routes } from '../../../../router/Routes'
 
 const ProductsGrid = () => {
     return (
         <div className='flex flex-wrap'>
             <div className='border border-gray-300 h-[350px] w-1/4 p-2'>
                 <div className='border border-gray-300 h-full'>
-                    <div className='border border-gray-300 h-2/3 bg-red-300'></div>
+                    <Link to={`${Routes.PRODUCTS}${Routes.PRODUCT_DETAILS}`}>
+                        <div className='border border-gray-300 h-2/3 bg-red-300'></div>
+                    </Link>
                     <div className='p-2'>
                         <div className="flex items-center gap-2">
                             <div className='bg-red-300 w-5 h-5 rounded-full'></div>
