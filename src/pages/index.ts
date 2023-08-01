@@ -28,4 +28,5 @@ export { default as Calendar } from "./Admin/Calendar/Calendar";
 export { default as Employees } from "./Admin/Employees/Employees";
 export { default as Users } from "./Admin/Users/Users";
 export { default as Kanban } from "./Admin/Kanban/Kanban";
+export { default as NotAuthorized } from "./NotAuthorized/NotAuthorized";
 export { default as NotFound } from "./NotFound/NotFound";

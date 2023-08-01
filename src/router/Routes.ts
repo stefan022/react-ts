@@ -33,6 +33,8 @@ export const Routes = {
     ADMIN_ORDERS: "/admin-orders",
     ADMIN_MESSAGES: "/admin-messages",
     REVIEWS: "/admin-reviews",
+    // NOT AUTHORIZED
+    NOT_AUTHORIZED: "/not-authorized",
     // NOT FOUND
     NOT_FOUND: "*"
 }
