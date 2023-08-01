@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
-const AdminContainer = () => {
-  return (
-    <div>AdminContainer</div>
-  )
+interface IProps {
+    children: ReactNode;
+}
+
+const AdminContainer = ({ children }: IProps) => {
+    return (
+        <div>{children}</div>
+    )
 }
 
 export default AdminContainer

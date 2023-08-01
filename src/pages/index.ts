@@ -19,6 +19,7 @@ export { default as Wishlist } from "./Profile/Wishlist/Wishlist";
 export { default as Orders } from "./Profile/Orders/Orders";
 export { default as Settings } from "./Profile/Settings/Settings";
 export { default as Dashboard } from "./Admin/Dashboard/Dashboard";
+export { default as Overview } from "./Admin/Overview/Overview";
 export { default as AdminMessages } from "./Admin/AdminMessages/AdminMessages";
 export { default as AdminOrders } from "./Admin/AdminOrders/AdminOrders";
 export { default as AdminProducts } from "./Admin/AdminProducts/AdminProducts";

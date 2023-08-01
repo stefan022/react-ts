@@ -2,7 +2,7 @@ import React from "react";
 
 import { BrowserRouter, Route, Routes as BrowserRoutes } from "react-router-dom";
 
-import { Home, Login, NotFound, Orders, Profile, Wishlist, Register, Settings, Products, Blogs, Faq, Support, Cart, Messages, Dashboard, Phones, Tablets, Laptops, Televisions, Others, Chat } from "../pages";
+import { Home, Login, NotFound, Orders, Profile, Wishlist, Register, Settings, Products, Blogs, Faq, Support, Cart, Messages, Dashboard, Phones, Tablets, Laptops, Televisions, Others, Chat, Kanban, Calendar, Employees, Users, AdminMessages, AdminProducts, AdminOrders, AdminReviews } from "../pages";
 import { PrivateLayout, PublicLayout, AdminLayout } from "../layouts";
 import { Routes } from "./Routes";
 import ProductDetails from "../pages/ProductDetails/ProductDetails";
@@ -194,6 +194,94 @@ const Router = () => {
 					element={
 						<AdminLayout>
 							<Dashboard/>
+						</AdminLayout>
+					}
+				/>
+
+				<Route
+					path={`${Routes.DASHBOARD}${Routes.KANBAN}`}
+					element={
+						<AdminLayout>
+							<Dashboard>
+								<Kanban/>
+							</Dashboard>
+						</AdminLayout>
+					}
+				/>
+
+				<Route
+					path={`${Routes.DASHBOARD}${Routes.CALENDAR}`}
+					element={
+						<AdminLayout>
+							<Dashboard>
+								<Calendar/>
+							</Dashboard>
+						</AdminLayout>
+					}
+				/>
+
+				<Route
+					path={`${Routes.DASHBOARD}${Routes.EMPLOYEES}`}
+					element={
+						<AdminLayout>
+							<Dashboard>
+								<Employees/>
+							</Dashboard>
+						</AdminLayout>
+					}
+				/>
+
+				<Route
+					path={`${Routes.DASHBOARD}${Routes.USERS}`}
+					element={
+						<AdminLayout>
+							<Dashboard>
+								<Users/>
+							</Dashboard>
+						</AdminLayout>
+					}
+				/>
+
+				<Route
+					path={`${Routes.DASHBOARD}${Routes.ADMIN_PRODUCTS}`}
+					element={
+						<AdminLayout>
+							<Dashboard>
+								<AdminProducts/>
+							</Dashboard>
+						</AdminLayout>
+					}
+				/>
+
+				<Route
+					path={`${Routes.DASHBOARD}${Routes.ADMIN_ORDERS}`}
+					element={
+						<AdminLayout>
+							<Dashboard>
+								<AdminOrders/>
+							</Dashboard>
+						</AdminLayout>
+					}
+				/>
+
+				<Route
+					path={`${Routes.DASHBOARD}${Routes.ADMIN_MESSAGES}`}
+					element={
+						<AdminLayout>
+							<Dashboard>
+								<AdminMessages/>
+							</Dashboard>
+						</AdminLayout>
+					}
+				/>
+
+				<Route
+					path={`${Routes.DASHBOARD}${Routes.REVIEWS}`}
+					element={
+						<AdminLayout>
+							<Dashboard>
+								<AdminReviews/>
+							</Dashboard>
 						</AdminLayout>
 					}
 				/>

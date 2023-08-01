@@ -25,6 +25,14 @@ export const Routes = {
     SETTINGS: "/settings",
     // DASHBOARD
     DASHBOARD: "/dashboard",
+    KANBAN: "/kanban",
+    CALENDAR: "/calendar",
+    EMPLOYEES: "/employees",
+    USERS: "/users",
+    ADMIN_PRODUCTS: "/admin-products",
+    ADMIN_ORDERS: "/admin-orders",
+    ADMIN_MESSAGES: "/admin-messages",
+    REVIEWS: "/admin-reviews",
     // NOT FOUND
     NOT_FOUND: "*"
 }
