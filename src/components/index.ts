@@ -25,3 +25,5 @@ export { default as ProductsSort } from "./Products/Sort/ProductsSort";
 export { default as ProductsView } from "./Products/View/ProductsView";
 export { default as ProductsGrid } from "./Products/View/ProductsGrid/ProductsGrid";
 export { default as ProductsList } from "./Products/View/ProductsList/ProductsList";
+export { default as AdminNavbar } from "./Admin/AdminNavbar/AdminNavbar";
+export { default as AdminSidebar } from "./Admin/AdminSidebar/AdminSidebar";
