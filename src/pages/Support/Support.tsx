@@ -1,6 +1,6 @@
 import React from 'react'
 import { Banner } from '../../components'
-import ContentMiddle from '../../content/ContentMiddle'
+import Container from '../../containers/Container/Container'
 
 import { MdEmail, MdLocationPin } from "react-icons/md"
 import { AiFillPhone } from "react-icons/ai"
@@ -14,7 +14,7 @@ const Support = () => {
                 title="Support"
                 desc="If you need help, send us a message!"
             />
-            <ContentMiddle>
+            <Container>
                 <div className='flex gap-6 justify-between py-6'>
                     <div className="w-2/6 h-full">
                         <div className='flex flex-col gap-6'>
@@ -51,7 +51,7 @@ const Support = () => {
                         <SupportForm/>
                     </div>
                 </div>
-            </ContentMiddle>
+            </Container>
         </div>
     )
 }

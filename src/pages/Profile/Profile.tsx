@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import ContentMiddle from '../../content/ContentMiddle'
+import Container from '../../containers/Container/Container'
 import { Banner, ProfileBody, ProfileHeader } from '../../components';
 
 import profile from "../../assets/profile.jpg";
@@ -16,12 +16,12 @@ const Profile = ({ children }: IProps) => {
                 bgPosition="bg-bottom"
                 image={profile}
             />
-            <ContentMiddle>
+            <Container>
                 <ProfileHeader/>
                 <ProfileBody
                     children={children}
                 />
-            </ContentMiddle>
+            </Container>
         </div>
     )
 }

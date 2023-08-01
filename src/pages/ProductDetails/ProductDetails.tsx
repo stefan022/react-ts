@@ -1,6 +1,6 @@
 import React from 'react'
 import { Banner, ReviewForm } from '../../components'
-import ContentMiddle from '../../content/ContentMiddle'
+import Container from '../../containers/Container/Container'
 
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 
@@ -10,7 +10,7 @@ const ProductDetails = () => {
             <Banner
                 title="Product Details"
             />
-            <ContentMiddle>
+            <Container>
                 <div className='flex py-6'>
                     <div className='w-1/2'>
                         <div className='flex gap-4 mb-4'>
@@ -256,7 +256,7 @@ const ProductDetails = () => {
                         </div>
                     </div>
                 </div>
-            </ContentMiddle>
+            </Container>
         </div>
     )
 }

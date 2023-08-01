@@ -1,5 +1,5 @@
 import React from "react";
-import ContentMiddle from "../../content/ContentMiddle";
+import Container from "../../containers/Container/Container";
 
 import { SiHey } from "react-icons/si";
 import { skillsData } from "./skillsData";
@@ -14,7 +14,7 @@ const Home = () => {
 				<p>and I'm a <span className="text-blue-400 font-bold on_off">FE/React developer!</span></p>
 			</div>
 			<div className="h-1/2">
-				<ContentMiddle>
+				<Container>
 				<div className="carousel">
 					<p className="text-center text-3xl mb-2">Skills:</p>
 					<div className="carousel__slide">
@@ -40,7 +40,7 @@ const Home = () => {
 						}
 					</div>
 				</div>
-				</ContentMiddle>
+				</Container>
 			</div>
         </div>
 	);

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Banner, FaqServices } from '../../components'
-import ContentMiddle from '../../content/ContentMiddle'
+import Container from '../../containers/Container/Container'
 
 import { FaqComponent } from "../../components";
 
@@ -10,7 +10,7 @@ const Faq = () => {
             <Banner
                 title="Frequently Asked Questions"
             />
-            <ContentMiddle>
+            <Container>
                 <div className='flex justify-between gap-6 py-6'>
                     <FaqServices/>
                 </div>
@@ -18,7 +18,7 @@ const Faq = () => {
                     <h3 className='mb-2'>General Questions</h3>
                     <FaqComponent/>
                 </div>
-            </ContentMiddle>
+            </Container>
         </div>
     )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import { Banner } from '../../components'
 
 import chat from "../../assets/chat.jpg";
-import ContentMiddle from '../../content/ContentMiddle';
+import Container from '../../containers/Container/Container';
 
 const Chat = () => {
     return (
@@ -13,7 +13,7 @@ const Chat = () => {
                 bgPosition="bg-center"
                 bgNoRepeat='bg-no-repeat'
             />
-            <ContentMiddle>
+            <Container>
                 <div className='py-6'>
                     <div className='flex gap-6'>
                         <div className='w-1/5 border border-gray-400 h-full'>
@@ -91,7 +91,7 @@ const Chat = () => {
                         </div>
                     </div>
                 </div>
-            </ContentMiddle>
+            </Container>
         </div>
     )
 }

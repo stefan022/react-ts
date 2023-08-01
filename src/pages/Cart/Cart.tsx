@@ -1,7 +1,7 @@
 import React from 'react'
 import { Banner } from '../../components'
 
-import ContentMiddle from '../../content/ContentMiddle';
+import Container from '../../containers/Container/Container';
 
 import cart from "../../assets/cart.jpg";
 import cartDelivery from "../../assets/cart-delivery.png";
@@ -19,7 +19,7 @@ const Cart = () => {
                 bgPosition="bg-center"
                 image={cart}
             />
-            <ContentMiddle>
+            <Container>
                 <div className='flex justify-between py-6'>
                     <div className='flex items-center gap-4'>
                         <div>
@@ -123,7 +123,7 @@ const Cart = () => {
                         </div>
                     </div>
                 </div>
-            </ContentMiddle>
+            </Container>
         </div>
     )
 }

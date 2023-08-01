@@ -1,6 +1,6 @@
 import React from 'react'
 import { Banner, PostForm } from '../../components'
-import ContentMiddle from '../../content/ContentMiddle'
+import Container from '../../containers/Container/Container'
 
 const Blogs = () => {
     return (
@@ -8,7 +8,7 @@ const Blogs = () => {
             <Banner
                 title='Blogs'
             />
-            <ContentMiddle>
+            <Container>
                 <div className='py-6'>
                     <PostForm/>
                     <div className='border border-gray-400 flex'>
@@ -103,7 +103,7 @@ const Blogs = () => {
                         </div>
                     </div>
                 </div>
-            </ContentMiddle>
+            </Container>
         </div>
     )
 }

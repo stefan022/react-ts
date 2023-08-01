@@ -4,7 +4,7 @@ interface IProps {
     children: ReactNode
 }
 
-const ContentMiddle = ({ children }: IProps) => {
+const Container = ({ children }: IProps) => {
     return (
         <div className="w-[1280px] mx-auto">
             {children}
@@ -12,4 +12,4 @@ const ContentMiddle = ({ children }: IProps) => {
     )
 }
 
-export default ContentMiddle
+export default Container

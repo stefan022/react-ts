@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import ContentMiddle from "../../content/ContentMiddle";
+import Container from "../../containers/Container/Container";
 
 import { BsCart3, BsInbox, BsChatSquareDots } from "react-icons/bs";
 import { Link } from "react-router-dom";
@@ -19,7 +19,7 @@ const Navbar = () => {
 
 	return (
 		<div>
-			<ContentMiddle>
+			<Container>
 				<div className="flex justify-between items-center border border-gray-400 relative">
 					<Logo/>
 					<Navigation/>
@@ -52,7 +52,7 @@ const Navbar = () => {
 						/>
 					</div>
 				</div>
-			</ContentMiddle>
+			</Container>
 			<CartSidebar
 				displayCart={displayCart}
 				handleHideCart={handleHideCart}

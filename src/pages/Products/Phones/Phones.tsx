@@ -2,7 +2,7 @@ import React from 'react'
 import { Banner, ProductsFilter, ProductsSearch, ProductsSort, ProductsView, ProductsGrid, ProductsList } from '../../../components'
 
 import phones from "../../../assets/phones.png";
-import ContentMiddle from '../../../content/ContentMiddle';
+import Container from '../../../containers/Container/Container';
 
 const Phones = () => {
     const [ currentView, setCurrentView ] = React.useState<string>("grid");
@@ -17,7 +17,7 @@ const Phones = () => {
                 bgNoRepeat="bg-no-repeat"
                 image={phones}
             />
-            <ContentMiddle>
+            <Container>
                 <div className='flex w-full gap-6 pt-6'>
                     <ProductsFilter/>
                     <div className='w-5/6 border border-gray-400'>
@@ -39,7 +39,7 @@ const Phones = () => {
                         }
                     </div>
                 </div>
-            </ContentMiddle>
+            </Container>
         </div>
     )
 }

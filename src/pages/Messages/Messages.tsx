@@ -1,6 +1,6 @@
 import React from 'react'
 import { Banner } from '../../components'
-import ContentMiddle from '../../content/ContentMiddle'
+import Container from '../../containers/Container/Container'
 
 const Messages = () => {
   	return (
@@ -8,7 +8,7 @@ const Messages = () => {
 			<Banner
 				title='Messages'
 			/>
-			<ContentMiddle>
+			<Container>
 				<div className='py-6'>
 					<div className='flex gap-6'>
 						<div className='w-1/5 border border-gray-400 flex flex-col h-full'>
@@ -40,7 +40,7 @@ const Messages = () => {
 						</div>
 					</div>
 				</div>
-			</ContentMiddle>
+			</Container>
 		</div>
   	)
 }
