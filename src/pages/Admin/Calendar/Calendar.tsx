@@ -1,9 +1,6 @@
 import React from 'react'
+import { CalendarComponent } from '../../../components'
 
-const Calendar = () => {
-  return (
-    <div>Calendar</div>
-  )
-}
+const Calendar = () => <CalendarComponent/>
 
 export default Calendar
