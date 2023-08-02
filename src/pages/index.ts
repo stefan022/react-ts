@@ -26,7 +26,7 @@ export { default as AdminProducts } from "./Admin/AdminProducts/AdminProducts";
 export { default as AdminReviews } from "./Admin/AdminReviews/AdminReviews";
 export { default as Calendar } from "./Admin/Calendar/Calendar";
 export { default as Employees } from "./Admin/Employees/Employees";
-export { default as Users } from "./Admin/Customers/Customers";
+export { default as Users } from "./Admin/Users/Users";
 export { default as Kanban } from "./Admin/Kanban/Kanban";
 export { default as NotAuthorized } from "./NotAuthorized/NotAuthorized";
 export { default as NotFound } from "./NotFound/NotFound";
