@@ -1,9 +1,6 @@
 import React from 'react'
+import { AdminReviewCards } from '../../../components'
 
-const AdminReviews = () => {
-  return (
-    <div>AdminReviews</div>
-  )
-}
+const AdminReviews = () => <AdminReviewCards/>
 
 export default AdminReviews

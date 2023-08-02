@@ -37,4 +37,6 @@ export { default as ProductsList } from "./Products/View/ProductsList/ProductsLi
 export { default as AdminNavbar } from "./Admin/AdminNavbar/AdminNavbar";
 export { default as AdminSidebar } from "./Admin/AdminSidebar/AdminSidebar";
 export { default as AdminTitleOfPage } from "./Admin/AdminTitlteOfPage/AdminTitlteOfPage";
+export { default as AdminReviewCards } from "./Admin/AdminReviewCards/AdminReviewCards";
+export { default as AdminReviewSingleCard } from "./Admin/AdminReviewCards/AdminReviewSingleCard/AdminReviewSingleCard";
 export { default as AdminFooter } from "./Admin/AdminFooter/AdminFooter";
