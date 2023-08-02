@@ -28,7 +28,7 @@ export const Routes = {
     KANBAN: "/kanban",
     CALENDAR: "/calendar",
     EMPLOYEES: "/employees",
-    USERS: "/users",
+    CUSTOMERS: "/customers",
     ADMIN_PRODUCTS: "/admin-products",
     ADMIN_ORDERS: "/admin-orders",
     ADMIN_MESSAGES: "/admin-messages",

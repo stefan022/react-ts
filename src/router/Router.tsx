@@ -2,7 +2,7 @@ import React from "react";
 
 import { BrowserRouter, Route, Routes as BrowserRoutes } from "react-router-dom";
 
-import { Home, Login, NotFound, Orders, Profile, Wishlist, Register, Settings, Products, Blogs, Faq, Support, Cart, Messages, Dashboard, Phones, Tablets, Laptops, Televisions, Others, Chat, Kanban, Calendar, Employees, Users, AdminMessages, AdminProducts, AdminOrders, AdminReviews, NotAuthorized } from "../pages";
+import { Home, Login, NotFound, Orders, Profile, Wishlist, Register, Settings, Products, Blogs, Faq, Support, Cart, Messages, Dashboard, Phones, Tablets, Laptops, Televisions, Others, Chat, Kanban, Calendar, Employees, Customers, AdminMessages, AdminProducts, AdminOrders, AdminReviews, NotAuthorized } from "../pages";
 import { PrivateLayout, PublicLayout, AdminLayout } from "../layouts";
 import { Routes } from "./Routes";
 import ProductDetails from "../pages/ProductDetails/ProductDetails";
@@ -232,11 +232,11 @@ const Router = () => {
 				/>
 
 				<Route
-					path={`${Routes.DASHBOARD}${Routes.USERS}`}
+					path={`${Routes.DASHBOARD}${Routes.CUSTOMERS}`}
 					element={
 						<AdminLayout>
 							<Dashboard>
-								<Users/>
+								<Customers/>
 							</Dashboard>
 						</AdminLayout>
 					}
