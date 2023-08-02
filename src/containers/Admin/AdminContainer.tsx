@@ -6,7 +6,7 @@ interface IProps {
 
 const AdminContainer = ({ children }: IProps) => {
     return (
-        <div>{children}</div>
+        <div className='p-4'>{children}</div>
     )
 }
 

@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import { AdminNavbar, AdminSidebar } from '../../../components'
+import { AdminNavbar, AdminSidebar, AdminFooter } from '../../../components'
 import { AdminContainer } from '../../../containers';
 import { Overview } from "../../../pages";
 
@@ -17,6 +17,7 @@ const Dashboard = ({ children }: IProps) => {
                 <AdminNavbar/>
                 <AdminContainer>
                     {children ? children : <Overview/>}
+                    <AdminFooter/>
                 </AdminContainer>
             </div>
         </div>
