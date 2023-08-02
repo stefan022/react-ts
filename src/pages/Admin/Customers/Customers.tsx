@@ -1,9 +1,6 @@
 import React from 'react'
+import { CustomerTable } from '../../../components'
 
-const Customers = () => {
-  return (
-    <div>Customers</div>
-  )
-}
+const Customers = () => <CustomerTable/>
 
 export default Customers

@@ -1,9 +1,6 @@
 import React from 'react'
+import { EmployeeTable } from '../../../components'
 
-const Employees = () => {
-  return (
-    <div>Employees</div>
-  )
-}
+const Employees = () => <EmployeeTable />
 
 export default Employees

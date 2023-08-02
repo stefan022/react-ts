@@ -1,9 +1,6 @@
 import React from 'react'
+import { OrderTable } from '../../../components'
 
-const AdminProducts = () => {
-  return (
-    <div>AdminProducts</div>
-  )
-}
+const AdminProducts = () => <OrderTable/>
 
 export default AdminProducts

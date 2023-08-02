@@ -20,6 +20,10 @@ export { default as CalendarComponent } from "./Calendar/CalendarComponent/Calen
 export { default as FullCalendarComponent } from "./Calendar/FullCalendarComponent/FullCalendarComponent";
 export { default as CalendarAddModal } from "./Modals/Calendar/CalendarAddModal/CalendarAddModal";
 export { default as CalendarDeleteModal } from "./Modals/Calendar/CalendarDeleteModal/CalendarDeleteModal";
+export { default as EmployeeTable } from "./Tables/EmployeeTable/EmployeeTable";
+export { default as CustomerTable } from "./Tables/CustomerTable/CustomerTable";
+export { default as ProductTable } from "./Tables/ProductTable/ProductTable";
+export { default as OrderTable } from "./Tables/OrderTable/OrderTable";
 export { default as FaqComponent } from "./Faq/FaqComponent";
 export { default as FaqServices } from "./Faq/FaqServices/FaqServices";
 export { default as FaqQuestion } from "./Faq/FaqQuestion/FaqQuestion";
