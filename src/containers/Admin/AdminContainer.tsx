@@ -6,7 +6,7 @@ interface IProps {
 
 const AdminContainer = ({ children }: IProps) => {
     return (
-        <div className='p-4'>{children}</div>
+        <div className='p-4 min-h-screen flex flex-col justify-between'>{children}</div>
     )
 }
 

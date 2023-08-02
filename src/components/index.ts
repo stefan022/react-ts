@@ -27,4 +27,5 @@ export { default as ProductsGrid } from "./Products/View/ProductsGrid/ProductsGr
 export { default as ProductsList } from "./Products/View/ProductsList/ProductsList";
 export { default as AdminNavbar } from "./Admin/AdminNavbar/AdminNavbar";
 export { default as AdminSidebar } from "./Admin/AdminSidebar/AdminSidebar";
+export { default as AdminTitleOfPage } from "./Admin/AdminTitlteOfPage/AdminTitlteOfPage";
 export { default as AdminFooter } from "./Admin/AdminFooter/AdminFooter";

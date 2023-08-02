@@ -193,7 +193,7 @@ const Router = () => {
 					path={Routes.DASHBOARD}
 					element={
 						<AdminLayout>
-							<Dashboard/>
+							<Dashboard title="Dashboard"/>
 						</AdminLayout>
 					}
 				/>
@@ -202,7 +202,7 @@ const Router = () => {
 					path={`${Routes.DASHBOARD}${Routes.KANBAN}`}
 					element={
 						<AdminLayout>
-							<Dashboard>
+							<Dashboard title="Kanban">
 								<Kanban/>
 							</Dashboard>
 						</AdminLayout>
@@ -213,7 +213,7 @@ const Router = () => {
 					path={`${Routes.DASHBOARD}${Routes.CALENDAR}`}
 					element={
 						<AdminLayout>
-							<Dashboard>
+							<Dashboard title="Calendar">
 								<Calendar/>
 							</Dashboard>
 						</AdminLayout>
@@ -224,7 +224,7 @@ const Router = () => {
 					path={`${Routes.DASHBOARD}${Routes.EMPLOYEES}`}
 					element={
 						<AdminLayout>
-							<Dashboard>
+							<Dashboard title="Employees">
 								<Employees/>
 							</Dashboard>
 						</AdminLayout>
@@ -235,7 +235,7 @@ const Router = () => {
 					path={`${Routes.DASHBOARD}${Routes.CUSTOMERS}`}
 					element={
 						<AdminLayout>
-							<Dashboard>
+							<Dashboard title="Customers">
 								<Customers/>
 							</Dashboard>
 						</AdminLayout>
@@ -246,7 +246,7 @@ const Router = () => {
 					path={`${Routes.DASHBOARD}${Routes.ADMIN_PRODUCTS}`}
 					element={
 						<AdminLayout>
-							<Dashboard>
+							<Dashboard title="Products">
 								<AdminProducts/>
 							</Dashboard>
 						</AdminLayout>
@@ -257,7 +257,7 @@ const Router = () => {
 					path={`${Routes.DASHBOARD}${Routes.ADMIN_ORDERS}`}
 					element={
 						<AdminLayout>
-							<Dashboard>
+							<Dashboard title="Orders">
 								<AdminOrders/>
 							</Dashboard>
 						</AdminLayout>
@@ -268,7 +268,7 @@ const Router = () => {
 					path={`${Routes.DASHBOARD}${Routes.ADMIN_MESSAGES}`}
 					element={
 						<AdminLayout>
-							<Dashboard>
+							<Dashboard title="Messages">
 								<AdminMessages/>
 							</Dashboard>
 						</AdminLayout>
@@ -279,7 +279,7 @@ const Router = () => {
 					path={`${Routes.DASHBOARD}${Routes.ADMIN_REVIEWS}`}
 					element={
 						<AdminLayout>
-							<Dashboard>
+							<Dashboard title="Reviews">
 								<AdminReviews/>
 							</Dashboard>
 						</AdminLayout>
