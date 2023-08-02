@@ -15,6 +15,7 @@ export { default as ProfileHeader } from "./Profile/ProfileHeader/ProfileHeader"
 export { default as ProfileBody } from "./Profile/ProfileBody/ProfileBody";
 export { default as CartSidebar } from "./Cart/CartSidebar/CartSidebar";
 export { default as CartOverlay } from "./Cart/CartOverlay/CartOverlay";
+export { default as Dnd } from "./Dnd/Dnd";
 export { default as FaqComponent } from "./Faq/FaqComponent";
 export { default as FaqServices } from "./Faq/FaqServices/FaqServices";
 export { default as FaqQuestion } from "./Faq/FaqQuestion/FaqQuestion";
