@@ -32,7 +32,7 @@ export const Routes = {
     ADMIN_PRODUCTS: "/admin-products",
     ADMIN_ORDERS: "/admin-orders",
     ADMIN_MESSAGES: "/admin-messages",
-    REVIEWS: "/admin-reviews",
+    ADMIN_REVIEWS: "/admin-reviews",
     // NOT AUTHORIZED
     NOT_AUTHORIZED: "/not-authorized",
     // NOT FOUND

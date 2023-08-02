@@ -276,7 +276,7 @@ const Router = () => {
 				/>
 
 				<Route
-					path={`${Routes.DASHBOARD}${Routes.REVIEWS}`}
+					path={`${Routes.DASHBOARD}${Routes.ADMIN_REVIEWS}`}
 					element={
 						<AdminLayout>
 							<Dashboard>

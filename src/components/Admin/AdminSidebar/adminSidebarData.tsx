@@ -19,48 +19,48 @@ export const adminSidebarData = [
         id: 2,
         icon: <BsKanban/>,
         title: "Kanban",
-        route: Routes.KANBAN
+        route: `${Routes.DASHBOARD}${Routes.KANBAN}`
     },
     {
         id: 3,
         icon: <AiOutlineCalendar/>,
         title: "Calendar",
-        route: Routes.CALENDAR
+        route: `${Routes.DASHBOARD}${Routes.CALENDAR}`
     },
     {
         id: 4,
         icon: <IoPeopleOutline/>,
         title: "Employees",
-        route: Routes.EMPLOYEES
+        route: `${Routes.DASHBOARD}${Routes.EMPLOYEES}`
     },
     {
         id: 5,
         icon: <LiaUsersSolid/>,
         title: "Customers",
-        route: Routes.CUSTOMERS
+        route: `${Routes.DASHBOARD}${Routes.CUSTOMERS}`
     },
     {
         id: 6,
         icon: <BsInbox/>,
         title: "Messages",
-        route: Routes.ADMIN_MESSAGES
+        route: `${Routes.DASHBOARD}${Routes.ADMIN_MESSAGES}`
     },
     {
         id: 7,
         icon: <PiArticle/>,
         title: "Products",
-        route: Routes.ADMIN_PRODUCTS
+        route: `${Routes.DASHBOARD}${Routes.ADMIN_PRODUCTS}`
     },
     {
         id: 8,
         icon: <BsBag/>,
         title: "Orders",
-        route: Routes.ADMIN_ORDERS
+        route: `${Routes.DASHBOARD}${Routes.ADMIN_ORDERS}`
     },
     {
         id: 9,
         icon: <VscPreview/>,
         title: "Reviews",
-        route: Routes.REVIEWS
+        route: `${Routes.DASHBOARD}${Routes.ADMIN_REVIEWS}`
     },
 ]
