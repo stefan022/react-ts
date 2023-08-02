@@ -9,10 +9,12 @@ interface IProps {
 
 const Dashboard = ({ children }: IProps) => {
     return (
-        <div>
-            <AdminNavbar/>
-            <div>
+        <div className='w-full flex'>
+            <div className='w-2/12'>
                 <AdminSidebar/>
+            </div>
+            <div className='w-10/12'>
+                <AdminNavbar/>
                 <AdminContainer>
                     {children ? children : <Overview/>}
                 </AdminContainer>
