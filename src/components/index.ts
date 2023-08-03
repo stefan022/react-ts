@@ -16,6 +16,8 @@ export { default as ProfileBody } from "./Profile/ProfileBody/ProfileBody";
 export { default as CartSidebar } from "./Cart/CartSidebar/CartSidebar";
 export { default as CartOverlay } from "./Cart/CartOverlay/CartOverlay";
 export { default as Dnd } from "./Dnd/Dnd";
+export { default as MixedChart } from "./Charts/MixedChart/MixedChart";
+export { default as PolarAreaChart } from "./Charts/PolarAreaChart/PolarAreaChart";
 export { default as CalendarComponent } from "./Calendar/CalendarComponent/CalendarComponent";
 export { default as FullCalendarComponent } from "./Calendar/FullCalendarComponent/FullCalendarComponent";
 export { default as CalendarAddModal } from "./Modals/Calendar/CalendarAddModal/CalendarAddModal";
