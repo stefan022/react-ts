@@ -1,4 +1,4 @@
-import { ITaskStatus } from "../../../ts/interfaces/ITaskStatus";
+import { ITaskStatus } from "../../../ts/interfaces/IDnd/ITaskStatus";
 import { tasks } from "./tasks";
 
 export const taskStatus: ITaskStatus = {

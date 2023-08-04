@@ -2,6 +2,7 @@ export const Routes = {
     // PUBLIC
     LOGIN: "/login",
     REGISTER: "/register",
+    RESET_PASSWORD: "/reset-password",
     // PRIVATE
     HOME: "/",
     PRODUCTS: "/products",

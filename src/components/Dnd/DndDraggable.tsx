@@ -1,5 +1,5 @@
 import { Draggable } from "react-beautiful-dnd";
-import { ITask } from "../../ts/interfaces/ITask";
+import { ITask } from "../../ts/interfaces/IDnd/ITask";
 
 const DndDraggable = ({ state }: { state: any }) => {
 	return (

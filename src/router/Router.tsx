@@ -2,14 +2,18 @@ import React from "react";
 
 import { BrowserRouter, Route, Routes as BrowserRoutes } from "react-router-dom";
 
-import { Home, Login, NotFound, Orders, Profile, Wishlist, Register, Settings, Products, Blogs, Faq, Support, Cart, Messages, Dashboard, Phones, Tablets, Laptops, Televisions, Others, Chat, Kanban, Calendar, Employees, Customers, AdminMessages, AdminProducts, AdminOrders, AdminReviews, NotAuthorized } from "../pages";
+import { Home, Login, NotFound, Orders, Profile, Wishlist, Register, Settings, Products, Blogs, Faq, Support, Cart, Messages, Dashboard, Phones, Tablets, Laptops, Televisions, Others, Chat, Kanban, Calendar, Employees, Customers, AdminMessages, AdminProducts, AdminOrders, AdminReviews, NotAuthorized, ResetPassword } from "../pages";
 import { PrivateLayout, PublicLayout, AdminLayout } from "../layouts";
 import { Routes } from "./Routes";
 import ProductDetails from "../pages/ProductDetails/ProductDetails";
 
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 const Router = () => {
 	return (
 		<BrowserRouter>
+			<ToastContainer/>
 			<BrowserRoutes>
                 {/* Private */}
 				{/* Navigation */}
@@ -290,14 +294,12 @@ const Router = () => {
                 <Route
                     path={Routes.NOT_AUTHORIZED}
                     element={
-                        <PublicLayout>
-                            <NotAuthorized/>
-                        </PublicLayout>
+                        <NotAuthorized/>
                     }
                 />
 
                 {/* Public */}
-				{/* Login Page */}
+				{/* Login */}
                 <Route
                     path={Routes.LOGIN}
                     element={
@@ -307,7 +309,7 @@ const Router = () => {
                     }
                 />
 
-				{/* Register Page */}
+				{/* Register */}
                 <Route
                     path={Routes.REGISTER}
                     element={
@@ -317,13 +319,21 @@ const Router = () => {
                     }
                 />
 
-				{/* Not Found Page */}
+				{/* Reset Password */}
+				<Route
+                    path={Routes.RESET_PASSWORD}
+                    element={
+                        <PublicLayout>
+                            <ResetPassword/>
+                        </PublicLayout>
+                    }
+                />
+
+				{/* Not Found */}
                 <Route
                     path={Routes.NOT_FOUND}
                     element={
-                        <PublicLayout>
-                            <NotFound/>
-                        </PublicLayout>
+						<NotFound/>
                     }
                 />
 			</BrowserRoutes>

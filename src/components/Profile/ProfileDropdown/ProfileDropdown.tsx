@@ -1,6 +1,8 @@
-import React, { Fragment, MouseEventHandler } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, Fragment, MouseEventHandler } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { profileData } from "../profileData";
+import { Routes } from "../../../router/Routes";
+import { toast } from "react-toastify";
 
 interface IProps {
     profileDropdown: boolean;
@@ -9,6 +11,16 @@ interface IProps {
 }
 
 const ProfileDropdown = ({ profileDropdown, handleHideProfileDropdown, handleDisplayProfileDropdown }: IProps) => {
+    const navigate = useNavigate();
+
+    const handleLogout = () => { 
+        localStorage.removeItem("token");
+        localStorage.removeItem("userId");
+
+        navigate(Routes.LOGIN);
+        toast.success("You have successfully logged out");
+    };
+
 	return (
 		<div 
             onMouseEnter={handleDisplayProfileDropdown}
@@ -32,7 +44,7 @@ const ProfileDropdown = ({ profileDropdown, handleHideProfileDropdown, handleDis
                             )
                         })
                     }
-                    <li>Logout</li>
+                    <button className="bg-blue-400 py-1 px-3" onClick={handleLogout}>Logout</button>
                 </ul>
             </div>
         </div>

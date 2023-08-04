@@ -1,4 +1,4 @@
-import { ITask } from "../../../ts/interfaces/ITask";
+import { ITask } from "../../../ts/interfaces/IDnd/ITask";
 
 export const tasks: ITask[] = [
 	{ id: "1", content: "First task" },

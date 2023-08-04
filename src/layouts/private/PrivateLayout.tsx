@@ -1,40 +1,37 @@
-import React, { ReactNode } from "react";
-import Navbar from "../../components/Navbar/Navbar";
-import Footer from "../../components/Footer/Footer";
+import React, { ReactNode, useEffect } from "react";
+import { Navbar, Footer} from "../../components";
+import { useNavigate } from "react-router-dom";
+import { Routes } from "../../router/Routes";
 
 interface IProps {
 	children: ReactNode;
 }
 
 const PrivateLayout = ({ children }: IProps): JSX.Element | null => {
-	/*
-    Include this logic where there is a token
-
     const token = localStorage.getItem("token");
 
 	const navigate = useNavigate();
 
 	useEffect(() => {
 		if (!token) {
-			navigate(AppRoutes.LOGIN);
+			navigate(Routes.LOGIN);
 
 			return;
 		}
 		// eslint-disable-next-line
 	}, [token]);
 
-	if (token) return <>{children}</>;
+	if (token) {
+		return (
+			<div>
+				<Navbar/>
+				{children}
+				<Footer/>
+			</div>
+		);
+	};
 
 	return null;
-    */
-
-	return (
-		<div>
-			<Navbar/>
-			{children}
-			<Footer/>
-		</div>
-	);
 };
 
 export default PrivateLayout;

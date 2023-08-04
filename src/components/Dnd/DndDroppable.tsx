@@ -1,6 +1,6 @@
 import { Droppable } from "react-beautiful-dnd";
 import DndDraggable from "./DndDraggable";
-import { ITask } from "../../ts/interfaces/ITask";
+import { ITask } from "../../ts/interfaces/IDnd/ITask";
 
 const DndDroppable = ({
 	state,

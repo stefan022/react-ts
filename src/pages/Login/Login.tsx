@@ -1,8 +1,9 @@
 import React from 'react'
 
+import { SignIn } from '../../components'
+
 import wallpaper from "../../assets/wallpaper.png"
 import logo from "../../assets/logo.png"
-import SignIn from '../../components/Forms/SignIn/SignIn'
 
 const Login = () => {
     return (

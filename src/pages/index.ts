@@ -1,6 +1,7 @@
 export { default as Home } from "./Home/Home";
 export { default as Login } from "./Login/Login";
 export { default as Register } from "./Register/Register";
+export { default as ResetPassword } from "./ResetPassword/ResetPassword";
 export { default as Products } from "./Products/Products";
 export { default as Phones } from "./Products/Phones/Phones";
 export { default as Tablets } from "./Products/Tablets/Tablets";

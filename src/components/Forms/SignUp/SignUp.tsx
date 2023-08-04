@@ -1,100 +1,82 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
+import { AuthForm, AuthFormButton, FormikField, FormPassword, AuthFormSwitch, AuthFormTitle } from "../../../components";
+import { initialValues } from "../../../constants/initialValues";
+import { validationSchema } from "../../../utils/validationSchema";
+import { useFormik } from "formik";
 import { Routes } from "../../../router/Routes";
-import { FcGoogle } from "react-icons/fc";
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "../../../firebase/config";
+import { doc, setDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 const SignUp = () => {
-    const [isVisible, setIsVisible] = React.useState(false);
+    const navigate = useNavigate();
 
-    const handleChangeVisible = () => setIsVisible(!isVisible);
+	const { handleSubmit, values, handleChange, handleBlur, touched, errors } = useFormik({
+        initialValues,
+        validationSchema,
+        onSubmit: (values) => {
+            const { username, email, password } = values;
+			
+			createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                toast.success("Register successfully");
+				navigate(Routes.LOGIN);
+
+				userCredential.user.getIdToken().then((token) => {
+					setDoc(doc(db, "users", userCredential.user.uid), {
+						username,
+						email,
+						token
+					})
+				});
+            })
+            .catch((error) => {
+                toast.error(error.message);
+            });
+        }
+    });
 
 	return (
-		<form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 border border-gray-300 w-1/2 ml-20">
-            <p className="text-2xl text-gray-700 font-bold mb-6">Sign up to your account</p>
-            <div className="mb-4">
-				<label
-					className="block text-gray-700 text-sm font-bold mb-2"
-					htmlFor="signUpUsername"
-				>
-					Username
-				</label>
-				<input
-					className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-					id="signUpUsername"
-					type="text"
-					placeholder="eliot404"
-				/>
-			</div>
-			<div className="mb-4">
-				<label
-					className="block text-gray-700 text-sm font-bold mb-2"
-					htmlFor="signUpEmail"
-				>
-					Email
-				</label>
-				<input
-					className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-					id="signUpEmail"
-					type="text"
-					placeholder="example@gmail.com"
-				/>
-			</div>
-			<div className="mb-6">
-                <div></div>
-				<label
-					className="block text-gray-700 text-sm font-bold mb-2"
-					htmlFor="signUpPassword"
-				>
-					Password
-				</label>
-                <div className="relative">
-                    <input
-				    	className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-				    	id="signUpPassword"
-				    	type={isVisible ? "text" : "password"}
-				    	placeholder="********"
-				    />
-                    <button 
-                        type="button" 
-                        className="absolute top-2.5 right-2.5"
-                        onClick={handleChangeVisible}
-                    >
-                        {
-                            isVisible 
-                                ? <AiFillEye size={20} color="gray"/>
-                                : <AiFillEyeInvisible size={20} color="gray"/>
-                        }
-                    </button>
-                </div>
-
-			</div>
-			<div className="flex justify-end mb-4">
-				<a
-					className="inline-block align-baseline font-bold text-sm text-blue-400 hover:text-blue-500"
-					href="#"
-				>
-					Forgot Password?
-				</a>
-			</div>
-            <div className="flex mb-4">
-                <button
-					className="bg-blue-400 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
-					type="button"
-				>
-					Sign Up
-				</button>
-            </div>
-            <div className="flex text-base justify-center mb-4">
-                <p>Have an account?</p>
-                <Link 
-                    className="text-blue-400 hover:text-blue-500 font-bold ml-1"
-                    to={Routes.LOGIN}
-                >
-                        Sign In
-                </Link>
-            </div>
-		</form>
+		<AuthForm handleSubmit={handleSubmit}>
+            <AuthFormTitle title="Sign up to your account"/>
+            <FormikField
+                inputId="username"
+				text="Username:"
+				placeholder="eliot404"
+				value={values.username}
+                error={errors.username}
+                touched={touched.username}
+                handleChange={handleChange}
+                handleBlur={handleBlur}
+            />
+            <FormikField
+                inputId="email"
+				text="Email:"
+				placeholder="stefan@gmail.com"
+				value={values.email}
+                error={errors.email}
+                touched={touched.email}
+                handleChange={handleChange}
+                handleBlur={handleBlur}
+            />
+			<FormPassword
+                inputId="password"
+                value={values.password}
+                error={errors.password}
+                touched={touched.password}
+                handleChange={handleChange}
+                handleBlur={handleBlur}
+            />
+            <AuthFormButton content="Sign Up"/>
+            <AuthFormSwitch
+                question="Have an account?"
+                page="Sign In"
+                route={Routes.LOGIN}
+            />
+		</AuthForm>
 	);
 };
 
