@@ -1,196 +1,57 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { Routes } from '../../../../router/Routes'
+import { ProductGridCard } from '../../../../components'
 
 const ProductsGrid = () => {
     return (
         <div className='flex flex-wrap'>
-            <div className='border border-gray-300 h-[350px] w-1/4 p-2'>
-                <div className='border border-gray-300 h-full'>
-                    <Link to={`${Routes.PRODUCTS}${Routes.PRODUCT_DETAILS}`}>
-                        <div className='border border-gray-300 h-2/3 bg-red-300'></div>
-                    </Link>
-                    <div className='p-2'>
-                        <div className="flex items-center gap-2">
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                        </div>
-                        <div>
-                            <p>$productName</p>
-                        </div>
-                        <div className='flex items-center justify-between'>
-                            <p>$productPrice</p>
-                            <div>5 &#9733;</div>
-                        </div>
-                        <div className='w-full'>
-                            <button className='w-full bg-blue-300'>Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className='border border-gray-300 h-[350px] w-1/4 p-2'>
-                <div className='border border-gray-300 h-full'>
-                    <div className='border border-gray-300 h-2/3 bg-red-300'></div>
-                    <div className='p-2'>
-                        <div className="flex items-center gap-2">
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                        </div>
-                        <div>
-                            <p>$productName</p>
-                        </div>
-                        <div className='flex items-center justify-between'>
-                            <p>$productPrice</p>
-                            <div>5 &#9733;</div>
-                        </div>
-                        <div className='w-full'>
-                            <button className='w-full bg-blue-300'>Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className='border border-gray-300 h-[350px] w-1/4 p-2'>
-                <div className='border border-gray-300 h-full'>
-                    <div className='border border-gray-300 h-2/3 bg-red-300'></div>
-                    <div className='p-2'>
-                        <div className="flex items-center gap-2">
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                        </div>
-                        <div>
-                            <p>$productName</p>
-                        </div>
-                        <div className='flex items-center justify-between'>
-                            <p>$productPrice</p>
-                            <div>5 &#9733;</div>
-                        </div>
-                        <div className='w-full'>
-                            <button className='w-full bg-blue-300'>Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className='border border-gray-300 h-[350px] w-1/4 p-2'>
-                <div className='border border-gray-300 h-full'>
-                    <div className='border border-gray-300 h-2/3 bg-red-300'></div>
-                    <div className='p-2'>
-                        <div className="flex items-center gap-2">
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                        </div>
-                        <div>
-                            <p>$productName</p>
-                        </div>
-                        <div className='flex items-center justify-between'>
-                            <p>$productPrice</p>
-                            <div>5 &#9733;</div>
-                        </div>
-                        <div className='w-full'>
-                            <button className='w-full bg-blue-300'>Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className='border border-gray-300 h-[350px] w-1/4 p-2'>
-                <div className='border border-gray-300 h-full'>
-                    <div className='border border-gray-300 h-2/3 bg-red-300'></div>
-                    <div className='p-2'>
-                        <div className="flex items-center gap-2">
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                        </div>
-                        <div>
-                            <p>$productName</p>
-                        </div>
-                        <div className='flex items-center justify-between'>
-                            <p>$productPrice</p>
-                            <div>5 &#9733;</div>
-                        </div>
-                        <div className='w-full'>
-                            <button className='w-full bg-blue-300'>Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className='border border-gray-300 h-[350px] w-1/4 p-2'>
-                <div className='border border-gray-300 h-full'>
-                    <div className='border border-gray-300 h-2/3 bg-red-300'></div>
-                    <div className='p-2'>
-                        <div className="flex items-center gap-2">
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                        </div>
-                        <div>
-                            <p>$productName</p>
-                        </div>
-                        <div className='flex items-center justify-between'>
-                            <p>$productPrice</p>
-                            <div>5 &#9733;</div>
-                        </div>
-                        <div className='w-full'>
-                            <button className='w-full bg-blue-300'>Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className='border border-gray-300 h-[350px] w-1/4 p-2'>
-                <div className='border border-gray-300 h-full'>
-                    <div className='border border-gray-300 h-2/3 bg-red-300'></div>
-                    <div className='p-2'>
-                        <div className="flex items-center gap-2">
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                        </div>
-                        <div>
-                            <p>$productName</p>
-                        </div>
-                        <div className='flex items-center justify-between'>
-                            <p>$productPrice</p>
-                            <div>5 &#9733;</div>
-                        </div>
-                        <div className='w-full'>
-                            <button className='w-full bg-blue-300'>Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className='border border-gray-300 h-[350px] w-1/4 p-2'>
-                <div className='border border-gray-300 h-full'>
-                    <div className='border border-gray-300 h-2/3 bg-red-300'></div>
-                    <div className='p-2'>
-                        <div className="flex items-center gap-2">
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                            <div className='bg-red-300 w-5 h-5 rounded-full'></div>
-                        </div>
-                        <div>
-                            <p>$productName</p>
-                        </div>
-                        <div className='flex items-center justify-between'>
-                            <p>$productPrice</p>
-                            <div>5 &#9733;</div>
-                        </div>
-                        <div className='w-full'>
-                            <button className='w-full bg-blue-300'>Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <ProductGridCard
+                productName='$productName'
+                colors={["red", "red", "red", "red"]}
+                productPrice="$productPrice"
+                rating={5}
+            />
+            <ProductGridCard
+                productName='$productName'
+                colors={["red", "red", "red", "red"]}
+                productPrice="$productPrice"
+                rating={5}
+            />
+            <ProductGridCard
+                productName='$productName'
+                colors={["red", "red", "red", "red"]}
+                productPrice="$productPrice"
+                rating={5}
+            />
+            <ProductGridCard
+                productName='$productName'
+                colors={["red", "red", "red", "red"]}
+                productPrice="$productPrice"
+                rating={5}
+            />
+            <ProductGridCard
+                productName='$productName'
+                colors={["red", "red", "red", "purple"]}
+                productPrice="$productPrice"
+                rating={5}
+            />
+            <ProductGridCard
+                productName='$productName'
+                colors={["black", "red", "red", "red"]}
+                productPrice="$productPrice"
+                rating={5}
+            />
+            <ProductGridCard
+                productName='$productName'
+                colors={["red", "gray", "yellow", "red"]}
+                productPrice="$productPrice"
+                rating={5}
+            />
+            <ProductGridCard
+                productName='$productName'
+                colors={["red", "red", "red", "blue"]}
+                productPrice="$productPrice"
+                rating={5}
+            />
         </div>
     )
 }
