@@ -47,6 +47,8 @@ export { default as FaqQuestion } from "./Faq/FaqQuestion/FaqQuestion";
 export { default as FaqAnswer } from "./Faq/FaqBody/FaqAnswer";
 export { default as ProductsFilter } from "./Products/Filter/ProductsFilter";
 export { default as ProductsSearch } from "./Products/Search/ProductsSearch";
+export { default as Categories } from "./Products/Categories/Categories";
+export { default as Category } from "./Products/Category/Category";
 export { default as ProductsSort } from "./Products/Sort/ProductsSort";
 export { default as ProductsView } from "./Products/View/ProductsView";
 export { default as ProductsGrid } from "./Products/View/ProductsGrid/ProductsGrid";
