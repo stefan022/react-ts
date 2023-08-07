@@ -28,6 +28,8 @@ export { default as ProfileDropdown } from "./Profile/ProfileDropdown/ProfileDro
 export { default as ProfileSidebar } from "./Profile/ProfileSidebar/ProfileSidebar";
 export { default as ProfileHeader } from "./Profile/ProfileHeader/ProfileHeader";
 export { default as ProfileBody } from "./Profile/ProfileBody/ProfileBody";
+export { default as SupportInformation } from "./Support/SupportInformation/SupportInformation";
+export { default as SupportSingleInformation } from "./Support/SupportSingleInformation/SupportSingleInformation";
 export { default as CartSidebar } from "./Cart/CartSidebar/CartSidebar";
 export { default as CartOverlay } from "./Cart/CartOverlay/CartOverlay";
 export { default as Dnd } from "./Dnd/Dnd";
