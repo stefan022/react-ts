@@ -32,6 +32,12 @@ export { default as SupportInformation } from "./Support/SupportInformation/Supp
 export { default as SupportSingleInformation } from "./Support/SupportSingleInformation/SupportSingleInformation";
 export { default as CartSidebar } from "./Cart/CartSidebar/CartSidebar";
 export { default as CartOverlay } from "./Cart/CartOverlay/CartOverlay";
+export { default as CartServices } from "./Cart/CartServices/CartServices";
+export { default as CartSingleService } from "./Cart/CartSingleService/CartSingleService";
+export { default as CartTotalQuantity } from "./Cart/CartTotalQuantity/CartTotalQuantity";
+export { default as CartItems } from "./Cart/CartItems/CartItems";
+export { default as CartSingleItem } from "./Cart/CartSingleItem/CartSingleItem";
+export { default as CartSummary } from "./Cart/CartSummary/CartSummary";
 export { default as Dnd } from "./Dnd/Dnd";
 export { default as MixedChart } from "./Charts/MixedChart/MixedChart";
 export { default as PolarAreaChart } from "./Charts/PolarAreaChart/PolarAreaChart";
