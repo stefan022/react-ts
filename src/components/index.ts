@@ -64,6 +64,14 @@ export { default as ProductsGrid } from "./Products/View/ProductsGrid/ProductsGr
 export { default as ProductsList } from "./Products/View/ProductsList/ProductsList";
 export { default as ProductGridCard } from "./Products/Cards/ProductGridCard/ProductGridCard";
 export { default as ProductListCard } from "./Products/Cards/ProductListCard/ProductListCard";
+export { default as ProductImages } from "./Products/ProductImages/ProductImages";
+export { default as ProductInformation } from "./Products/ProductInformation/ProductInformation";
+export { default as ProductSpecifications } from "./Products/ProductSpecifications/ProductSpecifications";
+export { default as ProductRatings } from "./Products/ProductRatings/ProductRatings";
+export { default as ProductReviews } from "./Products/ProductReviews/ProductReviews";
+export { default as ProductSingleReview } from "./Products/ProductSingleReview/ProductSingleReview";
+export { default as ProductAdminReview } from "./Products/ProductAdminReview/ProductAdminReview";
+export { default as ProductReviewsTitle } from "./Products/ProductReviewsTitle/ProductReviewsTitle";
 export { default as AdminNavbar } from "./Admin/AdminNavbar/AdminNavbar";
 export { default as AdminSidebar } from "./Admin/AdminSidebar/AdminSidebar";
 export { default as AdminTitleOfPage } from "./Admin/AdminTitlteOfPage/AdminTitlteOfPage";
