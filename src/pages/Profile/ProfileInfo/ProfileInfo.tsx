@@ -1,4 +1,5 @@
 import React from 'react'
+import { profileInfoData } from './profileInfoData'
 
 const ProfileInfo = () => {
     return (
@@ -8,26 +9,18 @@ const ProfileInfo = () => {
                 <button className='bg-gray-300 py-0.5 px-2'>Edit</button>
             </div>
             <div className='p-4 flex flex-col justify-between border border-gray-300'>
-                <div className='flex w-full'>
-                    <p className='w-1/2'>First Name:</p>
-                    <p className='w-1/2'>$firstName</p>
-                </div>
-                <div className='flex w-full'>
-                    <p className='w-1/2'>Last Name:</p>
-                    <p className='w-1/2'>$lastName</p>
-                </div>
-                <div className='flex w-full'>
-                    <p className='w-1/2'>Email:</p>
-                    <p className='w-1/2'>$email</p>
-                </div>
-                <div className='flex w-full'>
-                    <p className='w-1/2'>Username:</p>
-                    <p className='w-1/2'>$username</p>
-                </div>
-                <div className='flex w-full'>
-                    <p className='w-1/2'>Since member:</p>
-                    <p className='w-1/2'>$timestamp</p>
-                </div>
+                {
+                    profileInfoData.map((information) => {
+                        const { profileInfoId, section, info } = information;
+
+                        return (
+                            <div key={profileInfoId} className='flex w-full'>
+                                <p className='w-1/2'>{section}</p>
+                                <p className='w-1/2'>{info}</p>
+                            </div>
+                        )
+                    })
+                }
             </div>
         </div>
     )
