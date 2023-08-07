@@ -1,5 +1,5 @@
 import React from 'react'
-import { Banner, FaqServices } from '../../components'
+import { Banner, FaqServices, FaqTitle } from '../../components'
 import Container from '../../containers/Container/Container'
 
 import { FaqComponent } from "../../components";
@@ -15,7 +15,7 @@ const Faq = () => {
                     <FaqServices/>
                 </div>
                 <div className='w-3/5 mx-auto'>
-                    <h3 className='mb-2'>General Questions</h3>
+                    <FaqTitle/>
                     <FaqComponent/>
                 </div>
             </Container>

@@ -48,6 +48,7 @@ export { default as Comment } from "./Blogs/Comment/Comment";
 export { default as Replies } from "./Blogs/Replies/Replies";
 export { default as Reply } from "./Blogs/Reply/Reply";
 export { default as FaqComponent } from "./Faq/FaqComponent";
+export { default as FaqTitle } from "./Faq/FaqTitle/FaqTitle";
 export { default as FaqServices } from "./Faq/FaqServices/FaqServices";
 export { default as FaqQuestion } from "./Faq/FaqQuestion/FaqQuestion";
 export { default as FaqAnswer } from "./Faq/FaqBody/FaqAnswer";
