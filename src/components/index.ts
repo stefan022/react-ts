@@ -28,6 +28,9 @@ export { default as ProfileDropdown } from "./Profile/ProfileDropdown/ProfileDro
 export { default as ProfileSidebar } from "./Profile/ProfileSidebar/ProfileSidebar";
 export { default as ProfileHeader } from "./Profile/ProfileHeader/ProfileHeader";
 export { default as ProfileBody } from "./Profile/ProfileBody/ProfileBody";
+export { default as WishlistHead } from "./Profile/Wishlist/WishlistHead/WishlistHead";
+export { default as WishlistItems } from "./Profile/Wishlist/WishlistItems/WishlistItems";
+export { default as WishlistSingleItem } from "./Profile/Wishlist/WishlistSingleItem/WishlistSingleItem";
 export { default as SupportInformation } from "./Support/SupportInformation/SupportInformation";
 export { default as SupportSingleInformation } from "./Support/SupportSingleInformation/SupportSingleInformation";
 export { default as CartSidebar } from "./Cart/CartSidebar/CartSidebar";
