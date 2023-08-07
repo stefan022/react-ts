@@ -1,0 +1,29 @@
+.on_off {
+    position: relative;
+}
+
+.on_off::after {
+    content: "";
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+  	width: 100%;
+  	height: 100%;
+	border-left: 2px solid skyblue;
+	background: white;
+	animation-name: on_off;
+	animation-duration: 4s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes on_off {
+	0% {
+	  left: 0;
+	}
+	20%, 80% {
+	  left: 100%;
+	}
+	100% {
+	  left: 0;
+	}
+}

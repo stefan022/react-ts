@@ -3,8 +3,6 @@ import Container from "../../containers/Container/Container";
 
 import { Carousel, Hello } from "../../components";
 
-import "./Home.scss"
-
 const Home = () => {
 	return (
 		<div className="h-screen flex flex-col">

@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { skillsData } from '../../pages/Home/skillsData';
+import "./Carousel.scss";
 
 const Carousel = () => {
     return (

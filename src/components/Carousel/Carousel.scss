@@ -1,34 +1,3 @@
-.on_off {
-    position: relative;
-}
-
-.on_off::after {
-    content: "";
-  	position: absolute;
-  	top: 0;
-  	left: 0;
-  	width: 100%;
-  	height: 100%;
-	border-left: 2px solid skyblue;
-	background: white;
-	animation-name: on_off;
-	animation-duration: 4s;
-	animation-iteration-count: infinite;
-}
-
-@keyframes on_off {
-	0% {
-	  left: 0;
-	}
-	20%, 80% {
-	  left: 100%;
-	}
-	100% {
-	  left: 0;
-	}
-}
-
-// CAROUSEL INFINITE LINEAR LOOP
 .carousel {
 	overflow: hidden;
 	white-space: nowrap;
@@ -42,7 +11,7 @@
 		top: 0;
 		height: 100%;
 		width: 100px;
-		z-index: 100;
+		z-index: 10;
 	}
 
 	&::before {

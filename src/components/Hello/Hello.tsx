@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { SiHey } from 'react-icons/si'
+import "./Hello.scss"
 
 const Hello = () => {
     return (
