@@ -72,6 +72,14 @@ export { default as ProductReviews } from "./Products/ProductReviews/ProductRevi
 export { default as ProductSingleReview } from "./Products/ProductSingleReview/ProductSingleReview";
 export { default as ProductAdminReview } from "./Products/ProductAdminReview/ProductAdminReview";
 export { default as ProductReviewsTitle } from "./Products/ProductReviewsTitle/ProductReviewsTitle";
+export { default as ChatSidebar } from "./Chat/ChatSidebar/ChatSidebar";
+export { default as ChatUsername } from "./Chat/ChatUsername/ChatUsername";
+export { default as ChatStartTimestamp } from "./Chat/ChatStartTimestamp/ChatStartTimestamp";
+export { default as ChatMessages } from "./Chat/ChatMessages/ChatMessages";
+export { default as ChatRecipientMessage } from "./Chat/ChatRecipientMessage/ChatRecipientMessage";
+export { default as ChatSenderMessage } from "./Chat/ChatSenderMessage/ChatSenderMessage";
+export { default as ChatField } from "./Chat/ChatField/ChatField";
+export { default as ChatButton } from "./Chat/ChatButton/ChatButton";
 export { default as AdminNavbar } from "./Admin/AdminNavbar/AdminNavbar";
 export { default as AdminSidebar } from "./Admin/AdminSidebar/AdminSidebar";
 export { default as AdminTitleOfPage } from "./Admin/AdminTitlteOfPage/AdminTitlteOfPage";
