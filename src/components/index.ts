@@ -80,6 +80,11 @@ export { default as ChatRecipientMessage } from "./Chat/ChatRecipientMessage/Cha
 export { default as ChatSenderMessage } from "./Chat/ChatSenderMessage/ChatSenderMessage";
 export { default as ChatField } from "./Chat/ChatField/ChatField";
 export { default as ChatButton } from "./Chat/ChatButton/ChatButton";
+export { default as MessagesSidebar } from "./Messages/MessagesSidebar/MessagesSidebar";
+export { default as MessageContent } from "./Messages/MessageContent/MessageContent";
+export { default as MessageFrom } from "./Messages/MessageFrom/MessageFrom";
+export { default as MessageTitle } from "./Messages/MessageTitle/MessageTitle";
+export { default as MessageAnswer } from "./Messages/MessageAnswer/MessageAnswer";
 export { default as AdminNavbar } from "./Admin/AdminNavbar/AdminNavbar";
 export { default as AdminSidebar } from "./Admin/AdminSidebar/AdminSidebar";
 export { default as AdminTitleOfPage } from "./Admin/AdminTitlteOfPage/AdminTitlteOfPage";
