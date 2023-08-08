@@ -1,26 +1,14 @@
 import React from 'react'
 
 import { profileData } from '../profileData';
-import { NavLink, useNavigate } from 'react-router-dom';
-import { IoLogOutOutline } from 'react-icons/io5';
-import { Routes } from '../../../router/Routes';
-import { toast } from 'react-toastify';
+import { NavLink } from 'react-router-dom';
+import { LogoutButton } from "../../../components"
 
 interface IProps {
     profileType: string;
 }
 
-const ProfileNavigation = ({ profileType }: IProps) => {
-    const navigate = useNavigate();
-
-    const handleLogout = () => { 
-        localStorage.removeItem("token");
-        localStorage.removeItem("userId");
-
-        navigate(Routes.LOGIN);
-        toast.success("You have successfully logged out");
-    };
-
+const ProfileNavigation: React.FC<IProps> = ({ profileType }): JSX.Element => {
     return (
         <ul>
             {
@@ -47,12 +35,7 @@ const ProfileNavigation = ({ profileType }: IProps) => {
                     )
                 })
             }
-            <li>
-                <button className={`profile__${profileType}-navigation`} onClick={handleLogout}>
-                    <div><IoLogOutOutline/></div>
-                    <p>Logout</p>
-                </button>
-            </li>
+            <li><LogoutButton profileType={profileType}/></li>
         </ul>
     )
 }

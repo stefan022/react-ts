@@ -6,6 +6,7 @@ export { default as Footer } from "./Footer/Footer";
 export { default as SignIn } from "./Forms/SignIn/SignIn";
 export { default as SignUp } from "./Forms/SignUp/SignUp";
 export { default as Spinner } from "./Spinner/Spinner";
+export { default as LogoutButton } from "./Buttons/LogoutButton/LogoutButton";
 export { default as SupportForm } from "./Forms/SupportForm/SupportForm";
 export { default as ReviewForm } from "./Forms/ReviewForm/ReviewForm";
 export { default as PostForm } from "./Forms/PostForm/PostForm";
