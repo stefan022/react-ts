@@ -1,11 +1,13 @@
 import React from 'react'
 
-import { SignIn } from '../../components'
+import { SignIn, Spinner } from '../../components'
 
 import wallpaper from "../../assets/wallpaper.png"
 import logo from "../../assets/logo.png"
 
-const Login = () => {
+const Login: React.FC = (): JSX.Element => {
+    const [ loading, setLoading ] = React.useState<boolean>(false);
+
     return (
         <div className="flex items-center">
             <div className="relative w-1/2">
@@ -13,8 +15,11 @@ const Login = () => {
                 <img className="w-full h-screen relative" src={wallpaper} alt="wallpaper.png"/>
             </div>
             <div className="w-1/2">
-                <SignIn/>
+                <SignIn
+                    setLoading={setLoading}
+                />
             </div>
+            { loading && <Spinner/> }
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC, Dispatch, SetStateAction } from "react";
 
 import { AuthForm, AuthFormButton, FormikField, FormPassword, AuthFormSwitch, AuthFormTitle } from "../../../components";
 import { initialValues } from "../../../constants/initialValues";
@@ -11,7 +11,11 @@ import { doc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 
-const SignUp = () => {
+interface IProps {
+    setLoading: Dispatch<SetStateAction<boolean>>;
+}
+
+const SignUp: FC<IProps> = ({ setLoading }): JSX.Element => {
     const navigate = useNavigate();
 
 	const { handleSubmit, values, handleChange, handleBlur, touched, errors } = useFormik({
@@ -19,11 +23,13 @@ const SignUp = () => {
         validationSchema,
         onSubmit: (values) => {
             const { username, email, password } = values;
+            setLoading(true);
 			
 			createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 toast.success("Register successfully");
 				navigate(Routes.LOGIN);
+                setLoading(false);
 
 				userCredential.user.getIdToken().then((token) => {
 					setDoc(doc(db, "users", userCredential.user.uid), {
@@ -35,6 +41,7 @@ const SignUp = () => {
             })
             .catch((error) => {
                 toast.error(error.message);
+                setLoading(false);
             });
         }
     });

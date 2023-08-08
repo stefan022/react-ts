@@ -6,10 +6,14 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../../firebase/config";
 import { DocumentSnapshot, doc, getDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { clearAuthFormFields } from "../../../utils/helpers/clearAuthFormFields";
 
-const SignIn = () => {
+interface IProps {
+	setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const SignIn: React.FC<IProps> = ({ setLoading }): JSX.Element => {
 	const emailRef = useRef<HTMLInputElement>(null);
 	const passwordRef = useRef<HTMLInputElement>(null);
 
@@ -17,6 +21,7 @@ const SignIn = () => {
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => { 
 		e.preventDefault();
+		setLoading(true);
 
 		signInWithEmailAndPassword(auth, emailRef.current!.value, passwordRef.current!.value)
             .then((userCredential) => {
@@ -26,12 +31,17 @@ const SignIn = () => {
 						localStorage.setItem("userId", userCredential.user.uid); 
 						toast.success("Login successfully");
 						navigate(Routes.HOME);
+						setLoading(false);
 					})
-                	.catch(error => console.log(error));
+                	.catch(error => {
+						toast.error(error);
+						setLoading(false);
+					});
             })
             .catch((error) => {
                 toast.error("Invalid email address or password");
 				clearAuthFormFields(emailRef, passwordRef);
+				setLoading(false);
             });
 	 }
 
