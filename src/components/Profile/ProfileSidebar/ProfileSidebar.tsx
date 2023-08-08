@@ -1,41 +1,56 @@
-import React, { Fragment } from 'react'
-import { profileData } from '../profileData';
-import { Link } from 'react-router-dom';
+import React from 'react'
 
+import { profileData } from '../profileData';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { IoLogOutOutline } from "react-icons/io5";
+import { Routes } from '../../../router/Routes';
+import { toast } from 'react-toastify';
+
+import "./ProfileSidebar.scss";
 
 const ProfileSidebar = () => {
-    const [ currentActive, setCurrentActive ] = React.useState<number>(1);
-    const handleChangeActive = (id: number) => setCurrentActive(id);
+    const navigate = useNavigate();
+
+    const handleLogout = () => { 
+        localStorage.removeItem("token");
+        localStorage.removeItem("userId");
+
+        navigate(Routes.LOGIN);
+        toast.success("You have successfully logged out");
+    };
 
     return (
-        <div className="border border-gray-400 w-1/6 p-4 h-full">
+        <div className="profile">
             <ul>
                 {
                     profileData.map((data) => {
                         const { id, route, text, icon } = data;
 
                         return (
-                            <Fragment key={id}>
-                                <Link 
+                            <li key={id}>
+                                <NavLink
                                     to={route}
-                                    onClick={() => handleChangeActive(id)}
+                                    end
                                 >
-                                    <li className={`
-                                        ${currentActive === id ? "bg-blue-400 text-white" : ""}
-                                        border border-gray-300 py-1 px-3 mb-4 flex items-center gap-2
-                                    `}>
-                                        <div>{icon}</div>
-                                        <p>{text}</p>
-                                    </li>
-                                </Link>
-                            </Fragment>
+                                    {({ isActive }) => (
+                                        <div className={`
+                                            ${isActive && "profile__sidebar-active"}
+                                            profile__sidebar
+                                        `}>
+                                            <div>{icon}</div>
+                                            <p>{text}</p>
+                                        </div>
+                                    )}
+                                </NavLink>
+                            </li>
                         )
                     })
                 }
-                <li className='border border-gray-300 py-1 px-3 flex items-center gap-2'>
-                    <div><IoLogOutOutline/></div>
-                    <p>Logout</p>
+                <li>
+                    <button className='profile__sidebar' onClick={handleLogout}>
+                        <div><IoLogOutOutline/></div>
+                        <p>Logout</p>
+                    </button>
                 </li>
             </ul>
         </div>
