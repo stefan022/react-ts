@@ -1,8 +1,7 @@
-import React, { useEffect, Fragment, MouseEventHandler } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { profileData } from "../profileData";
-import { Routes } from "../../../router/Routes";
-import { toast } from "react-toastify";
+import React, { MouseEventHandler } from "react";
+
+import { ProfileNavigation } from "../../../components"
+import "./ProfileDropdown.scss";
 
 interface IProps {
     profileDropdown: boolean;
@@ -11,16 +10,6 @@ interface IProps {
 }
 
 const ProfileDropdown = ({ profileDropdown, handleHideProfileDropdown, handleDisplayProfileDropdown }: IProps) => {
-    const navigate = useNavigate();
-
-    const handleLogout = () => { 
-        localStorage.removeItem("token");
-        localStorage.removeItem("userId");
-
-        navigate(Routes.LOGIN);
-        toast.success("You have successfully logged out");
-    };
-
 	return (
 		<div 
             onMouseEnter={handleDisplayProfileDropdown}
@@ -28,24 +17,9 @@ const ProfileDropdown = ({ profileDropdown, handleHideProfileDropdown, handleDis
         >
             <div 
                 onMouseLeave={handleHideProfileDropdown}
-                className={`${profileDropdown ? "" : "hidden"} border border-gray-400 z-10 absolute top-14 right-0 bg-white py-4 px-8`}
+                className={`${profileDropdown ? "" : "hidden"} profile__dropdown`}
             >
-                <ul>
-                    {
-                        profileData.map((data) => {
-                            const { id, route, text } = data;
-
-                            return (
-                                <Fragment key={id}>
-                                    <Link to={route}>
-                                        <li>{text}</li>
-                                    </Link>
-                                </Fragment>
-                            )
-                        })
-                    }
-                    <button className="bg-blue-400 py-1 px-3" onClick={handleLogout}>Logout</button>
-                </ul>
+                <ProfileNavigation profileType="dropdown"/>
             </div>
         </div>
 	);

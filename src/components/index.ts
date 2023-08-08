@@ -24,6 +24,7 @@ export { default as AuthOr } from "./Forms/Auth/AuthOr/AuthOr";
 export { default as Navbar } from "./Navbar/Navbar";
 export { default as Logo } from "./Navbar/Logo/Logo";
 export { default as Navigation } from "./Navbar/Navigation/Navigation";
+export { default as ProfileNavigation } from "./Profile/ProfileNavigation/ProfileNavigation";
 export { default as ProfileDropdown } from "./Profile/ProfileDropdown/ProfileDropdown";
 export { default as ProfileSidebar } from "./Profile/ProfileSidebar/ProfileSidebar";
 export { default as ProfileHeader } from "./Profile/ProfileHeader/ProfileHeader";
