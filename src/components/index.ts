@@ -22,6 +22,7 @@ export { default as AuthResetPassword } from "./Forms/Auth/AuthResetPassword/Aut
 export { default as AuthResetPasswordSwitch } from "./Forms/Auth/AuthResetPasswordSwitch/AuthResetPasswordSwitch";
 export { default as AuthOr } from "./Forms/Auth/AuthOr/AuthOr";
 export { default as Navbar } from "./Navbar/Navbar";
+export { default as Sections } from "./Sections/Sections";
 export { default as Logo } from "./Navbar/Logo/Logo";
 export { default as Navigation } from "./Navbar/Navigation/Navigation";
 export { default as ProfileNavigation } from "./Profile/ProfileNavigation/ProfileNavigation";
