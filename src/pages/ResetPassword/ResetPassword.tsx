@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState, FC } from 'react'
 
-import { AuthResetPassword } from '../../components';
+import { AuthResetPassword, Spinner } from '../../components';
 
 import logo from "../../assets/logo.png";
 import wallpaper from "../../assets/wallpaper.png";
 
-const ResetPassword = () => {
+const ResetPassword: FC = (): JSX.Element => {
+    const [ loading, setLoading ] = useState<boolean>(false);
+
     return (
         <div className="flex items-center">
 			<div className="relative w-1/2">
@@ -13,8 +15,11 @@ const ResetPassword = () => {
                 <img className="w-full h-screen relative" src={wallpaper} alt="wallpaper.png"/>
             </div>
 			<div className="w-1/2">
-                <AuthResetPassword/>
+                <AuthResetPassword
+                    setLoading={setLoading}
+                />
 			</div>
+            { loading && <Spinner/> }
 		</div>
     )
 }
