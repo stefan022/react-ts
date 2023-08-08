@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore, collection } from "firebase/firestore"
+import { getStorage } from "firebase/storage";
 
 import { IFirebaseConfig } from "../ts/interfaces/IFirebase/IFirebaseConfig";
 
@@ -21,5 +22,6 @@ export const auth = getAuth(app);
 
 export const db = getFirestore();
 export const collectionRef = collection(db, "users");
+export const storage = getStorage(app);
 
 export default app;

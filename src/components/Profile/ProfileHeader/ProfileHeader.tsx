@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Routes } from "../../../router/Routes";
+import ProfilePicture from "../ProfilePicture/ProfilePicture";
 
 const ProfileHeader = () => {
 	return (
 		<div className="flex justify-between items-center">
 			<div className="flex items-center">
-				<div className="w-[100px] h-[100px] rounded-full border border-gray-700 relative z-10 bg-white -top-8"></div>
+				<ProfilePicture/>
 				<div className="ml-2">
 					<p>First Name / Last Name</p>
 				</div>
