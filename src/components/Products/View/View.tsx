@@ -1,10 +1,10 @@
-import React, { MouseEventHandler } from 'react'
+import React from 'react'
 
 interface IProps {
     handleChangeProductsView: (view: string) => void;
 }
 
-const ProductsView = ({ handleChangeProductsView }: IProps) => {
+const View = ({ handleChangeProductsView }: IProps) => {
     return (
         <div className='flex gap-2'>
             <button 
@@ -23,4 +23,4 @@ const ProductsView = ({ handleChangeProductsView }: IProps) => {
     )
 }
 
-export default ProductsView
+export default View

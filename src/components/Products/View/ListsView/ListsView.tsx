@@ -1,12 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { Routes } from '../../../../router/Routes'
-import { ProductListCard } from "../../.."
 
-const ProductsList = () => {
+import { PhoneLists } from "../../../../components"
+
+const ListsView = () => {
     return (
         <div className='flex flex-wrap'>
-            <ProductListCard
+            <PhoneLists
                 productName='$productName'
                 description='$desc'
                 colors={["red", "red", "red", "red"]}
@@ -14,7 +13,7 @@ const ProductsList = () => {
                 rating={5}
                 status='available'
             />
-            <ProductListCard
+            <PhoneLists
                 productName='$productName'
                 description='$desc'
                 colors={["red", "red", "red", "red"]}
@@ -22,7 +21,7 @@ const ProductsList = () => {
                 rating={5}
                 status='available'
             />
-            <ProductListCard
+            <PhoneLists
                 productName='$productName'
                 description='$desc'
                 colors={["red", "red", "red", "red"]}
@@ -30,7 +29,7 @@ const ProductsList = () => {
                 rating={5}
                 status='available'
             />
-            <ProductListCard
+            <PhoneLists
                 productName='$productName'
                 description='$desc'
                 colors={["red", "red", "red", "red"]}
@@ -42,4 +41,4 @@ const ProductsList = () => {
     )
 }
 
-export default ProductsList
+export default ListsView

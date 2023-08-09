@@ -1,12 +1,11 @@
-import React from 'react'
-import { Banner, ProductsFilter, ProductsSearch, ProductsSort, ProductsView, ProductsGrid, ProductsList } from '../../../components'
+import React, { FC } from 'react'
+import { Banner, ProductsFilter, ProductsSearch, ProductsSort, View, CardsView, ListsView } from '../../../components'
 
-import phones from "../../../assets/phones.png";
 import Container from '../../../containers/Container/Container';
+import phones from "../../../assets/phones.png";
 
-const Phones = () => {
+const Phones: FC = (): JSX.Element => {
     const [ currentView, setCurrentView ] = React.useState<string>("grid");
-
     const handleChangeProductsView = (view: string) => setCurrentView(view);
 
     return (
@@ -25,7 +24,7 @@ const Phones = () => {
                             <div className='flex justify-between items-center'>
                                 <ProductsSearch/>
                                 <div className='flex items-center gap-4'>
-                                    <ProductsView
+                                    <View
                                         handleChangeProductsView={handleChangeProductsView}
                                     />
                                     <ProductsSort/>
@@ -34,8 +33,8 @@ const Phones = () => {
                         </div>
                         {
                             currentView === "grid" 
-                                ? <ProductsGrid/>
-                                : <ProductsList/>
+                                ? <CardsView category='phones'/>
+                                : <ListsView/>
                         }
                     </div>
                 </div>
