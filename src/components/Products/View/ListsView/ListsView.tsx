@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
 
 import { PhoneLists } from "../../../../components"
-import { Categories } from '../../../../ts/types/categories';
+import { TCategories } from '../../../../ts/types/TCategories';
 
 interface IProps {
-    category: Categories;
+    category: TCategories;
 }
 
 const ListsView: FC<IProps> = ({ category }): JSX.Element => {
