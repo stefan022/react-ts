@@ -3,17 +3,16 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore, collection } from "firebase/firestore"
 import { getStorage } from "firebase/storage";
-
 import { IFirebaseConfig } from "../ts/interfaces/IFirebase/IFirebaseConfig";
 
 // Your web app's Firebase configuration
 export const firebaseConfig: IFirebaseConfig = {
-    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-    projectId: process.env.REACT_APP_PROJECT_ID,
-    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-    appId: process.env.REACT_APP_ID,
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY as string,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN as string,
+    projectId: process.env.REACT_APP_PROJECT_ID as string,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET as string,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID as string,
+    appId: process.env.REACT_APP_ID as string
 };
 
 // Initialize Firebase
