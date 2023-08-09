@@ -34,7 +34,7 @@ const Phones: FC = (): JSX.Element => {
                         {
                             currentView === "grid" 
                                 ? <CardsView category='phones'/>
-                                : <ListsView/>
+                                : <ListsView category='phones'/>
                         }
                     </div>
                 </div>

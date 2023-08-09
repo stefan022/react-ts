@@ -1,8 +1,10 @@
 import React, { FC } from 'react'
+
 import { PhoneCards } from '../../../../components'
+import { Categories } from '../../../../ts/types/categories';
 
 interface IProps {
-    category: "phones" | "tablets" | "laptops" | "televisions" | "others";
+    category: Categories;
 }
 
 const CardsView: FC<IProps> = ({ category }): JSX.Element => {

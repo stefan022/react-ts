@@ -1,42 +1,18 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { PhoneLists } from "../../../../components"
+import { Categories } from '../../../../ts/types/categories';
 
-const ListsView = () => {
+interface IProps {
+    category: Categories;
+}
+
+const ListsView: FC<IProps> = ({ category }): JSX.Element => {
     return (
         <div className='flex flex-wrap'>
-            <PhoneLists
-                productName='$productName'
-                description='$desc'
-                colors={["red", "red", "red", "red"]}
-                price='$price'
-                rating={5}
-                status='available'
-            />
-            <PhoneLists
-                productName='$productName'
-                description='$desc'
-                colors={["red", "red", "red", "red"]}
-                price='$price'
-                rating={5}
-                status='available'
-            />
-            <PhoneLists
-                productName='$productName'
-                description='$desc'
-                colors={["red", "red", "red", "red"]}
-                price='$price'
-                rating={5}
-                status='available'
-            />
-            <PhoneLists
-                productName='$productName'
-                description='$desc'
-                colors={["red", "red", "red", "red"]}
-                price='$price'
-                rating={5}
-                status='available'
-            />
+            {
+                category === "phones" && <PhoneLists/>
+            }
         </div>
     )
 }

@@ -7,16 +7,7 @@ import { IPhone } from '../../../../../ts/interfaces/IProducts/IPhone';
 
 import { SinglePhoneList } from "../../../../../components"
 
-interface IProps {
-    rating: number;
-    status: string;
-    productName: string;
-    description: string;
-    price: string;
-    colors: string[];
-}
-
-const PhoneLists: FC<IProps> = ({ rating, status, productName, description, price, colors }): JSX.Element => {
+const PhoneLists: FC = (): JSX.Element => {
     useGetPhonesQuery();
     const { phones } = useAppSelector((state: RootState) => state.phones);
 
@@ -25,7 +16,7 @@ const PhoneLists: FC<IProps> = ({ rating, status, productName, description, pric
             {
                 phones ?
                 phones.map((phone: IPhone) => {
-                    const { phoneId, phoneName, colors, price, rating, images } = phone;
+                    const { phoneId, phoneName, status, colors, price, rating, images } = phone;
 
                     const set = new Set(colors);
                     console.log(set);
