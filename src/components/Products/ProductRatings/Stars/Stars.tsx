@@ -3,7 +3,11 @@ import React, { FC } from "react"
 import { AiFillStar } from "react-icons/ai";
 import { starsData } from "./starsData";
 
-const Stars: FC<{rating: number}> = ({ rating }): JSX.Element => {
+interface IProps {
+    rating: number
+};
+
+const Stars: FC<IProps> = ({ rating }): JSX.Element => {
     return (
         <>
             {
