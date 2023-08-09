@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { useGetPhonesQuery } from '../../../../../features/API/phonesAPI';
 import { useAppSelector } from '../../../../../hooks/useAppSelector';
@@ -16,7 +16,7 @@ interface IProps {
     colors: string[];
 }
 
-const ProductPhoneLists = ({ rating, status, productName, description, price, colors }: IProps) => {
+const PhoneLists: FC<IProps> = ({ rating, status, productName, description, price, colors }): JSX.Element => {
     useGetPhonesQuery();
     const { phones } = useAppSelector((state: RootState) => state.phones);
 
@@ -48,4 +48,4 @@ const ProductPhoneLists = ({ rating, status, productName, description, price, co
     )
 }
 
-export default ProductPhoneLists
+export default PhoneLists
