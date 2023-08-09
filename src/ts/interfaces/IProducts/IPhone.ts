@@ -1,9 +1,11 @@
+import { Colors } from "../../types/Colors";
+
 export interface IPhone {
     phoneName: string;
     price: number;
     brand: string;
     model: string;
-    colors: ("black" | "white" | "red" | "blue" | "purple" | "gold" | "yellow" | "grey" | "gray" | "green" | "silver")[];
+    colors: Colors[];
     quantity: number;
     rating: number;
     camera: { 
