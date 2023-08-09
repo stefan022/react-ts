@@ -18,9 +18,6 @@ const PhoneLists: FC = (): JSX.Element => {
                 phones.map((phone: IPhone) => {
                     const { phoneId, phoneName, status, colors, price, rating, images } = phone;
 
-                    const set = new Set(colors);
-                    console.log(set);
-
                     return (
                         <SinglePhoneList
                             key={phoneId}
