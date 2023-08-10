@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react'
 
-import { FilterBrands, FilterClear, FilterColors, FilterPrice, FilterRatings, FilterTitle } from "../../../components"
+import { FilterBrands, FilterClear, FilterColors, FilterPrice, FilterRatings, FilterSkeleton, FilterTitle } from "../../../components"
 
 import { Colors } from '../../../ts/types/Colors';
 import { Product } from '../../../ts/types/Product';
@@ -35,16 +35,26 @@ const Filter: FC<IProps> = ({ products }): JSX.Element => {
     }, [products]);
 
     return (
-        <div className='w-1/6 border border-gray-400 h-full'>
-            <div className='border border-b-gray-400 flex items-center justify-between p-4'>
-                <FilterTitle/>
-                <FilterClear/>
-            </div>
-            <FilterBrands uniqueBrands={filterBrands}/>
-            <FilterRatings/>
-            <FilterPrice filterPrice={filterPrice}/>
-            <FilterColors uniqueColors={filterColors}/>
-        </div>
+        <>
+            {
+                products.length > 0 ? (
+                    <div className='w-1/6 border border-gray-400 h-full'>
+                        <div className='border border-b-gray-400 flex items-center justify-between p-4'>
+                            <FilterTitle/>
+                            <FilterClear/>
+                        </div>
+                        <FilterBrands uniqueBrands={filterBrands}/>
+                        <FilterRatings/>
+                        <FilterPrice filterPrice={filterPrice}/>
+                        <FilterColors uniqueColors={filterColors}/>
+                    </div>
+                ) : (
+                    <div className='w-1/6'>
+                        <FilterSkeleton/>
+                    </div>
+                )
+            }
+        </>
     )
 }
 

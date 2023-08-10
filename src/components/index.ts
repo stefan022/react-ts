@@ -79,6 +79,7 @@ export { default as FilterBrands } from "./Products/Filter/FilterBrands/FilterBr
 export { default as FilterRatings } from "./Products/Filter/FilterRatings/FilterRatings";
 export { default as FilterPrice } from "./Products/Filter/FilterPrice/FilterPrice";
 export { default as FilterColors } from "./Products/Filter/FilterColors/FilterColors";
+export { default as FilterSkeleton} from "./Skeletons/FilterSkeleton";
 export { default as ProductsSearch } from "./Products/Search/ProductsSearch";
 export { default as Categories } from "./Products/Categories/Categories";
 export { default as Category } from "./Products/Category/Category";
