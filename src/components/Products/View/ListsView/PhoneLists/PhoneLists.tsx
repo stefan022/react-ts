@@ -21,6 +21,7 @@ const PhoneLists: FC = (): JSX.Element => {
                     return (
                         <SinglePhoneList
                             key={phoneId}
+                            phoneId={phoneId}
                             phoneName={phoneName}
                             description='$desc'
                             colors={colors}

@@ -7,16 +7,17 @@ import { Routes } from '../../../../../router/Routes';
 import { SingleProductColors, Stars } from "../../../../../components"
 
 interface IProps {
-  rating: number;
-  status: string;
-  phoneName: string;
-  description: string;
-  price: number;
-  colors: Colors[];
-  images: string[];
+    phoneId: number
+    rating: number;
+    status: string;
+    phoneName: string;
+    description: string;
+    price: number;
+    colors: Colors[];
+    images: string[];
 }
 
-const SinglePhoneList: FC<IProps> = ({ rating, status, phoneName, description, price, colors, images }): JSX.Element => {
+const SinglePhoneList: FC<IProps> = ({ phoneId, rating, status, phoneName, description, price, colors, images }): JSX.Element => {
     return (
         <div className='border border-gray-300 w-full p-2'>
             <div className='border border-gray-300 h-[200px] flex'>
@@ -47,7 +48,7 @@ const SinglePhoneList: FC<IProps> = ({ rating, status, phoneName, description, p
                         <div className='flex flex-col justify-between'>
                             <p>{price}</p>
                             <div className='flex gap-2'>
-                                <SingleProductColors colors={colors}/> 
+                                <SingleProductColors phoneId={phoneId} colors={colors}/> 
                             </div>
                         </div>
                         <div className='flex items-center'>

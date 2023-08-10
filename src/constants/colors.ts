@@ -1,13 +1,13 @@
 export const colors = {
-    black: "bg-gray-700",
+    black: "bg-gray-900",
     white: "bg-white",
-    red: "bg-red-300",
-    blue: "bg-blue-300",
-    purple: "bg-purple-300",
-    gold: "bg-amber-200",
-    yellow: "bg-yellow-300",
-    grey: "bg-gray-300",
-    gray: "bg-gray-300",
-    green: "bg-green-300",
+    red: "bg-red-500",
+    blue: "bg-blue-500",
+    purple: "bg-purple-500",
+    gold: "bg-yellow-400",
+    yellow: "bg-amber-200",
+    grey: "bg-gray-600",
+    gray: "bg-gray-600",
+    green: "bg-green-500",
     silver: "bg-slate-300"
 }
