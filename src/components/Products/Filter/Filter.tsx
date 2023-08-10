@@ -1,76 +1,49 @@
-import React from 'react'
+import React, { FC, useEffect, useState } from 'react'
 
-const Filter = () => {
+import { FilterBrands, FilterClear, FilterColors, FilterPrice, FilterRatings, FilterTitle } from "../../../components"
+
+import { Colors } from '../../../ts/types/Colors';
+import { Product } from '../../../ts/types/Product';
+import { Products } from '../../../ts/types/Products';
+
+interface IProps {
+    products: Products;
+}
+
+const Filter: FC<IProps> = ({ products }): JSX.Element => {
+    const [ filterBrands, setFilterBrands ] = useState<string[]>([]);
+    const [ filterColors, setFilterColors ] = useState<Colors[]>([]);
+    const [ filterPrice, setFilterPrice ] = useState<number[]>([]);
+
+    useEffect(() => {
+        if (products.length === 0) return;
+
+        const uniqueBrands = new Set();
+        const uniqueColors = new Set();
+        
+        products.forEach((product: Product) => {
+            uniqueBrands.add(product.brand);
+            setFilterPrice((prev) => [...prev, product.price]);
+
+            product.colors.forEach((color: Colors) => uniqueColors.add(color));
+        })
+
+        uniqueBrands.forEach((uniq: any) => setFilterBrands((prev) => [...prev, uniq]));
+        uniqueColors.forEach((uniq: any) => setFilterColors((prev) => [...prev, uniq]));
+
+        // eslint-disable-next-line
+    }, [products]);
+
     return (
         <div className='w-1/6 border border-gray-400 h-full'>
             <div className='border border-b-gray-400 flex items-center justify-between p-4'>
-                <p>Filter</p>
-                <button>Clear filter</button>
+                <FilterTitle/>
+                <FilterClear/>
             </div>
-            <div className='border border-b-gray-400 p-4'>
-                <form className="flex flex-col items-start">
-                    <p className='mb-2 text-gray-400'>Brands</p>
-                    <div className='flex items-center'>
-                        <input type="checkbox" id="apple" />
-                        <label className='ml-2' htmlFor="apple">Apple</label>
-                    </div>
-                    <div className='flex items-center'>
-                        <input type="checkbox" id="apple" />
-                        <label className='ml-2' htmlFor="apple">Apple</label>
-                    </div>
-                    <div className='flex items-center'>
-                        <input type="checkbox" id="apple" />
-                        <label className='ml-2' htmlFor="apple">Apple</label>
-                    </div>
-                    <div className='flex items-center'>
-                        <input type="checkbox" id="apple" />
-                        <label className='ml-2' htmlFor="apple">Apple</label>
-                    </div>
-                </form>
-            </div>
-            <div className='border border-b-gray-400 p-4'>
-                <div className='flex flex-col items-start'>
-                    <form className="flex flex-col items-start">
-                        <p className='mb-2 text-gray-400'>Rating</p>
-                        <div className='flex items-center'>
-                            <input type="checkbox" id="apple" />
-                            <label className='ml-2' htmlFor="apple">&#9733; &#9733; &#9733; &#9733; &#9733;</label>
-                        </div>
-                        <div className='flex items-center'>
-                            <input type="checkbox" id="apple" />
-                            <label className='ml-2' htmlFor="apple">&#9733; &#9733; &#9733; &#9733;</label>
-                        </div>
-                        <div className='flex items-center'>
-                            <input type="checkbox" id="apple" />
-                            <label className='ml-2' htmlFor="apple">&#9733; &#9733; &#9733;</label>
-                        </div>
-                        <div className='flex items-center'>
-                            <input type="checkbox" id="apple" />
-                            <label className='ml-2' htmlFor="apple">&#9733; &#9733;</label>
-                        </div>
-                        <div className='flex items-center'>
-                            <input type="checkbox" id="apple" />
-                            <label className='ml-2' htmlFor="apple">&#9733;</label>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div className='border border-b-gray-400 p-4'>
-                <p className='text-gray-400'>Price</p>
-                <p className='text-gray-300 text-sm'>$500</p>
-                <form>
-                    <input type="range" min="1" max="100"/>
-                </form>
-            </div>
-            <div className='border border-b-gray-400 p-4'>
-                <p className='mb-2 text-gray-400'>Colors</p>
-                <form className='flex gap-2'>
-                    <button className='bg-red-300 rounded-full w-5 h-5'></button>
-                    <button className='bg-red-300 rounded-full w-5 h-5'></button>
-                    <button className='bg-red-300 rounded-full w-5 h-5'></button>
-                    <button className='bg-red-300 rounded-full w-5 h-5'></button>
-                </form>
-            </div>
+            <FilterBrands uniqueBrands={filterBrands}/>
+            <FilterRatings/>
+            <FilterPrice filterPrice={filterPrice}/>
+            <FilterColors uniqueColors={filterColors}/>
         </div>
     )
 }
