@@ -2,6 +2,7 @@ import React from 'react'
 
 import { Banner, Categories } from '../../components'
 import products from "../../assets/products.png";
+import { Container } from '../../containers';
 
 const Products = () => {
     return (
@@ -12,7 +13,9 @@ const Products = () => {
                 bgNoRepeat="bg-no-repeat"
                 image={products}
             />
-            <Categories/>
+            <Container>
+                <Categories/>
+            </Container>
         </div>
     )
 }

@@ -8,7 +8,7 @@ const Televisions = () => {
         <div>
             <Banner 
                 title="Televisions"
-                bgPosition="bg-bottom"
+                bgPosition="bg-left"
                 bgNoRepeat="bg-no-repeat"
                 image={televisions}
             />
