@@ -9,7 +9,7 @@ interface IProps {
 }
 
 const PhoneDetails: FC<IProps> = ({ product }): JSX.Element => {
-    const { phoneName, rating, status, model, timestamp, brand, price, colors, images, screen, memory, camera, battery } = product;
+    const { phoneName, rating, status, model, timestamp, brand, price, colors, images, screen, memory, camera, battery, discount } = product;
 
     return (
         <div>
@@ -32,6 +32,7 @@ const PhoneDetails: FC<IProps> = ({ product }): JSX.Element => {
                             brand={brand}
                             price={price}
                             colors={colors}
+                            discount={discount}
                         />
                     </div>
                 </div>

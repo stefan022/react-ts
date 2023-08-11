@@ -98,6 +98,12 @@ export { default as PhoneDetails } from "./Products/ProductDetails/PhoneDetails/
 export { default as ProductImages } from "./Products/ProductDetails/ProductImages/ProductImages";
 export { default as ProductButtons } from "./Products/ProductDetails/ProductButtons/ProductButtons";
 export { default as ProductInformation } from "./Products/ProductDetails/ProductInformation/ProductInformation";
+export { default as ProductName } from "./Products/ProductDetails/ProductName/ProductName";
+export { default as ProductStatus } from "./Products/ProductDetails/ProductStatus/ProductStatus";
+export { default as ProductShortDesc } from "./Products/ProductDetails/ProductShortDesc/ProductShortDesc";
+export { default as ProductPrice } from "./Products/ProductDetails/ProductPrice/ProductPrice";
+export { default as ProductColors } from "./Products/ProductDetails/ProductColors/ProductColors";
+export { default as ProductQuantity } from "./Products/ProductDetails/ProductQuantity/ProductQuantity";
 export { default as ProductSpecifications } from "./Products/ProductDetails/ProductSpecifications/ProductSpecifications";
 export { default as ProductRatings } from "./Products/ProductDetails/ProductRatings/ProductRatings";
 export { default as ProductRatingsTitle } from "./Products/ProductDetails/ProductRatings/ProductRatingsTitle/ProductRatingsTitle";

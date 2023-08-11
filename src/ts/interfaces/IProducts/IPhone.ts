@@ -2,6 +2,7 @@ import { TColors } from "../../types/TColors";
 
 export interface IPhone {
     phoneName: string;
+    discount: number;
     price: number;
     brand: string;
     model: string;
