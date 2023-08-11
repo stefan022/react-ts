@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, ChangeEvent, useEffect } from 'react'
 
 import { Banner, Filter, ProductsSearch, ProductsSort, View, CardsView, ListsView } from '../../../components'
 import { useGetPhonesQuery } from '../../../features/API/phonesAPI';
@@ -7,13 +7,33 @@ import { RootState } from '../../../ts/types/RootState';
 
 import Container from '../../../containers/Container/Container';
 import phonesImage from "../../../assets/phones.png";
+import { useAppDispatch } from '../../../hooks/useAppDispatch';
+import { FILTERED_PRODUCTS } from '../../../features/slices/filterProductsSlice';
 
 const Phones: FC = (): JSX.Element => {
     useGetPhonesQuery();
-    const { phones } = useAppSelector((state: RootState) => state.phones);
-
     const [ currentView, setCurrentView ] = React.useState<string>("grid");
+
+    const { phones } = useAppSelector((state: RootState) => state.phones);
+    const dispatch = useAppDispatch();
+
     const handleChangeProductsView = (view: string) => setCurrentView(view);
+
+    useEffect(() => {
+        dispatch(FILTERED_PRODUCTS({
+            products: phones,
+        }));
+
+        // eslint-disable-next-line
+    }, [phones]);
+
+    const handleFilterChange = (e: ChangeEvent<HTMLFormElement>) => { 
+        dispatch(FILTERED_PRODUCTS({
+            products: phones,
+            filterName: e.target.id,
+            isChecked: e.target.checked
+        }))
+    };  
 
     return (
         <div>
@@ -25,7 +45,10 @@ const Phones: FC = (): JSX.Element => {
             />
             <Container>
                 <div className='flex w-full gap-6 pt-6'>
-                    <Filter products={phones}/>
+                    <Filter 
+                        products={phones}
+                        handleFilterChange={handleFilterChange}
+                    />
                     <div className='w-5/6 border border-gray-400'>
                         <div className='border border-b-gray-300'>
                             <div className='flex justify-between items-center'>

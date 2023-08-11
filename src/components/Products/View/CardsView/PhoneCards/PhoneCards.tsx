@@ -1,18 +1,18 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { IPhone } from '../../../../../ts/interfaces/IProducts/IPhone'
 import { SinglePhoneCard } from "../../../../../components";
 import { RootState } from '../../../../../ts/types/RootState';
 import { useAppSelector } from '../../../../../hooks/useAppSelector';
 
-const PhoneCards = () => {
-    const { phones } = useAppSelector((state: RootState) => state.phones);
+const PhoneCards: FC = (): JSX.Element => {
+    const { filteredProducts } = useAppSelector((state: RootState) => state.filters);
 
     return (
         <>
             {
-                phones ?
-                phones.map((phone: IPhone) => {
+                filteredProducts ?
+                filteredProducts.map((phone: IPhone) => {
                     const { phoneId, phoneName, colors, price, rating, images } = phone;
 
                     return (

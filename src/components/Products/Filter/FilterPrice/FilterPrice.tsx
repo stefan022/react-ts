@@ -15,14 +15,14 @@ const FilterPrice: FC<IProps> = ({ filterPrice }): JSX.Element => {
                 <p className='text-gray-400 text-sm'>${prices.minPrice}</p>
             </div>
             <div>
-                <form>
+                <div>
                     <input
-                        className='w-full' 
                         type="range" 
+                        className='w-full' 
                         min={prices.minPrice} 
                         max={prices.maxPrice}
                     />
-                </form>
+                </div>
                 <div className='flex justify-between'>
                     <p className='text-gray-400 text-sm relative -top-1'>${prices.minPrice}</p>
                     <p className='text-gray-400 text-sm relative -top-1'>${prices.maxPrice}</p>

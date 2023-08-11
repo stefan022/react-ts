@@ -5,7 +5,7 @@ export const filterSkeleton = [
     },
     {
         skeletonId: 2,
-        skeletonHeight: 235
+        skeletonHeight: 255
     },
     {
         skeletonId: 3,
@@ -17,6 +17,6 @@ export const filterSkeleton = [
     },
     {
         skeletonId: 5,
-        skeletonHeight: 115
+        skeletonHeight: 345
     },
 ];  

@@ -2,7 +2,7 @@ import { AiFillStar } from "react-icons/ai";
 
 export const filterRatingsData = [
     {
-        filterRatingId: 1,
+        filterRatingId: 5,
         stars: [
             <AiFillStar 
                 size={20}
@@ -37,7 +37,7 @@ export const filterRatingsData = [
         ] 
     },
     {
-        filterRatingId: 2,
+        filterRatingId: 4,
         stars: [
             <AiFillStar 
                 size={20}
@@ -89,7 +89,7 @@ export const filterRatingsData = [
         ]  
     },
     {
-        filterRatingId: 4,
+        filterRatingId: 2,
         stars: [
             <AiFillStar 
                 size={20}
@@ -106,7 +106,7 @@ export const filterRatingsData = [
         ]  
     },
     {
-        filterRatingId: 5,
+        filterRatingId: 1,
         stars: [
             <AiFillStar 
                 size={20}
