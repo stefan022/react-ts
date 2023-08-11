@@ -5,6 +5,7 @@ import { TColors } from '../../../../ts/types/TColors';
 import { RoundColors, Stars } from "../../.."
 import { timestampToLocalString } from '../../../../utils/helpers/timestampToLocalString';
 import { firstCapitalLatter } from '../../../../utils/helpers/capitalFirstLetter';
+import { calculationDiscount } from '../../../../utils/helpers/calculationDiscount';
 
 interface IProps {
     articleName: string;
@@ -36,9 +37,9 @@ const ProductInformation: FC<IProps> = ({ articleName, rating, status, model, ti
         </div>
         <div className='flex flex-col gap-1'>
             <div className='flex items-center gap-2'>
-                <h3 className='font-bold text-lg'>${price}</h3>
-                <p className='line-through text-gray-400'>$200</p>
-                <h3 className='text-red-500 font-bold ml-2'>(50% off)</h3>
+                <h3 className='font-bold text-lg'>${calculationDiscount(price, discount)}</h3>
+                <p className='line-through text-gray-400'>${price}</p>
+                <h3 className='text-red-500 font-bold ml-2'>({discount}% off)</h3>
             </div>
             <div className='flex items-center gap-2'>
                 <IoMdCheckmarkCircleOutline className='text-green-400' size={24}/>
