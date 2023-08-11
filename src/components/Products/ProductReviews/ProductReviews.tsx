@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ReviewForm, ProductSingleReview, ProductReviewsTitle } from "../../../components"
+import { ReviewForm, ProductSingleReview, ProductReviewsTitle } from "../.."
 
 const ProductReviews = () => {
     return (

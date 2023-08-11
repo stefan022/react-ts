@@ -1,11 +1,11 @@
-import { Colors } from "../../types/Colors";
+import { TColors } from "../../types/TColors";
 
 export interface IPhone {
     phoneName: string;
     price: number;
     brand: string;
     model: string;
-    colors: Colors[];
+    colors: TColors[];
     quantity: number;
     rating: number;
     camera: { 

@@ -18,7 +18,7 @@ const Banner = ({ title, desc, navigation, bgPosition, bgNoRepeat, image }: IPro
                 url(${image})` 
             }} 
                 className={`${bgPosition} ${bgNoRepeat} h-[200px] w-full flex flex-col items-center justify-center text-white`}>
-            <h2 className="text-3xl">{title}</h2>
+            <h1 className="text-white font-normal">{title}</h1>
             {
                 desc ? <p className="text-gray-100 pt-2">{desc}</p> : null
             }

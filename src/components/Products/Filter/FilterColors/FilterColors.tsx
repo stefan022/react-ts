@@ -1,12 +1,12 @@
 import React, { FC } from 'react'
 
-import { Colors } from '../../../../ts/types/Colors'
+import { TColors } from '../../../../ts/types/TColors'
 import { firstCapitalLatter } from '../../../../utils/helpers/capitalFirstLetter';
 import { useAppSelector } from '../../../../hooks/useAppSelector';
 import { RootState } from '../../../../ts/types/RootState';
 
 interface IProps {
-    uniqueColors: Colors[];
+    uniqueColors: TColors[];
 }
 
 const FilterColors: FC<IProps> = ({ uniqueColors }): JSX.Element => {
@@ -14,10 +14,10 @@ const FilterColors: FC<IProps> = ({ uniqueColors }): JSX.Element => {
 
     return (
         <div className='border border-b-gray-400 p-4'>
-            <p className='mb-2 text-gray-400'>Colors</p>
+            <p className='mb-2 text-gray-400'>TColors</p>
             {
                 uniqueColors.length > 0 ? (
-                    uniqueColors.map((color: Colors, index) => (
+                    uniqueColors.map((color: TColors, index) => (
                         <div key={index} className='flex items-center mb-1'>
                             <input 
                                 type="checkbox" 

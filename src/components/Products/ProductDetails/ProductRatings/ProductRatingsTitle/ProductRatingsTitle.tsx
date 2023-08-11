@@ -1,11 +1,11 @@
 import React from 'react'
 
-const ProductReviewsTitle = () => {
+const ProductRatingsTitle = () => {
     return (
         <div className='px-6 py-4 border border-b-blue-200'>
-            <p>Reviews</p>
+            <h3>Ratings</h3>
         </div>
     )
 }
 
-export default ProductReviewsTitle
+export default ProductRatingsTitle

@@ -1,5 +1,5 @@
 import { IPhone } from "../../ts/interfaces/IProducts/IPhone";
-import { Colors } from "../../ts/types/Colors";
+import { TColors } from "../../ts/types/TColors";
 
 
 export const helperFilteredProducts = (
@@ -19,7 +19,7 @@ export const helperFilteredProducts = (
         return (
             filters.includes(product.brand)
             || filters.includes(`${product.rating}`)
-            || product.colors.some((color: Colors) => filters.includes(color))
+            || product.colors.some((color: TColors) => filters.includes(color))
         );
     });
 

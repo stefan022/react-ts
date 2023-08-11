@@ -4,6 +4,7 @@ export { default as Register } from "./Register/Register";
 export { default as ResetPassword } from "./ResetPassword/ResetPassword";
 export { default as Products } from "./Products/Products";
 export { default as Phones } from "./Products/Phones/Phones";
+export { default as SinglePhone } from "./Products/Phones/SinglePhone/SinglePhone";
 export { default as Tablets } from "./Products/Tablets/Tablets";
 export { default as Laptops } from "./Products/Laptops/Laptops";
 export { default as Televisions } from "./Products/Televisions/Televisions";

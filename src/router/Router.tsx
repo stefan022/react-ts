@@ -2,10 +2,9 @@ import React from "react";
 
 import { BrowserRouter, Route, Routes as BrowserRoutes } from "react-router-dom";
 
-import { Home, Login, NotFound, Orders, Profile, Wishlist, Register, Settings, Products, Blogs, Faq, Support, Cart, Messages, Dashboard, Phones, Tablets, Laptops, Televisions, Others, Chat, Kanban, Calendar, Employees, Customers, AdminMessages, AdminProducts, AdminOrders, AdminReviews, NotAuthorized, ResetPassword } from "../pages";
+import { Home, Login, NotFound, Orders, Profile, Wishlist, Register, Settings, Products, Blogs, Faq, Support, Cart, Messages, Dashboard, Phones, Tablets, Laptops, Televisions, Others, Chat, Kanban, Calendar, Employees, Customers, AdminMessages, AdminProducts, AdminOrders, AdminReviews, NotAuthorized, ResetPassword, SinglePhone } from "../pages";
 import { PrivateLayout, PublicLayout, AdminLayout } from "../layouts";
 import { Routes } from "./Routes";
-import ProductDetails from "../pages/ProductDetails/ProductDetails";
 
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -111,10 +110,10 @@ const Router = () => {
 				{/* Product Details */}
 
 				<Route
-					path={`${Routes.PRODUCTS}${Routes.PRODUCT_DETAILS}`}
+					path={`${Routes.PRODUCTS}${Routes.PHONES}${Routes.PRODUCT_DETAILS}`}
 					element={
 						<PrivateLayout>
-							<ProductDetails />
+							<SinglePhone />
 						</PrivateLayout>
 					}
 				/>

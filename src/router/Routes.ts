@@ -6,7 +6,7 @@ export const Routes = {
     // PRIVATE
     HOME: "/",
     PRODUCTS: "/products",
-    PRODUCT_DETAILS: "/product-details",
+    PRODUCT_DETAILS: "/:productId",
     PHONES: "/phones",
     TABLETS: "/tablets",
     LAPTOPS: "/laptops",

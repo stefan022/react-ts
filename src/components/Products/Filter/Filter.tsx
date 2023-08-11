@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState, FormEvent, FormEventHandler } from 'rea
 
 import { FilterBrands, FilterClear, FilterColors, FilterPrice, FilterRatings, FilterSkeleton, FilterTitle } from "../../../components"
 
-import { Colors } from '../../../ts/types/Colors';
+import { TColors } from '../../../ts/types/TColors';
 import { Product } from '../../../ts/types/Product';
 import { Products } from '../../../ts/types/Products';
 import { useAppDispatch } from '../../../hooks/useAppDispatch';
@@ -18,7 +18,7 @@ interface IProps {
 
 const Filter: FC<IProps> = ({ products, handleFilterChange }): JSX.Element => {
     const [ filterBrands, setFilterBrands ] = useState<string[]>([]);
-    const [ filterColors, setFilterColors ] = useState<Colors[]>([]);
+    const [ filterColors, setFilterColors ] = useState<TColors[]>([]);
     const [ filterPrice, setFilterPrice ] = useState<number[]>([]);
 
     const { phones } = useAppSelector((state: RootState) => state.phones);
@@ -37,7 +37,7 @@ const Filter: FC<IProps> = ({ products, handleFilterChange }): JSX.Element => {
             uniqueBrands.add(product.brand);
             setFilterPrice((prev) => [...prev, product.price]);
 
-            product.colors.forEach((color: Colors) => uniqueColors.add(color));
+            product.colors.forEach((color: TColors) => uniqueColors.add(color));
         })
 
         uniqueBrands.forEach((uniq) => {
@@ -46,8 +46,8 @@ const Filter: FC<IProps> = ({ products, handleFilterChange }): JSX.Element => {
         });
 
         uniqueColors.forEach((uniq) => {
-            filters[uniq as Colors] = false;
-            setFilterColors((prev) => [...prev, uniq as Colors])
+            filters[uniq as TColors] = false;
+            setFilterColors((prev) => [...prev, uniq as TColors])
         });
 
         dispatch(FILTERS_CHECKED({ 

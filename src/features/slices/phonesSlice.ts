@@ -2,14 +2,14 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { phonesAPI } from './../API/phonesAPI';
 import { IPhone } from "../../ts/interfaces/IProducts/IPhone";
 
-type InitialState = {
+interface InitialState {
 	phones: IPhone[];
-	phone: IPhone | {};
+	singlePhone: IPhone | null;
 };
 
 const initialState: InitialState = {
 	phones: [],
-	phone: {},
+	singlePhone: null,
 };
 
 export const phonesSlice = createSlice({
@@ -21,7 +21,7 @@ export const phonesSlice = createSlice({
 			state.phones = action.payload;
 		});
 		builder.addMatcher(phonesAPI.endpoints.getSinglePhone.matchFulfilled, (state, action: PayloadAction<IPhone>) => {
-			state.phone = action.payload;
+			state.singlePhone = action.payload;
 		});
 	},
 });

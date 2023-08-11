@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ProductAdminReview } from "../../../components"
+import { ProductAdminReview } from "../../.."
 
 interface IProps {
     adminReview: boolean;

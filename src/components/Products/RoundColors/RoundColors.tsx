@@ -1,25 +1,27 @@
 import React, { FC } from 'react'
 
 import { colors as constColors } from '../../../constants/colors';
-import { Colors } from '../../../ts/types/Colors';
+import { TColors } from '../../../ts/types/TColors';
 
 interface IProps {
-    phoneId: number;
-    colors: Colors[];
+    phoneId?: number;
+    colors: TColors[];
+    largeSize: boolean;
 }
 
-const SingleProductColors: FC<IProps> = ({ phoneId, colors }): JSX.Element => {
+const RoundColors: FC<IProps> = ({ phoneId, colors, largeSize }): JSX.Element => {
     return ( 
         <>
             {
                 colors 
-                ? colors.map((color: Colors) => {
+                ? colors.map((color: TColors) => {
                     return (
                         <div 
                             key={`${phoneId}${color}`}
                             className={`
                             ${constColors[color]} 
-                            border rounded-full w-5 h-5
+                            ${largeSize ? "w-7 h-7" : "w-5 h-5"}
+                            border rounded-full
                         `}/>
                     )
                 })
@@ -29,4 +31,4 @@ const SingleProductColors: FC<IProps> = ({ phoneId, colors }): JSX.Element => {
     )
 }
 
-export default SingleProductColors
+export default RoundColors

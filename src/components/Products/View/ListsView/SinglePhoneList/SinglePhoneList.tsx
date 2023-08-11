@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
 
-import { Colors } from '../../../../../ts/types/Colors';
+import { TColors } from '../../../../../ts/types/TColors';
 import { Link } from 'react-router-dom';
 import { Routes } from '../../../../../router/Routes';
 
-import { SingleProductColors, Stars } from "../../../../../components"
+import { RoundColors, Stars } from "../../../../../components"
 
 interface IProps {
     phoneId: number
@@ -13,7 +13,7 @@ interface IProps {
     phoneName: string;
     description: string;
     price: number;
-    colors: Colors[];
+    colors: TColors[];
     images: string[];
 }
 
@@ -29,7 +29,7 @@ const SinglePhoneList: FC<IProps> = ({ phoneId, rating, status, phoneName, descr
                 <div className='p-2 w-full h-full flex flex-col justify-between'>
                     <div>
                         <div className='flex'>
-                            <Stars rating={rating}/>
+                            <Stars rating={rating} size={20}/>
                         </div>
                         <div className='flex items-center gap-1'>
                             <div className='bg-green-400 rounded-full w-2 h-2'></div>
@@ -48,7 +48,7 @@ const SinglePhoneList: FC<IProps> = ({ phoneId, rating, status, phoneName, descr
                         <div className='flex flex-col justify-between'>
                             <p>{price}</p>
                             <div className='flex gap-2'>
-                                <SingleProductColors phoneId={phoneId} colors={colors}/> 
+                                <RoundColors phoneId={phoneId} colors={colors} largeSize={false}/> 
                             </div>
                         </div>
                         <div className='flex items-center'>

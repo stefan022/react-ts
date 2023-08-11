@@ -1,4 +1,4 @@
-export const starsData = [
+export const stars = [
     {
         starId: 1,
         starRating: 1,

@@ -1,26 +1,25 @@
 import React, { FC } from "react"
 
 import { AiFillStar } from "react-icons/ai";
-import { starsData } from "./starsData";
+import { stars } from "../../../constants/stars";
 
 interface IProps {
-    rating: number
+    rating: number;
+    size: number;
 };
 
-const Stars: FC<IProps> = ({ rating }): JSX.Element => {
+const Stars: FC<IProps> = ({ rating, size }): JSX.Element => {
     return (
         <>
             {
-                starsData.map((star) => {
+                stars.map((star) => {
                     const { starId, starRating } = star;
 
                     return (
                         <AiFillStar 
                             key={starId}
-                            size={20}
-                            fill={ rating >= starRating ? "yellow" : "white" }
-                            stroke="black"
-                            strokeWidth={15}
+                            size={size}
+                            fill={ rating >= starRating ? "#ffcc00" : "#e6e6e6" }
                         />
                     )
                 })
