@@ -17,7 +17,7 @@ const ProfileDropdown: FC<IProps> = ({ profileDropdown, handleHideProfileDropdow
             />
             <div 
                 onMouseLeave={handleHideProfileDropdown}
-                className={`${profileDropdown ? "" : "hidden"} profile__dropdown`}
+                className={`${profileDropdown ? "opacity-100" : "opacity-0"} profile__dropdown`}
             >
                 <div className='profile__dropdown-tooltip'></div>
                 <ProfileNavigation profileType="dropdown"/>

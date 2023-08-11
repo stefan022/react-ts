@@ -29,7 +29,7 @@ const NavbarProfilePicture: FC<IProps> = ({ handleDisplayProfileDropdown }): JSX
     return (
         <div 
             onMouseEnter={handleDisplayProfileDropdown}
-            className="w-[40px] h-[40px] border border-gray-600 rounded-full relative flex items-center justify-center overflow-hidden"
+            className="w-[40px] h-[40px] cursor-pointer border border-gray-600 rounded-full relative flex items-center justify-center overflow-hidden"
         >
             {
                 !profilePicture ? (
