@@ -12,12 +12,12 @@ import { FILTERED_PRODUCTS } from '../../../features/slices/filterProductsSlice'
 
 const Phones: FC = (): JSX.Element => {
     useGetPhonesQuery();
-    const [ currentView, setCurrentView ] = React.useState<string>("grid");
+    const [ activeView, setActiveView ] = React.useState<string>("grid");
 
     const { phones } = useAppSelector((state: RootState) => state.phones);
     const dispatch = useAppDispatch();
 
-    const handleChangeProductsView = (view: string) => setCurrentView(view);
+    const handleChangeProductsView = (view: string) => setActiveView(view);
 
     useEffect(() => {
         dispatch(FILTERED_PRODUCTS({
@@ -55,6 +55,7 @@ const Phones: FC = (): JSX.Element => {
                                 <ProductsSearch/>
                                 <div className='flex items-center gap-4'>
                                     <View
+                                        activeView={activeView}
                                         handleChangeProductsView={handleChangeProductsView}
                                     />
                                     <Sort/>
@@ -62,7 +63,7 @@ const Phones: FC = (): JSX.Element => {
                             </div>
                         </div>
                         {
-                            currentView === "grid" 
+                            activeView === "grid" 
                                 ? <CardsView category='phones'/>
                                 : <ListsView category='phones'/>
                         }

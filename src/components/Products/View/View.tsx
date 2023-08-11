@@ -1,23 +1,32 @@
-import React from 'react'
+import React, { FC } from 'react'
+
+import { BsFillGridFill, BsListUl } from 'react-icons/bs';
+import "./View.scss"
 
 interface IProps {
+    activeView: string;
     handleChangeProductsView: (view: string) => void;
 }
 
-const View = ({ handleChangeProductsView }: IProps) => {
+const View: FC<IProps> = ({ activeView, handleChangeProductsView }): JSX.Element => {
     return (
         <div className='flex gap-2'>
             <button 
                 onClick={() => handleChangeProductsView("grid")}
-                className='border border-gray-300'
+                className={`
+                    ${activeView === "grid" ? "view-active" : "view"}  
+                `}
             >
-                    Grid
+                <BsFillGridFill size={20} className='view-icon'/>
             </button>
             <button 
                 onClick={() => handleChangeProductsView("list")}
-                className='border border-gray-300'
+                className={`
+                    ${activeView === "list" ? "view-active" : "view"}
+                    border p-1
+                `}
             >
-                List
+                <BsListUl size={20} className='view-icon'/>
             </button>
         </div>
     )
