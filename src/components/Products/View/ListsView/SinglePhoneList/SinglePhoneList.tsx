@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { Routes } from '../../../../../router/Routes';
 
 import { RoundColors, Stars } from "../../../../../components"
+import { firstCapitalLatter } from '../../../../../utils/helpers/capitalFirstLetter';
 
 interface IProps {
     phoneId: number
@@ -21,7 +22,7 @@ const SinglePhoneList: FC<IProps> = ({ phoneId, rating, status, phoneName, descr
     return (
         <div className='border border-gray-300 w-full p-2'>
             <div className='border border-gray-300 h-[200px] flex'>
-                <Link to={`${Routes.PRODUCTS}${Routes.PRODUCT_DETAILS}`}>
+                <Link to={`${Routes.PRODUCTS}${Routes.PHONES}/${phoneId}`}>
                     <div className='border border-gray-300 h-full w-[200px] bg-white'>
                         <img className='w-full h-full' src={images[0]} alt="" />
                     </div>
@@ -33,7 +34,7 @@ const SinglePhoneList: FC<IProps> = ({ phoneId, rating, status, phoneName, descr
                         </div>
                         <div className='flex items-center gap-1'>
                             <div className='bg-green-400 rounded-full w-2 h-2'></div>
-                            <p>{status}</p>
+                            <p>{firstCapitalLatter(status)}</p>
                         </div>
                     </div>
                     <div>
@@ -46,13 +47,13 @@ const SinglePhoneList: FC<IProps> = ({ phoneId, rating, status, phoneName, descr
                     </div>
                     <div className='flex justify-between'>
                         <div className='flex flex-col justify-between'>
-                            <p>{price}</p>
+                            <p>${price}</p>
                             <div className='flex gap-2'>
                                 <RoundColors phoneId={phoneId} colors={colors} largeSize={false}/> 
                             </div>
                         </div>
                         <div className='flex items-center'>
-                            <button className="bg-blue-300 py-1 px-3 text-white">Add to Cart</button>
+                            <button className="bg-blue-400 py-1 px-3 text-white">Add to Cart</button>
                         </div>
                     </div>
                 </div>
