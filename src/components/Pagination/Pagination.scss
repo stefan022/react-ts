@@ -1,0 +1,21 @@
+.paginationBtn {
+    @apply w-full flex justify-center items-center text-sm gap-1;
+
+    a {
+        @apply py-1.5 px-2.5 rounded-sm transition-all;
+    }
+}
+
+.paginationActive {
+    a {
+        @apply bg-blue-400 text-white hover:bg-blue-500 hover:text-white transition-all;
+    }
+}
+
+.prevBtn {
+    @apply pr-2.5;
+}
+
+.nextBtn {
+    @apply pl-2.5 pr-5
+}

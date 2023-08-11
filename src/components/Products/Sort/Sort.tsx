@@ -6,6 +6,7 @@ import { SORT_BY } from '../../../features/slices/sortProductsSlice';
 import { useAppSelector } from '../../../hooks/useAppSelector';
 import { RootState } from '../../../ts/types/RootState';
 import { SortBy } from '../../../ts/types/SortBy';
+import { PAGINATION_RESET_TO_FIRST_PAGE } from '../../../features/slices/paginationProductsSlice';
 
 const Sort: FC = (): JSX.Element => {
     const { filteredProducts } = useAppSelector((state: RootState) => state.filters);
@@ -21,6 +22,7 @@ const Sort: FC = (): JSX.Element => {
     }, [filteredProducts]);
 
     const handleSortChange = (e: ChangeEvent<HTMLSelectElement>) => { 
+        dispatch(PAGINATION_RESET_TO_FIRST_PAGE());
         dispatch(SORT_BY({
             sortBy: e.target.value as SortBy,
             products: filteredProducts
