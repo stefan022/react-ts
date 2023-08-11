@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from "react";
+import React, { FC, MouseEventHandler } from "react";
 
 import { NavbarProfilePicture, ProfileNavigation } from "../../../components"
 import "./ProfileDropdown.scss";
@@ -9,7 +9,7 @@ interface IProps {
     handleDisplayProfileDropdown: MouseEventHandler<HTMLDivElement>;
 }
 
-const ProfileDropdown = ({ profileDropdown, handleHideProfileDropdown, handleDisplayProfileDropdown }: IProps) => {
+const ProfileDropdown: FC<IProps> = ({ profileDropdown, handleHideProfileDropdown, handleDisplayProfileDropdown }): JSX.Element => {
 	return (
         <>
 		    <NavbarProfilePicture
@@ -19,6 +19,7 @@ const ProfileDropdown = ({ profileDropdown, handleHideProfileDropdown, handleDis
                 onMouseLeave={handleHideProfileDropdown}
                 className={`${profileDropdown ? "" : "hidden"} profile__dropdown`}
             >
+                <div className='profile__dropdown-tooltip'></div>
                 <ProfileNavigation profileType="dropdown"/>
             </div>
         </>
