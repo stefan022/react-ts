@@ -1,6 +1,6 @@
 import React, { FC, ChangeEvent, useEffect } from 'react'
 
-import { Banner, Filter, ProductsSearch, ProductsSort, View, CardsView, ListsView } from '../../../components'
+import { Banner, Filter, ProductsSearch, Sort, View, CardsView, ListsView } from '../../../components'
 import { useGetPhonesQuery } from '../../../features/API/phonesAPI';
 import { useAppSelector } from '../../../hooks/useAppSelector';
 import { RootState } from '../../../ts/types/RootState';
@@ -57,7 +57,7 @@ const Phones: FC = (): JSX.Element => {
                                     <View
                                         handleChangeProductsView={handleChangeProductsView}
                                     />
-                                    <ProductsSort/>
+                                    <Sort/>
                                 </div>
                             </div>
                         </div>

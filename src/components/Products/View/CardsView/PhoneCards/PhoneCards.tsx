@@ -6,13 +6,13 @@ import { RootState } from '../../../../../ts/types/RootState';
 import { useAppSelector } from '../../../../../hooks/useAppSelector';
 
 const PhoneCards: FC = (): JSX.Element => {
-    const { filteredProducts } = useAppSelector((state: RootState) => state.filters);
+    const { sortedProducts } = useAppSelector((state: RootState) => state.sorts);
 
     return (
         <>
             {
-                filteredProducts ?
-                filteredProducts.map((phone: IPhone) => {
+                sortedProducts ?
+                sortedProducts.map((phone: IPhone) => {
                     const { phoneId, phoneName, colors, price, rating, images } = phone;
 
                     return (

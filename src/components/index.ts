@@ -83,7 +83,7 @@ export { default as FilterSkeleton} from "./Skeletons/FilterSkeleton";
 export { default as ProductsSearch } from "./Products/Search/ProductsSearch";
 export { default as Categories } from "./Products/Categories/Categories";
 export { default as Category } from "./Products/Category/Category";
-export { default as ProductsSort } from "./Products/Sort/ProductsSort";
+export { default as Sort } from "./Products/Sort/Sort";
 export { default as View } from "./Products/View/View";
 export { default as CardsView } from "./Products/View/CardsView/CardsView";
 export { default as ListsView } from "./Products/View/ListsView/ListsView";
