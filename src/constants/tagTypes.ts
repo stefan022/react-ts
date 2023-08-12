@@ -1,4 +1,6 @@
 export const tagTypes: string[] = [
     "phones", 
-    "phone"
+    "phone",
+    "reviews",
+    "review"
 ];

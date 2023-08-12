@@ -1,47 +1,100 @@
-import React from 'react'
+import React, { Dispatch, FC, FormEvent, SetStateAction, useRef } from 'react'
 
-const ReviewForm = () => {
+import { ReviewFormRating, ReviewFormTitle, ReviewFormText, ReviewFormButton } from "../../../components"
+import { useAddReviewMutation } from '../../../features/API/reviewsAPI';
+import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
+interface IProps {
+	setLoading: Dispatch<SetStateAction<boolean>>;
+}
+
+const ReviewForm: FC<IProps> = ({ setLoading }): JSX.Element => {
+	const { productId } = useParams();
+	const [ currentFillStar, setCurrentFillStar ] = React.useState<number>(0);
+	const [ chooseStar, setChooseStar ] = React.useState<boolean>(false);
+	const reviewTitleRef = useRef<HTMLInputElement>(null);
+	const reviewTextRef = useRef<HTMLTextAreaElement>(null);
+	const [ addReview ] = useAddReviewMutation();
+
+	const handleFillStar = (star: number) => {
+		if (chooseStar) return;
+		setCurrentFillStar(star)
+	};
+
+	const handleEmptyStar = () => { 
+		if (chooseStar) return;
+		setCurrentFillStar(0);
+	};
+
+	const handleChooseStar = (star: number) => {
+		if (chooseStar) {
+			setChooseStar(false);
+
+			return;
+		}
+
+		setCurrentFillStar(star);
+		setChooseStar(true);
+	};
+
+	const handleAddReview = (e: FormEvent<HTMLFormElement>) => { 
+		e.preventDefault();
+
+		if (currentFillStar === 0) { 
+			toast.error("Please, choose your rating stars");
+
+			return;
+		}
+
+		setLoading(true);
+
+		const reviewTitle = reviewTitleRef.current!.value;
+		const reviewText = reviewTextRef.current!.value;
+
+		const timestamp = new Date().getTime();
+
+		addReview({
+			phoneId: productId!,
+			userId: "FppQsiltdaefp7rpB2GhvL2JnM73",
+			username: "tyrell11",
+			reviewRating: currentFillStar,
+			timestamp,
+			reviewTitle,
+			reviewText,
+		});
+
+		reviewTitleRef.current!.value = "";
+		reviewTextRef.current!.value = "";
+		setCurrentFillStar(0);
+		setChooseStar(false);
+	};
+
     return (
-        <form className="w-full p-6 border border-gray-400">
+        <form 
+			onSubmit={handleAddReview}
+			className="w-full p-6 border border-gray-400 mb-4"
+		>
 			<div className='mb-6'>
 				<h3 className="text-xl font-bold">Add a Review</h3>
-            	<div>Your rating: &checkStar</div>
+				<ReviewFormRating
+					currentFillStar={currentFillStar}
+					handleClickStar={handleChooseStar}
+					handleEmptyStar={handleEmptyStar}
+					handleFillStar={handleFillStar}
+				/>
 			</div>
 			<div className="flex flex-wrap -mx-3">
-				<div className="w-full px-3">
-					<label
-						className="block tracking-wide text-gray-700 text-xs font-bold mb-2"
-						htmlFor="reviewTittle"
-					>
-					</label>
-					<input
-						className="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-						id="reviewTittle"
-						type="password"
-						placeholder="Title"
-						required
-					/>
-				</div>
+				<ReviewFormTitle
+					reviewTitleRef={reviewTitleRef}
+				/>
 			</div>
 			<div className="flex flex-wrap -mx-3">
-				<div className="w-full px-3">
-					<label
-						className="block tracking-wide text-gray-700 text-xs font-bold mb-2"
-						htmlFor="reviewContent"
-					>
-					</label>
-					<textarea
-						className="appearance-none resize-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-						id="reviewContent"
-						rows={6}
-						placeholder="Enter your reviews"
-						required
-					/>
-				</div>
+				<ReviewFormText
+					reviewTextRef={reviewTextRef}
+				/>
 			</div>
-			<div className="flex justify-end">
-				<button className="bg-blue-400 hover:bg-blue-500 text-white py-2 px-4 rounded-lg" type="submit">Send review</button>
-			</div>
+			<ReviewFormButton/>
 		</form>
     )
 }

@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import { PhoneDetails } from "../../../../components"
+import { PhoneDetails, Spinner } from "../../../../components"
 import { useParams } from 'react-router-dom';
 import { useGetSinglePhoneQuery } from '../../../../features/API/phonesAPI';
 import { useAppSelector } from '../../../../hooks/useAppSelector';
@@ -17,7 +17,7 @@ const SinglePhone: FC = (): JSX.Element | null => {
         return <PhoneDetails product={singlePhone}/>
     }
 
-    return null;
+    return <Spinner/>;
 }
 
 export default SinglePhone

@@ -4,7 +4,10 @@ import { RingLoader } from 'react-spinners'
 
 const Spinner = () => {
     return (
-        <div className='fixed w-full h-screen bg-white z-10 opacity-90 flex items-center justify-center'>
+        <div 
+            style={{ zIndex: 10000000 }}
+            className='fixed w-full h-screen top-0 left-0 bg-white opacity-90 flex items-center justify-center'
+        >
             <RingLoader
                 color="#2794d9"
                 loading
