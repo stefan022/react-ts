@@ -15,7 +15,11 @@ const initialState: InitialState = {
 export const phonesSlice = createSlice({
 	name: "phones",
 	initialState,
-	reducers: {},
+	reducers: {
+		RESET_SINGLE_PHONE: (state) => {
+			state.singlePhone = null;
+		}
+	},
 	extraReducers: (builder) => {
 		builder.addMatcher(phonesAPI.endpoints.getPhones.matchFulfilled, (state, action: PayloadAction<IPhone[]>) => {
 			state.phones = action.payload;
@@ -25,3 +29,5 @@ export const phonesSlice = createSlice({
 		});
 	},
 });
+
+export const { RESET_SINGLE_PHONE } = phonesSlice.actions;

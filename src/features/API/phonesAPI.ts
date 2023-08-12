@@ -11,7 +11,7 @@ export const phonesAPI = rootAPI.injectEndpoints({
         
         getSinglePhone: builder.query<IPhone, number>({
             query: (id) => `/phones/${id}`,
-            providesTags: ["phones"]
+            providesTags: ["phone"]
         })
     })
 })
