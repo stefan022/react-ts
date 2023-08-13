@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import { filterSkeleton } from '../../constants/skeletons/filterSkeleton';
+import { filterSkeleton } from '../../../constants/skeletons/filterSkeleton';
 import { Skeleton } from '@mui/material';
 
 const FilterSkeleton: FC = (): JSX.Element => {

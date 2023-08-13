@@ -1,23 +1,22 @@
 import React, { FC, ChangeEvent, useEffect } from 'react'
 
-import { Banner, Filter, ProductsSearch, Sort, View, CardsView, ListsView } from '../../../components'
-import { useGetPhonesQuery } from '../../../features/API/phonesAPI';
-import { useAppSelector } from '../../../hooks/useAppSelector';
-import { RootState } from '../../../ts/types/RootState';
+import { Banner, Filter, ProductsContainerSkeleton } from '../../../components'
+import { ProductsContainer, Container } from '../../../containers';
 
-import Container from '../../../containers/Container/Container';
-import phonesImage from "../../../assets/phones.png";
+import { RootState } from '../../../ts/types/RootState';
 import { useAppDispatch } from '../../../hooks/useAppDispatch';
+import { useAppSelector } from '../../../hooks/useAppSelector';
+import { useGetPhonesQuery } from '../../../features/API/phonesAPI';
 import { FILTERED_PRODUCTS } from '../../../features/slices/filterProductsSlice';
+
+
+import phonesImage from "../../../assets/phones.png";
 
 const Phones: FC = (): JSX.Element => {
     useGetPhonesQuery();
-    const [ activeView, setActiveView ] = React.useState<string>("grid");
 
     const { phones } = useAppSelector((state: RootState) => state.phones);
     const dispatch = useAppDispatch();
-
-    const handleChangeProductsView = (view: string) => setActiveView(view);
 
     useEffect(() => {
         dispatch(FILTERED_PRODUCTS({
@@ -49,25 +48,11 @@ const Phones: FC = (): JSX.Element => {
                         products={phones}
                         handleFilterChange={handleFilterChange}
                     />
-                    <div className='w-5/6 border border-gray-400'>
-                        <div className='border border-b-gray-300'>
-                            <div className='flex justify-between items-center'>
-                                <ProductsSearch/>
-                                <div className='flex items-center gap-4'>
-                                    <View
-                                        activeView={activeView}
-                                        handleChangeProductsView={handleChangeProductsView}
-                                    />
-                                    <Sort/>
-                                </div>
-                            </div>
-                        </div>
-                        {
-                            activeView === "grid" 
-                                ? <CardsView category='phones'/>
-                                : <ListsView category='phones'/>
-                        }
-                    </div>
+                    {
+                        phones.length > 0
+                            ? <ProductsContainer/>
+                            : <ProductsContainerSkeleton/>
+                    }
                 </div>
             </Container>
         </div>
