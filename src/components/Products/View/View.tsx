@@ -5,7 +5,7 @@ import "./View.scss"
 
 interface IProps {
     activeView: string;
-    handleChangeProductsView: (view: string) => void;
+    handleChangeProductsView: (view: "grid" | "list") => void;
 }
 
 const View: FC<IProps> = ({ activeView, handleChangeProductsView }): JSX.Element => {

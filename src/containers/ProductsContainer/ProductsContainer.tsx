@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { FC } from 'react'
+
 import { CardsView, ListsView, ProductsSearch, Sort, View } from '../../components';
+import { useAppSelector } from '../../hooks/useAppSelector';
+import { RootState } from '../../ts/types/RootState';
+import { useAppDispatch } from '../../hooks/useAppDispatch';
+import { VIEW_CHANGE } from '../../features/slices/viewSlice';
 
+const ProductsContainer: FC = (): JSX.Element => {
+    const { view } = useAppSelector((state: RootState) => state.view);
+    const dispatch = useAppDispatch();
 
-
-const ProductsContainer = () => {
-    const [ activeView, setActiveView ] = React.useState<string>("grid");
-
-    const handleChangeProductsView = (view: string) => setActiveView(view);
+    const handleChangeProductsView = (view: "grid" | "list") => {
+        dispatch(VIEW_CHANGE(view));
+    };
 
     return (
         <div className='w-5/6 border border-gray-400'>
@@ -15,7 +21,7 @@ const ProductsContainer = () => {
                     <ProductsSearch/>
                     <div className='flex items-center gap-4'>
                         <View
-                            activeView={activeView}
+                            activeView={view}
                             handleChangeProductsView={handleChangeProductsView}
                         />
                         <Sort/>
@@ -23,7 +29,7 @@ const ProductsContainer = () => {
                 </div>
             </div>
             {
-                activeView === "grid" 
+                view === "grid" 
                     ? <CardsView category='phones'/>
                     : <ListsView category='phones'/>
             }
