@@ -5,6 +5,7 @@ import { useAppSelector } from '../../hooks/useAppSelector';
 import { RootState } from '../../ts/types/RootState';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { VIEW_CHANGE } from '../../features/slices/viewSlice';
+import { PAGINATION_RESET_TO_FIRST_PAGE } from '../../features/slices/paginationProductsSlice';
 
 const ProductsContainer: FC = (): JSX.Element => {
     const { view } = useAppSelector((state: RootState) => state.view);
@@ -12,6 +13,7 @@ const ProductsContainer: FC = (): JSX.Element => {
 
     const handleChangeProductsView = (view: "grid" | "list") => {
         dispatch(VIEW_CHANGE(view));
+        dispatch(PAGINATION_RESET_TO_FIRST_PAGE());
     };
 
     return (
