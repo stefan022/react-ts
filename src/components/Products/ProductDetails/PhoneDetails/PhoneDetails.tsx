@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 
 import { Banner, ProductImages, ProductInformation, ProductRatings, ProductReviews, ProductSpecifications, ProductButtons } from '../../..'
 import Container from '../../../../containers/Container/Container'
@@ -10,6 +10,8 @@ interface IProps {
 
 const PhoneDetails: FC<IProps> = ({ product }): JSX.Element => {
     const { phoneId, phoneName, rating, status, model, timestamp, brand, price, colors, images, screen, memory, camera, battery, discount } = product;
+
+    useEffect(() => window.scrollTo(0, 0), []);
 
     return (
         <div>
