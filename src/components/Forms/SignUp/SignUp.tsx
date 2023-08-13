@@ -58,6 +58,7 @@ const SignUp: FC<IProps> = ({ setLoading }): JSX.Element => {
                 touched={touched.username}
                 handleChange={handleChange}
                 handleBlur={handleBlur}
+                styleDiv="mb-4"
             />
             <FormikField
                 inputId="email"
@@ -68,6 +69,7 @@ const SignUp: FC<IProps> = ({ setLoading }): JSX.Element => {
                 touched={touched.email}
                 handleChange={handleChange}
                 handleBlur={handleBlur}
+                styleDiv="mb-4"
             />
 			<FormPassword
                 inputId="password"

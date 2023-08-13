@@ -1,78 +1,98 @@
-import React from "react";
+import React, { FC } from "react";
 
-const SupportForm = () => {
+import { FormikField, FormikTextArea, SupportFormButton, SupportFormTitle } from "../../../components"
+import { useFormik } from "formik";
+import { supportInitialValues } from "../../../constants/supportInitialValues";
+import { supportValidation } from "../../../utils/supportValidation";
+import { useSendSupportMessageMutation } from "../../../features/API/supportMessagesAPI";
+import { toast } from "react-toastify";
+
+const requiredStar = <span className="text-red-400">*</span>;
+
+const SupportForm: FC = (): JSX.Element => {
+	const [ sendMessage ] = useSendSupportMessageMutation();
+
+	const { handleSubmit, values, handleChange, handleBlur, touched, errors } = useFormik({
+        initialValues: supportInitialValues,
+        validationSchema: supportValidation,
+        onSubmit: (values, { resetForm }) => {
+            const { supportFirstName, supportEmail, supportTitle, supportMessage } = values;
+			
+			sendMessage({
+				senderId: "1",
+				firstName: supportFirstName,
+				email: supportEmail,
+				title: supportTitle,
+				message: supportMessage,
+				adminResponse: false
+			});
+
+			toast.success("You have successfully sent us a message");
+			toast.info(" We will respond as soon as possible");
+
+			resetForm();
+        }
+    });
+
 	return (
-		<form className="w-full">
-			<h3 className="text-center text-xl mb-10 font-bold">Send us a message for more information</h3>
-			<div className="flex flex-wrap -mx-3 mb-4">
-				<div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-					<label
-						className="block tracking-wide text-gray-700 text-xs font-bold mb-2"
-						htmlFor="supportFirstName"
-					>
-						First Name<span className="text-red-400">*</span>
-					</label>
-					<input
-						className="appearance-none block w-full bg-gray-100 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-						id="supportFirstName"
-						type="text"
-						placeholder="Jane"
-                        required
-					/>
-				</div>
-				<div className="w-full md:w-1/2 px-3">
-					<label
-						className="block tracking-wide text-gray-700 text-xs font-bold mb-2"
-						htmlFor="supportEmail"
-					>
-						Email<span className="text-red-400">*</span>
-					</label>
-					<input
-						className="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-						id="supportEmail"
-						type="text"
-						placeholder="Doe"
-                        required
-					/>
-				</div>
+		<form className="w-full" onSubmit={handleSubmit}>
+			<SupportFormTitle/>
+			<div className="flex flex-wrap -mx-3">
+				<FormikField
+					inputId="supportFirstName"
+					text="First Name:"
+					placeholder="Stefan"
+					value={values.supportFirstName}
+					error={errors.supportFirstName}
+					touched={touched.supportFirstName}
+					handleChange={handleChange}
+					handleBlur={handleBlur}
+					styleDiv="w-full md:w-1/2 px-3 mb-6"
+					requiredStar={requiredStar}
+				/>
+				<FormikField
+					inputId="supportEmail"
+					text="Email:"
+					placeholder="stefan@gmail.com"
+					value={values.supportEmail}
+					error={errors.supportEmail}
+					touched={touched.supportEmail}
+					handleChange={handleChange}
+					handleBlur={handleBlur}
+					styleDiv="w-full md:w-1/2 px-3"
+					requiredStar={requiredStar}
+				/>
+			</div>
+			<div className="flex flex-wrap -mx-3 mb-6">
+				<FormikField
+					inputId="supportTitle"
+					text="Title:"
+					placeholder="Title"
+					value={values.supportTitle}
+					error={errors.supportTitle}
+					touched={touched.supportTitle}
+					handleChange={handleChange}
+					handleBlur={handleBlur}
+					styleDiv="w-full px-3"
+					requiredStar={requiredStar}
+				/>
 			</div>
 			<div className="flex flex-wrap -mx-3 mb-4">
-				<div className="w-full px-3">
-					<label
-						className="block tracking-wide text-gray-700 text-xs font-bold mb-2"
-						htmlFor="supportTitle"
-					>
-						Title<span className="text-red-400">*</span>
-					</label>
-					<input
-						className="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-						id="supportTitle"
-						type="password"
-						placeholder="Title"
-						required
-					/>
-				</div>
+				<FormikTextArea
+					inputId="supportMessage"
+					text="Message:"
+					placeholder="Enter your message..."
+					rows={6}
+					value={values.supportMessage}
+					error={errors.supportMessage}
+					touched={touched.supportMessage}
+					handleChange={handleChange}
+					handleBlur={handleBlur}
+					styleDiv="w-full px-3"
+					requiredStar={requiredStar}
+				/>
 			</div>
-			<div className="flex flex-wrap -mx-3 mb-4">
-				<div className="w-full px-3">
-					<label
-						className="block tracking-wide text-gray-700 text-xs font-bold mb-2"
-						htmlFor="supportTitle"
-					>
-						Message<span className="text-red-400">*</span>
-					</label>
-					<textarea
-						className="appearance-none resize-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-						id="supportTitle"
-						rows={6}
-						placeholder="Title"
-						required
-					/>
-				</div>
-			</div>
-			<div className="flex justify-end">
-				<button className="bg-blue-400 hover:bg-blue-500 text-white py-2 px-4 rounded-lg" type="submit">Send message</button>
-			</div>
+			<SupportFormButton/>
 		</form>
 	);
 };
