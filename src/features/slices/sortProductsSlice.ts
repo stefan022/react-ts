@@ -6,14 +6,16 @@ import { helperSortedProducts } from "../../utils/helpers/helperSortedProducts";
 
 interface InitialState {
 	sortedProducts: IPhone[] | [];
+    sortBy: SortBy
 };
 
 const initialState: InitialState = {
 	sortedProducts: [],
+    sortBy: "recommended"
 };
 
 export const sortProductsSlice = createSlice({
-	name: "filter",
+	name: "sort",
 	initialState,
 	reducers: {
         SORT_BY: (state, action: PayloadAction<{ sortBy: SortBy, products: IPhone[] }>) => {
@@ -21,6 +23,7 @@ export const sortProductsSlice = createSlice({
 
             const sortedProducts = helperSortedProducts(sortBy, products);
 
+            state.sortBy = sortBy;
             state.sortedProducts = sortedProducts;
         },
     }

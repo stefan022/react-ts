@@ -10,13 +10,16 @@ import { PAGINATION_RESET_TO_FIRST_PAGE } from '../../../features/slices/paginat
 
 const Sort: FC = (): JSX.Element => {
     const { filteredProducts } = useAppSelector((state: RootState) => state.filters);
+    const { sortBy } = useAppSelector((state: RootState) => state.sorts);
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        dispatch(SORT_BY({
-            sortBy: "recommended",
-            products: filteredProducts
-        }));
+        if (sortBy === "recommended") {
+            dispatch(SORT_BY({
+                sortBy: "recommended",
+                products: filteredProducts
+            }));
+        }
 
         // eslint-disable-next-line
     }, [filteredProducts]);
@@ -36,7 +39,7 @@ const Sort: FC = (): JSX.Element => {
                 className='ml-2' 
                 id="sortProducts" 
                 onChange={handleSortChange}
-                defaultValue={"recommended"}
+                defaultValue={sortBy}
             >
                 {
                     sortOptions.map((singleOption) => {
