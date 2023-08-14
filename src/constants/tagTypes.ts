@@ -2,5 +2,8 @@ export const tagTypes: string[] = [
     "phones", 
     "phone",
     "reviews",
-    "review"
+    "review",
+    "support",
+    "support-messages",
+    "support-single-message"
 ];

@@ -7,6 +7,8 @@ import { sortProductsSlice } from "../features/slices/sortProductsSlice";
 import { paginationProductsSlice } from "../features/slices/paginationProductsSlice";
 import { reviewsSlice } from "../features/slices/reviewsSlice";
 import { viewSlice } from "../features/slices/viewSlice";
+import { supportSlice } from "../features/slices/supportSlice";
+import { supportMessagesSlice } from "../features/slices/supportMessagesSlice";
 
 const rootReducer = combineReducers({
 	[rootAPI.reducerPath]: rootAPI.reducer,
@@ -16,6 +18,8 @@ const rootReducer = combineReducers({
 	pagination: paginationProductsSlice.reducer,
 	reviews: reviewsSlice.reducer,
 	view: viewSlice.reducer,
+	support: supportSlice.reducer,
+	support_messages: supportMessagesSlice.reducer
 });
 
 export default rootReducer;

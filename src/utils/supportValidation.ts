@@ -15,7 +15,7 @@ export const supportValidation = Yup.object().shape({
     supportTitle: Yup.string()
 		.matches(withoutWhiteSpace, { message: "Fields cannot be empty" })
 		.min(3, "Title must be at least 3 characters")
-		.max(30, "Title must be less than 30 characters")
+		.max(16, "Title must be less than 16 characters")
 		.required("Required"),
 
 	supportMessage: Yup.string()

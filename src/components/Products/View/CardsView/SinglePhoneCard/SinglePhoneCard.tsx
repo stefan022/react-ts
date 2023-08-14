@@ -5,7 +5,7 @@ import { Routes } from '../../../../../router/Routes';
 
 import { RoundColors, Stars } from "../../../../../components"
 import { TColors } from '../../../../../ts/types/TColors';
-import { tooLongArticleName } from '../../../../../utils/helpers/tooLongArticleName';
+import { tooLongString } from '../../../../../utils/helpers/tooLongString';
 
 interface IProps {
     phoneId: number;
@@ -33,7 +33,7 @@ const SinglePhoneCard: FC<IProps> = ({ phoneId, phoneName, colors, price, rating
                             <RoundColors phoneId={phoneId} colors={colors} largeSize={false}/>
                         </div>
                         <div>
-                            <h4>{tooLongArticleName(phoneName)}</h4>
+                            <h4>{tooLongString(phoneName, 42)}</h4>
                         </div>
                     </div>
                     <div className='flex flex-col gap-2'>

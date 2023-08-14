@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { Banner, SupportInformation, SupportForm } from '../../components'
-import Container from '../../containers/Container/Container'
+import { Container } from '../../containers'
+import { useGetAllSupportQuery } from '../../features/API/supportAPI';
 
-const Support = () => {
+const Support: FC = (): JSX.Element => {
+    useGetAllSupportQuery();
+
     return (
         <div>
             <Banner

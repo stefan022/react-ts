@@ -1,14 +1,22 @@
-import React from 'react'
+import React, { FC } from 'react'
+import { timestampToLocalString } from '../../../utils/helpers/timestampToLocalString';
 
-// interface IProps {
-//     messageTitle: string;
-// }
+interface IProps {
+    title: string;
+    timestamp: number;
+}
 
-const MessageTitle = () => {
+const MessageTitle: FC<IProps> = ({ title, timestamp }): JSX.Element => {
     return (
-        <div>
-            <h4>Title:</h4>
-            <p>Message</p>
+        <div className='flex justify-between items-center'>
+            <div className='flex items-center gap-1'>
+                <h4>Title:</h4>
+                <p>{title}</p>
+            </div>
+            <div className='flex items-center gap-1'>
+                <h4>Date:</h4>
+                <p>{timestampToLocalString(timestamp)}</p>
+            </div>
         </div>
     )
 }

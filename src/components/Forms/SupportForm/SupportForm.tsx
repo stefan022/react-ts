@@ -1,16 +1,53 @@
-import React, { FC } from "react";
+import React, { FC, useState, useEffect } from "react";
 
 import { FormikField, FormikTextArea, SupportFormButton, SupportFormTitle } from "../../../components"
 import { useFormik } from "formik";
 import { supportInitialValues } from "../../../constants/supportInitialValues";
 import { supportValidation } from "../../../utils/supportValidation";
-import { useSendSupportMessageMutation } from "../../../features/API/supportMessagesAPI";
 import { toast } from "react-toastify";
+import { useAddSingleSupportMutation } from "../../../features/API/supportAPI";
+import { useAppSelector } from "../../../hooks/useAppSelector";
+import { RootState } from "../../../ts/types/RootState";
+import { ISupport } from "../../../ts/interfaces/ISupport/ISupport";
+import { IMessageToSupport } from "../../../ts/interfaces/ISupport/IMessageToSupport";
+import { useAddSingleMessageForSupportMutation } from "../../../features/API/supportMessagesAPI";
 
 const requiredStar = <span className="text-red-400">*</span>;
 
 const SupportForm: FC = (): JSX.Element => {
-	const [ sendMessage ] = useSendSupportMessageMutation();
+	const userId = localStorage.getItem("userId");
+	const { allSupport } = useAppSelector((state: RootState) => state.support);
+	
+	const [ addSingleSupport ] = useAddSingleSupportMutation();
+	const [ addSingleMessageForSupport ] = useAddSingleMessageForSupportMutation();
+	const [ supportId, setSupportId ] = useState<number | null>(null);
+	const [ messageForSupport, setMessageForSupport ] = useState<IMessageToSupport | null>(null);
+
+	useEffect(() => {
+		const getMySupportMessages = allSupport.filter((support: ISupport) => support.senderId === userId);
+
+		if (getMySupportMessages.length > 0) {
+			setSupportId(getMySupportMessages[0].supportId);
+		}
+
+		// eslint-disable-next-line
+	}, [allSupport]);
+
+	useEffect(() => {
+		if (messageForSupport && supportId) {
+			addSingleMessageForSupport({
+				firstName: messageForSupport.firstName,
+				email: messageForSupport.email,
+				title: messageForSupport.title,
+				message: messageForSupport.message,
+				timestamp: messageForSupport.timestamp,
+				changeTimestamp: messageForSupport.timestamp,
+				supportId: supportId!
+			});
+		};
+
+		// eslint-disable-next-line
+	}, [messageForSupport, supportId]);
 
 	const { handleSubmit, values, handleChange, handleBlur, touched, errors } = useFormik({
         initialValues: supportInitialValues,
@@ -18,17 +55,21 @@ const SupportForm: FC = (): JSX.Element => {
         onSubmit: (values, { resetForm }) => {
             const { supportFirstName, supportEmail, supportTitle, supportMessage } = values;
 			
-			sendMessage({
-				senderId: "1",
+			const timestamp = new Date().getTime();
+
+			if (!supportId) addSingleSupport({ senderId: userId! });
+
+			setMessageForSupport({
 				firstName: supportFirstName,
 				email: supportEmail,
 				title: supportTitle,
 				message: supportMessage,
-				adminResponse: false
+				timestamp,
+				changeTimestamp: timestamp
 			});
 
-			toast.success("You have successfully sent us a message");
-			toast.info(" We will respond as soon as possible");
+			toast.success("You have successfully sent us a message", { position: "top-left" });
+			toast.info(" We will respond as soon as possible", { position: "top-left" });
 
 			resetForm();
         }
