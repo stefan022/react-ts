@@ -4,12 +4,12 @@ import { colors as constColors } from '../../../constants/colors';
 import { TColors } from '../../../ts/types/TColors';
 
 interface IProps {
-    phoneId?: number;
+    articleId?: number;
     colors: TColors[];
     largeSize: boolean;
 }
 
-const RoundColors: FC<IProps> = ({ phoneId, colors, largeSize }): JSX.Element => {
+const RoundColors: FC<IProps> = ({ articleId, colors, largeSize }): JSX.Element => {
     return ( 
         <>
             {
@@ -17,7 +17,7 @@ const RoundColors: FC<IProps> = ({ phoneId, colors, largeSize }): JSX.Element =>
                 ? colors.map((color: TColors) => {
                     return (
                         <div 
-                            key={`${phoneId}${color}`}
+                            key={`${articleId}${color}`}
                             className={`
                             ${constColors[color]} 
                             ${largeSize ? "w-7 h-7" : "w-5 h-5"}

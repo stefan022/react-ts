@@ -1,20 +1,24 @@
 import React, { FC } from 'react'
 
-import { useAppSelector } from '../../../../../hooks/useAppSelector';
+import { Pagination, SingleProductCard } from "../../../..";
 import { RootState } from '../../../../../ts/types/RootState';
-import { IPhone } from '../../../../../ts/interfaces/IProducts/IPhone';
+import { useAppSelector } from '../../../../../hooks/useAppSelector';
 
-import { Pagination, SinglePhoneList } from "../../../../../components"
 import { useAppDispatch } from '../../../../../hooks/useAppDispatch';
 import { PAGINATION_CHANGE_PAGE } from '../../../../../features/slices/paginationProductsSlice';
+import { IProduct } from '../../../../../ts/interfaces/IProducts/IProduct';
 
-const PhoneLists: FC = (): JSX.Element => {
+interface IProps {
+    productRoute: string;
+}
+
+const ProductCards: FC<IProps> = ({ productRoute }): JSX.Element => {
     const { sortedProducts } = useAppSelector((state: RootState) => state.sorts);
     const { activePage } = useAppSelector((state: RootState) => state.pagination);
 
     const dispatch = useAppDispatch();
 
-    const productsPerPage = 5;
+    const productsPerPage = 12;
     const productsVisible = activePage * productsPerPage;
 
     const paginationProducts = sortedProducts.slice(
@@ -31,20 +35,19 @@ const PhoneLists: FC = (): JSX.Element => {
         <>
             {
                 paginationProducts ?
-                paginationProducts.map((phone: IPhone) => {
-                    const { phoneId, phoneName, status, colors, price, rating, images } = phone;
+                paginationProducts.map((product: IProduct) => {
+                    const { articleId, articleName, colors, price, rating, images } = product;
 
                     return (
-                        <SinglePhoneList
-                            key={phoneId}
-                            phoneId={phoneId}
-                            phoneName={phoneName}
-                            description='$desc'
+                        <SingleProductCard
+                            key={articleId}
+                            articleId={articleId}
+                            articleName={articleName}
                             colors={colors}
                             price={price}
                             rating={rating}
-                            status={status}
                             images={images}
+                            productRoute={productRoute}
                         />
                     )
                 }) : <p>Loading..</p>
@@ -60,4 +63,4 @@ const PhoneLists: FC = (): JSX.Element => {
     )
 }
 
-export default PhoneLists
+export default ProductCards

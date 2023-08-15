@@ -1,10 +1,9 @@
-import { IPhone } from "../../ts/interfaces/IProducts/IPhone";
+import { IProduct } from "../../ts/interfaces/IProducts/IProduct";
 import { TColors } from "../../ts/types/TColors";
 
-
 export const helperFilteredProducts = (
-    filtersChecked: { [key: string]: boolean }, products: IPhone[]
-): IPhone[] => {
+    filtersChecked: { [key: string]: boolean }, products: IProduct[]
+): IProduct[] => {
     const filters: string[] = [];
     
     Object.entries(filtersChecked).forEach((product) => {
@@ -15,7 +14,7 @@ export const helperFilteredProducts = (
         }
     });
 
-    const filteredProducts = products.filter((product: IPhone) => {
+    const filteredProducts = products.filter((product: IProduct) => {
         return (
             filters.includes(product.brand)
             || filters.includes(`${product.rating}`)

@@ -8,11 +8,11 @@ import { IReview } from '../../../ts/interfaces/IReview/IReview';
 import { toast } from 'react-toastify';
 
 interface IProps {
-    phoneId: number;
+    articleId: number;
 }
 
-const ProductReviews: FC<IProps> = ({ phoneId }): JSX.Element => {
-    useGetReviewsQuery(phoneId);
+const ProductReviews: FC<IProps> = ({ articleId }): JSX.Element => {
+    useGetReviewsQuery(articleId);
     const [ reviews, setReviews ] = useState<IReview[] | []>([]);
     const [ loading, setLoading ] = useState<boolean>(false);
     const { reviews: reviewsStore } = useAppSelector((state: RootState) => state.reviews);

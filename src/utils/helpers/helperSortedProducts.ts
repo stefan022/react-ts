@@ -1,8 +1,8 @@
-import { IPhone } from "../../ts/interfaces/IProducts/IPhone";
+import { IProduct } from "../../ts/interfaces/IProducts/IProduct";
 import { SortBy } from "../../ts/types/SortBy";
 
-export const helperSortedProducts = (sortBy: SortBy, products: IPhone[]): IPhone[] => {
-    let sP: IPhone[] = [];
+export const helperSortedProducts = (sortBy: SortBy, products: IProduct[]): IProduct[] => {
+    let sP: IProduct[] = [];
 
     switch(sortBy) {
         case "recommended": 
@@ -13,7 +13,7 @@ export const helperSortedProducts = (sortBy: SortBy, products: IPhone[]): IPhone
             const sortedProducts = 
                 products
                     .slice()
-                    .sort((prev: IPhone, next: IPhone) => prev.price - next.price);
+                    .sort((prev: IProduct, next: IProduct) => prev.price - next.price);
 
             sP = sortedProducts;
             break;
@@ -22,7 +22,7 @@ export const helperSortedProducts = (sortBy: SortBy, products: IPhone[]): IPhone
             const sortedProducts = 
                 products
                     .slice()
-                    .sort((prev: IPhone, next: IPhone) => next.price - prev.price);
+                    .sort((prev: IProduct, next: IProduct) => next.price - prev.price);
 
             sP = sortedProducts;
             break;
@@ -31,7 +31,7 @@ export const helperSortedProducts = (sortBy: SortBy, products: IPhone[]): IPhone
             const sortedProducts = 
                 products
                     .slice()
-                    .sort((prev: IPhone, next: IPhone) => next.timestamp - prev.timestamp);
+                    .sort((prev: IProduct, next: IProduct) => next.timestamp - prev.timestamp);
 
             sP = sortedProducts;
             break;
@@ -40,7 +40,7 @@ export const helperSortedProducts = (sortBy: SortBy, products: IPhone[]): IPhone
             const sortedProducts = 
                 products
                     .slice()
-                    .sort((prev: IPhone, next: IPhone) => prev.timestamp - next.timestamp);
+                    .sort((prev: IProduct, next: IProduct) => prev.timestamp - next.timestamp);
 
             sP = sortedProducts;
             break;
@@ -49,7 +49,7 @@ export const helperSortedProducts = (sortBy: SortBy, products: IPhone[]): IPhone
             const sortedProducts = 
                 products
                     .slice()
-                    .sort((prev: IPhone, next: IPhone) => prev.phoneName.localeCompare(next.phoneName));
+                    .sort((prev: IProduct, next: IProduct) => prev.articleName.localeCompare(next.articleName));
 
             sP = sortedProducts;
             break;
@@ -58,7 +58,7 @@ export const helperSortedProducts = (sortBy: SortBy, products: IPhone[]): IPhone
             const sortedProducts = 
                 products
                     .slice()
-                    .sort((prev: IPhone, next: IPhone) => next.phoneName.localeCompare(prev.phoneName));
+                    .sort((prev: IProduct, next: IProduct) => next.articleName.localeCompare(prev.articleName));
 
             sP = sortedProducts;
             break;

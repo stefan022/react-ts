@@ -9,7 +9,7 @@ interface IProps {
 }
 
 const PhoneDetails: FC<IProps> = ({ product }): JSX.Element => {
-    const { phoneId, phoneName, rating, status, model, timestamp, brand, price, colors, images, screen, memory, camera, battery, discount } = product;
+    const { articleId, articleName, rating, status, model, timestamp, brand, price, colors, images, screen, memory, camera, battery, discount } = product;
 
     useEffect(() => window.scrollTo(0, 0), []);
 
@@ -26,7 +26,7 @@ const PhoneDetails: FC<IProps> = ({ product }): JSX.Element => {
                     </div>
                     <div className='w-1/2 border border-gray p-6 h-[525px]'>
                         <ProductInformation
-                            articleName={phoneName}
+                            articleName={articleName}
                             rating={rating}
                             status={status}
                             model={model}
@@ -39,7 +39,7 @@ const PhoneDetails: FC<IProps> = ({ product }): JSX.Element => {
                     </div>
                 </div>
                 <ProductSpecifications
-                    camera={camera}
+                    camera={camera!}
                     battery={battery}
                     memory={memory}
                     screen={screen}
@@ -49,7 +49,7 @@ const PhoneDetails: FC<IProps> = ({ product }): JSX.Element => {
                     averageRating={rating}
                 />
                 <ProductReviews
-                    phoneId={phoneId}
+                    articleId={articleId}
                 />
             </Container>
         </div>

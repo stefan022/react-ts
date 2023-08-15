@@ -1,18 +1,15 @@
 import React, { FC } from 'react'
 
-import { PhoneCards } from '../../../../components'
-import { TCategories } from '../../../../ts/types/TCategories';
+import { ProductCards } from '../../../../components'
 
 interface IProps {
-    category: TCategories;
+    productRoute: string;
 }
 
-const CardsView: FC<IProps> = ({ category }): JSX.Element => {
+const CardsView: FC<IProps> = ({ productRoute }): JSX.Element => {
     return (
         <div className='flex flex-wrap'>
-            {
-                category === "phones" && <PhoneCards />
-            }
+            <ProductCards productRoute={productRoute}/>
         </div>
     )
 }

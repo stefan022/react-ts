@@ -3,16 +3,15 @@ import React, { FC, useEffect, useState, FormEvent, FormEventHandler } from 'rea
 import { FilterBrands, FilterClear, FilterColors, FilterPrice, FilterRatings, FilterSkeleton, FilterTitle } from "../../../components"
 
 import { TColors } from '../../../ts/types/TColors';
-import { Product } from '../../../ts/types/Product';
-import { Products } from '../../../ts/types/Products';
 import { useAppDispatch } from '../../../hooks/useAppDispatch';
 import { FILTERS_CHECKED, RESET_FILTERS_CHECKED } from '../../../features/slices/filterProductsSlice';
 import { useAppSelector } from '../../../hooks/useAppSelector';
 import { RootState } from '../../../ts/types/RootState';
 import { initialRatingsForFilter } from '../../../constants/initialRatingsForFilter';
+import { IProduct } from '../../../ts/interfaces/IProducts/IProduct';
 
 interface IProps {
-    products: Products;
+    products: IProduct[];
     handleFilterChange: FormEventHandler<HTMLFormElement>;
 }
 
@@ -27,13 +26,13 @@ const Filter: FC<IProps> = ({ products, handleFilterChange }): JSX.Element => {
     useEffect(() => {
         if (products.length === 0) return;
 
-        dispatch(RESET_FILTERS_CHECKED);
+        dispatch(RESET_FILTERS_CHECKED({ products: products }));
 
         const uniqueBrands = new Set();
         const uniqueColors = new Set();
         const filters: { [key: string]: boolean } = {}
         
-        products.forEach((product: Product) => {
+        products.forEach((product: IProduct) => {
             uniqueBrands.add(product.brand);
             setFilterPrice((prev) => [...prev, product.price]);
 

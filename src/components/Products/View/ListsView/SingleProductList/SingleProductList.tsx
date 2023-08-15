@@ -4,25 +4,26 @@ import { TColors } from '../../../../../ts/types/TColors';
 import { Link } from 'react-router-dom';
 import { Routes } from '../../../../../router/Routes';
 
-import { RoundColors, Stars } from "../../../../../components"
+import { RoundColors, Stars } from "../../../.."
 import { firstCapitalLatter } from '../../../../../utils/helpers/capitalFirstLetter';
 
 interface IProps {
-    phoneId: number
+    articleId: number
+    articleName: string;
     rating: number;
     status: string;
-    phoneName: string;
     description: string;
     price: number;
     colors: TColors[];
     images: string[];
+    productRoute: string;
 }
 
-const SinglePhoneList: FC<IProps> = ({ phoneId, rating, status, phoneName, description, price, colors, images }): JSX.Element => {
+const SingleProductList: FC<IProps> = ({ articleId, articleName, rating, status, description, price, colors, images, productRoute }): JSX.Element => {
     return (
         <div className='border border-gray-300 w-full p-2'>
             <div className='border border-gray-300 h-[200px] flex'>
-                <Link to={`${Routes.PRODUCTS}${Routes.PHONES}/${phoneId}`}>
+                <Link to={`${Routes.PRODUCTS}${productRoute}/${articleId}`}>
                     <div className='border border-gray-300 h-full w-[200px] bg-white'>
                         <img className='w-full h-full' src={images[0]} alt="" />
                     </div>
@@ -39,17 +40,17 @@ const SinglePhoneList: FC<IProps> = ({ phoneId, rating, status, phoneName, descr
                     </div>
                     <div>
                         <div>
-                            <h4>{phoneName}</h4>
+                            <h4>{articleName}</h4>
                         </div>
                         <div>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere optio aliquid, eligendi animi iure corrupti?</p>
+                            <p>{description}</p>
                         </div>
                     </div>
                     <div className='flex justify-between'>
                         <div className='flex flex-col justify-between'>
                             <p>${price}</p>
                             <div className='flex gap-2'>
-                                <RoundColors phoneId={phoneId} colors={colors} largeSize={false}/> 
+                                <RoundColors articleId={articleId} colors={colors} largeSize={false}/> 
                             </div>
                         </div>
                         <div className='flex items-center'>
@@ -62,4 +63,4 @@ const SinglePhoneList: FC<IProps> = ({ phoneId, rating, status, phoneName, descr
     )
 }
 
-export default SinglePhoneList
+export default SingleProductList

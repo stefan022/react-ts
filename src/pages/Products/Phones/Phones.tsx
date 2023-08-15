@@ -8,9 +8,10 @@ import { useAppDispatch } from '../../../hooks/useAppDispatch';
 import { useAppSelector } from '../../../hooks/useAppSelector';
 import { useGetPhonesQuery } from '../../../features/API/phonesAPI';
 import { FILTERED_PRODUCTS } from '../../../features/slices/filterProductsSlice';
-
+import { PAGINATION_RESET_TO_FIRST_PAGE } from '../../../features/slices/paginationProductsSlice';
 
 import phonesImage from "../../../assets/phones.png";
+import { Routes } from '../../../router/Routes';
 
 const Phones: FC = (): JSX.Element => {
     useGetPhonesQuery();
@@ -27,11 +28,16 @@ const Phones: FC = (): JSX.Element => {
     }, [phones]);
 
     const handleFilterChange = (e: ChangeEvent<HTMLFormElement>) => { 
+        const isChecked = e.target.checked;
+        const filterName = e.target.id;
+
         dispatch(FILTERED_PRODUCTS({
             products: phones,
-            filterName: e.target.id,
-            isChecked: e.target.checked
-        }))
+            filterName,
+            isChecked,
+        }));
+        
+        dispatch(PAGINATION_RESET_TO_FIRST_PAGE());
     };  
 
     return (
@@ -50,7 +56,7 @@ const Phones: FC = (): JSX.Element => {
                     />
                     {
                         phones.length > 0
-                            ? <ProductsContainer/>
+                            ? <ProductsContainer productRoute={Routes.PHONES}/>
                             : <ProductsContainerSkeleton/>
                     }
                 </div>

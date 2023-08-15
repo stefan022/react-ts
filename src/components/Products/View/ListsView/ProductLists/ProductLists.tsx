@@ -1,20 +1,25 @@
 import React, { FC } from 'react'
 
-import { IPhone } from '../../../../../ts/interfaces/IProducts/IPhone'
-import { Pagination, SinglePhoneCard } from "../../../../../components";
-import { RootState } from '../../../../../ts/types/RootState';
 import { useAppSelector } from '../../../../../hooks/useAppSelector';
+import { RootState } from '../../../../../ts/types/RootState';
 
+import { Pagination, SingleProductList } from "../../../.."
 import { useAppDispatch } from '../../../../../hooks/useAppDispatch';
 import { PAGINATION_CHANGE_PAGE } from '../../../../../features/slices/paginationProductsSlice';
+import { loremDesc } from '../../../../../constants/loremDesc';
+import { IProduct } from '../../../../../ts/interfaces/IProducts/IProduct';
 
-const PhoneCards: FC = (): JSX.Element => {
+interface IProps {
+    productRoute: string;
+}
+
+const ProductLists: FC<IProps> = ({ productRoute }): JSX.Element => {
     const { sortedProducts } = useAppSelector((state: RootState) => state.sorts);
     const { activePage } = useAppSelector((state: RootState) => state.pagination);
 
     const dispatch = useAppDispatch();
 
-    const productsPerPage = 12;
+    const productsPerPage = 5;
     const productsVisible = activePage * productsPerPage;
 
     const paginationProducts = sortedProducts.slice(
@@ -31,18 +36,21 @@ const PhoneCards: FC = (): JSX.Element => {
         <>
             {
                 paginationProducts ?
-                paginationProducts.map((phone: IPhone) => {
-                    const { phoneId, phoneName, colors, price, rating, images } = phone;
+                paginationProducts.map((product: IProduct) => {
+                    const { articleId, articleName, status, colors, price, rating, images } = product;
 
                     return (
-                        <SinglePhoneCard
-                            key={phoneId}
-                            phoneId={phoneId}
-                            phoneName={phoneName}
+                        <SingleProductList
+                            key={articleId}
+                            articleId={articleId}
+                            articleName={articleName}
+                            description={loremDesc}
                             colors={colors}
                             price={price}
                             rating={rating}
+                            status={status}
                             images={images}
+                            productRoute={productRoute}
                         />
                     )
                 }) : <p>Loading..</p>
@@ -58,4 +66,4 @@ const PhoneCards: FC = (): JSX.Element => {
     )
 }
 
-export default PhoneCards
+export default ProductLists

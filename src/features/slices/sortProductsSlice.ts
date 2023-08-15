@@ -1,11 +1,11 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-import { IPhone } from "../../ts/interfaces/IProducts/IPhone";
 import { SortBy } from "../../ts/types/SortBy";
 import { helperSortedProducts } from "../../utils/helpers/helperSortedProducts";
+import { IProduct } from "../../ts/interfaces/IProducts/IProduct";
 
 interface InitialState {
-	sortedProducts: IPhone[] | [];
+	sortedProducts: IProduct[] | [];
     sortBy: SortBy
 };
 
@@ -18,7 +18,7 @@ export const sortProductsSlice = createSlice({
 	name: "sort",
 	initialState,
 	reducers: {
-        SORT_BY: (state, action: PayloadAction<{ sortBy: SortBy, products: IPhone[] }>) => {
+        SORT_BY: (state, action: PayloadAction<{ sortBy: SortBy, products: IProduct[] }>) => {
             const { sortBy, products } = action.payload;
 
             const sortedProducts = helperSortedProducts(sortBy, products);

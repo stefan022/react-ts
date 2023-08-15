@@ -7,7 +7,11 @@ import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { VIEW_CHANGE } from '../../features/slices/viewSlice';
 import { PAGINATION_RESET_TO_FIRST_PAGE } from '../../features/slices/paginationProductsSlice';
 
-const ProductsContainer: FC = (): JSX.Element => {
+interface IProps {
+    productRoute: string;
+}
+
+const ProductsContainer: FC<IProps> = ({ productRoute }): JSX.Element => {
     const { view } = useAppSelector((state: RootState) => state.view);
     const dispatch = useAppDispatch();
 
@@ -32,8 +36,8 @@ const ProductsContainer: FC = (): JSX.Element => {
             </div>
             {
                 view === "grid" 
-                    ? <CardsView category='phones'/>
-                    : <ListsView category='phones'/>
+                    ? <CardsView productRoute={productRoute}/>
+                    : <ListsView productRoute={productRoute}/>
             }
         </div>
     )
