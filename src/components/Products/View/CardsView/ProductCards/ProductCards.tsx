@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import { Pagination, SingleProductCard } from "../../../..";
+import { NothingFound, Pagination, SingleProductCard } from "../../../..";
 import { RootState } from '../../../../../ts/types/RootState';
 import { useAppSelector } from '../../../../../hooks/useAppSelector';
 
@@ -34,31 +34,36 @@ const ProductCards: FC<IProps> = ({ productRoute }): JSX.Element => {
     return (
         <>
             {
-                paginationProducts ?
-                paginationProducts.map((product: IProduct) => {
-                    const { articleId, articleName, colors, price, rating, images } = product;
+                paginationProducts.length > 0 ? (
+                <>
+                    {
+                        paginationProducts.map((product: IProduct) => {
+                            const { articleId, articleName, colors, price, rating, images } = product;
 
-                    return (
-                        <SingleProductCard
-                            key={articleId}
-                            articleId={articleId}
-                            articleName={articleName}
-                            colors={colors}
-                            price={price}
-                            rating={rating}
-                            images={images}
-                            productRoute={productRoute}
+                            return (
+                                <SingleProductCard
+                                    key={articleId}
+                                    articleId={articleId}
+                                    articleName={articleName}
+                                    colors={colors}
+                                    price={price}
+                                    rating={rating}
+                                    images={images}
+                                    productRoute={productRoute}
+                                />
+                            )
+                        })
+                    }
+                    <div className='flex justify-center py-2 w-full'>
+                        <Pagination
+                            pageCount={pageCount}
+                            onPageChange={onPageChange}
+                            activePage={activePage}
                         />
-                    )
-                }) : <p>Loading..</p>
+                    </div>
+                </>
+                ) : <NothingFound/>
             }
-            <div className='flex justify-center py-2 w-full'>
-                <Pagination
-                    pageCount={pageCount}
-                    onPageChange={onPageChange}
-                    activePage={activePage}
-                />
-            </div>
         </>
     )
 }

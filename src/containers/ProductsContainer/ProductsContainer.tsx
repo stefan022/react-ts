@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useRef } from 'react'
 
 import { CardsView, ListsView, ProductsSearch, Sort, View } from '../../components';
 import { useAppSelector } from '../../hooks/useAppSelector';
@@ -14,6 +14,7 @@ interface IProps {
 const ProductsContainer: FC<IProps> = ({ productRoute }): JSX.Element => {
     const { view } = useAppSelector((state: RootState) => state.view);
     const dispatch = useAppDispatch();
+    const searchRef = useRef<HTMLInputElement>(null);
 
     const handleChangeProductsView = (view: "grid" | "list") => {
         dispatch(VIEW_CHANGE(view));
@@ -21,16 +22,20 @@ const ProductsContainer: FC<IProps> = ({ productRoute }): JSX.Element => {
     };
 
     return (
-        <div className='w-5/6 border border-gray-400'>
+        <div className='w-5/6 border border-gray-400 h-full'>
             <div className='border border-b-gray-300'>
                 <div className='flex justify-between items-center'>
-                    <ProductsSearch/>
+                    <ProductsSearch
+                        searchRef={searchRef}
+                    />
                     <div className='flex items-center gap-4'>
                         <View
                             activeView={view}
                             handleChangeProductsView={handleChangeProductsView}
                         />
-                        <Sort/>
+                        <Sort
+                            searchRef={searchRef}
+                        />
                     </div>
                 </div>
             </div>

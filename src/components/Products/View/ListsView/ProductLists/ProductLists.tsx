@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 import { useAppSelector } from '../../../../../hooks/useAppSelector';
 import { RootState } from '../../../../../ts/types/RootState';
 
-import { Pagination, SingleProductList } from "../../../.."
+import { NothingFound, Pagination, SingleProductList } from "../../../.."
 import { useAppDispatch } from '../../../../../hooks/useAppDispatch';
 import { PAGINATION_CHANGE_PAGE } from '../../../../../features/slices/paginationProductsSlice';
 import { loremDesc } from '../../../../../constants/loremDesc';
@@ -35,33 +35,38 @@ const ProductLists: FC<IProps> = ({ productRoute }): JSX.Element => {
     return (
         <>
             {
-                paginationProducts ?
-                paginationProducts.map((product: IProduct) => {
-                    const { articleId, articleName, status, colors, price, rating, images } = product;
+                paginationProducts.length > 0 ? (
+                    <>
+                        {
+                            paginationProducts.map((product: IProduct) => {
+                                const { articleId, articleName, status, colors, price, rating, images } = product;
 
-                    return (
-                        <SingleProductList
-                            key={articleId}
-                            articleId={articleId}
-                            articleName={articleName}
-                            description={loremDesc}
-                            colors={colors}
-                            price={price}
-                            rating={rating}
-                            status={status}
-                            images={images}
-                            productRoute={productRoute}
-                        />
-                    )
-                }) : <p>Loading..</p>
+                                return (
+                                    <SingleProductList
+                                        key={articleId}
+                                        articleId={articleId}
+                                        articleName={articleName}
+                                        description={loremDesc}
+                                        colors={colors}
+                                        price={price}
+                                        rating={rating}
+                                        status={status}
+                                        images={images}
+                                        productRoute={productRoute}
+                                    />
+                                )
+                            })
+                        }
+                        <div className='flex justify-center py-2 w-full'>
+                            <Pagination
+                                pageCount={pageCount}
+                                onPageChange={onPageChange}
+                                activePage={activePage}
+                            />
+                        </div>
+                    </>
+                ) : <NothingFound/>
             }
-            <div className='flex justify-center py-2 w-full'>
-                <Pagination
-                    pageCount={pageCount}
-                    onPageChange={onPageChange}
-                    activePage={activePage}
-                />
-            </div>
         </>
     )
 }

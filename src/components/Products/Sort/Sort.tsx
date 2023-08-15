@@ -1,4 +1,4 @@
-import React, { FC, ChangeEvent, useEffect } from 'react'
+import React, { FC, ChangeEvent, useEffect, RefObject } from 'react'
 
 import { sortOptions } from '../../../constants/sortOptions';
 import { useAppDispatch } from '../../../hooks/useAppDispatch';
@@ -8,7 +8,11 @@ import { RootState } from '../../../ts/types/RootState';
 import { SortBy } from '../../../ts/types/SortBy';
 import { PAGINATION_RESET_TO_FIRST_PAGE } from '../../../features/slices/paginationProductsSlice';
 
-const Sort: FC = (): JSX.Element => {
+interface IProps {
+    searchRef: RefObject<HTMLInputElement>;
+}
+
+const Sort: FC<IProps> = ({ searchRef }): JSX.Element => {
     const { filteredProducts } = useAppSelector((state: RootState) => state.filters);
     const { sortBy } = useAppSelector((state: RootState) => state.sorts);
     const dispatch = useAppDispatch();
@@ -30,6 +34,7 @@ const Sort: FC = (): JSX.Element => {
             sortBy: e.target.value as SortBy,
             products: filteredProducts
         }));
+        searchRef.current!.value = "";
     };
 
     return (

@@ -89,6 +89,7 @@ export { default as FilterColors } from "./Products/Filter/FilterColors/FilterCo
 export { default as FilterSkeleton} from "./Skeletons/FilterSkeleton/FilterSkeleton";
 export { default as ProductsContainerSkeleton} from "./Skeletons/ProductsContainerSkeleton/ProductsContainerSkeleton";
 export { default as ProductsSearch } from "./Products/Search/ProductsSearch";
+export { default as NothingFound } from "./Products/Search/NothingFound/NothingFound";
 export { default as Pagination } from "./Pagination/Pagination";
 export { default as Categories } from "./Products/Categories/Categories";
 export { default as Category } from "./Products/Category/Category";

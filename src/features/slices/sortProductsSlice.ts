@@ -26,7 +26,12 @@ export const sortProductsSlice = createSlice({
             state.sortBy = sortBy;
             state.sortedProducts = sortedProducts;
         },
+        SEARCH_PRODUCTS: (state, action: PayloadAction<{ products: IProduct[] }>) => {
+            const { products: searchedProducts } = action.payload;
+
+            state.sortedProducts = searchedProducts;
+        }   
     }
 });
 
-export const { SORT_BY } = sortProductsSlice.actions;
+export const { SORT_BY, SEARCH_PRODUCTS } = sortProductsSlice.actions;
