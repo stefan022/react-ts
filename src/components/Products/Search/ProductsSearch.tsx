@@ -52,7 +52,7 @@ const ProductsSearch: FC<IProps> = ({ searchRef }): JSX.Element => {
     const handleSearchProducts = () => debounceFunc(searchRef.current!.value);
 
     return (
-        <div className='border border-gray-300 m-3 flex items-center py-2 px-3 gap-1'>
+        <div className='border border-gray-300 flex items-center py-2 px-3 gap-1'>
             <input 
                 className='outline-none'
                 type="text" 

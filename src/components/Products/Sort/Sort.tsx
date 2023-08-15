@@ -38,10 +38,10 @@ const Sort: FC<IProps> = ({ searchRef }): JSX.Element => {
     };
 
     return (
-        <div className='flex'>
+        <div className='flex items-center'>
             <p>Sort by: </p>
             <select 
-                className='ml-2' 
+                className='ml-2 py-0.5 px-1 border border-gray-400 cursor-pointer' 
                 id="sortProducts" 
                 onChange={handleSortChange}
                 defaultValue={sortBy}

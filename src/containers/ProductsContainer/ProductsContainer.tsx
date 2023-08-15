@@ -23,7 +23,7 @@ const ProductsContainer: FC<IProps> = ({ productRoute }): JSX.Element => {
 
     return (
         <div className='w-5/6 border border-gray-400 h-full'>
-            <div className='border border-b-gray-300'>
+            <div className='border border-b-gray-300 px-4 py-3'>
                 <div className='flex justify-between items-center'>
                     <ProductsSearch
                         searchRef={searchRef}
@@ -39,11 +39,13 @@ const ProductsContainer: FC<IProps> = ({ productRoute }): JSX.Element => {
                     </div>
                 </div>
             </div>
+            <div className='p-2'>
             {
                 view === "grid" 
                     ? <CardsView productRoute={productRoute}/>
                     : <ListsView productRoute={productRoute}/>
             }
+            </div>
         </div>
     )
 }
