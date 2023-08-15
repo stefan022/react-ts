@@ -5,8 +5,6 @@ import { FilterBrands, FilterClear, FilterColors, FilterPrice, FilterRatings, Fi
 import { TColors } from '../../../ts/types/TColors';
 import { useAppDispatch } from '../../../hooks/useAppDispatch';
 import { FILTERS_CHECKED, RESET_FILTERS_CHECKED } from '../../../features/slices/filterProductsSlice';
-import { useAppSelector } from '../../../hooks/useAppSelector';
-import { RootState } from '../../../ts/types/RootState';
 import { initialRatingsForFilter } from '../../../constants/initialRatingsForFilter';
 import { IProduct } from '../../../ts/interfaces/IProduct/IProduct';
 import { IScreen } from '../../../ts/interfaces/IProduct/IScreen';
@@ -21,7 +19,6 @@ const Filter: FC<IProps> = ({ products, handleFilterChange }): JSX.Element => {
     const [ filterColors, setFilterColors ] = useState<TColors[]>([]);
     const [ filterPrice, setFilterPrice ] = useState<number[]>([]);
 
-    const { phones } = useAppSelector((state: RootState) => state.phones);
     const dispatch = useAppDispatch();
 
     useEffect(() => {
@@ -60,7 +57,7 @@ const Filter: FC<IProps> = ({ products, handleFilterChange }): JSX.Element => {
 
     const handleFilterClear = (e: FormEvent<HTMLFormElement>) => { 
         dispatch(RESET_FILTERS_CHECKED({
-            products: phones
+            products
         }));
     };
 
