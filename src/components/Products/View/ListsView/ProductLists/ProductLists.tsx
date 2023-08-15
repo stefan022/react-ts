@@ -7,7 +7,8 @@ import { NothingFound, Pagination, SingleProductList } from "../../../.."
 import { useAppDispatch } from '../../../../../hooks/useAppDispatch';
 import { PAGINATION_CHANGE_PAGE } from '../../../../../features/slices/paginationProductsSlice';
 import { loremDesc } from '../../../../../constants/loremDesc';
-import { IProduct } from '../../../../../ts/interfaces/IProducts/IProduct';
+import { IProduct } from '../../../../../ts/interfaces/IProduct/IProduct';
+import { IScreen } from '../../../../../ts/interfaces/IProduct/IScreen';
 
 interface IProps {
     productRoute: string;
@@ -38,7 +39,7 @@ const ProductLists: FC<IProps> = ({ productRoute }): JSX.Element => {
                 paginationProducts.length > 0 ? (
                     <>
                         {
-                            paginationProducts.map((product: IProduct) => {
+                            paginationProducts.map((product: IProduct<IScreen | string>) => {
                                 const { articleId, articleName, status, colors, price, rating, images } = product;
 
                                 return (

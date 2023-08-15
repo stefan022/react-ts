@@ -2,6 +2,9 @@ import { combineReducers } from "@reduxjs/toolkit";
 
 import rootAPI from "../features/API/rootAPI";
 import { phonesSlice } from "../features/slices/phonesSlice";
+import { tabletsSlice } from "../features/slices/tabletsSlice";
+import { laptopsSlice } from "../features/slices/laptopsSlice";
+import { televisionsSlice } from "../features/slices/televisionsSlice";
 import { filterProductsSlice } from "../features/slices/filterProductsSlice";
 import { sortProductsSlice } from "../features/slices/sortProductsSlice";
 import { paginationProductsSlice } from "../features/slices/paginationProductsSlice";
@@ -13,6 +16,9 @@ import { supportMessagesSlice } from "../features/slices/supportMessagesSlice";
 const rootReducer = combineReducers({
 	[rootAPI.reducerPath]: rootAPI.reducer,
 	phones: phonesSlice.reducer,
+	tablets: tabletsSlice.reducer,
+	laptops: laptopsSlice.reducer,
+	televisions: televisionsSlice.reducer,
 	filters: filterProductsSlice.reducer,
 	sorts: sortProductsSlice.reducer,
 	pagination: paginationProductsSlice.reducer,

@@ -8,10 +8,11 @@ import { FILTERS_CHECKED, RESET_FILTERS_CHECKED } from '../../../features/slices
 import { useAppSelector } from '../../../hooks/useAppSelector';
 import { RootState } from '../../../ts/types/RootState';
 import { initialRatingsForFilter } from '../../../constants/initialRatingsForFilter';
-import { IProduct } from '../../../ts/interfaces/IProducts/IProduct';
+import { IProduct } from '../../../ts/interfaces/IProduct/IProduct';
+import { IScreen } from '../../../ts/interfaces/IProduct/IScreen';
 
 interface IProps {
-    products: IProduct[];
+    products: IProduct<IScreen | string>[];
     handleFilterChange: FormEventHandler<HTMLFormElement>;
 }
 
@@ -32,7 +33,7 @@ const Filter: FC<IProps> = ({ products, handleFilterChange }): JSX.Element => {
         const uniqueColors = new Set();
         const filters: { [key: string]: boolean } = {}
         
-        products.forEach((product: IProduct) => {
+        products.forEach((product: IProduct<IScreen | string>) => {
             uniqueBrands.add(product.brand);
             setFilterPrice((prev) => [...prev, product.price]);
 

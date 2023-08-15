@@ -103,7 +103,7 @@ export { default as SingleProductCard } from "./Products/View/CardsView/SinglePr
 export { default as SingleProductList } from "./Products/View/ListsView/SingleProductList/SingleProductList";
 export { default as RoundColors } from "./Products/RoundColors/RoundColors";
 export { default as Stars } from "./Products/Stars/Stars";
-export { default as PhoneDetails } from "./Products/ProductDetails/PhoneDetails/PhoneDetails";
+export { default as ProductDetails } from "./Products/ProductDetails/ProductDetails";
 export { default as ProductImages } from "./Products/ProductDetails/ProductImages/ProductImages";
 export { default as ProductButtons } from "./Products/ProductDetails/ProductButtons/ProductButtons";
 export { default as ProductInformation } from "./Products/ProductDetails/ProductInformation/ProductInformation";
@@ -114,6 +114,12 @@ export { default as ProductPrice } from "./Products/ProductDetails/ProductPrice/
 export { default as ProductColors } from "./Products/ProductDetails/ProductColors/ProductColors";
 export { default as ProductQuantity } from "./Products/ProductDetails/ProductQuantity/ProductQuantity";
 export { default as ProductSpecifications } from "./Products/ProductDetails/ProductSpecifications/ProductSpecifications";
+export { default as PhoneSpecifications } from "./Products/ProductDetails/PhoneSpecifications/PhoneSpecifications";
+export { default as TabletSpecifications } from "./Products/ProductDetails/TabletSpecifications/TabletSpecifications";
+export { default as LaptopSpecifications } from "./Products/ProductDetails/LaptopSpecifications/LaptopSpecifications";
+export { default as TelevisionSpecification } from "./Products/ProductDetails/TelevisionSpecification/TelevisionSpecification";
+export { default as ProductSpecificationTitle } from "./Products/ProductDetails/ProductSpecificationTitle/ProductSpecificationTitle";
+export { default as ProductSingleSpecification } from "./Products/ProductDetails/ProductSingleSpecification/ProductSingleSpecification";
 export { default as ProductRatings } from "./Products/ProductDetails/ProductRatings/ProductRatings";
 export { default as ProductRatingsTitle } from "./Products/ProductDetails/ProductRatings/ProductRatingsTitle/ProductRatingsTitle";
 export { default as ProductRatingsTotal } from "./Products/ProductDetails/ProductRatings/ProductRatingsTotal/ProductRatingsTotal";

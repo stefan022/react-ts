@@ -1,58 +1,62 @@
-import React, { FC } from 'react'
+import React, { FC} from 'react'
+
+import { IProduct } from '../../../../ts/interfaces/IProduct/IProduct';
+import { IScreen } from '../../../../ts/interfaces/IProduct/IScreen';
+import PhoneSpecifications from '../PhoneSpecifications/PhoneSpecifications';
+import { LaptopSpecifications, TabletSpecifications, TelevisionSpecification } from '../../..';
 
 interface IProps {
-    screen: {
-        screenType: string;
-        screenDiagonal: string;
-    };
-    memory: {
-        ramMemory: string;
-        internalMemory: string;
-    };
-    camera: {
-        rearCamera: string;
-        frontCamera: string;
-    };
-    battery: string;
+    product: IProduct<IScreen | string>;
+    category: string;
 }
 
-const ProductSpecifications: FC<IProps> = ({ screen, memory, camera, battery }): JSX.Element => {
+const ProductSpecifications: FC<IProps> = ({ product, category }): JSX.Element => {
+    const { camera, battery, memory, screen, ram, processor, graphic, ssd_hdd, digitalTuner, technology, resolution, operatingSystem } = product;
+
     return (
-        <div className='border border-gray-400 w-full mb-6'>
-            <div className='px-6 py-4 border border-b-blue-200'>
-                <h3 className='font-bold'>Description</h3>
-            </div>
-            <div className='flex flex-col p-6'>
-                <div className='flex justify-between mb-2'>
-                    <p className='w-1/2'>RAM Memory:</p>
-                    <p className='w-1/2'>{memory.ramMemory}</p>
-                </div>
-                <div className='flex justify-between mb-2'>
-                    <p className='w-1/2'>Internal Memory:</p>
-                    <p className='w-1/2'>{memory.internalMemory}</p>
-                </div>
-                <div className='flex justify-between mb-2'>
-                    <p className='w-1/2'>Rear Camera:</p>
-                    <p className='w-1/2'>{camera.rearCamera}</p>
-                </div>
-                <div className='flex justify-between mb-2'>
-                    <p className='w-1/2'>Front Camera:</p>
-                    <p className='w-1/2'>{camera.frontCamera}</p>
-                </div>
-                <div className='flex justify-between mb-2'>
-                    <p className='w-1/2'>Screen Type:</p>
-                    <p className='w-1/2'>{screen.screenType}</p>
-                </div>
-                <div className='flex justify-between mb-2'>
-                    <p className='w-1/2'>Screen Diagonal:</p>
-                    <p className='w-1/2'>{screen.screenDiagonal}</p>
-                </div>
-                <div className='flex justify-between mb-2'>
-                    <p className='w-1/2'>Battery:</p>
-                    <p className='w-1/2'>{battery}</p>
-                </div>
-            </div>
-        </div>
+        <>
+            { 
+                category === "phones" && (
+                    <PhoneSpecifications
+                        camera={camera!}
+                        battery={battery}
+                        memory={memory}
+                        screen={screen as IScreen}
+                    />
+                )
+            }
+            { 
+                category === "tablets" && (
+                    <TabletSpecifications
+                        battery={battery}
+                        memory={memory}
+                        screen={screen as IScreen}
+                    />
+                )
+            }
+            { 
+                category === "laptops" && (
+                    <LaptopSpecifications
+                        screen={screen as string}
+                        ram={ram!}
+                        processor={processor!}
+                        graphic={graphic!}                        
+                        ssd_hdd={ssd_hdd!}
+                    />
+                )
+            }
+            { 
+                category === "televisions" && (
+                    <TelevisionSpecification
+                        screen={screen as string}
+                        digitalTuner={digitalTuner!}
+                        technology={technology!}
+                        resolution={resolution!}                        
+                        operatingSystem={operatingSystem!}
+                    />
+                )
+            }
+        </>
     )
 }
 

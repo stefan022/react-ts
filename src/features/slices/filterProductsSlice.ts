@@ -1,10 +1,11 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 import { helperFilteredProducts } from "../../utils/helpers/helperFilteredProducts";
-import { IProduct } from "../../ts/interfaces/IProducts/IProduct";
+import { IProduct } from "../../ts/interfaces/IProduct/IProduct";
+import { IScreen } from "../../ts/interfaces/IProduct/IScreen";
 
 interface InitialState {
-	filteredProducts: IProduct[] | [];
+	filteredProducts: IProduct<IScreen | string>[] | [];
 	filtersChecked: { [key: string]: boolean };
 };
 
@@ -17,7 +18,7 @@ export const filterProductsSlice = createSlice({
 	name: "filter",
 	initialState,
 	reducers: {
-		FILTERED_PRODUCTS: (state, action: PayloadAction<{ products: IProduct[], filterName?: string, isChecked?: boolean }>) => {
+		FILTERED_PRODUCTS: (state, action: PayloadAction<{ products: IProduct<IScreen | string>[], filterName?: string, isChecked?: boolean }>) => {
 			const { products, filterName, isChecked } = action.payload;
 			const filtersChecked = state.filtersChecked;
 
@@ -39,7 +40,7 @@ export const filterProductsSlice = createSlice({
 
 			state.filtersChecked = {...state.filtersChecked, filtersChecked};
         },
-		RESET_FILTERS_CHECKED: (state, action: PayloadAction<{products: IProduct[]}>) => {
+		RESET_FILTERS_CHECKED: (state, action: PayloadAction<{products: IProduct<IScreen | string>[]}>) => {
 			const { products } = action.payload;
 
 			state.filtersChecked = {};

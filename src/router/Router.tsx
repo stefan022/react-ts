@@ -2,7 +2,7 @@ import React from "react";
 
 import { BrowserRouter, Route, Routes as BrowserRoutes } from "react-router-dom";
 
-import { Home, Login, NotFound, Orders, Profile, Wishlist, Register, Settings, Products, Blogs, Faq, Support, Cart, Messages, Dashboard, Phones, Tablets, Laptops, Televisions, Others, Chat, Kanban, Calendar, Employees, Customers, AdminMessages, AdminProducts, AdminOrders, AdminReviews, NotAuthorized, ResetPassword, SinglePhone } from "../pages";
+import { Home, Login, NotFound, Orders, Profile, Wishlist, Register, Settings, Products, Blogs, Faq, Support, Cart, Messages, Dashboard, Phones, Tablets, Laptops, Televisions, Others, Chat, Kanban, Calendar, Employees, Customers, AdminMessages, AdminProducts, AdminOrders, AdminReviews, NotAuthorized, ResetPassword, SinglePhone, SingleTablet, SingleLaptop, SingleTelevision } from "../pages";
 import { PrivateLayout, PublicLayout, AdminLayout } from "../layouts";
 import { Routes } from "./Routes";
 
@@ -114,6 +114,33 @@ const Router = () => {
 					element={
 						<PrivateLayout>
 							<SinglePhone />
+						</PrivateLayout>
+					}
+				/>
+
+				<Route
+					path={`${Routes.PRODUCTS}${Routes.TABLETS}${Routes.PRODUCT_DETAILS}`}
+					element={
+						<PrivateLayout>
+							<SingleTablet />
+						</PrivateLayout>
+					}
+				/>
+
+				<Route
+					path={`${Routes.PRODUCTS}${Routes.LAPTOPS}${Routes.PRODUCT_DETAILS}`}
+					element={
+						<PrivateLayout>
+							<SingleLaptop />
+						</PrivateLayout>
+					}
+				/>
+
+				<Route
+					path={`${Routes.PRODUCTS}${Routes.TELEVISIONS}${Routes.PRODUCT_DETAILS}`}
+					element={
+						<PrivateLayout>
+							<SingleTelevision />
 						</PrivateLayout>
 					}
 				/>

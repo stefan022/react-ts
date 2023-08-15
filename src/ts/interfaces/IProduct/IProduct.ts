@@ -1,6 +1,6 @@
 import { TColors } from "../../types/TColors";
 
-export interface IPhone {
+export interface IProduct<T> {
     articleName: string;
     discount: number;
     price: number;
@@ -9,14 +9,7 @@ export interface IPhone {
     colors: TColors[];
     quantity: number;
     rating: number;
-    camera: {
-        rearCamera: string; 
-        frontCamera: string;
-    },
-    screen: {
-        screenType: string;
-        screenDiagonal: string;
-    },
+    screen: T;
     memory: {
         ramMemory: string;
         internalMemory: string;
@@ -26,4 +19,16 @@ export interface IPhone {
     images: string[];
     timestamp: number;
     articleId: number;
-};
+    camera?: {
+        rearCamera: string; 
+        frontCamera: string;
+    },
+    ram?: string;
+    processor?: string;
+    graphic?: string;
+    ssd_hdd?: string;
+	digitalTuner?: string;
+	technology?: string;
+	resolution?: string;
+	operatingSystem?: string;
+}

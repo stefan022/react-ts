@@ -4,9 +4,10 @@ import { useAppSelector } from '../../../hooks/useAppSelector';
 import { RootState } from '../../../ts/types/RootState';
 import { useAppDispatch } from '../../../hooks/useAppDispatch';
 import { SEARCH_PRODUCTS } from '../../../features/slices/sortProductsSlice';
-import { IProduct } from '../../../ts/interfaces/IProducts/IProduct';
+import { IProduct } from '../../../ts/interfaces/IProduct/IProduct';
 import { PAGINATION_RESET_TO_FIRST_PAGE } from '../../../features/slices/paginationProductsSlice';
 import { BiSearchAlt2 } from 'react-icons/bi';
+import { IScreen } from '../../../ts/interfaces/IProduct/IScreen';
 
 interface IProps {
     searchRef: RefObject<HTMLInputElement>;
@@ -14,7 +15,7 @@ interface IProps {
 
 const ProductsSearch: FC<IProps> = ({ searchRef }): JSX.Element => {
     const { sortedProducts } = useAppSelector((state: RootState) => state.sorts);
-    const [ products, setProducts ] = useState<IProduct[]>([]);
+    const [ products, setProducts ] = useState<IProduct<IScreen | string>[]>([]);
     const [ isNotFirstTime, setIsNotFirstTime ] = useState<boolean>(false);
 
     const dispatch = useAppDispatch();
@@ -39,7 +40,7 @@ const ProductsSearch: FC<IProps> = ({ searchRef }): JSX.Element => {
             return;
         }
 
-        const searchFilteredProducts = products.filter((product: IProduct) => {
+        const searchFilteredProducts = products.filter((product: IProduct<IScreen | string>) => {
             return product.articleName.toLowerCase().indexOf(args.toLowerCase()) !== -1;
         });
 

@@ -6,7 +6,8 @@ import { useAppSelector } from '../../../../../hooks/useAppSelector';
 
 import { useAppDispatch } from '../../../../../hooks/useAppDispatch';
 import { PAGINATION_CHANGE_PAGE } from '../../../../../features/slices/paginationProductsSlice';
-import { IProduct } from '../../../../../ts/interfaces/IProducts/IProduct';
+import { IProduct } from '../../../../../ts/interfaces/IProduct/IProduct';
+import { IScreen } from '../../../../../ts/interfaces/IProduct/IScreen';
 
 interface IProps {
     productRoute: string;
@@ -37,7 +38,7 @@ const ProductCards: FC<IProps> = ({ productRoute }): JSX.Element => {
                 paginationProducts.length > 0 ? (
                 <>
                     {
-                        paginationProducts.map((product: IProduct) => {
+                        paginationProducts.map((product: IProduct<IScreen | string>) => {
                             const { articleId, articleName, colors, price, rating, images } = product;
 
                             return (
