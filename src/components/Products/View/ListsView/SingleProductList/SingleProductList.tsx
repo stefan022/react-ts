@@ -6,6 +6,7 @@ import { Routes } from '../../../../../router/Routes';
 
 import { RoundColors, Stars } from "../../../.."
 import { firstCapitalLatter } from '../../../../../utils/helpers/capitalFirstLetter';
+import { BsCart3 } from 'react-icons/bs';
 
 interface IProps {
     articleId: number
@@ -14,21 +15,22 @@ interface IProps {
     status: string;
     description: string;
     price: number;
+    discount: number;
     colors: TColors[];
     images: string[];
     productRoute: string;
 }
 
-const SingleProductList: FC<IProps> = ({ articleId, articleName, rating, status, description, price, colors, images, productRoute }): JSX.Element => {
+const SingleProductList: FC<IProps> = ({ articleId, articleName, rating, status, description, price, discount, colors, images, productRoute }): JSX.Element => {
     return (
-        <div className='border border-gray-300 w-full p-2'>
-            <div className='border border-gray-300 h-[200px] flex'>
+        <div className='w-full p-2'>
+            <div className='border border-gray-400 h-[200px] flex'>
                 <Link to={`${Routes.PRODUCTS}${productRoute}/${articleId}`}>
-                    <div className='border border-gray-300 h-full w-[200px] bg-white'>
-                        <img className='w-full h-full' src={images[0]} alt="" />
+                    <div className='border-r border-gray-400 h-full w-[200px] bg-white'>
+                        <img className='w-full h-full p-2' src={images[0]} alt="" />
                     </div>
                 </Link>
-                <div className='p-2 w-full h-full flex flex-col justify-between'>
+                <div className='py-2 px-4 w-full h-full flex flex-col justify-between'>
                     <div>
                         <div className='flex'>
                             <Stars rating={rating} size={20}/>
@@ -46,16 +48,21 @@ const SingleProductList: FC<IProps> = ({ articleId, articleName, rating, status,
                             <p>{description}</p>
                         </div>
                     </div>
-                    <div className='flex justify-between'>
+                    <div className='flex justify-between items-center'>
                         <div className='flex flex-col justify-between'>
-                            <p>${price}</p>
+                            <div className='flex items-center gap-2'>
+                                <h4 className='font-bold'>${price}</h4>
+                                <p className='text-xs text-gray-400 line-through'>${price}</p>
+                                <p className='text-red-400 font-bold'>({discount}% off)</p>
+                            </div>
                             <div className='flex gap-2'>
                                 <RoundColors articleId={articleId} colors={colors} largeSize={false}/> 
                             </div>
                         </div>
-                        <div className='flex items-center'>
-                            <button className="bg-blue-400 py-1 px-3 text-white">Add to Cart</button>
-                        </div>
+                        <button className="bg-blue-400 py-1 px-3 text-white flex items-center gap-2">
+                            <p>Add to Cart</p>
+                            <BsCart3 className='text-white' size={18} />
+                        </button>
                     </div>
                 </div>
             </div>

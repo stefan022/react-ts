@@ -40,7 +40,7 @@ const ProductLists: FC<IProps> = ({ productRoute }): JSX.Element => {
                     <>
                         {
                             paginationProducts.map((product: IProduct<IScreen | string>) => {
-                                const { articleId, articleName, status, colors, price, rating, images } = product;
+                                const { articleId, articleName, status, colors, price, discount, rating, images } = product;
 
                                 return (
                                     <SingleProductList
@@ -50,6 +50,7 @@ const ProductLists: FC<IProps> = ({ productRoute }): JSX.Element => {
                                         description={loremDesc}
                                         colors={colors}
                                         price={price}
+                                        discount={discount}
                                         rating={rating}
                                         status={status}
                                         images={images}
@@ -58,7 +59,7 @@ const ProductLists: FC<IProps> = ({ productRoute }): JSX.Element => {
                                 )
                             })
                         }
-                        <div className='flex justify-center py-2 w-full'>
+                        <div className='border-t border-t-gray-400 flex justify-center mx-2 mt-2 w-full'>
                             <Pagination
                                 pageCount={pageCount}
                                 onPageChange={onPageChange}
