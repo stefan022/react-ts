@@ -87,6 +87,7 @@ const Bookmark: FC<IProps> = ({ articleId, bookmarked, articleName, price, statu
             <Modal
                 open={isOpenModal}
                 onClose={handleCloseModal}
+                className='bg-white bg-opacity-80'
                 children={
                     isBookmarked 
                         ? <WishlistAddedProduct handleCloseModal={handleCloseModal}/>

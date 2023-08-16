@@ -63,13 +63,13 @@ const CalendarComponent = () => {
 				handleEventClick={handleEventClick}
 				events={events}
 			/>
-			<Modal open={deleteModalActive} onClose={handleCloseDeleteModal}>
+			<Modal open={deleteModalActive} onClose={handleCloseDeleteModal} className='bg-white bg-opacity-80'>
 				<CalendarDeleteModal
 					handleClose={handleCloseDeleteModal}
 					handleDelete={() => handleDelete(deleteModalInfo!)}
 				/>
 			</Modal>
-			<Modal open={addModalActive} onClose={handleCloseAddModal}>
+			<Modal open={addModalActive} onClose={handleCloseAddModal} className='bg-white bg-opacity-80'>
 				<CalendarAddModal
 					inputRef={inputRef}
 					handleClose={handleCloseAddModal}

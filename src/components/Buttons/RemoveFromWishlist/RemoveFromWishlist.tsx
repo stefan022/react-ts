@@ -55,6 +55,7 @@ const RemoveFromWishlist: FC<IProps> = ({ wishlistId, articleId, category }): JS
             <Modal
                 open={isOpenModal}
                 onClose={handleCloseModal}
+                className='bg-white bg-opacity-80'
             >
                 <QuestionRemoveFromWishlist
                     wishlistId={wishlistId}

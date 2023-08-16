@@ -11,7 +11,7 @@ interface IProps {
 const WishlistAddedProduct: FC<IProps> = ({ handleCloseModal }): JSX.Element => {
     return (
         <>
-            <div className='bg-white w-[500px] h-[350px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center flex-col p-8 gap-8 transition-all outline-none'>
+            <div className='z-50 bg-white w-[500px] h-[350px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center flex-col p-8 gap-8 transition-all outline-none'>
                 <div className='flex flex-col items-center gap-2'>
                     <BsBookmarkCheck size={50} className='text-slate-500'/>
                     <h2 className='text-center'>You have successfully added this product to your wishlist!</h2>
