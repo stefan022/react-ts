@@ -44,12 +44,14 @@ const ProductDetails: FC<IProps> = ({ productName, productRoute, product, catego
                     </div>
                     <div className='w-1/2 border border-gray p-6 h-[525px]'>
                         <ProductInformation
+                            articleId={articleId}
                             articleName={articleName}
                             rating={rating}
                             status={status}
                             model={model}
                             timestamp={timestamp}
                             brand={brand}
+                            category={category}
                             price={price}
                             colors={colors}
                             discount={discount}

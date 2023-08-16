@@ -12,20 +12,10 @@ export const laptopsAPI = rootAPI.injectEndpoints({
             query: (id) => `/laptops/${id}`,
             providesTags: ["laptop"]
         }),
-
-        updateBookmarkStatusForLaptop: builder.mutation<{}, { laptopId: number, bookmarked: boolean }>({
-            query: (dto) => ({
-                method: "PATCH",
-                url: `/laptops/${dto.laptopId}`,
-                body: dto
-            }),
-            invalidatesTags: ["laptops"]
-        })
     })
 })
 
 export const {
     useGetLaptopsQuery,
-    useGetSingleLaptopQuery,
-    useUpdateBookmarkStatusForLaptopMutation
+    useGetSingleLaptopQuery
 } = laptopsAPI;

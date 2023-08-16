@@ -19,13 +19,12 @@ interface IProps {
     rating: number;
     images: string[];
     productRoute: string;
-    bookmarked: boolean;
     category: string;
 }
 
-const SingleProductCard: FC<IProps> = ({ articleId, articleName, colors, price, discount, rating, images, productRoute, bookmarked, status, category }): JSX.Element => {
+const SingleProductCard: FC<IProps> = ({ articleId, articleName, colors, price, discount, rating, images, productRoute, status, category }): JSX.Element => {
     const newPrice = calculationDiscount(price, discount);
-    
+
     return (
         <div className='h-[465px] w-1/4 p-2'>
             <div className='border border-gray-400 h-full'>
@@ -44,12 +43,12 @@ const SingleProductCard: FC<IProps> = ({ articleId, articleName, colors, price, 
                             </div>
                             <Bookmark 
                                 articleId={articleId} 
-                                bookmarked={bookmarked}
                                 articleName={articleName}
                                 price={newPrice}
                                 status={status}
                                 category={category}
                                 image={images[0]}
+                                size={20}
                             />
                         </div>
                         <h4>{tooLongString(articleName, 42)}</h4>

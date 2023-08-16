@@ -20,7 +20,6 @@ export interface IProduct<T> {
     status: string;
     images: string[];
     timestamp: number;
-    bookmarked: boolean;
     camera?: {
         rearCamera: string; 
         frontCamera: string;

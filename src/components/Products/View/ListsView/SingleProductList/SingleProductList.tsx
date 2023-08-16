@@ -21,11 +21,10 @@ interface IProps {
     colors: TColors[];
     images: string[];
     productRoute: string;
-    bookmarked: boolean;
     category: string;
 }
 
-const SingleProductList: FC<IProps> = ({ articleId, articleName, rating, status, description, price, discount, colors, images, productRoute, bookmarked, brand, category }): JSX.Element => {
+const SingleProductList: FC<IProps> = ({ articleId, articleName, rating, status, description, price, discount, colors, images, productRoute, brand, category }): JSX.Element => {
     const newPrice = calculationDiscount(price, discount);
     
     return (
@@ -44,12 +43,12 @@ const SingleProductList: FC<IProps> = ({ articleId, articleName, rating, status,
                             </div>
                             <Bookmark 
                                 articleId={articleId} 
-                                bookmarked={bookmarked}
                                 articleName={articleName}
                                 price={newPrice}
                                 status={status}
                                 category={category}
                                 image={images[0]}
+                                size={20}
                             />
                         </div>
                         <div className='flex items-center gap-1'>

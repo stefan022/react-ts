@@ -39,7 +39,7 @@ const ProductCards: FC<IProps> = ({ productRoute }): JSX.Element => {
                 <>
                     {
                         paginationProducts.map((product: IProduct<IScreen | string>) => {
-                            const { articleId, articleName, colors, price, discount, rating, images, bookmarked, category, status } = product;
+                            const { articleId, articleName, colors, price, discount, rating, images, category, status } = product;
 
                             return (
                                 <SingleProductCard
@@ -54,7 +54,6 @@ const ProductCards: FC<IProps> = ({ productRoute }): JSX.Element => {
                                     rating={rating}
                                     images={images}
                                     productRoute={productRoute}
-                                    bookmarked={bookmarked}
                                 />
                             )
                         })
