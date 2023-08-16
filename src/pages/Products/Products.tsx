@@ -5,12 +5,14 @@ import products from "../../assets/products.png";
 import { Container } from '../../containers';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { RESET_FILTER_CURRENT_PRICE } from '../../features/slices/filterProductsSlice';
+import { RESET_SORT_TO_RECOMMENDED } from '../../features/slices/sortProductsSlice';
 
 const Products: FC = (): JSX.Element => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
         dispatch(RESET_FILTER_CURRENT_PRICE());
+        dispatch(RESET_SORT_TO_RECOMMENDED());
 
         // eslint-disable-next-line
     }, []);

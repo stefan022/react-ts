@@ -27,12 +27,15 @@ export const sortProductsSlice = createSlice({
             state.sortBy = sortBy;
             state.sortedProducts = sortedProducts;
         },
+        RESET_SORT_TO_RECOMMENDED: (state) => {
+            state.sortBy = "recommended";
+        },
         SEARCH_PRODUCTS: (state, action: PayloadAction<{ products: IProduct<IScreen | string>[] }>) => {
             const { products: searchedProducts } = action.payload;
 
             state.sortedProducts = searchedProducts;
-        }   
+        },
     }
 });
 
-export const { SORT_BY, SEARCH_PRODUCTS } = sortProductsSlice.actions;
+export const { SORT_BY, RESET_SORT_TO_RECOMMENDED, SEARCH_PRODUCTS } = sortProductsSlice.actions;
