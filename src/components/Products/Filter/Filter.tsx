@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState, FormEvent, FormEventHandler } from 'react'
+import React, { FC, useEffect, useState, FormEvent, FormEventHandler, Dispatch, SetStateAction } from 'react'
 
 import { FilterBrands, FilterClear, FilterColors, FilterPrice, FilterRatings, FilterSkeleton, FilterTitle } from "../../../components"
 
@@ -12,9 +12,11 @@ import { IScreen } from '../../../ts/interfaces/IProduct/IScreen';
 interface IProps {
     products: IProduct<IScreen | string>[];
     handleFilterChange: FormEventHandler<HTMLFormElement>;
+    discount: number;
+    setDiscount: Dispatch<SetStateAction<number>>;
 }
 
-const Filter: FC<IProps> = ({ products, handleFilterChange }): JSX.Element => {
+const Filter: FC<IProps> = ({ products, handleFilterChange, discount, setDiscount }): JSX.Element => {
     const [ filterBrands, setFilterBrands ] = useState<string[]>([]);
     const [ filterColors, setFilterColors ] = useState<TColors[]>([]);
     const [ filterPrice, setFilterPrice ] = useState<number[]>([]);
@@ -33,6 +35,7 @@ const Filter: FC<IProps> = ({ products, handleFilterChange }): JSX.Element => {
         products.forEach((product: IProduct<IScreen | string>) => {
             uniqueBrands.add(product.brand);
             setFilterPrice((prev) => [...prev, product.price]);
+            setDiscount!(product.discount);
 
             product.colors.forEach((color: TColors) => uniqueColors.add(color));
         })
@@ -77,7 +80,7 @@ const Filter: FC<IProps> = ({ products, handleFilterChange }): JSX.Element => {
                         <div>
                             <FilterBrands uniqueBrands={filterBrands}/>
                             <FilterRatings/>
-                            <FilterPrice filterPrice={filterPrice}/>
+                            <FilterPrice filterPrice={filterPrice} discount={discount!}/>
                             <FilterColors uniqueColors={filterColors}/>
                         </div>
                     </form>
