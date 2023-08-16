@@ -1,14 +1,40 @@
-import React from 'react'
-import { WishlistHead, WishlistItems } from '../../../components'
+import React, { useState, useEffect } from 'react'
+
+import { WishlistEmpty, WishlistHead, WishlistItems } from '../../../components'
+import { useGetAllFromWishlistQuery } from '../../../features/API/wishlistAPI';
+import { useAppSelector } from '../../../hooks/useAppSelector';
+import { RootState } from '../../../ts/types/RootState';
+import { IWishlist } from '../../../ts/interfaces/IWishlist/IWishlist';
 
 const Wishlist = () => {
+    useGetAllFromWishlistQuery();
+    const userId = localStorage.getItem("userId") as string;
+
+    const { wishlist } = useAppSelector((state: RootState) => state.wishlist);
+    const [ myWishlist, setMyWishlist] = useState<IWishlist[]>([]);
+
+    useEffect(() => {
+        const getMyWishlist = wishlist.filter((w) => w.userId === userId);
+
+        setMyWishlist(getMyWishlist);
+
+    }, [wishlist, userId]);
+
     return (
-        <div>
-            <div className='p-4 flex justify-between border border-gray-300'>
-                <WishlistHead/>
-            </div>
-            <WishlistItems/>
-        </div>
+        <>
+        {
+            myWishlist.length > 0 ? (
+                <div>
+                    <div className='p-4 flex justify-between border border-gray-300'>
+                        <WishlistHead/>
+                    </div>
+                    <WishlistItems
+                        myWishlist={myWishlist}
+                    />
+                </div>
+            ) : <WishlistEmpty/>
+        }
+        </>
     )
 }
 

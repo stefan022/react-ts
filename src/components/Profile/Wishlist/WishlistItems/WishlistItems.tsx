@@ -1,25 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { FC } from 'react'
 
 import { WishlistSingleItem } from "../../../../components"
-import { useGetAllFromWishlistQuery } from '../../../../features/API/wishlistAPI'
-import { useAppSelector } from '../../../../hooks/useAppSelector';
-import { RootState } from '../../../../ts/types/RootState';
 import { IWishlist } from '../../../../ts/interfaces/IWishlist/IWishlist';
 
-const WishlistItems = () => {
-    useGetAllFromWishlistQuery();
-    const userId = localStorage.getItem("userId") as string;
+interface IProps {
+    myWishlist: IWishlist[]
+}
 
-    const { wishlist } = useAppSelector((state: RootState) => state.wishlist);
-    const [ myWishlist, setMyWishlist] = useState<IWishlist[]>([]);
-
-    useEffect(() => {
-        const getMyWishlist = wishlist.filter((w) => w.userId === userId);
-
-        setMyWishlist(getMyWishlist);
-
-    }, [wishlist, userId]);
-
+const WishlistItems: FC<IProps> = ({ myWishlist }): JSX.Element => {
     return (
         <>
             {
@@ -40,7 +28,7 @@ const WishlistItems = () => {
                             />
                         )
                     })
-                ) : <p>Sorry, you wishlist is empty. :D</p>
+                ) : null
             }
         </>
     )

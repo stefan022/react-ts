@@ -51,6 +51,7 @@ export { default as WishlistArticleName } from "./Profile/Wishlist/WishlistArtic
 export { default as WishlistPrice } from "./Profile/Wishlist/WishlistPrice/WishlistPrice";
 export { default as WishlistStatus } from "./Profile/Wishlist/WishlistStatus/WishlistStatus";
 export { default as WishlistDetails } from "./Profile/Wishlist/WishlistDetails/WishlistDetails";
+export { default as WishlistEmpty } from "./Profile/Wishlist/WishlistEmpty/WishlistEmpty";
 export { default as OrdersHead } from "./Profile/Orders/OrdersHead/OrdersHead";
 export { default as OrdersList } from "./Profile/Orders/OrdersList/OrdersList";
 export { default as OrderSingleItem } from "./Profile/Orders/OrderSingleItem/OrderSingleItem";
