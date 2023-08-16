@@ -8,7 +8,7 @@ export const supportAPI = rootAPI.injectEndpoints({
             providesTags: ["support"]
         }),
 
-        addSingleSupport: builder.mutation<{}, { senderId: string }>({
+        addSingleSupport: builder.mutation<ISupport, { senderId: string }>({
             query: (dto) => ({
                 method: "POST",
                 url: "/support",
