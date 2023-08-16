@@ -9,7 +9,13 @@ const WishlistHead = () => {
                 const { wishlistId, text, width } = wishlistHead;
 
                 return (
-                    <div key={wishlistId} className={`w-${width}/6`}>
+                    <div 
+                        key={wishlistId} 
+                        className={`
+                            w-${width}/12
+                            ${text === "Details" || text === "Action" ? "flex justify-center" : ""}
+                        `}
+                    >
                         <p>{text}</p>
                     </div>
                 )
