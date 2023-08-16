@@ -35,6 +35,7 @@ const WishlistSingleItem: FC<IProps> = ({ wishlistId, articleId, image, articleN
             <RemoveFromWishlist 
                 wishlistId={wishlistId} 
                 articleId={articleId} 
+                category={category}
             />
         </div>
     )

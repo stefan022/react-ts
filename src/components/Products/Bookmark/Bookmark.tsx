@@ -8,6 +8,9 @@ import { RootState } from '../../../ts/types/RootState';
 import { Modal } from '@mui/material';
 import { WishlistAddedProduct, WishlistRemovedProduct } from "../../../components"
 import { findWishlistId } from '../../../utils/findWishlistId';
+import { useUpdateBookmarkStatusForLaptopMutation } from '../../../features/API/laptopsAPI';
+import { useUpdateBookmarkStatusForTabletMutation } from '../../../features/API/tabletsAPI';
+import { useUpdateBookmarkStatusForTelevisionMutation } from '../../../features/API/televisionsAPI';
 
 interface IProps {
     articleId: number;
@@ -27,27 +30,30 @@ const Bookmark: FC<IProps> = ({ articleId, bookmarked, articleName, price, statu
     const [ isBookmarked, setIsBookmarked ] = useState<boolean>(bookmarked);
     const [ isOpenModal, setIsOpenModal ] = useState<boolean>(false);
 
-    const [ updateBookmarkStatus ] = useUpdateBookmarkStatusForPhoneMutation();
+    const [ updateBookmarkStatusForPhone ] = useUpdateBookmarkStatusForPhoneMutation();
+    const [ updateBookmarkStatusForTablet ] = useUpdateBookmarkStatusForTabletMutation();
+    const [ updateBookmarkStatusForLaptop ] = useUpdateBookmarkStatusForLaptopMutation();
+    const [ updateBookmarkStatusForTelevision ] = useUpdateBookmarkStatusForTelevisionMutation();
+
     const [ addToWishlist ] = useAddToWishlistMutation();
     const [ deleteFromWishlist ] = useDeleteFromWishlistMutation();
 
     useEffect(() => setIsBookmarked(bookmarked), [bookmarked]);
 
-    const handleBookmark = () => {
+    const handleBookmark = (c: string) => {
         setIsOpenModal(true);
 
         if (!isBookmarked) {
             setIsBookmarked(true);
-            updateBookmarkStatus({ phoneId: articleId, bookmarked: true });
-            addToWishlist({
-                articleId,
-                articleName,
-                category,
-                price,
-                status,
-                userId,
-                image
-            });
+
+            switch(c) {
+                case "phones": updateBookmarkStatusForPhone({ phoneId: articleId, bookmarked: true }); break;
+                case "tablets": updateBookmarkStatusForTablet({ tabletId: articleId, bookmarked: true }); break;
+                case "laptops": updateBookmarkStatusForLaptop({ laptopId: articleId, bookmarked: true }); break;
+                case "televisions": updateBookmarkStatusForTelevision({ televisionId: articleId, bookmarked: true }); break;
+            }
+            
+            addToWishlist({ articleId, articleName, category, price, status, userId, image });
 
             return;
         };
@@ -55,7 +61,13 @@ const Bookmark: FC<IProps> = ({ articleId, bookmarked, articleName, price, statu
         const wishlistId = findWishlistId(wishlist, userId, articleId, category);
     
         setIsBookmarked(false);
-        updateBookmarkStatus({ phoneId: articleId, bookmarked: false });
+        
+        switch(c) {
+            case "phones": updateBookmarkStatusForPhone({ phoneId: articleId, bookmarked: false }); break;
+            case "tablets": updateBookmarkStatusForTablet({ tabletId: articleId, bookmarked: false }); break;
+            case "laptops": updateBookmarkStatusForLaptop({ laptopId: articleId, bookmarked: false }); break;
+            case "televisions": updateBookmarkStatusForTelevision({ televisionId: articleId, bookmarked: false }); break;
+        }
 
         if (wishlistId) deleteFromWishlist(wishlistId);
     };
@@ -70,7 +82,7 @@ const Bookmark: FC<IProps> = ({ articleId, bookmarked, articleName, price, statu
                 fill={isBookmarked ? "#60a5fa" : "#ffffff"} 
                 stroke={isBookmarked ? "#60a5fa" : "#c7cad1"} 
                 strokeWidth={1.5}
-                onClick={handleBookmark}
+                onClick={() => handleBookmark(category)}
             />
             <Modal
                 open={isOpenModal}

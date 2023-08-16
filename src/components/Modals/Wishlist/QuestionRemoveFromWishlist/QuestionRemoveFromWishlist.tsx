@@ -5,11 +5,12 @@ import { RiDeleteBin6Line } from 'react-icons/ri'
 interface IProps {
     wishlistId: number;
     articleId: number;
+    category: string;
     handleCloseModal: MouseEventHandler<HTMLButtonElement>;
-    handleRemoveFromWishlist: (wId: number, artId: number) => void;
+    handleRemoveFromWishlist: (wId: number, artId: number, c: string) => void;
 }
 
-const QuestionRemoveFromWishlist: FC<IProps> = ({ wishlistId, articleId, handleCloseModal, handleRemoveFromWishlist }): JSX.Element => {
+const QuestionRemoveFromWishlist: FC<IProps> = ({ wishlistId, articleId, category, handleCloseModal, handleRemoveFromWishlist }): JSX.Element => {
     return (
         <div className='bg-white w-[500px] h-[350px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center flex-col p-8 gap-8 transition-all outline-none'>
             <div className='flex flex-col items-center gap-2'>
@@ -19,7 +20,7 @@ const QuestionRemoveFromWishlist: FC<IProps> = ({ wishlistId, articleId, handleC
             <div className='flex gap-4'>
                 <button
                     className='bg-red-400 hover:bg-red-500 transition-all py-1 px-3 text-white'
-                    onClick={() => handleRemoveFromWishlist(wishlistId, articleId)}
+                    onClick={() => handleRemoveFromWishlist(wishlistId, articleId, category)}
                 >
                     I'm sure
                 </button>

@@ -12,11 +12,21 @@ export const tabletsAPI = rootAPI.injectEndpoints({
         getSingleTablet: builder.query<IProduct<IScreen>, number>({
             query: (id) => `/tablets/${id}`,
             providesTags: ["tablet"]
+        }),
+
+        updateBookmarkStatusForTablet: builder.mutation<{}, { tabletId: number, bookmarked: boolean }>({
+            query: (dto) => ({
+                method: "PATCH",
+                url: `/tablets/${dto.tabletId}`,
+                body: dto
+            }),
+            invalidatesTags: ["tablets"]
         })
     })
 })
 
 export const {
     useGetTabletsQuery,
-    useGetSingleTabletQuery
+    useGetSingleTabletQuery,
+    useUpdateBookmarkStatusForTabletMutation
 } = tabletsAPI;

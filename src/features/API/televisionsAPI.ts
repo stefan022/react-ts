@@ -11,11 +11,21 @@ export const televisionsAPI = rootAPI.injectEndpoints({
         getSingleTelevision: builder.query<IProduct<string>, number>({
             query: (id) => `/televisions/${id}`,
             providesTags: ["television"]
+        }),
+
+        updateBookmarkStatusForTelevision: builder.mutation<{}, { televisionId: number, bookmarked: boolean }>({
+            query: (dto) => ({
+                method: "PATCH",
+                url: `/televisions/${dto.televisionId}`,
+                body: dto
+            }),
+            invalidatesTags: ["televisions"]
         })
     })
 })
 
 export const {
     useGetTelevisionsQuery,
-    useGetSingleTelevisionQuery
+    useGetSingleTelevisionQuery,
+    useUpdateBookmarkStatusForTelevisionMutation
 } = televisionsAPI;

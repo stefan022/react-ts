@@ -20,8 +20,6 @@ const WishlistItems = () => {
 
     }, [wishlist, userId]);
 
-    console.log(myWishlist)
-
     return (
         <>
             {
