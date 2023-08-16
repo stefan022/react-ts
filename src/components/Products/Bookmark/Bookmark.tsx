@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 
 import { BiSolidBookmark } from 'react-icons/bi'
 import { useUpdateBookmarkStatusForPhoneMutation } from '../../../features/API/phonesAPI';
@@ -29,6 +29,8 @@ const Bookmark: FC<IProps> = ({ articleId, bookmarked, articleName, price, statu
     const [ updateBookmarkStatus ] = useUpdateBookmarkStatusForPhoneMutation();
     const [ addToWishlist ] = useAddToWishlistMutation();
     const [ deleteFromWishlist ] = useDeleteFromWishlistMutation();
+
+    useEffect(() => setIsBookmarked(bookmarked), [bookmarked]);
 
     const handleBookmark = () => {
         setIsOpenModal(true);

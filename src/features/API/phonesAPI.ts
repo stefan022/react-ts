@@ -20,7 +20,7 @@ export const phonesAPI = rootAPI.injectEndpoints({
                 url: `/phones/${dto.phoneId}`,
                 body: dto
             }),
-            invalidatesTags: ["phone"]
+            invalidatesTags: ["phones"]
         })
     })
 })
