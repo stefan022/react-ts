@@ -64,6 +64,8 @@ export { default as CalendarComponent } from "./Calendar/CalendarComponent/Calen
 export { default as FullCalendarComponent } from "./Calendar/FullCalendarComponent/FullCalendarComponent";
 export { default as CalendarAddModal } from "./Modals/Calendar/CalendarAddModal/CalendarAddModal";
 export { default as CalendarDeleteModal } from "./Modals/Calendar/CalendarDeleteModal/CalendarDeleteModal";
+export { default as WishlistAddedProduct } from "./Modals/Wishlist/WishlistAddedProduct/WishlistAddedProduct";
+export { default as WishlistRemovedProduct } from "./Modals/Wishlist/WishlistRemovedProduct/WishlistRemovedProduct";
 export { default as EmployeeTable } from "./Tables/EmployeeTable/EmployeeTable";
 export { default as CustomerTable } from "./Tables/CustomerTable/CustomerTable";
 export { default as ProductTable } from "./Tables/ProductTable/ProductTable";
@@ -103,6 +105,7 @@ export { default as SingleProductCard } from "./Products/View/CardsView/SinglePr
 export { default as SingleProductList } from "./Products/View/ListsView/SingleProductList/SingleProductList";
 export { default as RoundColors } from "./Products/RoundColors/RoundColors";
 export { default as Stars } from "./Products/Stars/Stars";
+export { default as Bookmark } from "./Products/Bookmark/Bookmark";
 export { default as ProductDetails } from "./Products/ProductDetails/ProductDetails";
 export { default as ProductImages } from "./Products/ProductDetails/ProductImages/ProductImages";
 export { default as ProductButtons } from "./Products/ProductDetails/ProductButtons/ProductButtons";

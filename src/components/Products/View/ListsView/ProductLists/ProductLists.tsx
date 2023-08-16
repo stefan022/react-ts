@@ -40,7 +40,7 @@ const ProductLists: FC<IProps> = ({ productRoute }): JSX.Element => {
                     <>
                         {
                             paginationProducts.map((product: IProduct<IScreen | string>) => {
-                                const { articleId, articleName, status, colors, price, discount, rating, images } = product;
+                                const { articleId, articleName, status, colors, price, discount, rating, images, bookmarked, brand, category } = product;
 
                                 return (
                                     <SingleProductList
@@ -48,6 +48,8 @@ const ProductLists: FC<IProps> = ({ productRoute }): JSX.Element => {
                                         articleId={articleId}
                                         articleName={articleName}
                                         description={loremDesc}
+                                        brand={brand}
+                                        category={category}
                                         colors={colors}
                                         price={price}
                                         discount={discount}
@@ -55,6 +57,7 @@ const ProductLists: FC<IProps> = ({ productRoute }): JSX.Element => {
                                         status={status}
                                         images={images}
                                         productRoute={productRoute}
+                                        bookmarked={bookmarked}
                                     />
                                 )
                             })

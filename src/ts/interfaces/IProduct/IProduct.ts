@@ -1,9 +1,11 @@
 import { TColors } from "../../types/TColors";
 
 export interface IProduct<T> {
+    articleId: number;
     articleName: string;
     discount: number;
     price: number;
+    category: string;
     brand: string;
     model: string;
     colors: TColors[];
@@ -18,7 +20,7 @@ export interface IProduct<T> {
     status: string;
     images: string[];
     timestamp: number;
-    articleId: number;
+    bookmarked: boolean;
     camera?: {
         rearCamera: string; 
         frontCamera: string;

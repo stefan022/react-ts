@@ -11,5 +11,7 @@ export const tagTypes: string[] = [
     "review",
     "support",
     "support-messages",
-    "support-single-message"
+    "support-single-message",
+    "wishlist",
+    "single-wishlist"
 ];

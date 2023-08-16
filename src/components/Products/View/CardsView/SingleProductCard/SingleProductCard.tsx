@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 import { Link } from 'react-router-dom';
 import { Routes } from '../../../../../router/Routes';
 
-import { RoundColors, Stars } from "../../../.."
+import { Bookmark, RoundColors, Stars } from "../../../.."
 import { TColors } from '../../../../../ts/types/TColors';
 import { tooLongString } from '../../../../../utils/helpers/tooLongString';
 import { calculationDiscount } from '../../../../../utils/helpers/calculationDiscount';
@@ -12,15 +12,20 @@ import { BsCart3 } from 'react-icons/bs';
 interface IProps {
     articleId: number;
     articleName: string;
+    status: string;
     colors: TColors[];
     price: number;
     discount: number;
     rating: number;
     images: string[];
     productRoute: string;
+    bookmarked: boolean;
+    category: string;
 }
 
-const SingleProductCard: FC<IProps> = ({ articleId, articleName, colors, price, discount, rating, images, productRoute }): JSX.Element => {
+const SingleProductCard: FC<IProps> = ({ articleId, articleName, colors, price, discount, rating, images, productRoute, bookmarked, status, category }): JSX.Element => {
+    const newPrice = calculationDiscount(price, discount);
+    
     return (
         <div className='h-[465px] w-1/4 p-2'>
             <div className='border border-gray-400 h-full'>
@@ -33,12 +38,20 @@ const SingleProductCard: FC<IProps> = ({ articleId, articleName, colors, price, 
                 </div>
                 <div className='p-2 flex flex-col justify-between h-2/5'>
                     <div className='flex flex-col gap-2'>
-                        <div className="flex items-center gap-2">
-                            <RoundColors articleId={articleId} colors={colors} largeSize={false}/>
+                        <div className="flex justify-between items-center">
+                            <div className='flex items-center gap-2'>
+                                <RoundColors articleId={articleId} colors={colors} largeSize={false}/>
+                            </div>
+                            <Bookmark 
+                                articleId={articleId} 
+                                bookmarked={bookmarked}
+                                articleName={articleName}
+                                price={newPrice}
+                                status={status}
+                                category={category}
+                            />
                         </div>
-                        <div>
-                            <h4>{tooLongString(articleName, 42)}</h4>
-                        </div>
+                        <h4>{tooLongString(articleName, 42)}</h4>
                     </div>
                     <div className='flex flex-col gap-2'>
                         <div className='flex items-end justify-between'>
@@ -47,7 +60,7 @@ const SingleProductCard: FC<IProps> = ({ articleId, articleName, colors, price, 
                                     <p className='text-xs text-gray-400 line-through'>${price}</p>
                                     <p className='text-xs text-red-400 font-bold'>({discount}% off)</p>
                                 </div>
-                                <h4>${calculationDiscount(price, discount)}</h4>
+                                <h4>${newPrice}</h4>
                             </div>
                             <div className='flex items-center'>
                                 { <Stars rating={rating} size={20}/> }

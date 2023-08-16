@@ -12,11 +12,21 @@ export const phonesAPI = rootAPI.injectEndpoints({
         getSinglePhone: builder.query<IProduct<IScreen>, number>({
             query: (id) => `/phones/${id}`,
             providesTags: ["phone"]
+        }),
+
+        updateBookmarkStatusForPhone: builder.mutation<{}, { phoneId: number, bookmarked: boolean }>({
+            query: (dto) => ({
+                method: "PATCH",
+                url: `/phones/${dto.phoneId}`,
+                body: dto
+            }),
+            invalidatesTags: ["phone"]
         })
     })
 })
 
 export const {
     useGetPhonesQuery,
-    useGetSinglePhoneQuery
+    useGetSinglePhoneQuery,
+    useUpdateBookmarkStatusForPhoneMutation
 } = phonesAPI;
