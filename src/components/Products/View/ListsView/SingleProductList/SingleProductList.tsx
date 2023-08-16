@@ -57,7 +57,7 @@ const SingleProductList: FC<IProps> = ({ articleId, articleName, rating, status,
                         </div>
                     </div>
                     <h4>{articleName}</h4>
-                    <p>{description}</p>
+                    <p className='leading-5'>{description}</p>
                     <div className='flex justify-between items-center'>
                         <div className='flex flex-col justify-between'>
                             <div className='flex items-center gap-2'>
