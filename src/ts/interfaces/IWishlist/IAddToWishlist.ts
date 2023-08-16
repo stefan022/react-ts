@@ -5,4 +5,5 @@ export interface IAddToWishlist {
     category: string;
     price: number;
     status: string;
+    image: string;
 }

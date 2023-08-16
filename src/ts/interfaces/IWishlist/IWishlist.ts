@@ -6,4 +6,5 @@ export interface IWishlist {
     category: string;
     price: number;
     status: string;
+    image: string;
 }

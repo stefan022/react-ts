@@ -49,6 +49,7 @@ const SingleProductCard: FC<IProps> = ({ articleId, articleName, colors, price, 
                                 price={newPrice}
                                 status={status}
                                 category={category}
+                                image={images[0]}
                             />
                         </div>
                         <h4>{tooLongString(articleName, 42)}</h4>

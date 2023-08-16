@@ -49,6 +49,7 @@ const SingleProductList: FC<IProps> = ({ articleId, articleName, rating, status,
                                 price={newPrice}
                                 status={status}
                                 category={category}
+                                image={images[0]}
                             />
                         </div>
                         <div className='flex items-center gap-1'>

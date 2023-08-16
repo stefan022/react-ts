@@ -16,9 +16,10 @@ interface IProps {
     price: number;
     status: string;
     category: string;
+    image: string;
 }
 
-const Bookmark: FC<IProps> = ({ articleId, bookmarked, articleName, price, status, category }): JSX.Element => {
+const Bookmark: FC<IProps> = ({ articleId, bookmarked, articleName, price, status, category, image }): JSX.Element => {
     useGetAllFromWishlistQuery();
     const { wishlist } = useAppSelector((state: RootState) => state.wishlist);
     const userId = localStorage.getItem("userId") as string;
@@ -44,7 +45,8 @@ const Bookmark: FC<IProps> = ({ articleId, bookmarked, articleName, price, statu
                 category,
                 price,
                 status,
-                userId
+                userId,
+                image
             });
 
             return;
