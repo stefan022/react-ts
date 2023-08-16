@@ -3,6 +3,7 @@ import React, { FC } from 'react'
 import { ProductDetails, Spinner } from "../../../../components"
 import { useParams } from 'react-router-dom';
 import { useGetSinglePhoneQuery } from '../../../../features/API/phonesAPI';
+import { Routes } from '../../../../router/Routes';
 
 const SinglePhone: FC = (): JSX.Element | null => {
     const { productId } = useParams();
@@ -10,7 +11,12 @@ const SinglePhone: FC = (): JSX.Element | null => {
     const { data: singlePhone } = useGetSinglePhoneQuery(Number(productId));
     
     if (singlePhone) {
-        return <ProductDetails product={singlePhone} category='phones'/>
+        return <ProductDetails 
+                    productRoute={`${Routes.PRODUCTS}${Routes.PHONES}`} 
+                    productName='Phone' 
+                    product={singlePhone} 
+                    category='phones'
+                />
     }
 
     return <Spinner/>;

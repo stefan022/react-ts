@@ -4,13 +4,16 @@ import { Banner, ProductImages, ProductInformation, ProductRatings, ProductRevie
 import Container from '../../../containers/Container/Container'
 import { IProduct } from '../../../ts/interfaces/IProduct/IProduct';
 import { IScreen } from '../../../ts/interfaces/IProduct/IScreen';
+import { Routes } from '../../../router/Routes';
 
 interface IProps {
+    productName: string;
+    productRoute: string;
     product: IProduct<IScreen | string>;
     category: string;
 }
 
-const ProductDetails: FC<IProps> = ({ product, category }): JSX.Element => {
+const ProductDetails: FC<IProps> = ({ productName, productRoute, product, category }): JSX.Element => {
     const { articleId, articleName, rating, status, model, timestamp, brand, price, colors, images, discount } = product;
 
     useEffect(() => window.scrollTo(0, 0), []);
@@ -18,7 +21,20 @@ const ProductDetails: FC<IProps> = ({ product, category }): JSX.Element => {
     return (
         <div>
             <Banner
-                title="Product Details"
+                title={`${productName} Details`}
+                navigation={[
+                    {
+                        navigationName: "Products",
+                        route: Routes.PRODUCTS
+                    },
+                    {
+                        navigationName: `${productName}s`,
+                        route: productRoute
+                    },
+                    {
+                        navigationName: `${productName} details`,
+                    },
+                ]}
             />
             <Container>
                 <div className='flex py-6'>
