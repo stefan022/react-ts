@@ -6,6 +6,8 @@ import { Container } from '../../containers';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { RESET_FILTER_CURRENT_PRICE } from '../../features/slices/filterProductsSlice';
 import { RESET_SORT_TO_RECOMMENDED } from '../../features/slices/sortProductsSlice';
+import { RESET_VIEW_TO_GRID } from '../../features/slices/viewSlice';
+import { PAGINATION_RESET_TO_FIRST_PAGE } from '../../features/slices/paginationProductsSlice';
 
 const Products: FC = (): JSX.Element => {
     const dispatch = useAppDispatch();
@@ -13,6 +15,8 @@ const Products: FC = (): JSX.Element => {
     useEffect(() => {
         dispatch(RESET_FILTER_CURRENT_PRICE());
         dispatch(RESET_SORT_TO_RECOMMENDED());
+        dispatch(RESET_VIEW_TO_GRID());
+        dispatch(PAGINATION_RESET_TO_FIRST_PAGE());
 
         // eslint-disable-next-line
     }, []);

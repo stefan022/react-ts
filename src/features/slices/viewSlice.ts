@@ -14,8 +14,11 @@ export const viewSlice = createSlice({
     reducers: {
         VIEW_CHANGE: (state, action: PayloadAction<"grid" | "list">) => {
             state.view = action.payload;
+        },
+        RESET_VIEW_TO_GRID: (state) => {
+            state.view = "grid";
         }
     }
 })
 
-export const { VIEW_CHANGE } = viewSlice.actions;
+export const { VIEW_CHANGE, RESET_VIEW_TO_GRID } = viewSlice.actions;

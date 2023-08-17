@@ -25,6 +25,8 @@ const Phones: FC = (): JSX.Element => {
         }));
 
         dispatch(RESET_FILTER_CURRENT_PRICE());
+        
+        window.scrollTo(0, 0);
 
         // eslint-disable-next-line
     }, [phones]);
