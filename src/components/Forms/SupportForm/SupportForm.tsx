@@ -62,6 +62,7 @@ const SupportForm: FC = (): JSX.Element => {
 			toast.success("You have successfully sent us a message", { position: "top-left" });
 			toast.info(" We will respond as soon as possible", { position: "top-left" });
 
+			window.scrollTo(0, 0);
 			resetForm();
         }
     });
