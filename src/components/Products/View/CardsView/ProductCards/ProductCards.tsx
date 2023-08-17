@@ -1,6 +1,6 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 
-import { NothingFound, Pagination, SingleProductCard } from "../../../..";
+import { NothingFound, Pagination, SingleProductCard, Spinner } from "../../../..";
 import { RootState } from '../../../../../ts/types/RootState';
 import { useAppSelector } from '../../../../../hooks/useAppSelector';
 
@@ -17,6 +17,8 @@ const ProductCards: FC<IProps> = ({ productRoute }): JSX.Element => {
     const { sortedProducts } = useAppSelector((state: RootState) => state.sorts);
     const { activePage } = useAppSelector((state: RootState) => state.pagination);
 
+    const [ loading, setLoading ] = useState<boolean>(false);
+
     const dispatch = useAppDispatch();
 
     const productsPerPage = 12;
@@ -29,13 +31,21 @@ const ProductCards: FC<IProps> = ({ productRoute }): JSX.Element => {
 
     const pageCount = Math.ceil(sortedProducts.length / productsPerPage);
     const onPageChange = ({ selected }: { selected: number }) => {
-        dispatch(PAGINATION_CHANGE_PAGE({ pageNumber: selected }))
+        setLoading(true);
+
+        setTimeout(() => {
+            setLoading(false);
+            dispatch(PAGINATION_CHANGE_PAGE({ pageNumber: selected }));
+            window.scrollTo(0, 0);
+        }, 500);
     };
 
     return (
         <>
             {
-                paginationProducts.length > 0 ? (
+                loading 
+                    ? <Spinner/>
+                    : paginationProducts.length > 0 ? (
                 <>
                     {
                         paginationProducts.map((product: IProduct<IScreen | string>) => {

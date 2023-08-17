@@ -1,9 +1,9 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 
 import { useAppSelector } from '../../../../../hooks/useAppSelector';
 import { RootState } from '../../../../../ts/types/RootState';
 
-import { NothingFound, Pagination, SingleProductList } from "../../../.."
+import { NothingFound, Pagination, SingleProductList, Spinner } from "../../../.."
 import { useAppDispatch } from '../../../../../hooks/useAppDispatch';
 import { PAGINATION_CHANGE_PAGE } from '../../../../../features/slices/paginationProductsSlice';
 import { loremDesc } from '../../../../../constants/loremDesc';
@@ -18,6 +18,8 @@ const ProductLists: FC<IProps> = ({ productRoute }): JSX.Element => {
     const { sortedProducts } = useAppSelector((state: RootState) => state.sorts);
     const { activePage } = useAppSelector((state: RootState) => state.pagination);
 
+    const [ loading, setLoading ] = useState<boolean>(false);
+
     const dispatch = useAppDispatch();
 
     const productsPerPage = 5;
@@ -30,13 +32,21 @@ const ProductLists: FC<IProps> = ({ productRoute }): JSX.Element => {
 
     const pageCount = Math.ceil(sortedProducts.length / productsPerPage);
     const onPageChange = ({ selected }: { selected: number }) => {
-        dispatch(PAGINATION_CHANGE_PAGE({ pageNumber: selected }))
+        setLoading(true);
+
+        setTimeout(() => {
+            setLoading(false);
+            dispatch(PAGINATION_CHANGE_PAGE({ pageNumber: selected }));
+            window.scrollTo(0, 0);
+        }, 500);
     };
 
     return (
         <>
             {
-                paginationProducts.length > 0 ? (
+                loading
+                    ? <Spinner/>
+                    : paginationProducts.length > 0 ? (
                     <>
                         {
                             paginationProducts.map((product: IProduct<IScreen | string>) => {
