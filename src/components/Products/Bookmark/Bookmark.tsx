@@ -30,9 +30,7 @@ const Bookmark: FC<IProps> = ({ articleId, articleName, price, status, category,
     const [ deleteFromWishlist ] = useDeleteFromWishlistMutation();
 
     useEffect(() => {
-        const isBookmarked = wishlist.find((w) => 
-            w.articleId === articleId && w.userId === userId && w.category === category
-        );
+        const isBookmarked = findWishlistId(wishlist, userId, articleId, category);
 
         if (isBookmarked) setBookmarked(true);
 
