@@ -13,5 +13,7 @@ export const tagTypes: string[] = [
     "support-messages",
     "support-single-message",
     "wishlist",
-    "single-wishlist"
+    "single-wishlist",
+    "cart",
+    "cart-articles"
 ];

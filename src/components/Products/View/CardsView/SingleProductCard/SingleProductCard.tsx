@@ -3,11 +3,10 @@ import React, { FC } from 'react'
 import { Link } from 'react-router-dom';
 import { Routes } from '../../../../../router/Routes';
 
-import { Bookmark, RoundColors, Stars } from "../../../.."
+import { AddToCart, Bookmark, RoundColors, Stars } from "../../../.."
 import { TColors } from '../../../../../ts/types/TColors';
 import { tooLongString } from '../../../../../utils/helpers/tooLongString';
 import { calculationDiscount } from '../../../../../utils/helpers/calculationDiscount';
-import { BsCart3 } from 'react-icons/bs';
 
 interface IProps {
     articleId: number;
@@ -20,9 +19,10 @@ interface IProps {
     images: string[];
     productRoute: string;
     category: string;
+    quantity: number;
 }
 
-const SingleProductCard: FC<IProps> = ({ articleId, articleName, colors, price, discount, rating, images, productRoute, status, category }): JSX.Element => {
+const SingleProductCard: FC<IProps> = ({ articleId, articleName, colors, price, discount, rating, images, productRoute, status, category, quantity }): JSX.Element => {
     const newPrice = calculationDiscount(price, discount);
 
     return (
@@ -67,10 +67,17 @@ const SingleProductCard: FC<IProps> = ({ articleId, articleName, colors, price, 
                             </div>
                         </div>
                         <div className='w-full'>
-                            <button className='w-full bg-blue-400 hover:bg-blue-500 transition-all text-white py-0.5 flex justify-center items-center gap-2'>
-                                <p>Add to Cart</p>
-                                <BsCart3 className='text-white' size={16} />
-                            </button>
+                            <AddToCart
+                                articleId={articleId}
+                                articleName={articleName}
+                                image={images[0]}
+                                price={price}
+                                quantity={quantity}
+                                rating={rating}
+                                category={category}
+                                cartType='card'
+                                iconSize={16}
+                            />
                         </div>
                     </div>
                 </div>

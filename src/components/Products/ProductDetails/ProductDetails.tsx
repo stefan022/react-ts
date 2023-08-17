@@ -14,7 +14,7 @@ interface IProps {
 }
 
 const ProductDetails: FC<IProps> = ({ productName, productRoute, product, category }): JSX.Element => {
-    const { articleId, articleName, rating, status, model, timestamp, brand, price, colors, images, discount } = product;
+    const { articleId, articleName, rating, status, model, timestamp, brand, price, colors, images, discount, quantity } = product;
 
     useEffect(() => window.scrollTo(0, 0), []);
 
@@ -40,7 +40,15 @@ const ProductDetails: FC<IProps> = ({ productName, productRoute, product, catego
                 <div className='flex py-6'>
                     <div className='w-1/2'>
                         <ProductImages images={images} />
-                        <ProductButtons/>
+                        <ProductButtons
+                            articleId={articleId}
+                            articleName={articleName}
+                            image={images[0]}
+                            price={price}
+                            quantity={quantity}
+                            rating={rating}
+                            category={category}
+                        />
                     </div>
                     <div className='w-1/2 border border-gray p-6 h-[525px]'>
                         <ProductInformation

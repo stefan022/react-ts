@@ -13,6 +13,7 @@ import { viewSlice } from "../features/slices/viewSlice";
 import { supportSlice } from "../features/slices/supportSlice";
 import { supportMessagesSlice } from "../features/slices/supportMessagesSlice";
 import { wishlistSlice } from "../features/slices/wishlistSlice";
+import { cartSlice } from "../features/slices/cartSlice";
 
 const rootReducer = combineReducers({
 	[rootAPI.reducerPath]: rootAPI.reducer,
@@ -27,7 +28,8 @@ const rootReducer = combineReducers({
 	view: viewSlice.reducer,
 	support: supportSlice.reducer,
 	support_messages: supportMessagesSlice.reducer,
-	wishlist: wishlistSlice.reducer
+	wishlist: wishlistSlice.reducer,
+	cart: cartSlice.reducer,
 });
 
 export default rootReducer;

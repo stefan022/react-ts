@@ -4,9 +4,8 @@ import { TColors } from '../../../../../ts/types/TColors';
 import { Link } from 'react-router-dom';
 import { Routes } from '../../../../../router/Routes';
 
-import { Bookmark, RoundColors, Stars } from "../../../.."
+import { AddToCart, Bookmark, RoundColors, Stars } from "../../../.."
 import { firstCapitalLatter } from '../../../../../utils/helpers/capitalFirstLetter';
-import { BsCart3 } from 'react-icons/bs';
 import { calculationDiscount } from '../../../../../utils/helpers/calculationDiscount';
 
 interface IProps {
@@ -22,9 +21,10 @@ interface IProps {
     images: string[];
     productRoute: string;
     category: string;
+    quantity: number;
 }
 
-const SingleProductList: FC<IProps> = ({ articleId, articleName, rating, status, description, price, discount, colors, images, productRoute, brand, category }): JSX.Element => {
+const SingleProductList: FC<IProps> = ({ articleId, articleName, rating, status, description, price, discount, colors, images, productRoute, brand, category, quantity }): JSX.Element => {
     const newPrice = calculationDiscount(price, discount);
     
     return (
@@ -69,10 +69,17 @@ const SingleProductList: FC<IProps> = ({ articleId, articleName, rating, status,
                                 <RoundColors articleId={articleId} colors={colors} largeSize={false}/> 
                             </div>
                         </div>
-                        <button className="bg-blue-400 py-1 px-3 text-white flex items-center gap-2">
-                            <p>Add to Cart</p>
-                            <BsCart3 className='text-white' size={18} />
-                        </button>
+                        <AddToCart
+                            articleId={articleId}
+                            articleName={articleName}
+                            image={images[0]}
+                            price={price}
+                            quantity={quantity}
+                            rating={rating}
+                            category={category}
+                            cartType='list'
+                            iconSize={18}
+                        />
                     </div>
                 </div>
             </div>

@@ -11,6 +11,9 @@ export { default as LogoutButton } from "./Buttons/LogoutButton/LogoutButton";
 export { default as ReviewFormButton } from "./Buttons/ReviewFormButton/ReviewFormButton";
 export { default as SupportFormButton } from "./Buttons/SupportFormButton/SupportFormButton";
 export { default as RemoveFromWishlist } from "./Buttons/RemoveFromWishlist/RemoveFromWishlist";
+export { default as AddToCart } from "./Buttons/AddToCart/AddToCart";
+export { default as ContentAddToCart } from "./Buttons/AddToCart/ContentAddToCart/ContentAddToCart";
+export { default as ContentAddedToCart } from "./Buttons/AddToCart/ContentAddedToCart/ContentAddedToCart";
 export { default as SupportForm } from "./Forms/SupportForm/SupportForm";
 export { default as SupportFormTitle } from "./Forms/SupportForm/SupportFormTitle/SupportFormTitle";
 export { default as ReviewForm } from "./Forms/ReviewForm/ReviewForm";
@@ -75,6 +78,8 @@ export { default as CalendarDeleteModal } from "./Modals/Calendar/CalendarDelete
 export { default as WishlistAddedProduct } from "./Modals/Wishlist/WishlistAddedProduct/WishlistAddedProduct";
 export { default as WishlistRemovedProduct } from "./Modals/Wishlist/WishlistRemovedProduct/WishlistRemovedProduct";
 export { default as QuestionRemoveFromWishlist } from "./Modals/Wishlist/QuestionRemoveFromWishlist/QuestionRemoveFromWishlist";
+export { default as AddedToCart } from "./Modals/Cart/AddedToCart/AddedToCart";
+export { default as AlreadyAddedToCart } from "./Modals/Cart/AlreadyAddedToCart/AlreadyAddedToCart";
 export { default as EmployeeTable } from "./Tables/EmployeeTable/EmployeeTable";
 export { default as CustomerTable } from "./Tables/CustomerTable/CustomerTable";
 export { default as ProductTable } from "./Tables/ProductTable/ProductTable";
