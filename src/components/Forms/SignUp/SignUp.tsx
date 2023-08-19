@@ -31,10 +31,17 @@ const SignUp: FC<IProps> = ({ setLoading }): JSX.Element => {
 				navigate(Routes.LOGIN);
                 setLoading(false);
 
+                const userId = userCredential.user.uid;
+                const timestamp = new Date().getTime();
+
 				userCredential.user.getIdToken().then((token) => {
-					setDoc(doc(db, "users", userCredential.user.uid), {
+					setDoc(doc(db, "users", userId), {
+                        userId,
+                        firstName: "",
+                        lastName: "",
 						username,
 						email,
+                        sinceMember: timestamp,
 						token
 					})
 				});

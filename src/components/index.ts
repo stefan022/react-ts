@@ -46,6 +46,11 @@ export { default as ProfileSidebar } from "./Profile/ProfileSidebar/ProfileSideb
 export { default as ProfileHeader } from "./Profile/ProfileHeader/ProfileHeader";
 export { default as ProfilePicture } from "./Profile/ProfilePicture/ProfilePicture";
 export { default as ProfileBody } from "./Profile/ProfileBody/ProfileBody";
+export { default as PersonalInfo } from "./Profile/PersonalInfo/PersonalInfo";
+export { default as PersonalInfoEdit } from "./Buttons/PersonalInfoEdit/PersonalInfoEdit";
+export { default as PersonalSingleInfo } from "./Profile/PersonalInfo/PersonalSingleInfo/PersonalSingleInfo";
+export { default as PersonalSinceMember } from "./Profile/PersonalInfo/PersonalSinceMember/PersonalSinceMember";
+export { default as ModalPersonalInfoEdit } from "./Modals/Profile/ModalPersonalInfoEdit";
 export { default as WishlistHead } from "./Profile/Wishlist/WishlistHead/WishlistHead";
 export { default as WishlistItems } from "./Profile/Wishlist/WishlistItems/WishlistItems";
 export { default as WishlistSingleItem } from "./Profile/Wishlist/WishlistSingleItem/WishlistSingleItem";

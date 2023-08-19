@@ -18,18 +18,29 @@ const AuthGoogleButton = () => {
 				navigate(Routes.HOME);
 
                 const firstNameAndLastName = userCredential.user.displayName!.split(" ");
-                const firstName = firstNameAndLastName[0].toLocaleLowerCase();
+
+                const email = userCredential.user.email!;
+                const username = email.split("@")[0];
+                const firstName = firstNameAndLastName[0];
+                const lastName = firstNameAndLastName[1];
+
+                const userId = userCredential.user.uid;
+                const timestamp = new Date().getTime();
 				
 				userCredential.user.getIdToken()
 					.then(token => {
-                        setDoc(doc(db, "users", userCredential.user.uid), {
-                            username: firstName,
-                            email: userCredential.user.email,
+                        setDoc(doc(db, "users", userId), {
+                            userId,
+                            firstName,
+                            lastName,
+                            username,
+                            email,
+                            sinceMember: timestamp,
                             token
                         });
 
                         localStorage.setItem("token", token);
-                        localStorage.setItem("userId", userCredential.user.uid);
+                        localStorage.setItem("userId", userId);
                     });
 
   			}).catch((error) => {
