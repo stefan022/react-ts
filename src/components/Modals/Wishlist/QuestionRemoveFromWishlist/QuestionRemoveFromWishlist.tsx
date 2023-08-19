@@ -19,16 +19,16 @@ const QuestionRemoveFromWishlist: FC<IProps> = ({ wishlistId, articleId, categor
             </div>
             <div className='flex gap-4'>
                 <button
-                    className='bg-red-400 hover:bg-red-500 transition-all py-1 px-3 text-white'
-                    onClick={() => handleRemoveFromWishlist(wishlistId, articleId, category)}
-                >
-                    I'm sure
-                </button>
-                <button
                     className='bg-gray-100 border border-gray-400 hover:bg-gray-400 transition-all py-1 px-3 text-gray-600 hover:text-white' 
                     onClick={handleCloseModal}
                 >
                     Cancel
+                </button>
+                <button
+                    className='bg-red-400 hover:bg-red-500 transition-all py-1 px-3 text-white'
+                    onClick={() => handleRemoveFromWishlist(wishlistId, articleId, category)}
+                >
+                    I'm sure
                 </button>
             </div>
         </div>

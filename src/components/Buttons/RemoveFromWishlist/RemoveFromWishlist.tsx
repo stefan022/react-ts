@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react'
 
 import { Modal } from '@mui/material';
-import { QuestionRemoveFromWishlist } from "../../../components";
+import { QuestionRemoveFromWishlist, Spinner } from "../../../components";
 import { useDeleteFromWishlistMutation } from '../../../features/API/wishlistAPI';
 import { toast } from 'react-toastify';
 
@@ -12,18 +12,23 @@ interface IProps {
 }
 
 const RemoveFromWishlist: FC<IProps> = ({ wishlistId, articleId, category }): JSX.Element => {
-    const [ isOpenModal, setIsOpenModal ] = useState<boolean>(false);
+    const [ modalIsOpen, setModalIsOpen ] = useState<boolean>(false);
+    const [ loading, setLoading ] = useState<boolean>(false);
     const [ deleteFromWishlist ] = useDeleteFromWishlistMutation();
 
-    const handleRemoveFromWishlist = (wId: number, artId: number, c: string) => { 
-        deleteFromWishlist(wId);
+    const handleRemoveFromWishlist = async (wId: number, artId: number, c: string) => { 
+        setModalIsOpen(false);
+        setLoading(true);
+
+        const { success } = await deleteFromWishlist(wId).unwrap();
+        if (success) setLoading(false);
 
         toast.success("You successfully removed article from your wishlist");
-        setIsOpenModal(false);
+        setModalIsOpen(false);
     };
 
-    const handleOpenModal = () => setIsOpenModal(true);
-    const handleCloseModal = () => setIsOpenModal(false);
+    const handleOpenModal = () => setModalIsOpen(true);
+    const handleCloseModal = () => setModalIsOpen(false);
 
     return (
         <>
@@ -36,7 +41,7 @@ const RemoveFromWishlist: FC<IProps> = ({ wishlistId, articleId, category }): JS
                 </button>
             </div>
             <Modal
-                open={isOpenModal}
+                open={modalIsOpen}
                 onClose={handleCloseModal}
                 className='bg-white bg-opacity-80'
             >
@@ -48,6 +53,7 @@ const RemoveFromWishlist: FC<IProps> = ({ wishlistId, articleId, category }): JS
                     handleRemoveFromWishlist={handleRemoveFromWishlist}
                 />
             </Modal>
+            { loading && <Spinner/> }
         </>
     )
 }
