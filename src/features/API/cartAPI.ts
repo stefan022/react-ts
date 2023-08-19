@@ -18,7 +18,7 @@ export const cartAPI = rootAPI.injectEndpoints({
             invalidatesTags: ["cart"]
         }),
 
-        deleteFromCart: builder.mutation<{}, number>({
+        deleteFromCart: builder.mutation<{ success: true }, number>({
             query: (cartId) => ({
                 method: "DELETE",
                 url: `/cart/${cartId}`

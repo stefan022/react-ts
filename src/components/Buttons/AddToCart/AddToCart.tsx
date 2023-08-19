@@ -8,20 +8,24 @@ import { AddedToCart, AlreadyAddedToCart, ContentAddToCart, ContentAddedToCart }
 
 import "./AddToCart.scss"
 import { findCartId } from '../../../utils/findCartId';
+import { calculationDiscount } from '../../../utils/helpers/calculationDiscount';
 
 interface IProps {
     articleId: number;
     articleName: string;
     price: number;
+    discount: number;
     quantity: number;
     image: string;
     rating: number;
     category: string;
     cartType: string;
     iconSize: number;
+    count: number;
+    brand: string;
 }
 
-const AddToCart: FC<IProps> = ({ articleId, articleName, price, quantity, image, rating, category, cartType, iconSize }): JSX.Element => {
+const AddToCart: FC<IProps> = ({ articleId, articleName, price, discount, quantity, image, rating, category, cartType, iconSize, count, brand }): JSX.Element => {
     useGetAllCartsQuery();
 
     const userId = localStorage.getItem("userId");
@@ -43,9 +47,12 @@ const AddToCart: FC<IProps> = ({ articleId, articleName, price, quantity, image,
     
     const handleAddToCart = (artId: number, c: string) => { 
         setModalIsOpen(true);
+
+        const calcPrice = calculationDiscount(price, discount);
+        const totalPrice = calcPrice * count;
     
         if (!isAlreadyAdded) {
-            addToCart({ userId: userId as string, articleId: artId, articleName, category: c, image, price, quantity, rating });
+            addToCart({ userId: userId as string, articleId: artId, articleName, category: c, image, price: calcPrice, quantity, rating, count, brand, totalPrice });
             setClickedAddToCart(true);
 
             return;
@@ -72,6 +79,7 @@ const AddToCart: FC<IProps> = ({ articleId, articleName, price, quantity, image,
             <Modal
                 open={modalIsOpen}
                 onClose={handleCloseModal}
+                className='bg-white bg-opacity-80'
                 children={
                     clickedAddToCart
                         ? <AddedToCart handleCloseModal={handleCloseModal}/>

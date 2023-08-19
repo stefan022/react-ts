@@ -1,6 +1,6 @@
-import React, { FC } from 'react'
+import React, { FC, Dispatch, SetStateAction } from 'react'
 
-import { Bookmark, ProductColors, ProductName, ProductPrice, ProductQuantity, ProductShortDesc, ProductStatus, Stars } from "../../../../components"
+import { Bookmark, ProductColors, ProductName, ProductPrice, ProductShortDesc, ProductStatus, Quantity, Stars } from "../../../../components"
 import { TColors } from '../../../../ts/types/TColors';
 
 interface IProps {
@@ -15,9 +15,11 @@ interface IProps {
     price: number;
     discount: number;
     colors: TColors[];
+    count: number;
+    setCount: Dispatch<SetStateAction<number>>;
 }
 
-const ProductInformation: FC<IProps> = ({ articleId, articleName, rating, status, model, timestamp, brand, category, price, discount, colors }): JSX.Element => {
+const ProductInformation: FC<IProps> = ({ articleId, articleName, rating, status, model, timestamp, brand, category, price, discount, colors, count, setCount }): JSX.Element => {
     return (
     <div className='flex flex-col justify-center h-full gap-4'>
         <div className='flex items-center justify-between'>
@@ -38,7 +40,7 @@ const ProductInformation: FC<IProps> = ({ articleId, articleName, rating, status
         <ProductShortDesc model={model} timestamp={timestamp} brand={brand}/>
         <ProductPrice price={price} discount={discount}/>
         <ProductColors colors={colors}/>
-        <ProductQuantity/>
+        <Quantity count={count} quantityType='details' setCount={setCount}/>
     </div>
     )
 }

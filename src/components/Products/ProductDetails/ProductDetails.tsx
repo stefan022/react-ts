@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 
 import { Banner, ProductImages, ProductInformation, ProductRatings, ProductReviews, ProductButtons, ProductSpecifications } from '../..'
 import Container from '../../../containers/Container/Container'
@@ -15,6 +15,8 @@ interface IProps {
 
 const ProductDetails: FC<IProps> = ({ productName, productRoute, product, category }): JSX.Element => {
     const { articleId, articleName, rating, status, model, timestamp, brand, price, colors, images, discount, quantity } = product;
+
+    const [ count, setCount ] = useState<number>(1);
 
     useEffect(() => window.scrollTo(0, 0), []);
 
@@ -48,6 +50,9 @@ const ProductDetails: FC<IProps> = ({ productName, productRoute, product, catego
                             quantity={quantity}
                             rating={rating}
                             category={category}
+                            count={count}
+                            brand={brand}
+                            discount={discount}
                         />
                     </div>
                     <div className='w-1/2 border border-gray p-6 h-[525px]'>
@@ -63,6 +68,8 @@ const ProductDetails: FC<IProps> = ({ productName, productRoute, product, catego
                             price={price}
                             colors={colors}
                             discount={discount}
+                            count={count}
+                            setCount={setCount}
                         />
                     </div>
                 </div>

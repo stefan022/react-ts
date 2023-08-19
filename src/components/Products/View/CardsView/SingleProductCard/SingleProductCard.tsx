@@ -11,6 +11,7 @@ import { calculationDiscount } from '../../../../../utils/helpers/calculationDis
 interface IProps {
     articleId: number;
     articleName: string;
+    brand: string;
     status: string;
     colors: TColors[];
     price: number;
@@ -22,7 +23,7 @@ interface IProps {
     quantity: number;
 }
 
-const SingleProductCard: FC<IProps> = ({ articleId, articleName, colors, price, discount, rating, images, productRoute, status, category, quantity }): JSX.Element => {
+const SingleProductCard: FC<IProps> = ({ articleId, articleName, brand, colors, price, discount, rating, images, productRoute, status, category, quantity }): JSX.Element => {
     const newPrice = calculationDiscount(price, discount);
 
     return (
@@ -70,6 +71,7 @@ const SingleProductCard: FC<IProps> = ({ articleId, articleName, colors, price, 
                             <AddToCart
                                 articleId={articleId}
                                 articleName={articleName}
+                                brand={brand}
                                 image={images[0]}
                                 price={price}
                                 quantity={quantity}
@@ -77,6 +79,8 @@ const SingleProductCard: FC<IProps> = ({ articleId, articleName, colors, price, 
                                 category={category}
                                 cartType='card'
                                 iconSize={16}
+                                count={1}
+                                discount={discount}
                             />
                         </div>
                     </div>

@@ -1,43 +1,48 @@
-import React from 'react'
+import React, { FC } from 'react'
 
-const CartSingleItem = () => {
+import { CartArticleImage, CartArticleInfo, CartArticlePrice, CartArticleRemove, Quantity } from "../../../components"
+
+interface IProps {
+    cartId: number;
+    articleId: number;
+    articleName: string;
+    brand: string;
+    category: string;
+    rating: number;
+    image: string;
+    count: number;
+    quantity: number;
+    price: number;
+}
+
+const CartSingleItem: FC<IProps> = ({ cartId, articleId, articleName, brand, category, rating, image, count, quantity, price }): JSX.Element => {
     return (
         <>
-            <div className='border border-gray w-full h-[150px] flex items-center justify-between'>
-                <div className='p-4 w-1/5 h-full border border-gray-300'>
-                    <div className='bg-green-400 w-full h-full'></div>
-                </div>
+            <div className='border border-gray w-full h-[175px] flex items-center justify-between'>
+                <CartArticleImage articleId={articleId} category={category} image={image}/>
                 <div className='w-3/5 h-full border border-gray-300 flex flex-col justify-between p-4'>
-                    <div>
-                        <p>Product name</p>
-                        <div className='flex'>
-                            <p>$color</p>
-                            <p>$rating</p>
-                        </div>
-                    </div>
-                    <div className='w-1/4'>
-                        <div className="border border-gray-100 flex items-center justify-between p-1">
-                            <div className="bg-gray-100 w-3/12 text-center">-</div>
-                            <div className="text-center w-6/12">1</div>
-                            <div className="bg-gray-100 w-3/12 text-center">+</div>
-                        </div>
-                    </div>
-                </div>
-                <div className='w-1/5 h-full border border-gray-300 p-4'>
-                    <div className='flex flex-col items-end'>
-                        <p>Article Price:</p>
-                        <p>$price</p>
+                    <CartArticleInfo
+                        articleName={articleName}
+                        category={category}
+                        brand={brand}
+                        rating={rating}
+                    />
+                    <div className='flex justify-between items-center gap-1'>
+                        <Quantity
+                            count={count}
+                            cartId={cartId}
+                            quantityType='cart'
+                        />
+                        <CartArticleRemove 
+                            cartId={cartId}
+                        />
                     </div>
                 </div>
-            </div>
-            <div className='border border-gray-300 flex justify-between items-center p-4'>
-                <div className='flex gap-2'>
-                    <div>Remove</div>
-                    <div>Add wishlist</div>
-                </div>
-                <div>
-                    <div>Total: $price</div>
-                </div>
+                <CartArticlePrice
+                    cartId={cartId}
+                    count={count}
+                    price={price}
+                />
             </div>
         </>
     )

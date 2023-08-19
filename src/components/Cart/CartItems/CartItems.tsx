@@ -1,13 +1,51 @@
-import React from 'react'
+import React, { FC, useEffect, useState } from 'react'
 
-import { CartSingleItem } from "../../../components"
+import { CartSingleItem, Spinner } from "../../../components"
+import { RootState } from '../../../ts/types/RootState'
+import { useAppSelector } from '../../../hooks/useAppSelector'
 
-const CartItems = () => {
+const CartItems: FC = (): JSX.Element => {
+    const { myCart } = useAppSelector((state: RootState) => state.cart);
+
+    const [ loading, setLoading ] = useState<boolean>(true);
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setLoading(false);
+        }, 1500);
+
+        return () => {
+            clearTimeout(timeout);
+        }
+    }, []);
+
+    if (loading) return <Spinner/>
+
     return (
         <>
-            <CartSingleItem/>
-            <CartSingleItem/>
-            <CartSingleItem/>
+            {
+                myCart.length > 0 ? (
+                    myCart.map((cart) => {
+                        const { cartId, articleId, articleName, count, image, price, quantity, category, rating, brand } = cart;
+
+                        return (
+                            <CartSingleItem
+                                key={cartId}
+                                cartId={cartId}
+                                articleId={articleId}
+                                articleName={articleName}
+                                brand={brand}
+                                category={category}
+                                rating={rating}
+                                image={image}
+                                count={count}
+                                quantity={quantity}
+                                price={price}
+                            />
+                        )
+                    })
+                ) : null
+            }
         </>
     ) 
 }

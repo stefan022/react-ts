@@ -72,6 +72,7 @@ const SingleProductList: FC<IProps> = ({ articleId, articleName, rating, status,
                         <AddToCart
                             articleId={articleId}
                             articleName={articleName}
+                            brand={brand}
                             image={images[0]}
                             price={price}
                             quantity={quantity}
@@ -79,6 +80,8 @@ const SingleProductList: FC<IProps> = ({ articleId, articleName, rating, status,
                             category={category}
                             cartType='list'
                             iconSize={18}
+                            count={1}
+                            discount={discount}
                         />
                     </div>
                 </div>

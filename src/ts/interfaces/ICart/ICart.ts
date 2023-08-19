@@ -3,9 +3,12 @@ export interface ICart {
     userId: string;
     articleId: number;
     articleName: string;
-    price: number;
+    brand: string;
     quantity: number;
     image: string;
     rating: number;
     category: string;
+    count: number;
+    price: number;
+    totalPrice: number;
 }
