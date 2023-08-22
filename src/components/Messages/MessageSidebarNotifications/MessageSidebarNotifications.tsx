@@ -1,7 +1,10 @@
-import React, { FC, Dispatch, SetStateAction } from 'react'
+import React, { FC, Dispatch, SetStateAction, useContext, Context } from 'react'
+
 import { timeAgo } from '../../../utils/helpers/timeAgo';
 import { tooLongString } from '../../../utils/helpers/tooLongString';
 import { useUpdateSeenInSingleMessageForSupportMutation } from '../../../features/API/supportMessagesAPI';
+import DarkThemeContext from '../../../context/ThemeContext';
+import { IDarkThemeContext } from '../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
 
 interface IProps {
     title: string;
@@ -16,6 +19,8 @@ interface IProps {
 }
 
 const MessageSidebarNotifications: FC<IProps> = ({ title, message, supportId, messageId, changeTimestamp, activeMessage, setActiveMessage, adminResponse, seen }): JSX.Element => {
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
+    
     const [ updateSeenInSingleMessageForSupport ] = useUpdateSeenInSingleMessageForSupportMutation();
     
     const handleClickSingleNotification = (messageId: number) => { 
@@ -30,7 +35,13 @@ const MessageSidebarNotifications: FC<IProps> = ({ title, message, supportId, me
     return (
         <div 
             className={`
-                ${activeMessage === messageId ? "bg-blue-50" : ""}
+                ${
+                    activeMessage === messageId 
+                        ? darkTheme 
+                            ? "bg-gray-800"
+                            : "bg-blue-50"
+                        : ""
+                }
                 flex border-b border-b-gray-400 cursor-pointer
             `}
             onClick={() => handleClickSingleNotification(messageId)}

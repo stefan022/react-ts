@@ -45,7 +45,7 @@ const MessagesSidebar: FC<IProps> = ({ supportId, activeMessage, setActiveMessag
                             })
                         }
                     </div>
-                ) : <Spinner/>
+                ) : <div className='h-[350px]'><Spinner/></div>
             }
         </>
     )
