@@ -1,8 +1,10 @@
-import React, { FC } from 'react'
+import React, { FC, useContext, Context } from 'react'
 
 import { Link } from 'react-router-dom'
 import { categoryWidthImage } from '../../../constants/categoryWidthImage';
 import "./Category.scss"
+import DarkThemeContext from '../../../context/ThemeContext';
+import { IDarkThemeContext } from '../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
 
 interface IProps {
     route: string;
@@ -11,11 +13,15 @@ interface IProps {
 }
 
 const Category: FC<IProps> = ({ route, categoryName, image }): JSX.Element => {
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
     const lowerCaseCategoryName = categoryName.toLowerCase();
 
     return (
         <Link to={route}>
-            <div className='w-full h-full p-8 border border-gray-200 bg-blue-400 flex flex-col justify-between'>
+            <div className={`
+                    w-full h-full p-8 flex flex-col justify-between
+                    ${darkTheme ? "bg-blue-600" : "bg-blue-400 border border-gray-200"}
+                `}>
                 <p className='text-white he'>{categoryName}</p>
                 <div className='flex items-center justify-center w-full h-full'>
                     <img 
