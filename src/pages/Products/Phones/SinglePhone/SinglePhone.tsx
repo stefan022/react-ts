@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 
 import { ProductDetails, Spinner } from "../../../../components"
 import { useParams } from 'react-router-dom';
@@ -9,6 +9,8 @@ const SinglePhone: FC = (): JSX.Element | null => {
     const { productId } = useParams();
 
     const { data: singlePhone } = useGetSinglePhoneQuery(Number(productId));
+
+    useEffect(() => window.scrollTo(0, 0));
     
     if (singlePhone) {
         return <ProductDetails 
@@ -19,7 +21,12 @@ const SinglePhone: FC = (): JSX.Element | null => {
                 />
     }
 
-    return <Spinner/>;
+    return (
+        <>
+            <div className='h-screen bg-gray-900'></div>
+            <Spinner/>
+        </>
+    );
 }
 
 export default SinglePhone

@@ -1,15 +1,20 @@
-import React from 'react'
+import React, { FC, useContext, Context } from 'react'
 
 import { RingLoader } from 'react-spinners'
+import DarkThemeContext from '../../context/ThemeContext'
+import { IDarkThemeContext } from '../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
 
-const Spinner = () => {
+import "./Spinner.scss";
+
+const Spinner: FC = (): JSX.Element => {
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
+
     return (
         <div 
-            style={{ zIndex: 10000000 }}
-            className='fixed w-full h-screen top-0 left-0 bg-white opacity-90 flex items-center justify-center'
+            className={ darkTheme ? "spinner-dark" : "spinner" }
         >
             <RingLoader
-                color="#2794d9"
+                color="#60a5fa"
                 loading
                 size={70}
                 speedMultiplier={1.2}
