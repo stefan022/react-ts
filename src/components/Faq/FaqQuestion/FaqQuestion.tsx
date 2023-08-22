@@ -1,6 +1,12 @@
-import React from 'react'
+import React, { FC, useContext, Context } from 'react'
 
 import { MdKeyboardArrowDown } from 'react-icons/md'
+import DarkThemeContext from '../../../context/ThemeContext';
+import { IDarkThemeContext } from '../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
+
+import { faqCheckActiveQuestion } from '../../../utils/faqCheckActiveQuestion';
+import { IFaqCheckActiveQuestion } from '../../../ts/interfaces/IFaq/IFaqCheckActiveQuestion';
+
 import "./FaqQuestion.scss";
 
 interface IProps {
@@ -10,22 +16,20 @@ interface IProps {
     id: number;
 }
 
-const FaqQuestion = ({ currentActive, handleFaqToggle, question, id }: IProps) => {
+const FaqQuestion: FC<IProps> = ({ currentActive, handleFaqToggle, question, id }): JSX.Element => {
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
+
+    const { faqQuestion, faqTitle, faqIcon }: IFaqCheckActiveQuestion = faqCheckActiveQuestion(currentActive, id, darkTheme);
+
     return (
-        <div className={`
-            faq__question
-            ${currentActive === id ? "faq__question-active" : "faq__question-inactive"}
-        `}>
-            <p className={`${currentActive === id ? "faq__title-active" : "faq__title-inactive"} faq__title`}>{question}</p>
+        <div className={` faq__question ${faqQuestion}`}>
+            <p className={` faq__title ${faqTitle}`}> {question} </p>
             <div>
                 {
                     currentActive === id ? (
                         <MdKeyboardArrowDown 
                             onClick={() => handleFaqToggle(id)}
-                            className={`
-                                faq__icon
-                                ${currentActive === id ? "faq__icon-active" : ""}
-                                `}
+                            className={faqIcon}
                             size={24}
                         />
                     ) : (

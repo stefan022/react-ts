@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { FC, useState } from 'react'
+
 import { FaqQuestion, FaqAnswer } from "..";
 import { faqData } from './faqData';
 
-const FaqComponent = () => {
-    const [ currentActive, setCurrentActive ] = React.useState(1);
+const FaqComponent: FC = (): JSX.Element => {
+    const [ currentActive, setCurrentActive ] = useState(1);
     const handleFaqToggle = (id: number) => {
         if (currentActive !== id) {
             setCurrentActive(id);

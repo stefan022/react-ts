@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { FC, useContext, Context } from 'react'
 
 import { faqServicesData } from './faqServicesData'
 import "./FaqServices.scss"
+import DarkThemeContext from '../../../context/ThemeContext'
+import { IDarkThemeContext } from '../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext'
 
-const FaqServices = () => {
+const FaqServices: FC = (): JSX.Element => {
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
+
     return (
         <>
             {
@@ -11,11 +15,14 @@ const FaqServices = () => {
                     const { id, icon, text } = service;
 
                     return (
-                        <div key={id} className='flex flex-col items-center justify-around w-1/4 border border-gray-300 py-8 hover:bg-green-50 hover:-translate-y-2 hover:rounded-lg transition-all faq__service'>
-                            <div className='bg-green-200 rounded-full p-6 mb-4'>
+                        <div
+                            key={id} 
+                            className={ darkTheme ? "faq__services-dark" : "faq__services"}
+                        >
+                            <div className={ darkTheme ? "faq__services-dark-icon" : "faq__services-icon" }>
                                 {icon}
                             </div>
-                            <p className='font-bold text-gray-700'>{text}</p>
+                            <p className={ darkTheme ? "faq__services-dark-text" : "faq__services-text" }>{text}</p>
                         </div>
                     )   
                 })

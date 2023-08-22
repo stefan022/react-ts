@@ -3,10 +3,18 @@
 
     &-active {
         @apply bg-blue-200;
+
+        &-dark {
+            @apply bg-blue-600;
+        }
     }
     
     &-inactive {
         @apply bg-white;
+
+        &-dark {
+            @apply bg-gray-900;
+        }
     }
 }
 
@@ -15,18 +23,26 @@
 
     &-active {
         @apply text-blue-500;
+
+        &-dark {
+            @apply text-blue-200;
+        }
     }
 
     &-inactive {
         @apply text-gray-700;
+
+        &-dark {
+            @apply text-gray-300;
+        }
     }
 }
 
 .faq__icon {
-    @apply rotate-180 transition-all cursor-pointer;
+    @apply rotate-180 transition-all cursor-pointer text-blue-500;
 
-    &-active {
-        @apply text-blue-500;
+    &-dark {
+        @apply rotate-180 transition-all cursor-pointer text-blue-200;
     }
 
     &-transition {
