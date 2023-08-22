@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useContext, Context } from 'react'
 
 import { TColors } from '../../../../../ts/types/TColors';
 import { Link } from 'react-router-dom';
@@ -7,6 +7,8 @@ import { Routes } from '../../../../../router/Routes';
 import { AddToCart, Bookmark, RoundColors, Stars } from "../../../.."
 import { firstCapitalLatter } from '../../../../../utils/helpers/capitalFirstLetter';
 import { calculationDiscount } from '../../../../../utils/helpers/calculationDiscount';
+import DarkThemeContext from '../../../../../context/ThemeContext';
+import { IDarkThemeContext } from '../../../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
 
 interface IProps {
     articleId: number
@@ -25,6 +27,8 @@ interface IProps {
 }
 
 const SingleProductList: FC<IProps> = ({ articleId, articleName, rating, status, description, price, discount, colors, images, productRoute, brand, category, quantity }): JSX.Element => {
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
+    
     const newPrice = calculationDiscount(price, discount);
     
     return (
@@ -78,7 +82,7 @@ const SingleProductList: FC<IProps> = ({ articleId, articleName, rating, status,
                             quantity={quantity}
                             rating={rating}
                             category={category}
-                            cartType='list'
+                            cartType={ darkTheme ? "list-dark" : "list"}
                             iconSize={18}
                             count={1}
                             discount={discount}

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useContext, Context } from 'react'
 
 import { Link } from 'react-router-dom';
 import { Routes } from '../../../../../router/Routes';
@@ -7,6 +7,8 @@ import { AddToCart, Bookmark, RoundColors, Stars } from "../../../.."
 import { TColors } from '../../../../../ts/types/TColors';
 import { tooLongString } from '../../../../../utils/helpers/tooLongString';
 import { calculationDiscount } from '../../../../../utils/helpers/calculationDiscount';
+import DarkThemeContext from '../../../../../context/ThemeContext';
+import { IDarkThemeContext } from '../../../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
 
 interface IProps {
     articleId: number;
@@ -24,6 +26,8 @@ interface IProps {
 }
 
 const SingleProductCard: FC<IProps> = ({ articleId, articleName, brand, colors, price, discount, rating, images, productRoute, status, category, quantity }): JSX.Element => {
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
+
     const newPrice = calculationDiscount(price, discount);
 
     return (
@@ -31,7 +35,7 @@ const SingleProductCard: FC<IProps> = ({ articleId, articleName, brand, colors, 
             <div className='border border-gray-400 h-full'>
                 <div className='h-3/5'>
                     <Link to={`${Routes.PRODUCTS}${productRoute}/${articleId}`}>
-                        <div className='border-b border-b-gray-400 h-full bg-white'>
+                        <div className='border-b border-b-gray-400 h-full bg-transparent'>
                             <img className='w-full h-full p-2' src={images[0]} alt="" />
                         </div>
                     </Link>
@@ -77,7 +81,7 @@ const SingleProductCard: FC<IProps> = ({ articleId, articleName, brand, colors, 
                                 quantity={quantity}
                                 rating={rating}
                                 category={category}
-                                cartType='card'
+                                cartType={ darkTheme ? "card-dark" : "card"}
                                 iconSize={16}
                                 count={1}
                                 discount={discount}

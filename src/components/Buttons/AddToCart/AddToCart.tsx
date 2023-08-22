@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect, useState, useContext, Context } from 'react'
 
 import { useAddToCartMutation, useGetAllCartsQuery } from '../../../features/API/cartAPI';
 import { useAppSelector } from '../../../hooks/useAppSelector';
@@ -6,9 +6,13 @@ import { RootState } from '../../../ts/types/RootState';
 import { Modal } from '@mui/material';
 import { AddedToCart, AlreadyAddedToCart, ContentAddToCart, ContentAddedToCart } from "../../../components"
 
-import "./AddToCart.scss"
 import { findCartId } from '../../../utils/findCartId';
 import { calculationDiscount } from '../../../utils/helpers/calculationDiscount';
+
+import DarkThemeContext from '../../../context/ThemeContext';
+import { IDarkThemeContext } from '../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
+
+import "./AddToCart.scss"
 
 interface IProps {
     articleId: number;
@@ -34,6 +38,8 @@ const AddToCart: FC<IProps> = ({ articleId, articleName, price, discount, quanti
     const [ modalIsOpen, setModalIsOpen ] = useState<boolean>(false);
     const [ isAlreadyAdded, setIsAlreadyAdded ] = useState<boolean>(false);
     const [ clickedAddToCart, setClickedAddToCart ] = useState<boolean>(false);
+
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
 
     const [ addToCart ] = useAddToCartMutation();
 
@@ -79,7 +85,7 @@ const AddToCart: FC<IProps> = ({ articleId, articleName, price, discount, quanti
             <Modal
                 open={modalIsOpen}
                 onClose={handleCloseModal}
-                className='bg-white bg-opacity-80'
+                className={ darkTheme ? "bg-gray-900 bg-opacity-80" : "bg-white bg-opacity-80"}
                 children={
                     clickedAddToCart
                         ? <AddedToCart handleCloseModal={handleCloseModal}/>

@@ -1,6 +1,8 @@
-import React, { FC } from 'react'
+import React, { FC, useContext, Context } from 'react'
 
 import { AddToCart } from "../../../../components"
+import DarkThemeContext from '../../../../context/ThemeContext';
+import { IDarkThemeContext } from '../../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
 
 interface IProps {
     articleId: number;
@@ -16,6 +18,8 @@ interface IProps {
 }
 
 const ProductButtons: FC<IProps> = ({ articleId, articleName, brand, image, price, discount, quantity, rating, category, count }): JSX.Element => {
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
+    
     return (
         <div className='w-full flex gap-4'>
             <AddToCart
@@ -27,7 +31,7 @@ const ProductButtons: FC<IProps> = ({ articleId, articleName, brand, image, pric
                 quantity={quantity}
                 rating={rating}
                 category={category}
-                cartType='product-details'
+                cartType={ darkTheme ? "product-details-dark" : "product-details" }
                 iconSize={18}
                 count={count}
                 discount={discount}
