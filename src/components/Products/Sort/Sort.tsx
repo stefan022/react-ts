@@ -1,4 +1,4 @@
-import React, { FC, ChangeEvent, useEffect, RefObject } from 'react'
+import React, { FC, ChangeEvent, useEffect, RefObject, useContext, Context } from 'react'
 
 import { sortOptions } from '../../../constants/sortOptions';
 import { useAppDispatch } from '../../../hooks/useAppDispatch';
@@ -7,6 +7,8 @@ import { useAppSelector } from '../../../hooks/useAppSelector';
 import { RootState } from '../../../ts/types/RootState';
 import { SortBy } from '../../../ts/types/SortBy';
 import { PAGINATION_RESET_TO_FIRST_PAGE } from '../../../features/slices/paginationProductsSlice';
+import DarkThemeContext from '../../../context/ThemeContext';
+import { IDarkThemeContext } from '../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
 
 interface IProps {
     searchRef: RefObject<HTMLInputElement>;
@@ -15,6 +17,8 @@ interface IProps {
 const Sort: FC<IProps> = ({ searchRef }): JSX.Element => {
     const { filteredProducts } = useAppSelector((state: RootState) => state.filters);
     const { sortBy } = useAppSelector((state: RootState) => state.sorts);
+
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
     const dispatch = useAppDispatch();
 
     useEffect(() => {
@@ -41,7 +45,7 @@ const Sort: FC<IProps> = ({ searchRef }): JSX.Element => {
         <div className='flex items-center'>
             <p>Sort by: </p>
             <select 
-                className='ml-2 py-0.5 px-1 border border-gray-400 cursor-pointer' 
+                className='ml-2 py-0.5 px-1 border border-gray-400 cursor-pointe bg-transparent cursor-pointer' 
                 id="sortProducts" 
                 onChange={handleSortChange}
                 defaultValue={sortBy}
@@ -50,7 +54,15 @@ const Sort: FC<IProps> = ({ searchRef }): JSX.Element => {
                     sortOptions.map((singleOption) => {
                         const { optionId, optionValue, text } = singleOption;
 
-                        return <option key={optionId} value={optionValue}>{text}</option>
+                        return (  
+                            <option 
+                                className={ darkTheme ? "bg-gray-900" : "bg-white" }
+                                key={optionId} 
+                                value={optionValue}
+                            >
+                                {text}
+                            </option>
+                        )
                     })
                 }
             </select>
