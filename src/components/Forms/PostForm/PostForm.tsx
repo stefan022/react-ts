@@ -9,14 +9,14 @@ const PostForm = () => {
 			<div className="flex flex-wrap -mx-3">
 				<div className="w-full px-3">
 					<label
-						className="block tracking-wide text-gray-700 text-xs font-bold mb-2"
+						className="block tracking-wide text-xs font-bold mb-2"
 						htmlFor="postTitle"
 					>
 					</label>
 					<input
-						className="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+						className="appearance-none bg-transparent block w-full border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-500"
 						id="postTitle"
-						type="password"
+						type="text"
 						placeholder="Title"
 						required
 					/>
@@ -25,12 +25,12 @@ const PostForm = () => {
 			<div className="flex flex-wrap -mx-3">
 				<div className="w-full px-3">
 					<label
-						className="block tracking-wide text-gray-700 text-xs font-bold mb-2"
+						className="block tracking-wide text-xs font-bold mb-2"
 						htmlFor="postContent"
 					>
 					</label>
 					<textarea
-						className="appearance-none resize-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+						className="appearance-none bg-transparent resize-none block w-full border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-500"
 						id="postContent"
 						rows={6}
 						placeholder="Enter your post"
