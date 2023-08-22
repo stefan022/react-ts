@@ -64,7 +64,7 @@ const Bookmark: FC<IProps> = ({ articleId, articleName, price, status, category,
             <BiSolidBookmark 
                 className='cursor-pointer'
                 size={size} 
-                fill={bookmarked ? "#60a5fa" : "#ffffff"} 
+                fill={bookmarked ? "#60a5fa" : "#00000000"} 
                 stroke={bookmarked ? "#60a5fa" : "#c7cad1"} 
                 strokeWidth={1.5}
                 onClick={() => handleBookmark(category)}
