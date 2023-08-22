@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { FC } from 'react'
+
 import { Banner, ChatButton, ChatField, ChatMessages, ChatSidebar, ChatStartTimestamp, ChatUsername } from '../../components'
 
 import chat from "../../assets/chat.jpg";
 import Container from '../../containers/Container/Container';
 
-const Chat = () => {
+const Chat: FC = (): JSX.Element => {
     return (
         <div>
             <Banner

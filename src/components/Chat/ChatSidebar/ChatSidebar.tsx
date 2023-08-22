@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { FC, useContext, Context } from 'react'
 
-const ChatSidebar = () => {
+import DarkThemeContext from '../../../context/ThemeContext'
+import { IDarkThemeContext } from '../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext'
+
+const ChatSidebar: FC = (): JSX.Element => {
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
+
     return (
         <div className='w-1/5 border border-gray-400 h-full'>
             <div className='w-full'>
-                <button className='bg-blue-400 text-white h-full w-full py-4'>+ New Chat</button>
+                <button 
+                    className={`
+                        ${ darkTheme ? "bg-blue-600 hover:bg-blue-700" : "bg-blue-400 hover:bg-blue-500" }
+                         text-white h-full w-full py-4 transition-all
+                    `}
+                >
+                    + New Chat
+                </button>
             </div>
             <div className='flex border-b border-b-gray-400'>
                 <div className='h-[75px] w-1/5 p-2'>

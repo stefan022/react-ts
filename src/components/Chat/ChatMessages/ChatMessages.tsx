@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ChatSenderMessage, ChatRecipientMessage } from "../../../components"
 import { chatMessagesData } from './chatMessagesData'
 
-const ChatMessages = () => {
+const ChatMessages: FC = (): JSX.Element => {
     // const userId = localStorage.getItem("userId");
     const userId = 10;
 
