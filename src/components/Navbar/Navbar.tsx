@@ -16,7 +16,7 @@ const Navbar: FC = (): JSX.Element => {
 	return (
 		<div>
 			<Container>
-				<div className="flex justify-between items-center border border-gray-400 relative px-4">
+				<div className="flex justify-between items-center relative px-4">
 					<Logo/>
 					<Navigation/>
 					<div className="flex items-center gap-2">

@@ -1,9 +1,11 @@
-import React, { FC, MouseEventHandler } from 'react'
+import React, { FC, MouseEventHandler, useContext, Context } from 'react'
 
 import { BsCamera } from 'react-icons/bs';
 
 import { storage } from '../../../firebase/config';
 import { ref, listAll, getDownloadURL, ListResult, StorageReference } from 'firebase/storage';
+import DarkThemeContext from '../../../context/ThemeContext';
+import { IDarkThemeContext } from '../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
 
 interface IProps {
     handleDisplayProfileDropdown: MouseEventHandler<HTMLDivElement>;
@@ -11,6 +13,8 @@ interface IProps {
 
 const NavbarProfilePicture: FC<IProps> = ({ handleDisplayProfileDropdown }): JSX.Element => {
     const userId = localStorage.getItem("userId");
+
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
     const [ profilePicture, setProfilePicture ] = React.useState<string>();
 
     React.useEffect(() => {
@@ -33,7 +37,10 @@ const NavbarProfilePicture: FC<IProps> = ({ handleDisplayProfileDropdown }): JSX
         >
             {
                 !profilePicture ? (
-                    <div className='bg-white w-[100px] h-[100px] rounded-full text-center flex flex-col items-center justify-center'>
+                    <div className={`
+                        ${ darkTheme ? "bg-gray-900" : "bg-white" }
+                        w-[100px] h-[100px] rounded-full text-center flex flex-col items-center justify-center
+                    `}>
                         <BsCamera size={16} className='text-blue-500'/>
                     </div>
                 ) : <img width={50} src={profilePicture} alt='img'/>
