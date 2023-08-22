@@ -54,7 +54,7 @@ const ProductsSearch: FC<IProps> = ({ searchRef }): JSX.Element => {
     return (
         <div className='border border-gray-300 flex items-center py-2 px-3 gap-1'>
             <input 
-                className='outline-none'
+                className='outline-none bg-transparent'
                 type="text" 
                 placeholder='Search by name'
                 ref={searchRef}
