@@ -20,14 +20,14 @@ const FormikTextArea: FC<IProps> = ({ inputId, text, placeholder, value, error, 
     return (
         <div className={styleDiv}>
             <label
-                className="block tracking-wide text-gray-700 text-sm font-bold mb-2"
+                className="block tracking-wide text-sm font-bold mb-2"
                 htmlFor={inputId}
             >
                 {text}{requiredStar}
             </label>
             <textarea
                 className={`
-                    appearance-none resize-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500
+                    appearance-none bg-transparent resize-none block w-full border border-gray-200 rounded py-3 px-4 focus:outline-none focus:border-gray-500
                     ${touched && error ? "border border-red-400" : null}
                 `}
                 id={inputId}

@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { supportInformationData } from '../supportInformationData'
 import { SupportSingleInformation } from "../../../components"
 
-const SupportInformation = () => {
+const SupportInformation: FC = (): JSX.Element => {
     return (
         <div className='flex flex-col gap-6'>
             {

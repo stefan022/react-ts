@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { FC, useContext, Context } from 'react'
+import DarkThemeContext from '../../../context/ThemeContext'
+import { IDarkThemeContext } from '../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext'
 
-const SupportFormButton = () => {
+const SupportFormButton: FC = (): JSX.Element => {
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
+
     return (
         <div className="flex justify-end">
-            <button className="bg-blue-400 hover:bg-blue-500 text-white py-2 px-4 rounded-lg" type="submit">Send message</button>
+            <button 
+                className={`
+                    ${ darkTheme ? "bg-blue-600 hover:bg-blue-700" : "bg-blue-400 hover:bg-blue-500" }
+                    text-white py-2 px-4 rounded-lg transition-all
+                `}
+                type="submit"
+            >
+                Send message
+            </button>
         </div>
     )
 }
