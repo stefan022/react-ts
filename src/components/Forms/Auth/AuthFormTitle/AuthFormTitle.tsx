@@ -6,7 +6,7 @@ interface IProps {
 
 const AuthFormTitle = ({ title }: IProps) => {
     return (
-        <p className="text-2xl text-gray-700 font-bold mb-6">{title}</p>
+        <p className="text-2xl font-bold mb-6">{title}</p>
     )
 }
 

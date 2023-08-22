@@ -19,14 +19,14 @@ const FormikField = ({ inputId, text, placeholder, value, error, touched, handle
     return (
         <div className={styleDiv}>
             <label
-                className="block text-gray-700 text-sm font-bold mb-2"
+                className="block text-sm font-bold mb-2"
                 htmlFor={inputId}
             >
                 {text}{requiredStar}
             </label>
             <input
                 className={`
-                    shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline
+                    shadow bg-transparent appearance-none border rounded w-full py-2 px-3 focus:outline-none focus:shadow-outline
                     ${touched && error ? "border border-red-400" : null}
                 `}
                 id={inputId}
