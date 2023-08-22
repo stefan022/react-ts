@@ -27,7 +27,10 @@ const Sections: FC<IProps> = ({ handleHideProfileDropdown, handleDisplayCart }):
                             <Link
                                 key={sectionId}
                                 to={route!} 
-                                className="hover:bg-gray-100 w-[40px] h-[40px] rounded-full flex items-center justify-center cursor-pointer"
+                                className={`
+                                    ${ darkTheme ? "hover:bg-gray-800" : "hover:bg-gray-100" }
+                                    w-[40px] h-[40px] rounded-full flex items-center justify-center cursor-pointer
+                                `}
                                 onMouseEnter={handleHideProfileDropdown}
                             >
                                 {icon}
@@ -38,7 +41,10 @@ const Sections: FC<IProps> = ({ handleHideProfileDropdown, handleDisplayCart }):
                     return (
                         <div 
                             key={sectionId}
-                            className="hover:bg-gray-100 w-[40px] h-[40px] rounded-full flex items-center justify-center cursor-pointer"
+                            className={`
+                                ${ darkTheme ? "hover:bg-gray-800" : "hover:bg-gray-100" }    
+                                hover:bg-gray-100 w-[40px] h-[40px] rounded-full flex items-center justify-center cursor-pointer
+                            `}
                             onMouseEnter={handleHideProfileDropdown}
                             onClick={handleDisplayCart}
                         >

@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 
 import Container from "../../containers/Container/Container";
 import { CartSidebar, CartOverlay, Logo, Navigation, ProfileDropdown, Sections } from "../../components";
 
-const Navbar = () => {
+const Navbar: FC = (): JSX.Element => {
 	const [ profileDropdown, setProfileDropdown ] = useState<boolean>(false);
 	const [ displayCart, setDisplayCart ] = useState<boolean>(false);
 
@@ -16,7 +16,7 @@ const Navbar = () => {
 	return (
 		<div>
 			<Container>
-				<div className="flex justify-between items-center border border-gray-400 relative">
+				<div className="flex justify-between items-center border border-gray-400 relative px-4">
 					<Logo/>
 					<Navigation/>
 					<div className="flex items-center gap-2">
