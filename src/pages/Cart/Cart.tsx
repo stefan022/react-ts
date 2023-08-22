@@ -7,7 +7,7 @@ import { useGetAllCartsQuery } from '../../features/API/cartAPI';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import { RootState } from '../../ts/types/RootState';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
-import { MY_CART } from '../../features/slices/cartSlice';
+import { MY_CART, RESET_TOTAL_AMOUNT } from '../../features/slices/cartSlice';
 
 const Cart: FC = (): JSX.Element => {
     useGetAllCartsQuery();
@@ -23,6 +23,10 @@ const Cart: FC = (): JSX.Element => {
 
         setLen(getMyCart.length);
         dispatch(MY_CART(getMyCart));
+
+        if (getMyCart.length === 0) {
+            dispatch(RESET_TOTAL_AMOUNT());
+        }
 
         // eslint-disable-next-line
     }, [cart, userId]);

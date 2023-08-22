@@ -1,19 +1,22 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useContext, Context } from 'react'
 
 import { useDeleteFromCartMutation } from '../../../features/API/cartAPI';
 import { RemoveFromCart, Spinner } from "../../../components"
 import { Modal } from '@mui/material';
+import DarkThemeContext from '../../../context/ThemeContext';
+import { IDarkThemeContext } from '../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
 
 interface IProps {
     cartId: number;
 }
 
 const CartArticleRemove: FC<IProps> = ({ cartId }): JSX.Element => {
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
+
     const [ modalIsOpen, setModalIsOpen ] = useState<boolean>(false);
     const [ loading, setLoading ] = useState<boolean>(false);
 
     const [ deleteSingleArticleFromCart ] = useDeleteFromCartMutation();
-
 
     const handleRemoveFromCart = async (cId: number) => { 
         setModalIsOpen(false);
@@ -40,12 +43,13 @@ const CartArticleRemove: FC<IProps> = ({ cartId }): JSX.Element => {
         <Modal
             open={modalIsOpen}
             onClose={handleCloseModal}
-            className='bg-white bg-opacity-80'
+            className={ darkTheme ? "bg-gray-900 bg-opacity-80" : "bg-white bg-opacity-80"}
         >
             <RemoveFromCart
                 handleCloseModal={handleCloseModal}
                 handleRemoveFromCart={handleRemoveFromCart}
                 cartId={cartId}
+                darkTheme={darkTheme}
             />
         </Modal>
         { loading && <Spinner/> }

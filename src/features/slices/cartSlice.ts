@@ -43,6 +43,9 @@ export const cartSlice = createSlice({
                                         .map(({ totalPrice }) => totalPrice)
                                         .reduce((prev, next) => prev + next);
             },
+            RESET_TOTAL_AMOUNT: (state) => {
+                state.totalAmount = 0;
+            }
     },
     extraReducers: (builder) => {
 		builder.addMatcher(cartAPI.endpoints.getAllCarts.matchFulfilled, (state, action: PayloadAction<ICart[]>) => {
@@ -51,4 +54,4 @@ export const cartSlice = createSlice({
 	},
 })
 
-export const { MY_CART, UPDATE_SINGLE_ARTICLE, UPDATE_TOTAL_AMOUNT } = cartSlice.actions;
+export const { MY_CART, UPDATE_SINGLE_ARTICLE, UPDATE_TOTAL_AMOUNT, RESET_TOTAL_AMOUNT } = cartSlice.actions;
