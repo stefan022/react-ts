@@ -1,19 +1,33 @@
-.on_off {
-    position: relative;
-}
+@use "../../sass/abstract/variables" as vars;
 
-.on_off::after {
-    content: "";
-  	position: absolute;
-  	top: 0;
-  	left: 0;
-  	width: 100%;
-  	height: 100%;
-	border-left: 2px solid skyblue;
-	background: white;
+@mixin on_off-container($border-left-color, $background) {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-left: 2px solid $border-left-color;
+	background: $background;
 	animation-name: on_off;
 	animation-duration: 4s;
 	animation-iteration-count: infinite;
+}
+
+.on_off {
+    position: relative;
+
+	&::after {
+		@include on_off-container(vars.$blue, vars.$light);
+	}
+
+	&-active {
+		position: relative;
+
+		&::after {
+			@include on_off-container(vars.$dark-blue, vars.$dark);
+		}
+	}
 }
 
 @keyframes on_off {

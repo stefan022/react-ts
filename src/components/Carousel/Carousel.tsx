@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { FC, useContext, Context } from 'react'
 
 import { skillsData } from '../../pages/Home/skillsData';
+import DarkThemeContext from '../../context/ThemeContext';
+import { IDarkThemeContext } from '../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
 import "./Carousel.scss";
 
-const Carousel = () => {
+const Carousel: FC = (): JSX.Element => {
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
+
     return (
-        <div className="carousel">
+        <div className={darkTheme ? "carousel-active" : "carousel"}>
             <p className="text-center text-3xl mb-2">Skills:</p>
             <div className="carousel__slide">
                 {

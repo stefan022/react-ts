@@ -1,9 +1,9 @@
-import React from "react";
+import React, { FC } from "react";
 import Container from "../../containers/Container/Container";
 
 import { Carousel, Hello } from "../../components";
 
-const Home = () => {
+const Home: FC = (): JSX.Element => {
 	return (
 		<div className="h-screen flex flex-col">
 			<Hello/>

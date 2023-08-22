@@ -1,12 +1,3 @@
-body {
-	font-size: $original_font_size;
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	height: 100%;
-	line-height: 1;
-}
-
 *,
 *::before,
 *::after {
@@ -28,10 +19,6 @@ body {
 	padding: 0;
 	width: 100%;
 	height: 100%;
-	line-height: 1;
-}
-
-body {
 	line-height: 1;
 	-webkit-font-smoothing: antialiased;
 }
@@ -69,17 +56,4 @@ h6 {
 
 ::-webkit-scrollbar {
 	@apply w-2;
-}
-
-::-webkit-scrollbar-thumb {
-	border-right: 2px white solid;
-	@apply bg-blue-400 rounded-lg;
-}
-
-::-webkit-scrollbar-track {
-	@apply bg-transparent;
-}
-
-::-webkit-scrollbar-thumb:hover {
-	@apply bg-blue-500;
 }

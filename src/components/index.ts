@@ -178,6 +178,7 @@ export { default as MessageFrom } from "./Messages/MessageFrom/MessageFrom";
 export { default as MessageTitle } from "./Messages/MessageTitle/MessageTitle";
 export { default as MessageContent } from "./Messages/MessageContent/MessageContent";
 export { default as MessageAnswer } from "./Messages/MessageAnswer/MessageAnswer";
+export { default as ThemeToggleSwitch } from "./ThemeToggleSwitch/ThemeToggleSwitch";
 export { default as AdminNavbar } from "./Admin/AdminNavbar/AdminNavbar";
 export { default as AdminSidebar } from "./Admin/AdminSidebar/AdminSidebar";
 export { default as AdminTitleOfPage } from "./Admin/AdminTitlteOfPage/AdminTitlteOfPage";

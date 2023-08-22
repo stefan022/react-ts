@@ -1,13 +1,21 @@
-import React, { MouseEventHandler } from 'react'
+import React, { FC, MouseEventHandler, useContext, Context } from 'react'
+
 import { sectionsData } from './sectionsData'
 import { Link } from 'react-router-dom';
+import { ThemeToggleSwitch } from "../../components"
+import { IDarkThemeContext } from '../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
+import DarkThemeContext from '../../context/ThemeContext';
 
 interface IProps {
     handleHideProfileDropdown: MouseEventHandler<HTMLAnchorElement | HTMLDivElement>;
     handleDisplayCart: MouseEventHandler<HTMLDivElement>;
 }
 
-const Sections = ({ handleHideProfileDropdown, handleDisplayCart }: IProps) => {
+const Sections: FC<IProps> = ({ handleHideProfileDropdown, handleDisplayCart }): JSX.Element => {
+    const { darkTheme, setDarkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
+
+    const handleChangeTheme = () => setDarkTheme(!darkTheme);
+
     return (
         <>
             {
@@ -39,6 +47,10 @@ const Sections = ({ handleHideProfileDropdown, handleDisplayCart }: IProps) => {
                     )
                 })
             }
+            <ThemeToggleSwitch
+                darkTheme={darkTheme}
+                handleChangeTheme={handleChangeTheme}
+            />
         </>
     )
 }

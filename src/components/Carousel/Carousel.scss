@@ -1,41 +1,118 @@
-.carousel {
+@use "../../sass/abstract/variables" as vars;
+
+.carousel-basic {
 	overflow: hidden;
 	white-space: nowrap;
 	margin: auto;
 	position: relative;
+}
+
+@mixin before($bg) {
+	background: linear-gradient(90deg, $bg 0%, rgba(255,255,255,0) 100%);
+}
+
+@mixin after($bg) {
+	background: linear-gradient(90deg, rgba(255,255,255,0) 0%, $bg 100%);
+}
+
+.c-before-after {
+	content: "";
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 100px;
+	z-index: 10;
+}
+
+.c-before-light {
+	left: 0;
+	@include before(vars.$light);
+}
+
+.c-after-light {
+	right: 0;
+	@include after(vars.$light);
+}
+
+.c-before-dark {
+	left: 0;
+	@include before(vars.$dark);
+}
+
+.c-after-dark {
+	right: 0;
+	@include after(vars.$dark);
+}
+
+.c-hover-slide {
+	animation-play-state: paused;
+}
+
+.c-slide {
+	display: inline-block;
+	animation: carousel 10s infinite linear;
+}
+
+.c-icon {
+	display: inline-block;
+	padding: 10px 35px;
+	border-radius: 10px;
+}
+
+.carousel {
+	@extend .carousel-basic;
+
+	&-active {
+		@extend .carousel-basic;
+
+		&::before,
+		&::after {
+			@extend .c-before-after;
+		}
+
+		&::before {
+			@extend .c-before-dark;
+		}
+
+		&::after {
+			@extend .c-after-dark;
+		}
+
+		&:hover &__slide {
+			@extend .c-hover-slide;
+		}
+
+		&__slide {
+			@extend .c-slide;
+		
+			&-icon {
+				@extend .c-icon;
+			}
+		}
+	}
 
 	&::before,
 	&::after {
-		content: "";
-		position: absolute;
-		top: 0;
-		height: 100%;
-		width: 100px;
-		z-index: 10;
+		@extend .c-before-after;
 	}
 
 	&::before {
-		left: 0;
-		background: linear-gradient(90deg, rgba(255,255,255,.8) 0%, rgba(255,255,255,0) 100%);
+		@extend .c-before-light;
 	}
 
 	&::after {
-		right: 0;
-		background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.8) 100%);
+		@extend .c-after-light;
 	}
 
 	&:hover &__slide {
-		animation-play-state: paused;
+		@extend .c-hover-slide;
 	}
 
 	&__slide {
-		display: inline-block;
-		animation: carousel 10s infinite linear;
+		@extend .c-slide;
 	
 		&-icon {
-			display: inline-block;
-			padding: 10px 35px;
-			border-radius: 10px;
+			@extend .c-icon;
 		}
 	}
 }
