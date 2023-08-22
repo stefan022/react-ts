@@ -1,8 +1,11 @@
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC, useState, useEffect, useContext, Context } from 'react'
+
 import { priceMinAndMax } from '../../../../utils/helpers/priceMinAndMax';
 import { calculationDiscount } from '../../../../utils/helpers/calculationDiscount';
 import { useAppSelector } from '../../../../hooks/useAppSelector';
 import { RootState } from '../../../../ts/types/RootState';
+import DarkThemeContext from '../../../../context/ThemeContext';
+import { IDarkThemeContext } from '../../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
 
 interface IProps {
     filterPrice: number[];
@@ -12,6 +15,8 @@ interface IProps {
 const FilterPrice: FC<IProps> = ({ filterPrice, discount }): JSX.Element => {
     const { filterCurrentPrice } = useAppSelector((state: RootState) => state.filters);
     const [ currentPrice, setCurrentPrice ] = useState<number>();
+
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
 
     useEffect(() => setCurrentPrice(filterCurrentPrice) , [filterCurrentPrice]);
 
@@ -29,7 +34,10 @@ const FilterPrice: FC<IProps> = ({ filterPrice, discount }): JSX.Element => {
                     <input
                         id='price'
                         type="range" 
-                        className='w-full' 
+                        className={`
+                            w-full h-2 rounded-xl cursor-pointer appearance-none
+                            ${darkTheme ? "bg-gray-700" : "bg-gray-200"}
+                        `} 
                         min={calculationDiscount(minPrice, discount)} 
                         max={calculationDiscount(maxPrice, discount)}
                     />

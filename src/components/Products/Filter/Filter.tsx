@@ -9,6 +9,8 @@ import { initialRatingsForFilter } from '../../../constants/initialRatingsForFil
 import { IProduct } from '../../../ts/interfaces/IProduct/IProduct';
 import { IScreen } from '../../../ts/interfaces/IProduct/IScreen';
 
+import "./Filter.scss"
+
 interface IProps {
     products: IProduct<IScreen | string>[];
     handleFilterChange: FormEventHandler<HTMLFormElement>;

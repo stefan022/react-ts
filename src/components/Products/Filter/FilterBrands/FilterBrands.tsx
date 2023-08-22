@@ -1,7 +1,9 @@
-import React, { FC } from 'react'
+import React, { FC, useContext, Context } from 'react'
 import { firstCapitalLatter } from '../../../../utils/helpers/capitalFirstLetter';
 import { useAppSelector } from '../../../../hooks/useAppSelector';
 import { RootState } from '../../../../ts/types/RootState';
+import DarkThemeContext from '../../../../context/ThemeContext';
+import { IDarkThemeContext } from '../../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
 
 interface IProps {
     uniqueBrands: string[];
@@ -9,6 +11,8 @@ interface IProps {
 
 const FilterBrands: FC<IProps> = ({ uniqueBrands }): JSX.Element => {
     const { filtersChecked } = useAppSelector((state: RootState) => state.filters);
+
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
 
     return (
         <div className='border border-b-gray-400 p-4'>
@@ -19,12 +23,18 @@ const FilterBrands: FC<IProps> = ({ uniqueBrands }): JSX.Element => {
                         uniqueBrands.map((brand, index) => {
                             return (
                                 <div key={index} className='flex items-center mb-1'>
-                                    <input 
-                                        type="checkbox" 
-                                        id={brand} 
-                                        defaultChecked={filtersChecked[brand]}
-                                    />
-                                    <label className='ml-2' htmlFor={brand}>{firstCapitalLatter(brand)}</label>
+                                    <label className='flex items-center gap-2 relative' htmlFor={brand}>
+                                        <input 
+                                            type="checkbox" 
+                                            id={brand} 
+                                            defaultChecked={filtersChecked[brand]}
+                                            className={`
+                                                ${darkTheme ? "filter__checkbox-dark" : "filter__checkbox-light"}
+                                                appearance-none w-3 h-3 rounded-sm cursor-pointer
+                                            `}
+                                        />
+                                        {firstCapitalLatter(brand)}
+                                    </label>
                                 </div>
                             )
                         })
