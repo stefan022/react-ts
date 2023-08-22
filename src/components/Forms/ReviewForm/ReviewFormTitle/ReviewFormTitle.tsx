@@ -14,11 +14,12 @@ const ReviewFormTitle: FC<IProps> = ({ reviewTitleRef }): JSX.Element => {
             </label>
             <input
                 ref={reviewTitleRef}
-                className="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                className="appearance-none bg-transparent block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-500"
                 id="reviewTittle"
                 type="text"
                 placeholder="Title"
                 required
+                autoComplete="off"
             />
         </div>
     )

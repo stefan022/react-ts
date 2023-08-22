@@ -14,7 +14,7 @@ const ReviewFormText: FC<IProps> = ({ reviewTextRef }): JSX.Element => {
             </label>
             <textarea
                 ref={reviewTextRef}
-                className="appearance-none resize-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                className="appearance-none bg-transparent resize-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-500"
                 id="reviewContent"
                 rows={6}
                 placeholder="Enter your reviews"

@@ -1,7 +1,9 @@
-import React, { FC } from 'react'
+import React, { FC, useContext, Context } from 'react'
 
 import { AiFillStar } from 'react-icons/ai';
 import { stars } from '../../../../constants/stars';
+import DarkThemeContext from '../../../../context/ThemeContext';
+import { IDarkThemeContext } from '../../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
 
 interface IProps {
     handleFillStar: (star: number) => void;
@@ -11,6 +13,8 @@ interface IProps {
 }
 
 const ReviewFormRating: FC<IProps> = ({ handleFillStar, handleEmptyStar, handleClickStar, currentFillStar }): JSX.Element => {
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
+    
     return (
         <div className='flex items-center'>
             <p>Your rating:</p>
@@ -24,7 +28,13 @@ const ReviewFormRating: FC<IProps> = ({ handleFillStar, handleEmptyStar, handleC
                             key={starId}
                             className='cursor-pointer'
                             size={24} 
-                            fill={starRating <= currentFillStar ? "#ffcc00" : "#e6e6e6"}
+                            fill={
+                                starRating <= currentFillStar 
+                                    ? "#ffcc00" 
+                                    : darkTheme 
+                                        ? "#374151"
+                                        : "#e6e6e6"
+                            }
                             onMouseEnter={() => handleFillStar(starRating)}
                             onMouseLeave={() => handleEmptyStar()}
                             onClick={() => handleClickStar(starRating)}
