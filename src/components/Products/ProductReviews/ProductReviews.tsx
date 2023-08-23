@@ -8,14 +8,20 @@ import { IReview } from '../../../ts/interfaces/IReview/IReview';
 import { toast } from 'react-toastify';
 import DarkThemeContext from '../../../context/ThemeContext';
 import { IDarkThemeContext } from '../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
+import { IGetUser } from '../../../ts/interfaces/IUser/IGetUser';
+import { doc, onSnapshot } from "firebase/firestore";
+import { db } from "../../../firebase/config";
 
 interface IProps {
     articleId: number;
 }
 
 const ProductReviews: FC<IProps> = ({ articleId }): JSX.Element => {
+    const userId = localStorage.getItem("userId") as string;
     useGetReviewsQuery(articleId);
+
     const [ reviews, setReviews ] = useState<IReview[] | []>([]);
+    const [ user, setUser ] = useState<IGetUser>();
     const [ loading, setLoading ] = useState<boolean>(false);
     const { reviews: reviewsStore } = useAppSelector((state: RootState) => state.reviews);
 
@@ -35,11 +41,31 @@ const ProductReviews: FC<IProps> = ({ articleId }): JSX.Element => {
         // eslint-disable-next-line
     }, [reviewsStore]);
 
+    useEffect(() => {
+        if (userId) {
+            const snapshot = onSnapshot(doc(db, "users", userId), (snapshot) => {
+                const userData = snapshot.data() as IGetUser;
+                setUser(userData);
+
+            }, (error) => {
+                toast.error(error.message, { theme });
+            });
+
+            return () => {
+                snapshot();
+            };
+        };
+
+        // eslint-disable-next-line
+    }, [userId]);
+
     return (
         <div className='mb-6'>
             <ProductReviewsTitle/>
             <ReviewForm
                 setLoading={setLoading}
+                user={user as IGetUser}
+                userId={userId}
             />
             {
                 reviews.length > 0 ? (

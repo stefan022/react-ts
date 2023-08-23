@@ -27,7 +27,7 @@ const ReviewFormRating: FC<IProps> = ({ handleFillStar, handleEmptyStar, handleC
                         <AiFillStar 
                             key={starId}
                             className='cursor-pointer'
-                            size={24} 
+                            size={22} 
                             fill={
                                 starRating <= currentFillStar 
                                     ? "#ffcc00" 

@@ -1,17 +1,20 @@
 import React, { Dispatch, FC, FormEvent, SetStateAction, useRef, useContext, Context } from 'react'
 
-import { ReviewFormRating, ReviewFormTitle, ReviewFormText, ReviewFormButton } from "../../../components"
+import { ReviewFormRating, ReviewFormTitle, ReviewFormTextArea, ReviewFormButton } from "../../../components"
 import { useAddReviewMutation } from '../../../features/API/reviewsAPI';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import DarkThemeContext from '../../../context/ThemeContext';
 import { IDarkThemeContext } from '../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
+import { IGetUser } from '../../../ts/interfaces/IUser/IGetUser';
 
 interface IProps {
 	setLoading: Dispatch<SetStateAction<boolean>>;
+	user: IGetUser;
+	userId: string;
 }
 
-const ReviewForm: FC<IProps> = ({ setLoading }): JSX.Element => {
+const ReviewForm: FC<IProps> = ({ setLoading, user, userId }): JSX.Element => {
 	const { productId } = useParams();
 	const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
 
@@ -63,8 +66,8 @@ const ReviewForm: FC<IProps> = ({ setLoading }): JSX.Element => {
 
 		addReview({
 			phoneId: productId!,
-			userId: "FppQsiltdaefp7rpB2GhvL2JnM73",
-			username: "tyrell11",
+			userId: userId,
+			username: user.username,
 			reviewRating: currentFillStar,
 			timestamp,
 			reviewTitle,
@@ -97,7 +100,7 @@ const ReviewForm: FC<IProps> = ({ setLoading }): JSX.Element => {
 				/>
 			</div>
 			<div className="flex flex-wrap -mx-3">
-				<ReviewFormText
+				<ReviewFormTextArea
 					reviewTextRef={reviewTextRef}
 				/>
 			</div>

@@ -21,7 +21,7 @@ export { default as SupportFormTitle } from "./Forms/SupportForm/SupportFormTitl
 export { default as ReviewForm } from "./Forms/ReviewForm/ReviewForm";
 export { default as ReviewFormRating } from "./Forms/ReviewForm/ReviewFormRating/ReviewFormRating";
 export { default as ReviewFormTitle } from "./Forms/ReviewForm/ReviewFormTitle/ReviewFormTitle";
-export { default as ReviewFormText } from "./Forms/ReviewForm/ReviewFormText/ReviewFormText";
+export { default as ReviewFormTextArea } from "./Forms/ReviewForm/ReviewFormTextArea/ReviewFormTextArea";
 export { default as PostForm } from "./Forms/PostForm/PostForm";
 export { default as PostFormTitle } from "./Forms/PostForm/PostFormTitle/PostFormTitle";
 export { default as PostFormField } from "./Forms/PostForm/PostFormField/PostFormField";
