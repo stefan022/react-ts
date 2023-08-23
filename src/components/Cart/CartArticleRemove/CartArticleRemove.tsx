@@ -35,7 +35,10 @@ const CartArticleRemove: FC<IProps> = ({ cartId }): JSX.Element => {
     return (
     <>
         <button 
-            className='w-1/4 text-white bg-red-400 hover:bg-red-500 transition-all py-1 px-3'
+            className={`
+                ${ darkTheme ? "bg-red-600 hover:bg-red-700" : "bg-red-400 hover:bg-red-500" }
+                w-1/4 text-white transition-all py-1 px-3
+            `}
             onClick={handleOpenModal}
         >
             Remove

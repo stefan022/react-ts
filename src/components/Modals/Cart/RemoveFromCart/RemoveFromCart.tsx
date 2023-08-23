@@ -18,18 +18,24 @@ const RemoveFromCart: FC<IProps> = ({ handleCloseModal, handleRemoveFromCart, ca
                 `}
             >
                 <div className='flex flex-col items-center gap-2'>
-                    <RiDeleteBin6Line size={50} className='text-red-500'/>
+                    <RiDeleteBin6Line size={50} className={ darkTheme ? "text-red-600" : "text-red-400"}/>
                     <h2 className='text-center'>Are you sure you want to remove this product from the cart?</h2>
                  </div>
                 <div className='flex gap-2 items-center'>
                     <button 
-                        className='border border-gray-400 hover:bg-gray-400 transition-all text-gray-500 hover:text-white py-1.5 px-3' 
+                        className={`
+                            ${ darkTheme ? "bg-gray-800 hover:bg-gray-700 text-gray-100" : "hover:bg-gray-400 text-gray-600 hover:text-white" }
+                            border border-gray-400  transition-all  py-1.5 px-3
+                        `}
                         onClick={handleCloseModal}
                     >
                         Close
                     </button>
                     <button 
-                        className='bg-red-400 hover:bg-red-500 transition-all text-white py-1.5 px-3' 
+                        className={`
+                            ${ darkTheme ? "bg-red-600 hover:bg-red-700" : "bg-red-400 hover:bg-red-500" }
+                             transition-all text-white py-1.5 px-3
+                        `}
                         onClick={() => handleRemoveFromCart(cartId)}
                     >
                         Yes, I'm sure
