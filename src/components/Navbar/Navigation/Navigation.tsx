@@ -1,6 +1,6 @@
 import React, { FC, Fragment, useContext, Context } from 'react'
 
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { navigationData } from './navigationData'
 import DarkThemeContext from '../../../context/ThemeContext'
 import { IDarkThemeContext } from '../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext'
@@ -10,22 +10,27 @@ const Navigation: FC = (): JSX.Element => {
 
     return (
         <nav>
-            <ul className="flex gap-5">
+            <ul className="navbar__navigation">
                 {
                     navigationData.map((nav) => {
                         const { id, route, text } = nav;
 
                         return (
                             <Fragment key={id}>
-                                <Link
-                                    className={`
-                                        ${darkTheme ? "bg-blue-600 hover:bg-blue-700" : "bg-blue-400 hover:bg-blue-500"}
-                                        text-white py-1 px-3 rounded-md transition-all
-                                    `}
+                                <NavLink
+                                    className={({ isActive }) => (
+                                        isActive 
+                                            ? darkTheme 
+                                                ? "navbar__navigation-single-active-dark"
+                                                : "navbar__navigation-single-active"
+                                            : darkTheme 
+                                                ? "navbar__navigation-single-dark"
+                                                : "navbar__navigation-single"
+                                    )}
                                     to={route}
                                 >
                                     <li>{text}</li>
-                                </Link>
+                                </NavLink>
                             </Fragment>
                         )
                     })
