@@ -1,8 +1,10 @@
-import React, { FC } from 'react'
+import React, { FC, useContext, Context } from 'react'
 
 import ReactPaginate from 'react-paginate';
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs'
 
+import DarkThemeContext from '../../context/ThemeContext';
+import { IDarkThemeContext } from '../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
 import "./Pagination.scss"
 
 interface IProps {
@@ -12,6 +14,8 @@ interface IProps {
 }
 
 const Pagination: FC<IProps> = ({ pageCount, onPageChange, activePage }): JSX.Element => { 
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
+
     return (
         <ReactPaginate
             previousLabel={<BsArrowLeft/>}
@@ -19,13 +23,13 @@ const Pagination: FC<IProps> = ({ pageCount, onPageChange, activePage }): JSX.El
             breakLabel="..."
             pageCount={pageCount}
             onPageChange={onPageChange}
-            containerClassName="paginationBtn"
-            previousLinkClassName="prevBtn"
-            nextLinkClassName="nextBtn"
-            nextClassName="nextBtn"
-            previousClassName="prevBtn"
-            disabledClassName="paginationDisabled"
-            activeClassName="paginationActive"
+            containerClassName="pagination-btn"
+            previousLinkClassName="prev-btn"
+            nextLinkClassName="next-btn"
+            nextClassName="next-btn"
+            previousClassName="prev-btn"
+            disabledClassName="pagination-disabled"
+            activeClassName={darkTheme ? "pagination-active-dark" : "pagination-active"}
             forcePage={activePage}
         />
     )

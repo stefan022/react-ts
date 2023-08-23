@@ -1,4 +1,4 @@
-.paginationBtn {
+.pagination-btn {
     @apply w-full flex justify-center items-center text-sm gap-1;
 
     a {
@@ -6,16 +6,22 @@
     }
 }
 
-.paginationActive {
+.pagination-active {
     a {
         @apply bg-blue-400 text-white hover:bg-blue-500 hover:text-white transition-all;
     }
+
+    &-dark {
+        a {
+            @apply bg-blue-600 text-white hover:bg-blue-700 hover:text-white transition-all
+        }
+    }
 }
 
-.prevBtn {
+.prev-btn {
     @apply pr-2.5;
 }
 
-.nextBtn {
+.next-btn {
     @apply pl-2.5 pr-5
 }
