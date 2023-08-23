@@ -1,14 +1,16 @@
-import React, { MouseEventHandler } from 'react'
+import React, { FC, MouseEventHandler } from 'react'
+
 import { Link } from 'react-router-dom'
 import { Routes } from '../../../router/Routes'
 
 import { MdOutlineCancel } from "react-icons/md";
 
 interface IProps {
-    handleHideCart: MouseEventHandler<HTMLElement> 
+    handleHideCart: MouseEventHandler<HTMLElement>;
+    darkTheme: boolean;
 }
 
-const CartSidebarContent = ({ handleHideCart }: IProps) => {
+const CartSidebarContent: FC<IProps> = ({ handleHideCart, darkTheme }): JSX.Element => {
     return (
         <div>
             <div className="flex items-center justify-between p-4 border border-b-gray-200">
@@ -54,7 +56,13 @@ const CartSidebarContent = ({ handleHideCart }: IProps) => {
                 </div>
                 <div className='flex'>
                     <Link onClick={handleHideCart} to={Routes.CART}>
-                        <button className="bg-gray-200 py-1 px-3">View Cart</button>
+                        <button 
+                            className={`
+                                ${ darkTheme ? "border border-gray-800 bg-gray-800 hover:bg-gray-900" : "bg-gray-200 hover:bg-gray-300" }
+                                py-1 px-3 transition-all
+                            `}>
+                                View Cart
+                        </button>
                     </Link>
                 </div>
             </div>
