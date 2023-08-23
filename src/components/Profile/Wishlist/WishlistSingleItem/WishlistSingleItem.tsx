@@ -1,6 +1,8 @@
-import React, { FC } from 'react'
+import React, { FC, useContext, Context } from 'react'
 
 import { RemoveFromWishlist, WishlistArticleName, WishlistDetails, WishlistImage, WishlistPrice, WishlistStatus } from "../../../../components"
+import DarkThemeContext from '../../../../context/ThemeContext';
+import { IDarkThemeContext } from '../../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
 
 interface IProps {
     wishlistId: number;
@@ -13,6 +15,8 @@ interface IProps {
 }
 
 const WishlistSingleItem: FC<IProps> = ({ wishlistId, articleId, image, articleName, category, price, status }): JSX.Element => {
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
+    
     return (
         <div className='border border-gray-300 p-4 flex items-center gap-1'>
             <WishlistImage 
@@ -27,6 +31,7 @@ const WishlistSingleItem: FC<IProps> = ({ wishlistId, articleId, image, articleN
             />
             <WishlistStatus 
                 status={status}
+                darkTheme={darkTheme}
             />
             <WishlistDetails 
                 category={category} 
@@ -36,6 +41,7 @@ const WishlistSingleItem: FC<IProps> = ({ wishlistId, articleId, image, articleN
                 wishlistId={wishlistId} 
                 articleId={articleId} 
                 category={category}
+                darkTheme={darkTheme}
             />
         </div>
     )

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 
 import { WishlistEmpty, WishlistHead, WishlistItems } from '../../../components'
 import { useGetAllFromWishlistQuery } from '../../../features/API/wishlistAPI';
@@ -6,7 +6,7 @@ import { useAppSelector } from '../../../hooks/useAppSelector';
 import { RootState } from '../../../ts/types/RootState';
 import { IWishlist } from '../../../ts/interfaces/IWishlist/IWishlist';
 
-const Wishlist = () => {
+const Wishlist: FC = (): JSX.Element => {
     useGetAllFromWishlistQuery();
     const userId = localStorage.getItem("userId") as string;
 

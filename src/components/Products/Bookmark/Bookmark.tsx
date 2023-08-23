@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC, useState, useEffect, useContext, Context } from 'react'
 
 import { BiSolidBookmark } from 'react-icons/bi'
 import { useAddToWishlistMutation, useDeleteFromWishlistMutation, useGetAllFromWishlistQuery } from '../../../features/API/wishlistAPI';
@@ -7,6 +7,8 @@ import { RootState } from '../../../ts/types/RootState';
 import { Modal } from '@mui/material';
 import { WishlistAddedProduct, WishlistRemovedProduct } from "../../../components"
 import { findWishlistId } from '../../../utils/findWishlistId';
+import DarkThemeContext from '../../../context/ThemeContext';
+import { IDarkThemeContext } from '../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
 
 interface IProps {
     articleId: number;
@@ -22,6 +24,8 @@ const Bookmark: FC<IProps> = ({ articleId, articleName, price, status, category,
     useGetAllFromWishlistQuery();
     const { wishlist } = useAppSelector((state: RootState) => state.wishlist);
     const userId = localStorage.getItem("userId") as string;
+
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
 
     const [ bookmarked, setBookmarked ] = useState<boolean>(false);
     const [ isOpenModal, setIsOpenModal ] = useState<boolean>(false);
@@ -72,11 +76,11 @@ const Bookmark: FC<IProps> = ({ articleId, articleName, price, status, category,
             <Modal
                 open={isOpenModal}
                 onClose={handleCloseModal}
-                className='bg-white bg-opacity-80'
+                className={ darkTheme ? "bg-gray-900 bg-opacity-80" : "bg-white bg-opacity-80" }
                 children={
                     bookmarked 
-                        ? <WishlistAddedProduct handleCloseModal={handleCloseModal}/>
-                        : <WishlistRemovedProduct handleCloseModal={handleCloseModal}/>
+                        ? <WishlistAddedProduct handleCloseModal={handleCloseModal} darkTheme={darkTheme}/>
+                        : <WishlistRemovedProduct handleCloseModal={handleCloseModal} darkTheme={darkTheme}/>
                 }
             />
         </>

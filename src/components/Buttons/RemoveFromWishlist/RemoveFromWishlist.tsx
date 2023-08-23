@@ -9,9 +9,10 @@ interface IProps {
     wishlistId: number;
     articleId: number;
     category: string;
+    darkTheme: boolean;
 }
 
-const RemoveFromWishlist: FC<IProps> = ({ wishlistId, articleId, category }): JSX.Element => {
+const RemoveFromWishlist: FC<IProps> = ({ wishlistId, articleId, category, darkTheme }): JSX.Element => {
     const [ modalIsOpen, setModalIsOpen ] = useState<boolean>(false);
     const [ loading, setLoading ] = useState<boolean>(false);
     const [ deleteFromWishlist ] = useDeleteFromWishlistMutation();
@@ -34,7 +35,10 @@ const RemoveFromWishlist: FC<IProps> = ({ wishlistId, articleId, category }): JS
         <>
             <div className='w-1/12 flex justify-center'>
                 <button 
-                    className='bg-red-400 hover:bg-red-500 transition-all py-1 px-2 text-white rounded-md'
+                    className={`
+                        ${ darkTheme ? "bg-red-600 hover:bg-red-700" : "bg-red-400 hover:bg-red-500" }
+                        transition-all py-1 px-2 text-white rounded-md
+                    `}
                     onClick={handleOpenModal}
                     >
                     Remove
@@ -43,16 +47,18 @@ const RemoveFromWishlist: FC<IProps> = ({ wishlistId, articleId, category }): JS
             <Modal
                 open={modalIsOpen}
                 onClose={handleCloseModal}
-                className='bg-white bg-opacity-80'
-            >
-                <QuestionRemoveFromWishlist
-                    wishlistId={wishlistId}
-                    articleId={articleId}
-                    category={category}
-                    handleCloseModal={handleCloseModal}
-                    handleRemoveFromWishlist={handleRemoveFromWishlist}
-                />
-            </Modal>
+                className={ darkTheme ? "bg-gray-900 bg-opacity-80" : "bg-white bg-opacity-80"}
+                children={
+                    <QuestionRemoveFromWishlist
+                        wishlistId={wishlistId}
+                        articleId={articleId}
+                        category={category}
+                        handleCloseModal={handleCloseModal}
+                        handleRemoveFromWishlist={handleRemoveFromWishlist}
+                        darkTheme={darkTheme}
+                    />
+                }
+            />
             { loading && <Spinner/> }
         </>
     )
