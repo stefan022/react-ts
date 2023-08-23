@@ -15,11 +15,12 @@ const AuthGoogleButton: FC = (): JSX.Element => {
     const provider = new GoogleAuthProvider();
 
     const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
+    const theme = darkTheme ? "dark" : "light";
 
 	const signInWithGoogle = () => { 
 		signInWithPopup(auth, provider)
   			.then((userCredential) => {
-				toast.success("Login successfully");
+				toast.success("Login successfully", { theme });
 				navigate(Routes.HOME);
 
                 const firstNameAndLastName = userCredential.user.displayName!.split(" ");
@@ -49,7 +50,7 @@ const AuthGoogleButton: FC = (): JSX.Element => {
                     });
 
   			}).catch((error) => {
-				toast.error(error.message);
+				toast.error(error.message, { theme });
   			});
 	};
 

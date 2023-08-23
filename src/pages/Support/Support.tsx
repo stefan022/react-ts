@@ -1,11 +1,16 @@
-import React, { FC } from 'react'
+import React, { FC, useContext, Context } from 'react'
 
 import { Banner, SupportInformation, SupportForm } from '../../components'
 import { Container } from '../../containers'
 import { useGetAllSupportQuery } from '../../features/API/supportAPI';
+import DarkThemeContext from '../../context/ThemeContext';
+import { IDarkThemeContext } from '../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
 
 const Support: FC = (): JSX.Element => {
     useGetAllSupportQuery();
+
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
+	const theme = darkTheme ? "dark" : "light";
 
     return (
         <div>
@@ -19,7 +24,7 @@ const Support: FC = (): JSX.Element => {
                         <SupportInformation/>
                     </div>
                     <div className="w-4/6 border border-gray-400 flex justify-center p-8">
-                        <SupportForm/>
+                        <SupportForm theme={theme}/>
                     </div>
                 </div>
             </Container>

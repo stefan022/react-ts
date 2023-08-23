@@ -1,9 +1,11 @@
-import React, { Dispatch, FC, FormEvent, SetStateAction, useRef } from 'react'
+import React, { Dispatch, FC, FormEvent, SetStateAction, useRef, useContext, Context } from 'react'
 
 import { ReviewFormRating, ReviewFormTitle, ReviewFormText, ReviewFormButton } from "../../../components"
 import { useAddReviewMutation } from '../../../features/API/reviewsAPI';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import DarkThemeContext from '../../../context/ThemeContext';
+import { IDarkThemeContext } from '../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
 
 interface IProps {
 	setLoading: Dispatch<SetStateAction<boolean>>;
@@ -11,11 +13,16 @@ interface IProps {
 
 const ReviewForm: FC<IProps> = ({ setLoading }): JSX.Element => {
 	const { productId } = useParams();
+	const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
+
 	const [ currentFillStar, setCurrentFillStar ] = React.useState<number>(0);
 	const [ chooseStar, setChooseStar ] = React.useState<boolean>(false);
+
 	const reviewTitleRef = useRef<HTMLInputElement>(null);
 	const reviewTextRef = useRef<HTMLTextAreaElement>(null);
+
 	const [ addReview ] = useAddReviewMutation();
+	const theme = darkTheme ? "dark" : "light";
 
 	const handleFillStar = (star: number) => {
 		if (chooseStar) return;
@@ -42,7 +49,7 @@ const ReviewForm: FC<IProps> = ({ setLoading }): JSX.Element => {
 		e.preventDefault();
 
 		if (currentFillStar === 0) { 
-			toast.error("Please, choose your rating stars");
+			toast.error("Please, choose your rating stars", { theme });
 
 			return;
 		}

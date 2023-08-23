@@ -1,4 +1,4 @@
-import React, { useRef, FormEvent } from "react";
+import React, { useRef, FormEvent, useContext, Context } from "react";
 
 import { Routes } from "../../../router/Routes";
 import { AuthForm, AuthField, AuthFormButton, AuthFormSwitch, AuthFormTitle, AuthGoogleButton, AuthOr, AuthPassword, AuthResetPasswordSwitch } from "../../../components";
@@ -8,6 +8,8 @@ import { DocumentSnapshot, doc, getDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { clearAuthFormFields } from "../../../utils/helpers/clearAuthFormFields";
+import DarkThemeContext from "../../../context/ThemeContext";
+import { IDarkThemeContext } from "../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext";
 
 interface IProps {
 	setLoading: React.Dispatch<React.SetStateAction<boolean>>;
@@ -16,6 +18,9 @@ interface IProps {
 const SignIn: React.FC<IProps> = ({ setLoading }): JSX.Element => {
 	const emailRef = useRef<HTMLInputElement>(null);
 	const passwordRef = useRef<HTMLInputElement>(null);
+
+	const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
+	const theme = darkTheme ? "dark" : "light";
 
 	const navigate = useNavigate();
 
@@ -29,17 +34,17 @@ const SignIn: React.FC<IProps> = ({ setLoading }): JSX.Element => {
                 	.then((user: DocumentSnapshot) => {
 						localStorage.setItem("token", user.data()!.token);
 						localStorage.setItem("userId", userCredential.user.uid); 
-						toast.success("Login successfully");
+						toast.success("Login successfully", { theme });
 						navigate(Routes.HOME);
 						setLoading(false);
 					})
                 	.catch(error => {
-						toast.error(error);
+						toast.error(error, { theme });
 						setLoading(false);
 					});
             })
             .catch((error) => {
-                toast.error("Invalid email address or password");
+                toast.error("Invalid email address or password", { theme });
 				clearAuthFormFields(emailRef, passwordRef);
 				setLoading(false);
             });

@@ -1,14 +1,19 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useContext, Context } from 'react'
 
 import { Modal } from '@mui/material';
 import {ModalPersonalInfoEdit} from '../../../components';
 import { doc, updateDoc } from 'firebase/firestore';
 import { db } from '../../../firebase/config';
 import { toast } from 'react-toastify';
+import DarkThemeContext from '../../../context/ThemeContext';
+import { IDarkThemeContext } from '../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
 
 const PersonalInfoEdit: FC = (): JSX.Element => {
     const userId = localStorage.getItem("userId");
     const [ modalIsOpen, setModalIsOpen ] = useState<boolean>(false);
+
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
+    const theme = darkTheme ? "dark" : "light"
 
     const handleUpdatePersonalInfo = () => { 
         if (userId) {
@@ -18,9 +23,9 @@ const PersonalInfoEdit: FC = (): JSX.Element => {
             })
             .then(() => {
                 setModalIsOpen(false);
-                toast.success("You have successfully changed your information");
+                toast.success("You have successfully changed your information", { theme });
             })
-            .catch(error => toast.error(error));
+            .catch(error => toast.error(error, { theme }));
 
             return;
         }

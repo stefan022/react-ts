@@ -16,6 +16,8 @@ const RemoveFromWishlist: FC<IProps> = ({ wishlistId, articleId, category, darkT
     const [ modalIsOpen, setModalIsOpen ] = useState<boolean>(false);
     const [ loading, setLoading ] = useState<boolean>(false);
     const [ deleteFromWishlist ] = useDeleteFromWishlistMutation();
+    
+    const theme = darkTheme ? "dark" : "light";
 
     const handleRemoveFromWishlist = async (wId: number, artId: number, c: string) => { 
         setModalIsOpen(false);
@@ -24,7 +26,7 @@ const RemoveFromWishlist: FC<IProps> = ({ wishlistId, articleId, category, darkT
         const { success } = await deleteFromWishlist(wId).unwrap();
         if (success) setLoading(false);
 
-        toast.success("You successfully removed article from your wishlist");
+        toast.success("You successfully removed article from your wishlist", { theme });
         setModalIsOpen(false);
     };
 

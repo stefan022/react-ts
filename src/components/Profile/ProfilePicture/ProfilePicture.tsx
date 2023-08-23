@@ -1,16 +1,22 @@
-import React from 'react'
+import React, { FC, useState, useEffect, useContext, Context } from 'react'
 
 import { BsCamera } from "react-icons/bs";
 
 import { storage } from '../../../firebase/config';
 import { ref, uploadBytes, listAll, getDownloadURL, ListResult, StorageReference, UploadResult } from 'firebase/storage';
 import { toast } from 'react-toastify';
+import DarkThemeContext from '../../../context/ThemeContext';
+import { IDarkThemeContext } from '../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
 
-const ProfilePicture: React.FC = (): JSX.Element => {
+const ProfilePicture: FC = (): JSX.Element => {
     const userId = localStorage.getItem("userId");
-    const [ profilePicture, setProfilePicture ] = React.useState<string>();
 
-    React.useEffect(() => {
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
+    const [ profilePicture, setProfilePicture ] = useState<string>();
+
+    const theme = darkTheme ? "dark" : "light";
+
+    useEffect(() => {
         const imageRef: StorageReference = ref(storage, `${userId}/`);
 
         listAll(imageRef)
@@ -27,7 +33,7 @@ const ProfilePicture: React.FC = (): JSX.Element => {
         const uploadedImage: File = e.target.files[0];
         
         if (!uploadedImage) {
-            toast.error("Something went wrong. Try again");
+            toast.error("Something went wrong. Try again", { theme });
 
             return;
         };
@@ -38,9 +44,9 @@ const ProfilePicture: React.FC = (): JSX.Element => {
             .then((snapshot: UploadResult) => getDownloadURL(snapshot.ref))
             .then((url: string) => {
                 setProfilePicture(url);
-                toast.success("You have successfully changed your profile picture");
+                toast.success("You have successfully changed your profile picture", { theme });
             })
-            .catch((error) => toast.error(error));
+            .catch((error) => toast.error(error, { theme }));
     };
 
     return (

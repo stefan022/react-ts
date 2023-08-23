@@ -1,19 +1,23 @@
-import React, { FC, Dispatch, SetStateAction, FormEvent, useRef } from 'react'
+import React, { FC, Dispatch, SetStateAction, FormEvent, useRef, useContext, Context } from 'react'
 import { AuthField, AuthForm, AuthFormButton, AuthFormSwitch, AuthFormTitle, AuthOr } from '../../../../components'
 import { sendPasswordResetEmail } from 'firebase/auth';
 import { auth } from '../../../../firebase/config';
 import { toast } from 'react-toastify';
 import { Routes } from '../../../../router/Routes';
 import { useNavigate } from 'react-router-dom';
+import DarkThemeContext from '../../../../context/ThemeContext';
+import { IDarkThemeContext } from '../../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
 
 interface IProps {
     setLoading: Dispatch<SetStateAction<boolean>>;
 }
 
 export const AuthResetPassword: FC<IProps> = ({ setLoading }): JSX.Element => {
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
     const emailRef = useRef<HTMLInputElement>(null);
 
     const navigate = useNavigate();
+    const theme = darkTheme ? "dark" : "light";
 
     const handleResetPassword = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -21,12 +25,12 @@ export const AuthResetPassword: FC<IProps> = ({ setLoading }): JSX.Element => {
     
         sendPasswordResetEmail(auth, emailRef.current!.value)
             .then(() => {
-                toast.success("Check your email for a reset link");
+                toast.success("Check your email for a reset link", { theme });
                 navigate(Routes.LOGIN);
                 setLoading(false);
             })
             .catch((error) => {
-                toast.error(error.message);
+                toast.error(error.message, { theme });
                 setLoading(false);
             });
     };

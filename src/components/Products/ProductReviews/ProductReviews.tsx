@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC, useState, useEffect, useContext, Context } from 'react'
 
 import { ReviewForm, ProductReviewsTitle, ProductSingleReview, Spinner } from "../.."
 import { useGetReviewsQuery } from '../../../features/API/reviewsAPI';
@@ -6,6 +6,8 @@ import { RootState } from '../../../ts/types/RootState';
 import { useAppSelector } from '../../../hooks/useAppSelector';
 import { IReview } from '../../../ts/interfaces/IReview/IReview';
 import { toast } from 'react-toastify';
+import DarkThemeContext from '../../../context/ThemeContext';
+import { IDarkThemeContext } from '../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
 
 interface IProps {
     articleId: number;
@@ -17,12 +19,15 @@ const ProductReviews: FC<IProps> = ({ articleId }): JSX.Element => {
     const [ loading, setLoading ] = useState<boolean>(false);
     const { reviews: reviewsStore } = useAppSelector((state: RootState) => state.reviews);
 
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
+    const theme = darkTheme ? "dark" : "light";
+
     useEffect(() => {
         setReviews(reviewsStore);
 
         if (loading) {
             setLoading(false);
-            toast.success("You have successfully created your review");
+            toast.success("You have successfully created your review", { theme });
 
             return;
         }

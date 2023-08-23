@@ -1,4 +1,4 @@
-import React, { FC, Dispatch, SetStateAction } from "react";
+import React, { FC, Dispatch, SetStateAction, useContext, Context } from "react";
 
 import { AuthForm, AuthFormButton, FormikField, FormPassword, AuthFormSwitch, AuthFormTitle } from "../../../components";
 import { initialValues } from "../../../constants/initialValues";
@@ -10,12 +10,17 @@ import { auth, db } from "../../../firebase/config";
 import { doc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
+import DarkThemeContext from "../../../context/ThemeContext";
+import { IDarkThemeContext } from "../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext";
 
 interface IProps {
     setLoading: Dispatch<SetStateAction<boolean>>;
 }
 
 const SignUp: FC<IProps> = ({ setLoading }): JSX.Element => {
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
+	const theme = darkTheme ? "dark" : "light";
+
     const navigate = useNavigate();
 
 	const { handleSubmit, values, handleChange, handleBlur, touched, errors } = useFormik({
@@ -27,7 +32,7 @@ const SignUp: FC<IProps> = ({ setLoading }): JSX.Element => {
 			
 			createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                toast.success("Register successfully");
+                toast.success("Register successfully", { theme });
 				navigate(Routes.LOGIN);
                 setLoading(false);
 
@@ -47,7 +52,7 @@ const SignUp: FC<IProps> = ({ setLoading }): JSX.Element => {
 				});
             })
             .catch((error) => {
-                toast.error(error.message);
+                toast.error(error.message, { theme });
                 setLoading(false);
             });
         }

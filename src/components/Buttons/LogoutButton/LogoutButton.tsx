@@ -1,23 +1,28 @@
-import React from 'react'
+import React, { FC, useContext, Context } from 'react'
 
 import { useNavigate } from 'react-router-dom';
 import { Routes } from '../../../router/Routes';
 import { toast } from 'react-toastify';
 import { IoLogOutOutline } from 'react-icons/io5';
+import DarkThemeContext from '../../../context/ThemeContext';
+import { IDarkThemeContext } from '../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
 
 interface IProps {
     profileType: string;
 }
 
-const LogoutButton: React.FC<IProps> = ({ profileType }): JSX.Element => {
+const LogoutButton: FC<IProps> = ({ profileType }): JSX.Element => {
     const navigate = useNavigate();
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
+
+    const theme = darkTheme ? "dark" : "light"
 
     const handleLogout = () => { 
         localStorage.removeItem("token");
         localStorage.removeItem("userId");
 
         navigate(Routes.LOGIN);
-        toast.success("You have successfully logged out");
+        toast.success("You have successfully logged out", { theme });
     };
 
     return (

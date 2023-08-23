@@ -4,16 +4,20 @@ import { FormikField, FormikTextArea, Spinner, SupportFormButton, SupportFormTit
 import { useFormik } from "formik";
 import { supportInitialValues } from "../../../constants/supportInitialValues";
 import { supportValidation } from "../../../utils/supportValidation";
-import { toast } from "react-toastify";
+import { Theme, toast } from "react-toastify";
 import { useAddSingleSupportMutation } from "../../../features/API/supportAPI";
 import { useAppSelector } from "../../../hooks/useAppSelector";
 import { RootState } from "../../../ts/types/RootState";
 import { ISupport } from "../../../ts/interfaces/ISupport/ISupport";
 import { useAddSingleMessageForSupportMutation } from "../../../features/API/supportMessagesAPI";
 
+interface IProps {
+	theme: Theme;
+}
+
 const requiredStar = <span className="text-red-400">*</span>;
 
-const SupportForm: FC = (): JSX.Element => {
+const SupportForm: FC<IProps> = ({ theme }): JSX.Element => {
 	const userId = localStorage.getItem("userId");
 	const { allSupport } = useAppSelector((state: RootState) => state.support);
 	
@@ -59,8 +63,8 @@ const SupportForm: FC = (): JSX.Element => {
 			});
 
 			setLoading(false);
-			toast.success("You have successfully sent us a message", { position: "top-left" });
-			toast.info(" We will respond as soon as possible", { position: "top-left" });
+			toast.success("You have successfully sent us a message", { position: "top-left", theme });
+			toast.info(" We will respond as soon as possible", { position: "top-left", theme });
 
 			window.scrollTo(0, 0);
 			resetForm();
