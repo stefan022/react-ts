@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { FC } from 'react'
 
-const Footer = () => {
+import footer from "../../assets/footer.png";
+
+const Footer: FC = (): JSX.Element => {
     return (
-        <div className="p-4 flex justify-center items-center">
+        <div className="pt-8 pb-4 flex justify-center items-center gap-2">
+            <div>
+                <img width={20} src={footer} alt="" />
+            </div>
             <p>Copyright &copy; 2023 ElectroneX. All Rights Reserved.</p>
         </div>
     ) 
