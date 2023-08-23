@@ -1,48 +1,54 @@
-import React, { FC, useContext, Context } from "react";
+import React, { FC, useEffect, useState, useContext, Context } from "react";
 
-import { Link } from "react-router-dom";
-import { Routes } from "../../../router/Routes";
-import ProfilePicture from "../ProfilePicture/ProfilePicture";
+import { OpenDashboard, ProfilePicture } from "../../../components"
+import { IGetUser } from "../../../ts/interfaces/IUser/IGetUser";
+import { doc, onSnapshot } from "firebase/firestore";
+import { db } from "../../../firebase/config";
+import { toast } from "react-toastify";
 import DarkThemeContext from "../../../context/ThemeContext";
 import { IDarkThemeContext } from "../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext";
 
 const ProfileHeader: FC = (): JSX.Element => {
-	const token = localStorage.getItem("token");
-	const checkToken = token === process.env.REACT_APP_ADMIN_TOKEN ? true : false;
+	const userId = localStorage.getItem("userId") as string;
+	const [ user, setUser ] = useState<IGetUser>();
 
 	const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
+	const theme = darkTheme ? "dark" : "light";
+
+	useEffect(() => {
+        if (userId) {
+            const snapshot = onSnapshot(doc(db, "users", userId), (snapshot) => {
+                const userData = snapshot.data() as IGetUser;
+                setUser(userData);
+
+            }, (error) => {
+                toast.error(error.message, { theme });
+            });
+
+            return () => {
+                snapshot();
+            };
+        };
+
+        // eslint-disable-next-line
+    }, [userId]);
+
+	console.log(user?.firstName);
 
 	return (
 		<div className="flex justify-between items-center">
 			<div className="flex items-center">
 				<ProfilePicture/>
 				<div className="ml-2">
-					<p>First Name / Last Name</p>
+					<p className="text-gray-400 text-sm">@{user?.username ? user.username : "/"}</p>
+					{
+						user?.firstName && user?.lastName 
+							? <p>{user.firstName} {user.lastName}</p>
+							: <p>/</p>
+					}
 				</div>
 			</div>
-			<div className="flex items-center">
-				{
-					checkToken && (
-						<Link to={Routes.DASHBOARD}>
-							<button className={`
-								${ darkTheme ? "bg-gray-700 hover:bg-gray-800" : "bg-red-400 hover:bg-red-500" }
-								 py-1 px-3 rounded-lg text-gray-100 transition-all
-								
-							`}>
-								Dashboard
-							</button>
-						</Link>
-					)
-				}
-				<button 
-					className={`
-						${ darkTheme ? "bg-green-700 hover:bg-green-800" : "bg-green-400 hover:bg-green-500" }
-						ml-2 py-1 px-3 rounded-lg text-white
-					`}
-				>
-					Shopping Now
-				</button>
-			</div>
+			<OpenDashboard/>
 		</div>
 	);
 };

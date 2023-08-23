@@ -15,6 +15,7 @@ export { default as RemoveFromWishlist } from "./Buttons/RemoveFromWishlist/Remo
 export { default as AddToCart } from "./Buttons/AddToCart/AddToCart";
 export { default as ContentAddToCart } from "./Buttons/AddToCart/ContentAddToCart/ContentAddToCart";
 export { default as ContentAddedToCart } from "./Buttons/AddToCart/ContentAddedToCart/ContentAddedToCart";
+export { default as OpenDashboard } from "./Buttons/OpenDashboard/OpenDashboard";
 export { default as SupportForm } from "./Forms/SupportForm/SupportForm";
 export { default as SupportFormTitle } from "./Forms/SupportForm/SupportFormTitle/SupportFormTitle";
 export { default as ReviewForm } from "./Forms/ReviewForm/ReviewForm";
