@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, FC } from 'react'
 import Container from '../../containers/Container/Container'
 import { Banner, ProfileBody, ProfileHeader } from '../../components';
 
@@ -8,7 +8,7 @@ interface IProps {
     children?: ReactNode
 }
 
-const Profile = ({ children }: IProps) => {
+const Profile: FC<IProps> = ({ children }): JSX.Element => {
     return (
         <div>
             <Banner
