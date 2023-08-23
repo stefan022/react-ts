@@ -44,10 +44,6 @@
 	@include after(vars.$dark);
 }
 
-.c-hover-slide {
-	animation-play-state: paused;
-}
-
 .c-slide {
 	display: inline-block;
 	animation: carousel 10s infinite linear;
@@ -62,7 +58,7 @@
 .carousel {
 	@extend .carousel-basic;
 
-	&-active {
+	&-dark {
 		@extend .carousel-basic;
 
 		&::before,
@@ -76,10 +72,6 @@
 
 		&::after {
 			@extend .c-after-dark;
-		}
-
-		&:hover &__slide {
-			@extend .c-hover-slide;
 		}
 
 		&__slide {
@@ -102,10 +94,6 @@
 
 	&::after {
 		@extend .c-after-light;
-	}
-
-	&:hover &__slide {
-		@extend .c-hover-slide;
 	}
 
 	&__slide {

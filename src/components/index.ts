@@ -1,6 +1,7 @@
 export { default as ErrorBoundary } from "./ErrorBoundary/ErrorBoundary";
 export { default as Hello } from "./Hello/Hello";
 export { default as Carousel } from "./Carousel/Carousel";
+export { default as Contact } from "./Contact/Contact";
 export { default as Banner } from "./Banner/Banner";
 export { default as BannerNavigation } from "./Banner/BannerNavigation/BannerNavigation";
 export { default as Footer } from "./Footer/Footer";

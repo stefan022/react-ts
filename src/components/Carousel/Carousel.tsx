@@ -9,8 +9,8 @@ const Carousel: FC = (): JSX.Element => {
     const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
 
     return (
-        <div className={darkTheme ? "carousel-active" : "carousel"}>
-            <p className="text-center text-3xl mb-2">Skills:</p>
+        <div className={darkTheme ? "carousel-dark" : "carousel"}>
+            <p className="text-center text-2xl mb-2">Skills:</p>
             <div className="carousel__slide">
                 {
                     skillsData.map((skill) => {
