@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react'
+import React, { FC, useEffect, useContext, Context } from 'react'
 
 import { useAppSelector } from '../../../hooks/useAppSelector'
 import { RootState } from '../../../ts/types/RootState'
@@ -7,9 +7,12 @@ import { UPDATE_TOTAL_AMOUNT } from '../../../features/slices/cartSlice';
 import { shippingCharge } from '../../../constants/shippingCharge';
 import numeral from 'numeral';
 import { calculationEstimatedTax } from '../../../utils/calculationEstimedTax';
+import DarkThemeContext from '../../../context/ThemeContext';
+import { IDarkThemeContext } from '../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
 
 const CartSummary: FC = (): JSX.Element => {
     const { totalAmount, myCart } = useAppSelector((state: RootState) => state.cart);
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
 
     const numeralTotalAmount = numeral(totalAmount).format("0,00.00");
     const estimatedTax = calculationEstimatedTax(totalAmount);
@@ -42,7 +45,10 @@ const CartSummary: FC = (): JSX.Element => {
                         <p>${estimatedTax}</p>
                     </div>
                 </div>
-                <div className='bg-gray-200 p-4'>
+                <div className={`
+                    ${ darkTheme ? "bg-gray-800" : "bg-gray-200" }
+                     p-4
+                `}>
                     <div className='flex justify-between font-bold text-slate-500'>
                         <p>Total amount:</p>
                         <p>${numeralTotalAmount}</p>
