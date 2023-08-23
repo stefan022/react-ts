@@ -21,6 +21,10 @@ export { default as ReviewFormRating } from "./Forms/ReviewForm/ReviewFormRating
 export { default as ReviewFormTitle } from "./Forms/ReviewForm/ReviewFormTitle/ReviewFormTitle";
 export { default as ReviewFormText } from "./Forms/ReviewForm/ReviewFormText/ReviewFormText";
 export { default as PostForm } from "./Forms/PostForm/PostForm";
+export { default as PostFormTitle } from "./Forms/PostForm/PostFormTitle/PostFormTitle";
+export { default as PostFormField } from "./Forms/PostForm/PostFormField/PostFormField";
+export { default as PostFormTextArea } from "./Forms/PostForm/PostFormTextArea/PostFormTextArea";
+export { default as PostFormButton } from "./Forms/PostForm/PostFormButton/PostFormButton";
 export { default as FormikField } from "./Forms/Formik/FormikField/FormikField";
 export { default as FormikTextArea } from "./Forms/Formik/FormikTextArea/FormikTextArea";
 export { default as FormikError } from "./Forms/Formik/FormikError/FormikError";
