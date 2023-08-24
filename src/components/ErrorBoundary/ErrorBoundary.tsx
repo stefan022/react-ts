@@ -3,6 +3,8 @@
 /* eslint-disable no-console */
 import React, { Component, ErrorInfo, ReactNode } from "react";
 
+import "./ErrorBoundary.scss"
+
 interface Props {
 	children?: ReactNode;
 }
@@ -26,7 +28,10 @@ class ErrorBoundary extends Component<Props, State> {
 
 	public render() {
 		if (this.state.hasError) {
-			return <h1>Sorry.. there was an error</h1>;
+			return <div className="error__boundary">
+						<h1>Oops.. something went wrong.</h1>
+						<h2>Please, try again later.</h2>
+					</div>
 		}
 
 		return this.props.children;

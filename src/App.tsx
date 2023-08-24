@@ -2,6 +2,7 @@ import React, { FC, useState } from 'react'
 
 import Router from './router/Router'
 import DarkThemeContext from './context/ThemeContext';
+import { ErrorBoundary } from './components';
 
 const App: FC = (): JSX.Element => {
     const [darkTheme, setDarkTheme] = useState<boolean>(true);
@@ -18,11 +19,13 @@ const App: FC = (): JSX.Element => {
 
     return (
         <DarkThemeContext.Provider value={{ darkTheme: darkTheme, setDarkTheme: setDarkTheme }}>
+            <ErrorBoundary>
             <div className={ darkTheme ? "bg-gray-900 text-gray-300" : "bg-white text-gray-700" }
             >
                 <style> {scrollbar} </style>
                 <Router/>
             </div>
+            </ErrorBoundary>
         </DarkThemeContext.Provider>
     )
 };
