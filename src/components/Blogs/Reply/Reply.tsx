@@ -1,25 +1,53 @@
-import React from 'react'
+import React, { FC } from 'react'
 
-const Reply = () => {
+import { BlogContent, BlogDelete, BlogInfo, BlogPicture, BlogReactions } from "../../../components"
+
+import "./Reply.scss"
+
+interface IProps {
+    postId: number;
+    commentId: number;
+    replyId: number;
+    username: string;
+    timestamp: number;
+    content: string;
+    likes: string[];
+    userId: string;
+}
+
+const Reply: FC<IProps> = ({ postId, commentId, replyId, username, timestamp, content, likes, userId }): JSX.Element => {
+    const getUserId = localStorage.getItem("userId") as string;
+
     return (
         <div className='flex'>
             <div className='w-1/12'></div>
             <div className='w-11/12 flex'>
             <div className='w-1/12'></div>
-                <div className='w-11/12 flex'>
-                    <div className='w-1/12 border border-gray-400'></div>
-                    <div className='w-11/12 border border-gray-400 p-4'>
-                        <div className='flex justify-between items-center mb-4'>
-                            <p>$username</p>
-                            <p>Date: $timestamp</p>
+                <div className='reply'>
+                    <BlogPicture blogType='reply'/>
+                    <section className='reply__section'>
+                        <BlogInfo
+                             username={username} 
+                             timestamp={timestamp}
+                             blogType='reply'
+                        />
+                        <BlogContent 
+                            content={content}
+                            blogType='reply'
+                        />
+                        <div className='post__section-reactions-container'>
+                            <BlogReactions 
+                                postId={postId}
+                                commentId={commentId}
+                                replyId={replyId}
+                                likes={likes} 
+                                blogType='reply'
+                            />
+                            {
+                                getUserId === userId && <BlogDelete postId={postId} commentId={commentId} replyId={replyId}/>
+                            }
                         </div>
-                        <div className='mb-4'>
-                            <p>Lorem ipsum dolor sit, amet consectetur</p>
-                        </div>
-                        <div className='flex gap-2'>
-                            <div>Likes</div>
-                        </div>
-                    </div>
+                    </section>
                 </div>
             </div>
         </div>

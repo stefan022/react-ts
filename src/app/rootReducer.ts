@@ -14,6 +14,9 @@ import { supportSlice } from "../features/slices/supportSlice";
 import { supportMessagesSlice } from "../features/slices/supportMessagesSlice";
 import { wishlistSlice } from "../features/slices/wishlistSlice";
 import { cartSlice } from "../features/slices/cartSlice";
+import { postsSlice } from "../features/slices/postsSlice";
+import { commentsSlice } from "../features/slices/commentsSlice";
+import { repliesSlice } from "../features/slices/repliesSlice";
 
 const rootReducer = combineReducers({
 	[rootAPI.reducerPath]: rootAPI.reducer,
@@ -30,6 +33,9 @@ const rootReducer = combineReducers({
 	support_messages: supportMessagesSlice.reducer,
 	wishlist: wishlistSlice.reducer,
 	cart: cartSlice.reducer,
+	posts: postsSlice.reducer,
+	comments: commentsSlice.reducer,
+	replies: repliesSlice.reducer,
 });
 
 export default rootReducer;

@@ -15,5 +15,11 @@ export const tagTypes: string[] = [
     "wishlist",
     "single-wishlist",
     "cart",
-    "single-cart"
+    "single-cart",
+    "posts",
+    "single-post",
+    "comments",
+    "single-comment",
+    "replies",
+    "reply"
 ];

@@ -1,18 +1,43 @@
-import React from 'react'
+import React, { FC, useState } from 'react'
 
-import { Comment } from "../../../components"
+import { IComment } from '../../../ts/interfaces/IBlog/IComment/IComment'
+
+import { Spinner, VisibleComments, VisibleLoadMore } from "../../../components"
 
 interface IProps {
-    comments: { id: number, comment: number }[];
+   comments: IComment[];
+   postId: number;
 }
 
-const Comments = ({ comments }: IProps) => {
+const Comments: FC<IProps> = ({ comments, postId }): JSX.Element => {
+    const [ visibleCommentsCount, setVisibleCommentsCount ] = useState<number>(5);
+    const [ loading, setLoading ] = useState<boolean>(false);
+
+    const visibleComments = comments?.slice(0, visibleCommentsCount);
+
+    const handleLoadMore = () => {
+        setLoading(true);
+
+        setTimeout(() => {
+            setVisibleCommentsCount(vcc => vcc + 5);
+            setLoading(false);
+        }, 500)
+    };
+
     return (
         <>
-            {
-                comments.map((comment) => <Comment key={comment.id}/>)
-            }
-        </>
+            <VisibleComments
+                visibleComments={visibleComments}
+                postId={postId}
+            />
+            <VisibleLoadMore
+                blogs={comments}
+                visibleCount={visibleCommentsCount}
+                handleLoadMore={handleLoadMore}
+                buttonType='three-dots'
+            />
+            { loading && <Spinner/> }
+         </>
     )
 }
 
