@@ -33,8 +33,6 @@ const ProfileHeader: FC = (): JSX.Element => {
         // eslint-disable-next-line
     }, [userId]);
 
-	console.log(user?.firstName);
-
 	return (
 		<div className="flex justify-between items-center">
 			<div className="flex items-center">

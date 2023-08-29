@@ -27,8 +27,6 @@ const CartSummary: FC = (): JSX.Element => {
         // eslint-disable-next-line
     }, [myCart]);
 
-    console.log(totalAmount);
-
     return (
         <>
             <div className='border border-gray-300 '>

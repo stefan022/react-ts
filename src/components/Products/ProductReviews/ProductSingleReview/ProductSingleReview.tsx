@@ -18,8 +18,6 @@ interface IProps {
 }
 
 const ProductSingleReview = ({ username, reviewRating, reviewTimestamp, reviewTitle, reviewText, adminResponse, reviewAnswer }: IProps) => {
-    // console.log(username, reviewRating, reviewTimestamp, reviewTitle, reviewText, adminResponse, reviewAnswer);
-    
     return (
         <div className='w-full mb-4 last:mb-0'>
             <div className='flex'>
