@@ -1,5 +1,5 @@
 export interface ISupportMessage {
-    supportId: number;
+    userId: string;
     messageId: number;
     firstName: string;
   	email: string;

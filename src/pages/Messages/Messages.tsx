@@ -1,29 +1,18 @@
-import React, { FC, useState, useEffect } from 'react'
-import { Banner, MessageContainer, MessagesSidebar } from '../../components'
+import React, { FC, useState } from 'react'
+
+import { Banner, MessageContainer, MessagesSidebar, Spinner } from '../../components'
 import Container from '../../containers/Container/Container'
 import { useAppSelector } from '../../hooks/useAppSelector';
 import { RootState } from '../../ts/types/RootState';
-import { ISupport } from '../../ts/interfaces/ISupport/ISupport';
-import { useGetAllSupportQuery } from '../../features/API/supportAPI';
-import MessageEmptyContainer from '../../components/Messages/MessageEmptyContainer/MessageEmptyContainer';
+import { useGetMyMessagesForSupportQuery } from '../../features/API/supportMessagesAPI';
 
 const Messages: FC = (): JSX.Element => {
-	useGetAllSupportQuery();
-	const userId = localStorage.getItem("userId");
-	const { allSupport } = useAppSelector((state: RootState) => state.support);
-	
-	const [ supportId, setSupportId ] = useState<number | null>(null);
+	const userId = localStorage.getItem("userId") as string;
+	useGetMyMessagesForSupportQuery(userId);
+
+    const { myMessagesForSupport } = useAppSelector((state: RootState) => state.support_messages);
+
 	const [ activeMessage, setActiveMessage ] = useState<number>(0);
-
-	useEffect(() => {
-		const getMySupportMessages = allSupport.filter((support: ISupport) => support.senderId === userId!);
-
-		if (getMySupportMessages.length > 0) {
-			setSupportId(getMySupportMessages[0].supportId);
-		}
-
-		// eslint-disable-next-line
-	}, [allSupport]);
 
   	return (
     	<div>
@@ -34,19 +23,19 @@ const Messages: FC = (): JSX.Element => {
 				<div className='py-6'>
 					<div className='flex gap-6'>
 						{
-							supportId ? (
+							myMessagesForSupport ? (
 								<>
 									<MessagesSidebar 
 										setActiveMessage={setActiveMessage}
 										activeMessage={activeMessage}
-										supportId={supportId}
+										myMessagesForSupport={myMessagesForSupport}
 									/>
 									<MessageContainer 
-										supportId={supportId}
+										myMessagesForSupport={myMessagesForSupport}
 										activeMessage={activeMessage}
 									/>
 								</>
-							) : <MessageEmptyContainer/>
+							) : <div className='h-[350px]'><Spinner/></div>
 						}
 					</div>
 				</div>

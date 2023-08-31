@@ -2,13 +2,10 @@ import React, { FC, useContext, Context } from 'react'
 
 import { Banner, SupportInformation, SupportForm } from '../../components'
 import { Container } from '../../containers'
-import { useGetAllSupportQuery } from '../../features/API/supportAPI';
 import DarkThemeContext from '../../context/ThemeContext';
 import { IDarkThemeContext } from '../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
 
 const Support: FC = (): JSX.Element => {
-    useGetAllSupportQuery();
-
     const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
 	const theme = darkTheme ? "dark" : "light";
 

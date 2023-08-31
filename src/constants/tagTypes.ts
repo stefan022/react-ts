@@ -9,7 +9,6 @@ export const tagTypes: string[] = [
     "television",
     "reviews",
     "review",
-    "support",
     "support-messages",
     "support-single-message",
     "wishlist",

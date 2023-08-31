@@ -4,11 +4,13 @@ import { ISupportMessage } from '../../ts/interfaces/ISupport/ISupportMessage';
 import { supportMessagesAPI } from '../API/supportMessagesAPI';
 
 interface InitialState {
-    allMessagesForSupport: ISupportMessage[]
+    allMessagesForSupport: ISupportMessage[];
+    myMessagesForSupport: ISupportMessage[] | null;
 };
 
 const initialState: InitialState = {
-    allMessagesForSupport: []
+    allMessagesForSupport: [],
+    myMessagesForSupport: null
 };
 
 export const supportMessagesSlice = createSlice({
@@ -25,5 +27,8 @@ export const supportMessagesSlice = createSlice({
 
 			state.allMessagesForSupport = newestMessagesForSupport;
 		});
+        builder.addMatcher(supportMessagesAPI.endpoints.getMyMessagesForSupport.matchFulfilled, (state, action: PayloadAction<ISupportMessage[]>) => {
+            state.myMessagesForSupport = action.payload;
+        })
 	},
 });

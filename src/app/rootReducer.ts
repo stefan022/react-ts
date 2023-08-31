@@ -12,7 +12,6 @@ import { sortProductsSlice } from "../features/slices/sortProductsSlice";
 import { paginationProductsSlice } from "../features/slices/paginationProductsSlice";
 import { reviewsSlice } from "../features/slices/reviewsSlice";
 import { viewSlice } from "../features/slices/viewSlice";
-import { supportSlice } from "../features/slices/supportSlice";
 import { supportMessagesSlice } from "../features/slices/supportMessagesSlice";
 import { wishlistSlice } from "../features/slices/wishlistSlice";
 import { cartSlice } from "../features/slices/cartSlice";
@@ -31,7 +30,6 @@ const rootReducer = combineReducers({
 	pagination: paginationProductsSlice.reducer,
 	reviews: reviewsSlice.reducer,
 	view: viewSlice.reducer,
-	support: supportSlice.reducer,
 	support_messages: supportMessagesSlice.reducer,
 	wishlist: wishlistSlice.reducer,
 	cart: cartSlice.reducer,

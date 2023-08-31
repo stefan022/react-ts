@@ -8,7 +8,6 @@ import { IDarkThemeContext } from '../../../ts/interfaces/IDarkThemeContext/IDar
 
 interface IProps {
     title: string;
-    supportId: number;
     messageId: number;
     message: string;
     changeTimestamp: number;
@@ -18,7 +17,7 @@ interface IProps {
     seen: boolean;
 }
 
-const MessageSidebarNotifications: FC<IProps> = ({ title, message, supportId, messageId, changeTimestamp, activeMessage, setActiveMessage, adminResponse, seen }): JSX.Element => {
+const MessageSidebarNotifications: FC<IProps> = ({ title, message, messageId, changeTimestamp, activeMessage, setActiveMessage, adminResponse, seen }): JSX.Element => {
     const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
     
     const [ updateSeenInSingleMessageForSupport ] = useUpdateSeenInSingleMessageForSupportMutation();
@@ -26,7 +25,6 @@ const MessageSidebarNotifications: FC<IProps> = ({ title, message, supportId, me
     const handleClickSingleNotification = (messageId: number) => { 
         updateSeenInSingleMessageForSupport({
             messageId,
-            supportId,
             seen: true
         });
         setActiveMessage(messageId);

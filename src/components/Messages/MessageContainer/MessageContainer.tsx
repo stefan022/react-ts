@@ -1,28 +1,22 @@
 import React, { FC, Fragment } from 'react'
 
 import { MessageContainerChooseNotification, MessageSingleContainer } from "../.."
-import { useGetAllMessagesForSupportQuery } from '../../../features/API/supportMessagesAPI';
-import { useAppSelector } from '../../../hooks/useAppSelector';
-import { RootState } from '../../../ts/types/RootState';
 import { ISupportMessage } from '../../../ts/interfaces/ISupport/ISupportMessage';
 
 interface IProps {
-    supportId: number;
+    myMessagesForSupport: ISupportMessage[];
     activeMessage: number;
 }
 
-const MessageContainer: FC<IProps> = ({ supportId, activeMessage }): JSX.Element => {
-    useGetAllMessagesForSupportQuery(supportId);
-    const { allMessagesForSupport } = useAppSelector((state: RootState) => state.support_messages);
-
+const MessageContainer: FC<IProps> = ({ myMessagesForSupport, activeMessage }): JSX.Element => {
     return (
         <>
         {
-            allMessagesForSupport.length > 0 ? (
+            myMessagesForSupport.length > 0 ? (
                 activeMessage !== 0 ? (
                     <>
                     {
-                        allMessagesForSupport.map((singleMessage: ISupportMessage) => {
+                        myMessagesForSupport.map((singleMessage: ISupportMessage) => {
                             const { messageId, title, timestamp, message, adminResponse, answer: { adminName, adminMessage, adminMessageTimestamp } } = singleMessage;
 
                             return (

@@ -1,5 +1,5 @@
 export interface IAddSingleMessageForSupport {
-	supportId: number;
+	userId: string;
 	firstName: string;
   	email: string;
   	title: string;

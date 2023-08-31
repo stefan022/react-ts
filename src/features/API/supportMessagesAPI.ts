@@ -1,19 +1,30 @@
-import { IAddSingleMessageForSupport } from "../../ts/interfaces/ISupport/IAddSingleMessageForSupport";
 import { ISupportMessage } from "../../ts/interfaces/ISupport/ISupportMessage";
+import { IAddSingleMessageForSupport } from "../../ts/interfaces/ISupport/IAddSingleMessageForSupport";
 import { IUpdateSeenInSingleMessageForSupport } from "../../ts/interfaces/ISupport/IUpdateSeenInSingleMessageForSupport";
 import rootAPI from "./rootAPI";
 
 export const supportMessagesAPI = rootAPI.injectEndpoints({
     endpoints: (builder) => ({
-        getAllMessagesForSupport: builder.query<ISupportMessage[], number>({
-            query: (supportId) => `/support/${supportId}/messages`,
+        getAllMessagesForSupport: builder.query<ISupportMessage[], void>({
+            query: () => "/support_messages",
             providesTags: ["support-messages"] 
+        }),
+
+        getMyMessagesForSupport: builder.query<ISupportMessage[], string>({
+            query: () => "/support_messages",
+            providesTags: ["support-messages"],
+            transformResponse: (response: ISupportMessage[], _queryApi, _arg) => {
+                const userId: string = _arg;
+                const getMyMessages: ISupportMessage[] = response.filter((message: ISupportMessage) => message.userId === userId);
+
+                return getMyMessages;
+            },
         }),
 
         addSingleMessageForSupport: builder.mutation<{}, IAddSingleMessageForSupport>({
             query: (dto) => ({
                 method: "POST",
-                url: `/support/${dto.supportId}/messages`,
+                url: "/support_messages",
                 body: dto
             }),
             invalidatesTags: ["support-messages"]
@@ -22,7 +33,7 @@ export const supportMessagesAPI = rootAPI.injectEndpoints({
         updateSeenInSingleMessageForSupport: builder.mutation<{}, IUpdateSeenInSingleMessageForSupport>({
             query: (dto) => ({
                 method: "PATCH",
-                url: `/support/${dto.supportId}/messages/${dto.messageId}`,
+                url: `/support_messages/${dto.messageId}`,
                 body: dto
             }),
             invalidatesTags: ["support-messages"]
@@ -32,6 +43,7 @@ export const supportMessagesAPI = rootAPI.injectEndpoints({
 
 export const {
     useGetAllMessagesForSupportQuery,
+    useGetMyMessagesForSupportQuery,
     useAddSingleMessageForSupportMutation,
     useUpdateSeenInSingleMessageForSupportMutation
 } = supportMessagesAPI;
