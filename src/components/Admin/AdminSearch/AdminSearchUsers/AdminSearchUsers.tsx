@@ -1,38 +1,32 @@
-import React, { FC, Dispatch, SetStateAction, RefObject } from 'react'
+import React, { FC, RefObject, Dispatch, SetStateAction } from "react"
 
 import { debounce } from 'throttle-debounce';
-import { PAGINATION_RESET_TO_FIRST_PAGE } from '../../../features/slices/paginationProductsSlice';
-import { IProduct } from '../../../ts/interfaces/IProduct/IProduct';
-import { IScreen } from '../../../ts/interfaces/IProduct/IScreen';
-import { AllProducts } from '../../../ts/types/AllProducts';
-import { useAppDispatch } from '../../../hooks/useAppDispatch';
+import { PAGINATION_RESET_TO_FIRST_PAGE } from '../../../../features/slices/paginationProductsSlice';
+import { useAppDispatch } from '../../../../hooks/useAppDispatch';
 import { BiSearchAlt2 } from 'react-icons/bi';
+import { IUser } from "../../../../ts/interfaces/IUser/IUser";
+import { searchUsers } from "../../../../utils/helpers/searchUsers";
 
 interface IProps {
     searchRef: RefObject<HTMLInputElement>
-    setSortBy: Dispatch<SetStateAction<string>>;
-    allProducts: AllProducts[];
-    setProducts: Dispatch<SetStateAction<AllProducts[]>>;
+    storedUsers: IUser[];
+    setStoredUsers: Dispatch<SetStateAction<IUser[]>>;
 }
 
-const AdminSearch: FC<IProps> = ({ allProducts, setProducts, searchRef, setSortBy }): JSX.Element => {
+const AdminSearch: FC<IProps> = ({ storedUsers, setStoredUsers, searchRef }): JSX.Element => {
     const dispatch = useAppDispatch();
 
     const debounceFunc = debounce(1000, (args: string) => {
         dispatch(PAGINATION_RESET_TO_FIRST_PAGE());
 
         if (args === "") {
-            setProducts(allProducts);
-            setSortBy("all");
+            setStoredUsers(storedUsers);
 
             return;
         }
 
-        const search = allProducts.filter((product: IProduct<IScreen | string>) => {
-            return product.articleName.toLowerCase().indexOf(args.toLowerCase()) !== -1;
-        });
-
-        setProducts(search);
+        const search = searchUsers(storedUsers, args);
+        setStoredUsers(search);
     });
 
     const handleSearchProducts = () => debounceFunc(searchRef.current!.value);
@@ -56,4 +50,4 @@ const AdminSearch: FC<IProps> = ({ allProducts, setProducts, searchRef, setSortB
     )
 }
 
-export default AdminSearch
+export default AdminSearch;
