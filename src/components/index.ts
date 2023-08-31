@@ -99,7 +99,6 @@ export { default as AddedToCart } from "./Modals/Cart/AddedToCart/AddedToCart";
 export { default as AlreadyAddedToCart } from "./Modals/Cart/AlreadyAddedToCart/AlreadyAddedToCart";
 export { default as RemoveFromCart } from "./Modals/Cart/RemoveFromCart/RemoveFromCart";
 export { default as UserTable } from "./Tables/UserTable/UserTable";
-export { default as CustomerTable } from "./Tables/CustomerTable/CustomerTable";
 export { default as ProductTable } from "./Tables/ProductTable/ProductTable";
 export { default as OrderTable } from "./Tables/OrderTable/OrderTable";
 export { default as TableHead } from "./Tables/TableHead/TableHead";
