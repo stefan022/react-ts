@@ -15,14 +15,14 @@ interface IProps {
 const UserTable: FC<IProps> = ({ users }): JSX.Element => {
 	const { activePage } = useAppSelector((state: RootState) => state.pagination);
 
-	const [ storedEmployees, setStoredEmployees ] = useState<IUser[]>(users); 
+	const [ storedUsers, setStoredUsers ] = useState<IUser[]>(users); 
 	const [ loading, setLoading ] = useState<boolean>(false); 
 
 	const searchRef = useRef<HTMLInputElement>(null);
 
 	const dispatch = useAppDispatch();
 
-	const { getVisibleUsers: visibleUsers, pageCount } = usersPagination(activePage, storedEmployees);
+	const { getVisibleUsers: visibleUsers, pageCount } = usersPagination(activePage, storedUsers);
 
     const onPageChange = ({ selected }: { selected: number }) => {
         setLoading(true);
@@ -39,7 +39,7 @@ const UserTable: FC<IProps> = ({ users }): JSX.Element => {
 				<AdminSearchUsers
 					searchRef={searchRef}
 					storedUsers={users}
-					setStoredUsers={setStoredEmployees}
+					setStoredUsers={setStoredUsers}
 				/>
 			</div>
 			{
