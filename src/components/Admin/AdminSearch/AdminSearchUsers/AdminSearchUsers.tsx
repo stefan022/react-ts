@@ -1,4 +1,4 @@
-import React, { FC, RefObject, Dispatch, SetStateAction } from "react"
+import React, { FC, RefObject, Dispatch, SetStateAction, useEffect } from "react"
 
 import { debounce } from 'throttle-debounce';
 import { PAGINATION_RESET_TO_FIRST_PAGE } from '../../../../features/slices/paginationProductsSlice';
@@ -15,6 +15,13 @@ interface IProps {
 
 const AdminSearch: FC<IProps> = ({ storedUsers, setStoredUsers, searchRef }): JSX.Element => {
     const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        setStoredUsers(storedUsers);
+        searchRef.current!.value = "";
+
+        // eslint-disable-next-line
+    }, [storedUsers, searchRef]);
 
     const debounceFunc = debounce(1000, (args: string) => {
         dispatch(PAGINATION_RESET_TO_FIRST_PAGE());
