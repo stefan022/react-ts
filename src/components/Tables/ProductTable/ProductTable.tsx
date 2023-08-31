@@ -1,158 +1,94 @@
-import React from "react";
+import React, { FC, useState, useRef } from "react";
 
-const ProductTable = () => {
+import { AdminSearch, AdminSort, NothingFound, Pagination, Spinner, TableHead, TableRows } from "../../../components"
+import { useAppSelector } from "../../../hooks/useAppSelector";
+import { RootState } from "../../../ts/types/RootState";
+import { useAppDispatch } from "../../../hooks/useAppDispatch";
+import { PAGINATION_CHANGE_PAGE } from "../../../features/slices/paginationProductsSlice";
+import { AllProducts } from "../../../ts/types/AllProducts";
+
+interface IProps {
+	allProducts: AllProducts[]; 
+}
+
+const ProductTable: FC<IProps> = ({ allProducts }): JSX.Element => {
+    const { activePage } = useAppSelector((state: RootState) => state.pagination);
+
+	const [ products, setProducts ] = useState<AllProducts[]>(allProducts);
+	const [ sortBy, setSortBy ] = useState<string>("all");
+    const [ loading, setLoading ] = useState<boolean>(false);
+
+	const searchRef = useRef<HTMLInputElement>(null);
+
+    const dispatch = useAppDispatch();
+
+    const productsPerPage = 5;
+    const productsVisible = activePage * productsPerPage;
+
+    const paginationProducts = products.slice(
+        productsVisible,
+        productsVisible + productsPerPage
+    );
+
+    const pageCount = Math.ceil(products.length / productsPerPage);
+    const onPageChange = ({ selected }: { selected: number }) => {
+        setLoading(true);
+
+        setTimeout(() => {
+            setLoading(false);
+            dispatch(PAGINATION_CHANGE_PAGE({ pageNumber: selected }));
+        }, 500);
+    };
+
+	console.log(sortBy);
+
 	return (
-		<div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-			<table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-				<thead className="text-xs text-blue-400 uppercase bg-gray-50 dark:bg-gray-200 dark:text-blue-400">
-					<tr>
-						<th scope="col" className="px-6 py-3">
-							First Name
-						</th>
-						<th scope="col" className="px-6 py-3">
-                            Color
-						</th>
-						<th scope="col" className="px-6 py-3">
-                            Category
-						</th>
-						<th scope="col" className="px-6 py-3">
-                            Price
-						</th>
-						<th scope="col" className="px-6 py-3">
-							Action
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr className="bg-white border-b dark:bg-gray-100 dark:border-gray-200 text-blue-400">
-						<td className="px-6 py-4">Apple MacBook Pro 17</td>
-						<td className="px-6 py-4">Silver</td>
-						<td className="px-6 py-4">Laptop</td>
-						<td className="px-6 py-4">$2999</td>
-						<td className="px-6 py-4">
-							<a
-								href="#"
-								className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-							>
-								Edit
-							</a>
-						</td>
-					</tr>
-					<tr className="bg-white border-b dark:bg-gray-50 dark:border-gray-200 text-blue-400">
-						<td className="px-6 py-4">Microsoft Surface Pro</td>
-						<td className="px-6 py-4">White</td>
-						<td className="px-6 py-4">Laptop PC</td>
-						<td className="px-6 py-4">$1999</td>
-						<td className="px-6 py-4">
-							<a
-								href="#"
-								className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-							>
-								Edit
-							</a>
-						</td>
-					</tr>
-					<tr className="bg-white dark:bg-gray-100 text-blue-400">
-						<td className="px-6 py-4">Magic Mouse 2</td>
-						<td className="px-6 py-4">Black</td>
-						<td className="px-6 py-4">Accessories</td>
-						<td className="px-6 py-4">$99</td>
-						<td className="px-6 py-4">
-							<a
-								href="#"
-								className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-							>
-								Edit
-							</a>
-						</td>
-					</tr>
-					<tr className="bg-white border-b dark:bg-gray-50 dark:border-gray-200 text-blue-400">
-						<td className="px-6 py-4">Microsoft Surface Pro</td>
-						<td className="px-6 py-4">White</td>
-						<td className="px-6 py-4">Laptop PC</td>
-						<td className="px-6 py-4">$1999</td>
-						<td className="px-6 py-4">
-							<a
-								href="#"
-								className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-							>
-								Edit
-							</a>
-						</td>
-					</tr>
-					<tr className="bg-white dark:bg-gray-100 text-blue-400">
-						<td className="px-6 py-4">Magic Mouse 2</td>
-						<td className="px-6 py-4">Black</td>
-						<td className="px-6 py-4">Accessories</td>
-						<td className="px-6 py-4">$99</td>
-						<td className="px-6 py-4">
-							<a
-								href="#"
-								className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-							>
-								Edit
-							</a>
-						</td>
-					</tr>
-					<tr className="bg-white border-b dark:bg-gray-50 dark:border-gray-200 text-blue-400">
-						<td className="px-6 py-4">Microsoft Surface Pro</td>
-						<td className="px-6 py-4">White</td>
-						<td className="px-6 py-4">Laptop PC</td>
-						<td className="px-6 py-4">$1999</td>
-						<td className="px-6 py-4">
-							<a
-								href="#"
-								className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-							>
-								Edit
-							</a>
-						</td>
-					</tr>
-					<tr className="bg-white dark:bg-gray-100 text-blue-400">
-						<td className="px-6 py-4">Magic Mouse 2</td>
-						<td className="px-6 py-4">Black</td>
-						<td className="px-6 py-4">Accessories</td>
-						<td className="px-6 py-4">$99</td>
-						<td className="px-6 py-4">
-							<a
-								href="#"
-								className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-							>
-								Edit
-							</a>
-						</td>
-					</tr>
-					<tr className="bg-white border-b dark:bg-gray-50 dark:border-gray-200 text-blue-400">
-						<td className="px-6 py-4">Microsoft Surface Pro</td>
-						<td className="px-6 py-4">White</td>
-						<td className="px-6 py-4">Laptop PC</td>
-						<td className="px-6 py-4">$1999</td>
-						<td className="px-6 py-4">
-							<a
-								href="#"
-								className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-							>
-								Edit
-							</a>
-						</td>
-					</tr>
-					<tr className="bg-white dark:bg-gray-100 text-blue-400">
-						<td className="px-6 py-4">Magic Mouse 2</td>
-						<td className="px-6 py-4">Black</td>
-						<td className="px-6 py-4">Accessories</td>
-						<td className="px-6 py-4">$99</td>
-						<td className="px-6 py-4">
-							<a
-								href="#"
-								className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-							>
-								Edit
-							</a>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+		<>
+			<div>
+				<div className="flex justify-between w-full mb-6">
+					<AdminSearch
+						allProducts={allProducts}
+						setProducts={setProducts}
+						searchRef={searchRef}
+						setSortBy={setSortBy}
+					/>
+					<AdminSort
+						allProducts={allProducts}
+						setProducts={setProducts}
+						searchRef={searchRef}
+						sortBy={sortBy}
+						setSortBy={setSortBy}
+					/>
+				</div>
+				{
+					paginationProducts.length > 0 ? (
+						<>
+							<div className="relative overflow-x-auto shadow-md sm:rounded-lg mb-6">
+								<table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+									<TableHead
+										colOne="Article Name"
+										colTwo="Quantity"
+										colThree="Category"
+										colFour="Price"
+									/>
+									<tbody>
+										<TableRows
+											allProducts={paginationProducts}
+										/>
+									</tbody>
+								</table>
+							</div>
+							<Pagination
+								activePage={activePage}
+								onPageChange={onPageChange}
+								pageCount={pageCount}
+							/>
+						</>
+					) : <div className="border"><NothingFound/></div>
+				}
+				</div>
+			{ loading && <Spinner/> }
+		</>
 	);
 };
 

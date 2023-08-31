@@ -1,6 +1,8 @@
 import { combineReducers } from "@reduxjs/toolkit";
 
 import rootAPI from "../features/API/rootAPI";
+
+import { allProductsSlice } from "../features/slices/allProductsSlice";
 import { phonesSlice } from "../features/slices/phonesSlice";
 import { tabletsSlice } from "../features/slices/tabletsSlice";
 import { laptopsSlice } from "../features/slices/laptopsSlice";
@@ -36,6 +38,7 @@ const rootReducer = combineReducers({
 	posts: postsSlice.reducer,
 	comments: commentsSlice.reducer,
 	replies: repliesSlice.reducer,
+	allProducts: allProductsSlice.reducer
 });
 
 export default rootReducer;

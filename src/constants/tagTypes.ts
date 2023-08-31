@@ -21,5 +21,6 @@ export const tagTypes: string[] = [
     "comments",
     "single-comment",
     "replies",
-    "reply"
+    "reply",
+    "all-products"
 ];

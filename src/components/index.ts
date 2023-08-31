@@ -102,6 +102,9 @@ export { default as EmployeeTable } from "./Tables/EmployeeTable/EmployeeTable";
 export { default as CustomerTable } from "./Tables/CustomerTable/CustomerTable";
 export { default as ProductTable } from "./Tables/ProductTable/ProductTable";
 export { default as OrderTable } from "./Tables/OrderTable/OrderTable";
+export { default as TableHead } from "./Tables/TableHead/TableHead";
+export { default as TableRows } from "./Tables/TableRows/TableRows";
+export { default as TableSingleRow } from "./Tables/TableSingleRow/TableSingleRow";
 export { default as BlogPicture } from "./Blogs/BlogPicture/BlogPicture";
 export { default as BlogInfo } from "./Blogs/BlogInfo/BlogInfo";
 export { default as BlogContent } from "./Blogs/BlogContent/BlogContent";
@@ -204,6 +207,8 @@ export { default as ThemeToggleSwitch } from "./ThemeToggleSwitch/ThemeToggleSwi
 export { default as AdminNavbar } from "./Admin/AdminNavbar/AdminNavbar";
 export { default as AdminSidebar } from "./Admin/AdminSidebar/AdminSidebar";
 export { default as AdminTitleOfPage } from "./Admin/AdminTitlteOfPage/AdminTitlteOfPage";
+export { default as AdminSearch } from "./Admin/AdminSearch/AdminSearch";
+export { default as AdminSort } from "./Admin/AdminSort/AdminSort";
 export { default as AdminReviewCards } from "./Admin/AdminReviewCards/AdminReviewCards";
 export { default as AdminReviewSingleCard } from "./Admin/AdminReviewCards/AdminReviewSingleCard/AdminReviewSingleCard";
 export { default as AdminFooter } from "./Admin/AdminFooter/AdminFooter";
