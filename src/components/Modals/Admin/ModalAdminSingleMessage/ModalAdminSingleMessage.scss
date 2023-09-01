@@ -1,0 +1,35 @@
+.masm-basic {
+    @apply z-50 w-[600px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center flex-col p-8 gap-8 transition-all outline-none;
+}
+
+.modal {
+    &__admin {
+        &-single {
+            &-message {
+                @apply bg-white;
+                @extend .masm-basic;
+
+                &-dark {
+                    @apply bg-gray-900;
+                    @extend .masm-basic;
+                }
+
+                &-x {
+                    @apply absolute top-3 right-3 text-red-400 hover:text-red-500 transition-all cursor-pointer;
+                }
+
+                &-content {
+                    @apply w-full;
+
+                    &-gap {
+                        @apply mb-4;
+                    }
+
+                    &-between {
+                        @apply flex justify-between items-center;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -11,7 +11,6 @@ const Messages: FC = (): JSX.Element => {
 	useGetMyMessagesForSupportQuery(userId);
 
     const { myMessagesForSupport } = useAppSelector((state: RootState) => state.support_messages);
-
 	const [ activeMessage, setActiveMessage ] = useState<number>(0);
 
   	return (
