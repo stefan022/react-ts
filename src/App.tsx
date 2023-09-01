@@ -5,7 +5,7 @@ import DarkThemeContext from './context/ThemeContext';
 import { ErrorBoundary } from './components';
 
 const App: FC = (): JSX.Element => {
-    const [darkTheme, setDarkTheme] = useState<boolean>(true);
+    const [darkTheme, setDarkTheme] = useState<boolean>(false);
 
     const track = darkTheme ? "#111827" : "#ffffff";
     const thumb = `${darkTheme ? "#2563eb" : "#60a5fa"}; border-radius: 10px`;
