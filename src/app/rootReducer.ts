@@ -18,6 +18,7 @@ import { cartSlice } from "../features/slices/cartSlice";
 import { postsSlice } from "../features/slices/postsSlice";
 import { commentsSlice } from "../features/slices/commentsSlice";
 import { repliesSlice } from "../features/slices/repliesSlice";
+import { profilePictureSlice } from "../features/slices/profilePictureSlice";
 
 const rootReducer = combineReducers({
 	[rootAPI.reducerPath]: rootAPI.reducer,
@@ -36,7 +37,8 @@ const rootReducer = combineReducers({
 	posts: postsSlice.reducer,
 	comments: commentsSlice.reducer,
 	replies: repliesSlice.reducer,
-	allProducts: allProductsSlice.reducer
+	allProducts: allProductsSlice.reducer,
+	profile_picture: profilePictureSlice.reducer 
 });
 
 export default rootReducer;

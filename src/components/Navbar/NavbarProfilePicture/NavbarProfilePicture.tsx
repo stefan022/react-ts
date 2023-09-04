@@ -6,13 +6,16 @@ import { storage } from '../../../firebase/config';
 import { ref, listAll, getDownloadURL, ListResult, StorageReference } from 'firebase/storage';
 import DarkThemeContext from '../../../context/ThemeContext';
 import { IDarkThemeContext } from '../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
+import { useAppSelector } from '../../../hooks/useAppSelector';
+import { RootState } from '../../../ts/types/RootState';
 
 interface IProps {
     handleDisplayProfileDropdown?: MouseEventHandler<HTMLDivElement>;
 }
 
 const NavbarProfilePicture: FC<IProps> = ({ handleDisplayProfileDropdown }): JSX.Element => {
-    const userId = localStorage.getItem("userId");
+    const userId = localStorage.getItem("userId") as string;
+    const { pictureURL } = useAppSelector((state: RootState) => state.profile_picture);
 
     const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
     const [ profilePicture, setProfilePicture ] = React.useState<string>();
@@ -21,14 +24,14 @@ const NavbarProfilePicture: FC<IProps> = ({ handleDisplayProfileDropdown }): JSX
         const imageRef: StorageReference = ref(storage, `${userId}/`);
 
         listAll(imageRef)
-                .then((res: ListResult) => {
-                    res.items.forEach((item: StorageReference) => {
-                        getDownloadURL(item)
-                            .then((url: string) => setProfilePicture(url))
-                    })
+            .then((res: ListResult) => {
+                res.items.forEach((item: StorageReference) => {
+                    getDownloadURL(item)
+                        .then((url: string) => setProfilePicture(url))
                 })
+            })
         // eslint-disable-next-line
-    }, []);
+    }, [pictureURL]);
 
     return (
         <div 

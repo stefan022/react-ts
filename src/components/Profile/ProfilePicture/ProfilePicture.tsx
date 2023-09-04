@@ -7,6 +7,8 @@ import { ref, uploadBytes, listAll, getDownloadURL, ListResult, StorageReference
 import { toast } from 'react-toastify';
 import DarkThemeContext from '../../../context/ThemeContext';
 import { IDarkThemeContext } from '../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
+import { useAppDispatch } from '../../../hooks/useAppDispatch';
+import { CHANGE_PROFILE_PICTURE } from '../../../features/slices/profilePictureSlice';
 
 const ProfilePicture: FC = (): JSX.Element => {
     const userId = localStorage.getItem("userId");
@@ -16,16 +18,18 @@ const ProfilePicture: FC = (): JSX.Element => {
 
     const theme = darkTheme ? "dark" : "light";
 
+    const dispatch = useAppDispatch();
+
     useEffect(() => {
         const imageRef: StorageReference = ref(storage, `${userId}/`);
 
         listAll(imageRef)
-                .then((res: ListResult) => {
-                    res.items.forEach((item: StorageReference) => {
-                        getDownloadURL(item)
-                            .then((url: string) => setProfilePicture(url))
-                    })
+            .then((res: ListResult) => {
+                res.items.forEach((item: StorageReference) => {
+                    getDownloadURL(item)
+                        .then((url: string) => setProfilePicture(url))
                 })
+            })
         // eslint-disable-next-line
     }, []);
 
@@ -44,6 +48,7 @@ const ProfilePicture: FC = (): JSX.Element => {
             .then((snapshot: UploadResult) => getDownloadURL(snapshot.ref))
             .then((url: string) => {
                 setProfilePicture(url);
+                dispatch(CHANGE_PROFILE_PICTURE(url));
                 toast.success("You have successfully changed your profile picture", { theme });
             })
             .catch((error) => toast.error(error, { theme }));
