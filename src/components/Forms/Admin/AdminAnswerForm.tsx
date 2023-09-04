@@ -40,7 +40,7 @@ const AdminAnswerForm: FC<IProps> = ({ messageId, firstName, setModalIsOpen }): 
                     adminName: username
                 },
                 adminResponse: true,
-                changeTimestamp: 1233213123
+                changeTimestamp: timestamp
             });
 
             setModalIsOpen(false);
