@@ -94,12 +94,15 @@ const AddReply: FC<IProps> = ({ postId, commentId }): JSX.Element => {
                         <div className='flex w-11/12 border border-gray-400'>
                             <input 
                                 ref={replyRef} 
-                                className='w-10/12 p-2 bg-gray-800' 
+                                className='w-10/12 p-2 bg-transparent outline-none' 
                                 type="text" 
                                 placeholder='Enter your reply...' 
                             />
                             <button 
-                                className='w-2/12 bg-green-600 hover:bg-green-700 transition-all h-full'
+                                className={`
+                                    ${ darkTheme ? "bg-green-600 hover:bg-green-700" : "bg-green-400 hover:bg-green-500" }
+                                    w-2/12 transition-all h-full text-gray-100
+                                `}
                                 onClick={() => handleAddReply(postId, commentId)}
                             >
                                 Add reply
