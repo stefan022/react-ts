@@ -89,13 +89,16 @@ const AddComment: FC<IProps> = ({ postId }): JSX.Element => {
                     <div className='w-11/12 border border-gray-400'>
                         <input 
                             ref={commentRef}
-                            className='w-10/12 p-2 bg-gray-800' 
+                            className='w-10/12 p-2 bg-transparent outline-none' 
                             type="text" 
                             placeholder='Enter your comment...' 
 
                         />
                         <button 
-                            className='w-2/12 bg-blue-600 hover:bg-blue-700 transition-all h-full'
+                            className={`
+                                ${ darkTheme ? "bg-blue-600 hover:bg-blue-700" : "bg-blue-400 hover:bg-blue-500" }
+                                w-2/12  transition-all h-full text-gray-100
+                            `}
                             onClick={() => handleAddComment(postId)}
                         >
                             Add comment
