@@ -109,7 +109,7 @@ export { default as TableRows } from "./Tables/TableRows/TableRows";
 export { default as TableSingleRow } from "./Tables/TableSingleRow/TableSingleRow";
 export { default as UserTableHead } from "./Tables/UserTable/UserTableHead/UserTableHead";
 export { default as UserTableBody } from "./Tables/UserTable/UserTableBody/UserTableBody";
-export { default as UserTableRow } from "./Tables/UserTable/UserTableRow/UserTableRow";
+export { default as UserTableBodyRow } from "./Tables/UserTable/UserTableBody/UserTableBodyRow/UserTableBodyRow";
 export { default as BlogPicture } from "./Blogs/BlogPicture/BlogPicture";
 export { default as BlogInfo } from "./Blogs/BlogInfo/BlogInfo";
 export { default as BlogContent } from "./Blogs/BlogContent/BlogContent";

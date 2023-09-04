@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 
 import { IUser } from "../../../../ts/interfaces/IUser/IUser";
-import { UserTableRow } from "../../../../components"
+import { UserTableBodyRow } from "../../../../components"
 
 interface IProps {
     users: IUser[];
@@ -15,7 +15,7 @@ const UserTableBody: FC<IProps> = ({ users }): JSX.Element => {
                     const { userId, firstName, lastName, email, username, token } = singleUser;
 
                     return (
-                        <UserTableRow
+                        <UserTableBodyRow
                             key={userId}
                             firstName={firstName}
                             lastName={lastName}

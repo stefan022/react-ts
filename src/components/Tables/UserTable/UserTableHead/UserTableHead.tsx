@@ -1,27 +1,32 @@
-import React, { FC } from 'react'
+import React, { FC, useContext, Context } from 'react'
+
+import DarkThemeContext from '../../../../context/ThemeContext'
+import { IDarkThemeContext } from '../../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext'
+import { userTableHeadData } from './userTableHeadData';
+
+import "./UserTableHead.scss"
 
 const UserTableHead: FC = (): JSX.Element => {
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
+
     return (
-        <thead className="text-xs text-blue-400 uppercase bg-gray-50 dark:bg-gray-200 dark:text-blue-400">
+        <thead className={ darkTheme ? "user-table-head__dark" : "user-table-head" }>
             <tr>
-                <th scope="col" className="px-6 py-3">
-                    First Name
-                </th>
-                <th scope="col" className="px-6 py-3">
-                    Last Name
-                </th>
-                <th scope="col" className="px-12 py-3">
-                    Email
-                </th>
-                <th scope="col" className="px-6 py-3">
-                    Username
-                </th>
-                <th scope="col" className="px-6 py-3">
-                    Role
-                </th>
-                <th scope="col" className="px-6 py-3">
-                    Action
-                </th>
+            {
+                userTableHeadData.map((tableHead) => {
+                    const { id, text, cN } = tableHead;
+
+                    return (
+                        <th 
+                            key={id}
+                            scope="col" 
+                            className={cN}
+                        >
+                            {text}
+                        </th>
+                    )
+                })
+            }
             </tr>
         </thead>
     )
