@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ProductAdminReview, Stars } from "../../.."
 import { timestampToLocalString } from '../../../../utils/helpers/timestampToLocalString';
@@ -17,7 +17,7 @@ interface IProps {
     };
 }
 
-const ProductSingleReview = ({ username, reviewRating, reviewTimestamp, reviewTitle, reviewText, adminResponse, reviewAnswer }: IProps) => {
+const ProductSingleReview: FC<IProps> = ({ username, reviewRating, reviewTimestamp, reviewTitle, reviewText, adminResponse, reviewAnswer }): JSX.Element => {
     return (
         <div className='w-full mb-4 last:mb-0'>
             <div className='flex'>
@@ -29,7 +29,7 @@ const ProductSingleReview = ({ username, reviewRating, reviewTimestamp, reviewTi
                 <div className='w-11/12 border border-gray-400 py-2 px-3 flex flex-col justify-between'>
                     <div className='flex justify-between items-center mb-4'>
                         <div>
-                            <p>{username}</p>
+                            <p>@{username}</p>
                             <div className='flex'>
                                 <Stars rating={reviewRating} size={24}/>
                             </div>
