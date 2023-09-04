@@ -1,11 +1,17 @@
-import { useState } from "react";
+import { FC, useState, useContext, Context } from "react";
+
 import { DragDropContext } from "react-beautiful-dnd";
 import { taskStatus } from "./data/taskStatus";
 import DndDroppable from "./DndDroppable";
 import { onDragEnd } from "../../utils/helpers/onDragAnd";
+import DarkThemeContext from "../../context/ThemeContext";
+import { IDarkThemeContext } from "../../ts/interfaces/IDarkThemeContext/IDarkThemeContext";
 
-const Dnd = () => {
+import "./Dnd.scss"
+
+const Dnd: FC = (): JSX.Element => {
 	const [columns, setColumns] = useState(taskStatus);
+	const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
 
 	return (
 		<div>
@@ -27,6 +33,7 @@ const Dnd = () => {
 										state={column}
 										droppableId={columnId}
 										columnId={columnId}
+										darkTheme={darkTheme}
 									/>
 								</div>
 							</div>

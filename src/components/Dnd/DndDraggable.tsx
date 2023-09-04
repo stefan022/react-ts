@@ -1,7 +1,14 @@
+import { FC } from "react";
+ 
 import { Draggable } from "react-beautiful-dnd";
 import { ITask } from "../../ts/interfaces/IDnd/ITask";
 
-const DndDraggable = ({ state }: { state: any }) => {
+interface IProps {
+	state: any;
+	darkTheme: boolean;
+}
+
+const DndDraggable: FC<IProps> = ({ state, darkTheme }): JSX.Element => {
 	return (
 		<>
 			{state.items.map((item: ITask, index: any) => {
@@ -13,13 +20,20 @@ const DndDraggable = ({ state }: { state: any }) => {
 									ref={provided.innerRef}
 									{...provided.draggableProps}
 									{...provided.dragHandleProps}
-									className={`
-										select-none p-4 mb-1 min-h-[50px] text-white
-										${snapshot.isDragging ? "bg-blue-500" : "bg-blue-400"}
-									`}
+									className={
+										snapshot.isDragging
+											? darkTheme 
+												? "dnd__draggable_dark-active"
+												: "dnd__draggable-active"
+											: darkTheme
+												? "dnd__draggable_dark"
+												: "dnd__draggable"
+									}
 									style={{...provided.draggableProps.style }}
 								>
-									<h3>{item.content}</h3>
+									<h3 className={ darkTheme ? "dnd__draggable_content-dark" : "dnd__draggable_content" }>
+										{item.content}
+									</h3>
 									<p className="text-sm">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus, nulla.</p>
 								</div>
 							);

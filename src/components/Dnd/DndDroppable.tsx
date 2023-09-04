@@ -6,10 +6,12 @@ const DndDroppable = ({
 	state,
 	droppableId,
 	columnId,
+	darkTheme
 }: {
 	state: ITask;
 	droppableId: string;
 	columnId: string;
+	darkTheme: boolean;
 }) => {
 	return (
 		<Droppable droppableId={droppableId} key={columnId}>
@@ -18,12 +20,17 @@ const DndDroppable = ({
 					<div
 						{...provided.droppableProps}
 						ref={provided.innerRef}
-						className={`
-							p-1 w-[250px] min-h-[500px] transition-all
-							${snapshot.isDraggingOver ? "bg-gray-200" : "bg-gray-100"}
-						`}
+						className={
+							snapshot.isDraggingOver
+								? darkTheme 
+									? "dnd__droppable_dark-active"
+									: "dnd__droppable-active"
+								: darkTheme
+									? "dnd__droppable_dark"
+									: "dnd__droppable"
+						}
 					>
-						<DndDraggable state={state} />
+						<DndDraggable state={state} darkTheme={darkTheme}/>
 						{provided.placeholder}
 					</div>
 				);
