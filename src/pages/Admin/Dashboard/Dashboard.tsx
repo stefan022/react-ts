@@ -13,11 +13,13 @@ interface IProps {
 
 const Dashboard: FC<IProps> = ({ children, title }): JSX.Element => {
     const { darkTheme, setDarkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
-
+    
     return (
         <div className='w-full flex relative'>
             <div className='w-2/12 fixed'>
-                <AdminSidebar/>
+                <AdminSidebar
+                    darkTheme={darkTheme}
+                />
             </div>
             <div className='w-10/12 absolute right-0'>
                 <AdminNavbar
