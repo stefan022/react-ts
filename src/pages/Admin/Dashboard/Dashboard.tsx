@@ -26,7 +26,7 @@ const Dashboard: FC<IProps> = ({ children, title }): JSX.Element => {
                     darkTheme={darkTheme}
                     setDarkTheme={setDarkTheme}
                 />
-                <AdminContainer>
+                <AdminContainer darkTheme={darkTheme}>
                     <div>
                         <AdminTitleOfPage title={title}/>
                         {children ? children : <Overview/>}

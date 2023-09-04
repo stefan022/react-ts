@@ -1,12 +1,17 @@
-import React, { ReactNode } from 'react'
+import React, { FC, ReactNode } from 'react'
+
+import "./AdminContainer.scss";
 
 interface IProps {
     children: ReactNode;
+    darkTheme: boolean;
 }
 
-const AdminContainer = ({ children }: IProps) => {
+const AdminContainer: FC<IProps> = ({ children, darkTheme }): JSX.Element => {
     return (
-        <div className='p-4 min-h-screen flex flex-col justify-between'>{children}</div>
+        <div className={ darkTheme ? "admin__container-dark" : "admin__container" }>
+            {children}
+        </div>
     )
 }
 
