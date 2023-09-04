@@ -8,7 +8,7 @@ import DarkThemeContext from '../../../context/ThemeContext';
 import { IDarkThemeContext } from '../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
 
 interface IProps {
-    handleDisplayProfileDropdown: MouseEventHandler<HTMLDivElement>;
+    handleDisplayProfileDropdown?: MouseEventHandler<HTMLDivElement>;
 }
 
 const NavbarProfilePicture: FC<IProps> = ({ handleDisplayProfileDropdown }): JSX.Element => {

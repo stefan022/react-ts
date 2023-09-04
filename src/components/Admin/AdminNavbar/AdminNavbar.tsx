@@ -1,11 +1,29 @@
-import React from 'react'
+import React, { FC } from 'react'
 
-const AdminNavbar = () => {
+import { IoMdNotificationsOutline } from 'react-icons/io'
+import { ThemeToggleSwitch, NavbarProfilePicture } from '../../../components'
+
+interface IProps {
+    darkTheme: boolean;
+    setDarkTheme: (arg: boolean) => void;
+}
+
+const AdminNavbar: FC<IProps> = ({ darkTheme, setDarkTheme }): JSX.Element => {
+    const handleChangeTheme = () => setDarkTheme(!darkTheme);
+
     return (
-        <div className='py-5 px-4 flex justify-end items-center gap-4 border border-gray-400'>
-            <div>$toggleTheme</div>
-            <div>$notification</div>
-            <div className='border border-gray-400 w-10 h-10 rounded-full'></div>
+        <div className={`
+            ${ darkTheme ? "bg-gray-900 text-gray-300" : "bg-white text-gray-700" }
+            py-5 px-4 flex justify-end items-center gap-2 border border-gray-400
+        `}>
+            <ThemeToggleSwitch
+                darkTheme={darkTheme}
+                handleChangeTheme={handleChangeTheme}
+            />
+            <div className='w-[40px] h-[40px] rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-100 relative -left-1'>
+                <IoMdNotificationsOutline color='gray' size={20}/>
+            </div>
+            <NavbarProfilePicture/>
         </div>
     )
 }
