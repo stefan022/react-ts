@@ -56,6 +56,8 @@ export { default as ProfilePicture } from "./Profile/ProfilePicture/ProfilePictu
 export { default as ProfileBody } from "./Profile/ProfileBody/ProfileBody";
 export { default as PersonalInfo } from "./Profile/PersonalInfo/PersonalInfo";
 export { default as PersonalInfoEdit } from "./Buttons/PersonalInfoEdit/PersonalInfoEdit";
+export { default as PersonalInfoEditTitle } from "./Buttons/PersonalInfoEdit/PersonalInfoEditTitle/PersonalInfoEditTitle";
+export { default as PersonalInfoEditButtons } from "./Buttons/PersonalInfoEdit/PersonalInfoEditButtons/PersonalInfoEditButtons";
 export { default as PersonalSingleInfo } from "./Profile/PersonalInfo/PersonalSingleInfo/PersonalSingleInfo";
 export { default as PersonalSinceMember } from "./Profile/PersonalInfo/PersonalSinceMember/PersonalSinceMember";
 export { default as ModalBlogDelete } from "./Modals/Blog/ModalBlogDelete";

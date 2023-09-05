@@ -3,23 +3,23 @@ import React, { FC, useEffect, useState, useContext, Context } from 'react'
 import { doc, onSnapshot } from 'firebase/firestore';
 import { db } from '../../../firebase/config';
 import { toast } from 'react-toastify';
-import { IGetUser } from '../../../ts/interfaces/IUser/IGetUser';
 import { PersonalInfo, PersonalInfoEdit, Spinner } from '../../../components';
 import DarkThemeContext from '../../../context/ThemeContext';
 import { IDarkThemeContext } from '../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
+import { IUser } from '../../../ts/interfaces/IUser/IUser';
 
 const ProfileInfo: FC = (): JSX.Element => {
     const userId = localStorage.getItem("userId") as string;
 
     const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
-    const [ user, setUser ] = useState<IGetUser>();
+    const [ user, setUser ] = useState<IUser>();
 
     const theme = darkTheme ? "dark" : "light";
 
     useEffect(() => {
         if (userId) {
             const snapshot = onSnapshot(doc(db, "users", userId), (snapshot) => {
-                const userData = snapshot.data() as IGetUser;
+                const userData = snapshot.data() as IUser;
                 setUser(userData);
 
             }, (error) => {
@@ -38,7 +38,9 @@ const ProfileInfo: FC = (): JSX.Element => {
         <div>
             <div className='p-4 flex justify-between border border-gray-300'>
                 <p className='font-bold'>Personal info</p>
-                <PersonalInfoEdit/>
+                <PersonalInfoEdit
+                    user={user as IUser}
+                />
             </div>
             {
                 user ? (
