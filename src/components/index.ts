@@ -225,3 +225,4 @@ export { default as AdminSingleMessage } from "./Admin/AdminMessages/AdminSingle
 export { default as AdminAnswer } from "./Admin/AdminMessages/AdminAnswer/AdminAnswer"
 export { default as AdminReviewCards } from "./Admin/AdminReviewCards/AdminReviewCards";
 export { default as AdminReviewSingleCard } from "./Admin/AdminReviewCards/AdminReviewSingleCard/AdminReviewSingleCard";
+export { default as AdminLogout } from "./Admin/AdminLogout/AdminLogout";

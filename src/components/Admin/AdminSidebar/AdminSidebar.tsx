@@ -4,6 +4,7 @@ import logo from "../../../assets/logo.png";
 import { adminSidebarData } from './adminSidebarData';
 import { Link } from 'react-router-dom';
 import { Routes } from '../../../router/Routes';
+import { AdminLogout } from "../../../components";
 
 import "./AdminSidebar.scss"
 
@@ -29,12 +30,15 @@ const AdminSidebar: FC<IProps> = ({ darkTheme }): JSX.Element => {
                                 className={ darkTheme ? "admin__sidebar_link-dark" : "admin__sidebar_link" }
                             >
                                 <div className="mr-2">{icon}</div>
-                                <p className="text-lg">{title}</p>
+                                <p>{title}</p>
                             </Link>
                         )
                     })
                 }
             </div>
+            <AdminLogout
+                darkTheme={darkTheme}
+            />
             <Link
                 className='p-5'
                 to={Routes.HOME}
