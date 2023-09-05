@@ -141,6 +141,7 @@ export { default as FilterClear } from "./Products/Filter/FilterClear/FilterClea
 export { default as FilterBrands } from "./Products/Filter/FilterBrands/FilterBrands";
 export { default as FilterRatings } from "./Products/Filter/FilterRatings/FilterRatings";
 export { default as FilterPrice } from "./Products/Filter/FilterPrice/FilterPrice";
+export { default as FilterPriceTooltip } from "./Products/Filter/FilterPrice/FilterPriceTooltip/FilterPriceTooltip";
 export { default as FilterColors } from "./Products/Filter/FilterColors/FilterColors";
 export { default as FilterSkeleton} from "./Skeletons/FilterSkeleton/FilterSkeleton";
 export { default as ProductsContainerSkeleton} from "./Skeletons/ProductsContainerSkeleton/ProductsContainerSkeleton";
