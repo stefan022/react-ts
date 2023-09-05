@@ -1,27 +1,29 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 
 import { FormikField, FormikTextArea, Spinner, SupportFormButton, SupportFormTitle } from "../../../components"
 import { useFormik } from "formik";
-import { supportInitialValues } from "../../../constants/supportInitialValues";
 import { supportValidation } from "../../../utils/supportValidation";
 import { Theme, toast } from "react-toastify";
 import { useAddSingleMessageForSupportMutation } from "../../../features/API/supportMessagesAPI";
+import { ISupportInitialValues } from "../../../ts/interfaces/ISupport/ISupportInitialValues";
+import { requiredStar } from "../../../constants/requiredStar";
 
 interface IProps {
 	theme: Theme;
+	initialValues: ISupportInitialValues;
 }
 
-const requiredStar = <span className="text-red-400">*</span>;
-
-const SupportForm: FC<IProps> = ({ theme }): JSX.Element => {
+const SupportForm: FC<IProps> = ({ theme, initialValues }): JSX.Element => {
 	const userId = localStorage.getItem("userId") as string;
-	
-	const [ loading, setLoading ] = useState<boolean>(false);
 
+	const [ loading, setLoading ] = useState<boolean>(false);
 	const [ addSingleMessageForSupport ] = useAddSingleMessageForSupportMutation();
 
-	const { handleSubmit, values, handleChange, handleBlur, touched, errors } = useFormik({
-        initialValues: supportInitialValues,
+	// eslint-disable-next-line
+	useEffect(() => { setValues(initialValues); }, [initialValues]);
+
+	const { handleSubmit, values, handleChange, handleBlur, touched, errors, setValues } = useFormik({
+        initialValues,
         validationSchema: supportValidation,
         onSubmit: async (values, { resetForm }) => {
             const { supportFirstName, supportEmail, supportTitle, supportMessage } = values;

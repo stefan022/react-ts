@@ -1,11 +1,6 @@
-interface InitialValues { 
-    supportFirstName: string; 
-    supportEmail: string; 
-    supportTitle: string; 
-    supportMessage: string;
-}
+import { ISupportInitialValues } from "../ts/interfaces/ISupport/ISupportInitialValues";
 
-export const supportInitialValues: InitialValues = {
+export const supportInitialValues: ISupportInitialValues = {
     supportFirstName: "",
     supportEmail: "",
     supportTitle: "",
