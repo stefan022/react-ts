@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { Context, FC, useContext, useState } from "react";
 
 import { useGetAllMessagesForSupportQuery } from "../../../features/API/supportMessagesAPI";
 import { useAppSelector } from "../../../hooks/useAppSelector";
@@ -7,9 +7,12 @@ import { AdminMessagesTitle, AdminSingleMessage, Spinner } from "../../../compon
 import { ISupportMessage } from "../../../ts/interfaces/ISupport/ISupportMessage";
 
 import "./AdminMessages.scss";
+import DarkThemeContext from "../../../context/ThemeContext";
+import { IDarkThemeContext } from "../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext";
 
 const AdminMessages: FC = (): JSX.Element => {
     useGetAllMessagesForSupportQuery();
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
 
     const { allMessagesForSupport } = useAppSelector((state: RootState) => state.support_messages);
     const [ numberOfVisibleMessages, setNumberOfVisibleMessages ] = useState<number>(5);
@@ -23,7 +26,9 @@ const AdminMessages: FC = (): JSX.Element => {
             {
                 visibleMessagesForSupport.length > 0 ? (
                     <>
-                        <AdminMessagesTitle/>
+                        <AdminMessagesTitle
+                            darkTheme={darkTheme}
+                        />
                         {
                             visibleMessagesForSupport.map((supportMessage: ISupportMessage) => {
                                 const { messageId, email, message, timestamp, adminResponse } = supportMessage;

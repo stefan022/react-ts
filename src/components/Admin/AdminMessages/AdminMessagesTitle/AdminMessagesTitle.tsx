@@ -1,9 +1,17 @@
 import React, { FC } from 'react'
 
-const AdminMessagesTitle: FC = (): JSX.Element => {
+import "./AdminMessagesTitle.scss";
+
+interface IProps {
+    darkTheme: boolean;
+}
+
+const AdminMessagesTitle: FC<IProps> = ({ darkTheme }): JSX.Element => {
     return (
-        <div className="flex justify-center py-4 bg-blue-400">
-            <h3 className='text-gray-100'>Messages</h3>
+        <div className={ darkTheme ? "admin-messages-title_dark" : "admin-messages-title" }>
+            <h3 className={ darkTheme ? "admin-messages-title__content_dark" : "admin-messages-title__content" }>
+                Messages
+            </h3>
         </div>
     )
 }
