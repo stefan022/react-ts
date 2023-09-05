@@ -45,14 +45,22 @@ const AdminMessages: FC = (): JSX.Element => {
                                 )
                             })
                         }
-                        <div className="admin__messages-load-more">
-                            <button 
-                                onClick={handleLoadMore}
-                                className="admin__messages-load-more-button"
-                            >
-                                Load more
-                            </button>
-                        </div>
+                        {
+                            numberOfVisibleMessages < allMessagesForSupport.length && (
+                                <div className="admin__messages-load-more">
+                                    <button 
+                                        onClick={handleLoadMore}
+                                        className={
+                                            darkTheme
+                                            ? "admin__messages-load-more-button__dark"
+                                            : "admin__messages-load-more-button"
+                                        }
+                                    >
+                                        Load more
+                                    </button>
+                                </div>
+                            )
+                        }
                     </>
                 ) : <Spinner/>
             }

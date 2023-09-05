@@ -9,9 +9,10 @@ import "../ModalAdminSingleMessage.scss"
 interface IProps {
     singleMessageForSupport: ISupportMessage;
     setModalIsOpen: Dispatch<SetStateAction<boolean>>;
+    darkTheme: boolean;
 }
 
-const ModalAdminSingleMessageContent: FC<IProps> = ({ singleMessageForSupport: { firstName, timestamp, email, title, message }, setModalIsOpen }): JSX.Element => {
+const ModalAdminSingleMessageContent: FC<IProps> = ({ singleMessageForSupport: { firstName, timestamp, email, title, message }, setModalIsOpen, darkTheme }): JSX.Element => {
     const calcTimestamp = timestampToLocalString(timestamp);
 
     const handleCloseModal = () => setModalIsOpen(false);
@@ -21,7 +22,7 @@ const ModalAdminSingleMessageContent: FC<IProps> = ({ singleMessageForSupport: {
             <h3>Message from {firstName}</h3>
             <FaTimesCircle
                 size={20}
-                className='modal__admin-single-message-x'
+                className={ darkTheme ? "modal__admin-single-message-x_dark" : "modal__admin-single-message-x" }
                 onClick={handleCloseModal}
             />
             <div className='modal__admin-single-message-content'>

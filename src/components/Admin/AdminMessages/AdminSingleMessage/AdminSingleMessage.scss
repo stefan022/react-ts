@@ -12,34 +12,20 @@
             &__container {
                 @extend .asmc-basic, .asmc-cursor;
                 @apply hover:bg-blue-50;
+
+                &-dark {
+                    @extend .asmc-basic, .asmc-cursor;
+                    @apply hover:bg-gray-800;
+                }
                 
                 &-answered {
                     @extend .asmc-basic, .asmc-cursor;
                     @apply bg-blue-50;
-                }
-            }
 
-            &-answer {
-                &__container {
-                    @apply w-full;
-                }
-
-                &__divider {
-                    @apply w-full bg-gray-400 h-[2px];
-                }
-
-                &__sender {
-                    @apply mb-4 pt-2;
-
-                    &-and {
-                        &-timestamp {
-                            @apply flex justify-between items-center;
-                        }
+                    &-dark {
+                        @extend .asmc-basic, .asmc-cursor;
+                        @apply bg-gray-800;
                     }
-                }
-
-                &__content {
-                    @apply mb-4;
                 }
             }
 
@@ -51,6 +37,10 @@
 
                     &__text {
                         @apply text-sm text-gray-400;
+
+                        &_dark {
+                            @apply text-sm text-gray-300;
+                        }
                     }
                 }
             }

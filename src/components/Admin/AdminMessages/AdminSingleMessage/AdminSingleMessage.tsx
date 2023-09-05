@@ -1,11 +1,13 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useContext, Context } from 'react'
 
 import { Modal } from '@mui/material';
 import { ModalAdminSingleMessage } from '../../../../components';
 import { timeAgo } from '../../../../utils/helpers/timeAgo';
 import { BiCheckDouble } from 'react-icons/bi';
+import DarkThemeContext from '../../../../context/ThemeContext';
+import { IDarkThemeContext } from '../../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';
 
-import "../AdminMessages.scss";
+import "./AdminSingleMessage.scss";
 
 interface IProps {
     messageId: number;
@@ -16,11 +18,22 @@ interface IProps {
 }
 
 const AdminSingleMessage: FC<IProps> = ({ messageId, email, message, timestamp, adminResponse }): JSX.Element => {
+    const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
+
     const [ modalIsOpen, setModalIsOpen ] = useState<boolean>(false);
     const [ currentMessageId, setCurrentMessageId ] = useState<number>(0);
 
     const calcTimeAgo = timeAgo(timestamp);
-    const adminContainer =  adminResponse ? "admin-single-message__container-answered" : "admin-single-message__container";
+
+    const adminContainer = adminResponse 
+                                ? darkTheme 
+                                    ? "admin-single-message__container-answered-dark" 
+                                    : "admin-single-message__container-answered"
+                                : darkTheme 
+                                    ? "admin-single-message__container-dark"
+                                    : "admin-single-message__container";
+                                    
+    const adminSingleMessage = darkTheme ? "admin-single-message__content-between__text_dark" : "admin-single-message__content-between__text";
 
     const handleOpenModal = (mId: number) => {
         setCurrentMessageId(mId);
@@ -40,7 +53,7 @@ const AdminSingleMessage: FC<IProps> = ({ messageId, email, message, timestamp, 
                         <p className="admin-single-message__content-between__text">{calcTimeAgo}</p>
                     </div>
                     <div className='admin-single-message__content-between'>
-                        <p className='admin-single-message__content-between__text'>{message}</p>
+                        <p className={adminSingleMessage}>{message}</p>
                         { adminResponse &&  <BiCheckDouble size={20}/>}
                     </div>
                 </div>
@@ -48,7 +61,7 @@ const AdminSingleMessage: FC<IProps> = ({ messageId, email, message, timestamp, 
             <Modal
                 open={modalIsOpen}
                 onClose={handleCloseModal}
-                className='bg-white bg-opacity-80'
+                className={ darkTheme ? "bg-gray-900 bg-opacity-80" : "bg-white bg-opacity-80" }
                 children={
                     <ModalAdminSingleMessage 
                         currentMessageId={currentMessageId}

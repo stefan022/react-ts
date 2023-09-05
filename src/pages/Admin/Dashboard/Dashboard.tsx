@@ -1,6 +1,6 @@
 import React, { FC, ReactNode, useContext, Context } from 'react'
 
-import { AdminNavbar, AdminSidebar, AdminFooter, AdminTitleOfPage } from '../../../components'
+import { AdminNavbar, AdminSidebar, AdminTitleOfPage, Footer } from '../../../components'
 import { AdminContainer } from '../../../containers';
 import { Overview } from "../../../pages";
 import DarkThemeContext from '../../../context/ThemeContext';
@@ -31,7 +31,7 @@ const Dashboard: FC<IProps> = ({ children, title }): JSX.Element => {
                         <AdminTitleOfPage title={title}/>
                         {children ? children : <Overview/>}
                     </div>
-                    <AdminFooter/>
+                    <Footer/>
                 </AdminContainer>
             </div>
         </div>

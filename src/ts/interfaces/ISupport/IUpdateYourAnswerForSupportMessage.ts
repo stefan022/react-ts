@@ -6,5 +6,6 @@ export interface IUpdateYourAnswerForSupportMessage {
         adminMessageTimestamp: number;
     },
     adminResponse: true;
+    seen: false;
     changeTimestamp: number;
 }

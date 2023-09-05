@@ -12,9 +12,10 @@ interface IProps {
     messageId: number;
     firstName: string;
     setModalIsOpen: Dispatch<SetStateAction<boolean>>;
+    darkTheme: boolean;
 }
 
-const AdminAnswerForm: FC<IProps> = ({ messageId, firstName, setModalIsOpen }): JSX.Element => {
+const AdminAnswerForm: FC<IProps> = ({ messageId, firstName, setModalIsOpen, darkTheme }): JSX.Element => {
     const userId = localStorage.getItem("userId") as string;
 
     const [ username, setUsername ] = useState<string>();
@@ -24,6 +25,7 @@ const AdminAnswerForm: FC<IProps> = ({ messageId, firstName, setModalIsOpen }): 
     const [ updateYourAnswerForSupportMessage ] = useUpdateYourAnswerForSupportMessageMutation();
 
     const emptyAnswer = empty ? "admin-answer-form__container-content-empty" : "admin-answer-form__container-content";
+    const theme = darkTheme ? "dark" : "light";
 
     const handleSendAnswer = (e: FormEvent<HTMLFormElement>, mId: number, userFirstName: string) => { 
         e.preventDefault();
@@ -40,12 +42,13 @@ const AdminAnswerForm: FC<IProps> = ({ messageId, firstName, setModalIsOpen }): 
                     adminName: username
                 },
                 adminResponse: true,
+                seen: false,
                 changeTimestamp: timestamp
             });
 
             setModalIsOpen(false);
             setEmpty(false);
-            toast.success(`You have successfully send answer for ${userFirstName}`);
+            toast.success(`You have successfully send answer for ${userFirstName}`, { theme });
             answerRef.current!.value = "";
 
             return;
@@ -90,7 +93,11 @@ const AdminAnswerForm: FC<IProps> = ({ messageId, firstName, setModalIsOpen }): 
             </div>
             <div className='admin-answer-form__container-button'>
                 <button 
-                    className='admin-answer-form__container-button-send'
+                    className={ 
+                        darkTheme 
+                            ? "admin-answer-form__container-button-send_dark" 
+                            : "admin-answer-form__container-button-send" 
+                    }
                 >
                     Send
                 </button>
