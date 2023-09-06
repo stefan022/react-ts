@@ -1,4 +1,5 @@
-export interface IAddPost {
+export interface AddCommentDTO {
+    postId: number;
     username: string;
     content: string;
     timestamp: number;

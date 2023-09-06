@@ -1,4 +1,4 @@
-import { IAddPost } from "../../ts/interfaces/IBlog/IPost/IAddPost";
+import { AddPostDTO } from "../../ts/dtos/Blog/Post/AddPostDTO";
 import { IPost } from "../../ts/interfaces/IBlog/IPost/IPost";
 import rootAPI from "./rootAPI";
 
@@ -9,7 +9,7 @@ export const postsAPI = rootAPI.injectEndpoints({
             providesTags: ["posts"]
         }),
 
-        addSinglePost: builder.mutation<{}, IAddPost>({
+        addSinglePost: builder.mutation<{}, AddPostDTO>({
             query: (dto) => ({
                 method: "POST",
                 url: "/posts",

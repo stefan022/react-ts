@@ -1,5 +1,5 @@
 import rootAPI from "./rootAPI";
-import { IAddToWishlist } from "../../ts/interfaces/IWishlist/IAddToWishlist";
+import { AddToWishlistDTO } from "../../ts/dtos/Wishlist/AddToWishlistDTO";
 import { IWishlist } from "../../ts/interfaces/IWishlist/IWishlist";
 
 export const wishlistAPI = rootAPI.injectEndpoints({
@@ -9,7 +9,7 @@ export const wishlistAPI = rootAPI.injectEndpoints({
             providesTags: ["wishlist"]
         }),
 
-        addToWishlist: builder.mutation<IWishlist, IAddToWishlist>({
+        addToWishlist: builder.mutation<IWishlist, AddToWishlistDTO>({
             query: (dto) => ({
                 method: "POST",
                 url: "/wishlist",

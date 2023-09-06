@@ -1,6 +1,4 @@
-export interface IAddReply {
-    postId: number;
-    commentId: number;
+export interface AddPostDTO {
     username: string;
     content: string;
     timestamp: number;

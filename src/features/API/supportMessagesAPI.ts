@@ -1,8 +1,8 @@
 import { ISupportMessage } from "../../ts/interfaces/ISupport/ISupportMessage";
-import { IAddSingleMessageForSupport } from "../../ts/interfaces/ISupport/IAddSingleMessageForSupport";
-import { IUpdateSeenInSingleMessageForSupport } from "../../ts/interfaces/ISupport/IUpdateSeenInSingleMessageForSupport";
+import { AddSingleMessageForSupportDTO } from "../../ts/dtos/Support/AddSingleMessageForSupportDTO";
+import { UpdateSeenInSingleMessageForSupportDTO } from "../../ts/dtos/Support/UpdateSeenInSingleMessageForSupportDTO";
+import { UpdateYourAnswerForSupportMessageDTO } from "../../ts/dtos/Support/UpdateYourAnswerForSupportMessageDTO";
 import rootAPI from "./rootAPI";
-import { IUpdateYourAnswerForSupportMessage } from "../../ts/interfaces/ISupport/IUpdateYourAnswerForSupportMessage";
 
 export const supportMessagesAPI = rootAPI.injectEndpoints({
     endpoints: (builder) => ({
@@ -27,7 +27,7 @@ export const supportMessagesAPI = rootAPI.injectEndpoints({
             providesTags: ["support-messages"]
         }),
 
-        addSingleMessageForSupport: builder.mutation<{}, IAddSingleMessageForSupport>({
+        addSingleMessageForSupport: builder.mutation<{}, AddSingleMessageForSupportDTO>({
             query: (dto) => ({
                 method: "POST",
                 url: "/support_messages",
@@ -36,7 +36,7 @@ export const supportMessagesAPI = rootAPI.injectEndpoints({
             invalidatesTags: ["support-messages"]
         }),
 
-        updateSeenInSingleMessageForSupport: builder.mutation<{}, IUpdateSeenInSingleMessageForSupport>({
+        updateSeenInSingleMessageForSupport: builder.mutation<{}, UpdateSeenInSingleMessageForSupportDTO>({
             query: (dto) => ({
                 method: "PATCH",
                 url: `/support_messages/${dto.messageId}`,
@@ -45,7 +45,7 @@ export const supportMessagesAPI = rootAPI.injectEndpoints({
             invalidatesTags: ["support-messages"]
         }),
 
-        updateYourAnswerForSupportMessage: builder.mutation<{}, IUpdateYourAnswerForSupportMessage>({
+        updateYourAnswerForSupportMessage: builder.mutation<{}, UpdateYourAnswerForSupportMessageDTO>({
             query: (dto) => ({
                 method: "PATCH",
                 url: `/support_messages/${dto.messageId}`,

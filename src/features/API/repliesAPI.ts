@@ -1,4 +1,4 @@
-import { IAddReply } from "../../ts/interfaces/IBlog/IReply/IAddReply";
+import { AddReplyDTO } from "../../ts/dtos/Blog/Reply/AddReplyDTO";
 import { IReply } from "../../ts/interfaces/IBlog/IReply/IReply";
 import rootAPI from "./rootAPI";
 
@@ -9,7 +9,7 @@ export const repliesAPI = rootAPI.injectEndpoints({
             providesTags: ["replies"]
         }),
 
-        addReply: builder.mutation<{}, IAddReply>({
+        addReply: builder.mutation<{}, AddReplyDTO>({
             query: (dto) => ({
                 method: "POST",
                 url: `/posts/${dto.postId}/comments/${dto.commentId}/replies`,

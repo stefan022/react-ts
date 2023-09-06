@@ -1,4 +1,4 @@
-import { IAddReview } from "../../ts/interfaces/IReview/IAddReview";
+import { AddReviewDTO } from "../../ts/dtos/Review/AddReviewDTO";
 import { IReview } from "../../ts/interfaces/IReview/IReview";
 import rootAPI from "./rootAPI";
 
@@ -9,7 +9,7 @@ export const reviewsAPI = rootAPI.injectEndpoints({
             providesTags: ["reviews"],
         }),
         
-        addReview: builder.mutation<{}, IAddReview>({
+        addReview: builder.mutation<{}, AddReviewDTO>({
             query: (dto) => ({
                 url: `/phones/${dto.phoneId}/reviews`,
                 method: "POST",

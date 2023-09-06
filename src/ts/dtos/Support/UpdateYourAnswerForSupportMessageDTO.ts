@@ -1,4 +1,4 @@
-export interface IUpdateYourAnswerForSupportMessage {
+export interface UpdateYourAnswerForSupportMessageDTO {
     messageId: number;
     answer: {
         adminName: string;

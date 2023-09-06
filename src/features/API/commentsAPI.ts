@@ -1,4 +1,4 @@
-import { IAddComment } from "../../ts/interfaces/IBlog/IComment/IAddComment";
+import { AddCommentDTO } from "../../ts/dtos/Blog/Comment/AddCommentDTO";
 import { IComment } from "../../ts/interfaces/IBlog/IComment/IComment";
 import rootAPI from "./rootAPI";
 
@@ -9,7 +9,7 @@ export const commentsAPI = rootAPI.injectEndpoints({
             providesTags: ["comments"]
         }),
 
-        addSingleComment: builder.mutation<{}, IAddComment>({
+        addSingleComment: builder.mutation<{}, AddCommentDTO>({
             query: (dto) => ({
                 method: "POST",
                 url: `/posts/${dto.postId}/comments`,

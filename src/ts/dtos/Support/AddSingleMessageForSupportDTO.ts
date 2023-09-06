@@ -1,4 +1,4 @@
-export interface IAddSingleMessageForSupport {
+export interface AddSingleMessageForSupportDTO {
 	userId: string;
 	firstName: string;
   	email: string;

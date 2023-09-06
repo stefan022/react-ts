@@ -1,4 +1,4 @@
-export interface IAddToWishlist {
+export interface AddToWishlistDTO {
     articleId: number;
     userId: string;
     articleName: string;
