@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, FocusEventHandler } from 'react'
+import React, { FC, ChangeEventHandler, FocusEventHandler } from 'react'
 
 import { FormikError } from '../../..';
 
@@ -13,9 +13,10 @@ interface IProps {
     handleBlur: FocusEventHandler<HTMLInputElement>;
     styleDiv: string;
     requiredStar?: JSX.Element;
+    disableAutoComplete?: boolean;
 };
 
-const FormikField = ({ inputId, text, placeholder, value, error, touched, handleChange, handleBlur, styleDiv, requiredStar }: IProps) => {
+const FormikField: FC<IProps> = ({ inputId, text, placeholder, value, error, touched, handleChange, handleBlur, styleDiv, requiredStar, disableAutoComplete }): JSX.Element => {
     return (
         <div className={styleDiv}>
             <label
@@ -36,6 +37,7 @@ const FormikField = ({ inputId, text, placeholder, value, error, touched, handle
                 value={value}
                 onChange={handleChange}
                 onBlur={handleBlur}
+                autoComplete={ disableAutoComplete ? "off" : "on" }
             />
             <FormikError error={error} touched={touched}/>
         </div>
