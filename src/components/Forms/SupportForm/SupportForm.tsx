@@ -58,7 +58,7 @@ const SupportForm: FC<IProps> = ({ theme, initialValues }): JSX.Element => {
 					<FormikField
 						inputId="supportFirstName"
 						text="First Name:"
-						placeholder="Stefan"
+						placeholder="First Name"
 						value={values.supportFirstName}
 						error={errors.supportFirstName}
 						touched={touched.supportFirstName}
@@ -70,7 +70,7 @@ const SupportForm: FC<IProps> = ({ theme, initialValues }): JSX.Element => {
 					<FormikField
 						inputId="supportEmail"
 						text="Email:"
-						placeholder="stefan@gmail.com"
+						placeholder="example@gmail.com"
 						value={values.supportEmail}
 						error={errors.supportEmail}
 						touched={touched.supportEmail}
