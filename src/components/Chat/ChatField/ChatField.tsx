@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC} from 'react'
 
 const ChatField: FC = (): JSX.Element => {
     return (

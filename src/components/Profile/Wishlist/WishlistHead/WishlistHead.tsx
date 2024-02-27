@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { wishlistHeadData } from './wishlistHeadData';
 
 const WishlistHead = () => {

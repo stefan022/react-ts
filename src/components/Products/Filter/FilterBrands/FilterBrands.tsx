@@ -1,4 +1,4 @@
-import React, { FC, useContext, Context } from 'react'
+import { FC, useContext, Context } from 'react'
 import { firstCapitalLatter } from '../../../../utils/helpers/capitalFirstLetter';
 import { useAppSelector } from '../../../../hooks/useAppSelector';
 import { RootState } from '../../../../ts/types/RootState';

@@ -1,4 +1,4 @@
-import React, { FC, MouseEventHandler, Dispatch, SetStateAction } from 'react'
+import { FC, MouseEventHandler, Dispatch, SetStateAction } from 'react'
 
 import { IUser } from '../../../ts/interfaces/IUser/IUser';
 import { useFormik } from 'formik';

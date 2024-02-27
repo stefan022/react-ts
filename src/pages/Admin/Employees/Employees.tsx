@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 import { UserTable } from '../../../components'
 import { QueryDocumentSnapshot, QuerySnapshot, getDocs } from 'firebase/firestore';
@@ -14,14 +14,14 @@ const Employees: FC = (): JSX.Element => {
     useEffect(() => {
         getDocs(collectionRef)
             .then((snapshot: QuerySnapshot) => {
-                snapshot.docs.forEach((doc: QueryDocumentSnapshot) => {
+                snapshot.docs.forEach(() => {
                     const allEmployees: IUser[] = [];
 
                         snapshot.docs.forEach((doc: QueryDocumentSnapshot) => {
                             const singleEmployee = doc.data() as IUser;
                             const { token } = singleEmployee;
                         
-                            if (token === process.env.REACT_APP_ADMIN_TOKEN) {
+                            if (token === import.meta.env.VITE_ADMIN_TOKEN) {
                                 allEmployees.push(singleEmployee);
                             }
                         });

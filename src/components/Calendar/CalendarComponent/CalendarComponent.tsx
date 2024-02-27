@@ -13,7 +13,6 @@ const CalendarComponent = () => {
 	const [ addModalActive, setAddModalActive] = useState<boolean>(false);
 	const [ deleteModalInfo, setDeleteModalInfo ] = useState<EventClickArg>();
 	const [ addModalInfo, setAddModalInfo ] = useState<DateSelectArg>();
-	const [ events, setEvents ] = useState();
 
 	const inputRef = useRef<HTMLInputElement>(null);
 
@@ -61,7 +60,6 @@ const CalendarComponent = () => {
 			<FullCalendarComponent
 				handleDateSelect={handleDateSelect}
 				handleEventClick={handleEventClick}
-				events={events}
 			/>
 			<Modal open={deleteModalActive} onClose={handleCloseDeleteModal} className='bg-white bg-opacity-80'>
 				<CalendarDeleteModal

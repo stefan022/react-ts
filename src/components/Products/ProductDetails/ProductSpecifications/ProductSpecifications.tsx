@@ -1,4 +1,4 @@
-import React, { FC} from 'react'
+import { FC} from 'react'
 
 import { IProduct } from '../../../../ts/interfaces/IProduct/IProduct';
 import { IScreen } from '../../../../ts/interfaces/IProduct/IScreen';

@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import { FC, useState } from 'react'
 
 import { Modal } from '@mui/material';
 import { QuestionRemoveFromWishlist, Spinner } from "../../../components";
@@ -7,19 +7,17 @@ import { toast } from 'react-toastify';
 
 interface IProps {
     wishlistId: number;
-    articleId: number;
-    category: string;
     darkTheme: boolean;
 }
 
-const RemoveFromWishlist: FC<IProps> = ({ wishlistId, articleId, category, darkTheme }): JSX.Element => {
+const RemoveFromWishlist: FC<IProps> = ({ wishlistId, darkTheme }): JSX.Element => {
     const [ modalIsOpen, setModalIsOpen ] = useState<boolean>(false);
     const [ loading, setLoading ] = useState<boolean>(false);
     const [ deleteFromWishlist ] = useDeleteFromWishlistMutation();
     
     const theme = darkTheme ? "dark" : "light";
 
-    const handleRemoveFromWishlist = async (wId: number, artId: number, c: string) => { 
+    const handleRemoveFromWishlist = async (wId: number) => { 
         setModalIsOpen(false);
         setLoading(true);
 
@@ -53,8 +51,6 @@ const RemoveFromWishlist: FC<IProps> = ({ wishlistId, articleId, category, darkT
                 children={
                     <QuestionRemoveFromWishlist
                         wishlistId={wishlistId}
-                        articleId={articleId}
-                        category={category}
                         handleCloseModal={handleCloseModal}
                         handleRemoveFromWishlist={handleRemoveFromWishlist}
                         darkTheme={darkTheme}

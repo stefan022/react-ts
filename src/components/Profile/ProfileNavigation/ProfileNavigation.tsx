@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 import { profileData } from '../profileData';
 import { NavLink } from 'react-router-dom';

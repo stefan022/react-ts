@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react'
+import { FC, useEffect } from 'react'
 
 import numeral from 'numeral';
 import { useAppDispatch } from '../../../hooks/useAppDispatch';

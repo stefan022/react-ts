@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC} from 'react'
 
 import { AddComment, SingleComment } from "../../../components"
 import { IComment } from '../../../ts/interfaces/IBlog/IComment/IComment';

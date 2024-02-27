@@ -1,7 +1,7 @@
-import React, { FC, useEffect } from 'react'
+import { FC, useEffect } from 'react'
 
 import { Banner, Categories } from '../../components'
-import products from "../../assets/products.png";
+import products from "../../assets/products.webp";
 import { Container } from '../../containers';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { RESET_FILTER_CURRENT_PRICE } from '../../features/slices/filterProductsSlice';

@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react'
+import { FC, useState, useEffect } from 'react'
 
 import { WishlistEmpty, WishlistHead, WishlistItems } from '../../../components'
 import { useGetAllFromWishlistQuery } from '../../../features/API/wishlistAPI';

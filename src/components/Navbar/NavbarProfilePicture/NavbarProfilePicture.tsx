@@ -46,7 +46,7 @@ const NavbarProfilePicture: FC<IProps> = ({ handleDisplayProfileDropdown }): JSX
                     `}>
                         <BsCamera size={16} className='text-blue-500'/>
                     </div>
-                ) : <img width={50} src={profilePicture} alt='img'/>
+                ) : <img width={50} src={profilePicture} alt='img' loading="lazy"/>
             }
         </div>
     )

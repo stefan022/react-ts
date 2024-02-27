@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC} from 'react'
 
 import { WishlistSingleItem } from "../../../../components"
 import { IWishlist } from '../../../../ts/interfaces/IWishlist/IWishlist';

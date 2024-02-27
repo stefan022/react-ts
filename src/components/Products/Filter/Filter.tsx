@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState, FormEvent, FormEventHandler, Dispatch, SetStateAction } from 'react'
+import { FC, useEffect, useState, FormEventHandler, Dispatch, SetStateAction } from 'react'
 
 import { FilterBrands, FilterClear, FilterColors, FilterPrice, FilterRatings, FilterSkeleton, FilterTitle } from "../../../components"
 
@@ -60,7 +60,7 @@ const Filter: FC<IProps> = ({ products, handleFilterChange, discount, setDiscoun
         // eslint-disable-next-line
     }, [products]);
 
-    const handleFilterClear = (e: FormEvent<HTMLFormElement>) => { 
+    const handleFilterClear = () => { 
         dispatch(RESET_FILTERS_CHECKED({
             products
         }));

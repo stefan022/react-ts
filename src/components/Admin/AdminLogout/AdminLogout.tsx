@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 
 import { IoLogOutOutline } from 'react-icons/io5'
 import { useNavigate } from 'react-router-dom';

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC} from 'react'
 
 const FaqTitle: FC = (): JSX.Element => <h3 className='mb-2 text-center'>General Questions</h3>;
 

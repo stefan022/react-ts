@@ -18,7 +18,7 @@ export const paginationProductsSlice = createSlice({
 
             state.activePage = pageNumber;
         },
-        PAGINATION_RESET_TO_FIRST_PAGE: (state, action: PayloadAction) => {
+        PAGINATION_RESET_TO_FIRST_PAGE: (state) => {
             state.activePage = 0;
         }
     }

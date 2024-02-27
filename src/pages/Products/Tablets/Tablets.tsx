@@ -1,7 +1,7 @@
-import React, { ChangeEvent, FC, useEffect, useState } from 'react'
+import { ChangeEvent, FC, useEffect, useState } from 'react'
 import { Banner, Filter, ProductsContainerSkeleton } from '../../../components'
 
-import tabletsImage from "../../../assets/tablets.png"
+import tabletsImage from "../../../assets/tablets.webp"
 import { useGetTabletsQuery } from '../../../features/API/tabletsAPI';
 import { useAppSelector } from '../../../hooks/useAppSelector';
 import { RootState } from '../../../ts/types/RootState';

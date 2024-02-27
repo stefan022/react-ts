@@ -1,4 +1,4 @@
-import React, { FC, ChangeEvent, RefObject, Dispatch, SetStateAction } from "react";
+import { FC, ChangeEvent, RefObject, Dispatch, SetStateAction } from "react";
 
 import { AllProducts } from "../../../ts/types/AllProducts";
 import { PAGINATION_RESET_TO_FIRST_PAGE } from "../../../features/slices/paginationProductsSlice";

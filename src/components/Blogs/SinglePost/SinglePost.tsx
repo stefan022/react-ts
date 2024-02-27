@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import { FC, useState } from 'react'
 
 import { useGetAllCommentsQuery } from '../../../features/API/commentsAPI';
 import { BlogInfo, BlogPicture, BlogReactions, BlogContent, Comments, BlogDelete } from '../../../components';

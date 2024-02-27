@@ -1,4 +1,4 @@
-import React, { FC, MouseEventHandler } from 'react'
+import { FC, MouseEventHandler } from 'react'
 
 import { BsBookmarkCheck } from 'react-icons/bs'
 import { Link } from 'react-router-dom'

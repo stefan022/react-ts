@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC} from 'react'
 
 import { supportInformationData } from '../supportInformationData'
 import { SupportSingleInformation } from "../../../components"

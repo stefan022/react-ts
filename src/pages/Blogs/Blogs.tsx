@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 import { Banner, PostForm, Posts } from '../../components'
 import Container from '../../containers/Container/Container'

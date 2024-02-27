@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC} from 'react'
 
 import { filterSkeleton } from '../../../constants/skeletons/filterSkeleton';
 import { Skeleton } from '@mui/material';

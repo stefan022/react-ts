@@ -1,4 +1,4 @@
-import React, { FC, Dispatch, SetStateAction } from 'react'
+import { FC, Dispatch, SetStateAction } from 'react'
 
 import { ISupportMessage } from '../../../ts/interfaces/ISupport/ISupportMessage';
 import { MessageSidebarNotifications, MessageEmptyContainer } from "../../../components";

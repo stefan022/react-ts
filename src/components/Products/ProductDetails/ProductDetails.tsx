@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 import { Banner, ProductImages, ProductInformation, ProductRatings, ProductReviews, ProductButtons, ProductSpecifications } from '../..'
 import Container from '../../../containers/Container/Container'

@@ -1,4 +1,4 @@
-import React, { FC, MouseEventHandler, useContext, Context } from "react";
+import { FC, MouseEventHandler, useContext, Context } from "react";
 
 import { NavbarProfilePicture, ProfileNavigation } from "../../../components"
 import DarkThemeContext from "../../../context/ThemeContext";

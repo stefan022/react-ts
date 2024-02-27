@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from 'react'
+import { FC, Fragment } from 'react'
 
 import { MessageContainerChooseNotification, MessageSingleContainer } from "../.."
 import { ISupportMessage } from '../../../ts/interfaces/ISupport/ISupportMessage';

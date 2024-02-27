@@ -1,5 +1,3 @@
-import React from "react";
-
 import {
 	DateSelectArg,
 	EventClickArg,
@@ -9,15 +7,13 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
-import { useEffect } from "react";
 
 interface IProps {
     handleDateSelect: (arg: DateSelectArg) => void;
     handleEventClick: (arg: EventClickArg) => void;
-    events: any;
-};
+}
 
-const FullCalendarComponent = ({ handleDateSelect, handleEventClick, events }: IProps) => {
+const FullCalendarComponent = ({ handleDateSelect, handleEventClick }: IProps) => {
     return (
         <div className="fullcalendar">
             <FullCalendar

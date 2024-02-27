@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 import { OrdersHead, OrdersList } from "../../../components"
 

@@ -1,4 +1,4 @@
-import React, { FC, useContext, Context, useEffect, useState } from 'react'
+import { FC, useContext, Context, useEffect, useState } from 'react'
 
 import { Banner, SupportInformation, SupportForm } from '../../components'
 import { Container } from '../../containers'

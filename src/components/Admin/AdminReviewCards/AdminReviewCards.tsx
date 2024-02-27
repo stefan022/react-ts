@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { AdminReviewSingleCard } from "../..";
 
 const AdminReviewCards = () => {

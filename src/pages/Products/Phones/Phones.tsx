@@ -1,6 +1,6 @@
-import React, { FC, ChangeEvent, useEffect, useState } from 'react'
+import { FC, ChangeEvent, useEffect, useState } from 'react'
 
-import phonesImage from "../../../assets/phones.png";
+import phonesImage from "../../../assets/phones.webp";
 import { Banner, Filter, ProductsContainerSkeleton } from '../../../components'
 import { ProductsContainer, Container } from '../../../containers';
 import { RootState } from '../../../ts/types/RootState';

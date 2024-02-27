@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useContext, Context } from 'react'
+import { FC, useEffect, useContext, Context } from 'react'
 
 import { useAppSelector } from '../../../hooks/useAppSelector'
 import { RootState } from '../../../ts/types/RootState'

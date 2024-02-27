@@ -1,4 +1,4 @@
-import React, { FC, useContext, Context } from 'react'
+import { FC, useContext, Context } from 'react'
 
 import { TColors } from '../../../../../ts/types/TColors';
 import { Link } from 'react-router-dom';
@@ -36,7 +36,7 @@ const SingleProductList: FC<IProps> = ({ articleId, articleName, rating, status,
             <div className='border border-gray-400 h-[200px] flex'>
                 <Link to={`${Routes.PRODUCTS}${productRoute}/${articleId}`}>
                     <div className='border-r border-gray-400 h-full w-[200px] bg-white'>
-                        <img className='w-full h-full p-2' src={images[0]} alt="" />
+                        <img className='w-full h-full p-2' src={images[0]} alt="img" loading="lazy"/>
                     </div>
                 </Link>
                 <div className='py-2 px-4 w-full h-full flex flex-col justify-between'>

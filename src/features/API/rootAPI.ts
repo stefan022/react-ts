@@ -6,9 +6,9 @@ const rootAPI = createApi({
 	reducerPath: "api",
 	endpoints: () => ({}),
 	baseQuery: fetchBaseQuery({
-		baseUrl: process.env.REACT_APP_BASE_URL as string,
+		baseUrl: import.meta.env.VITE_BASE_URL as string,
 		prepareHeaders: (headers) => {
-            headers.set("X-RapidAPI-Key", process.env.REACT_APP_RAPID_API_KEY as string);
+            headers.set("X-RapidAPI-Key", import.meta.env.VITE_RAPID_API_KEY as string);
             headers.append("Content-Type", "application/json");
 
 			return headers;

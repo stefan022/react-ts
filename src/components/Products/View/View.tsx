@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC} from 'react'
 
 import { BsFillGridFill, BsListUl } from 'react-icons/bs';
 import "./View.scss"

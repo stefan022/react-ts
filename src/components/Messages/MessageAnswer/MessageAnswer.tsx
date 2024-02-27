@@ -1,16 +1,15 @@
-import React, { FC } from 'react'
+import { FC} from 'react'
 
 import { timestampToLocalString } from '../../../utils/helpers/timestampToLocalString';
 import { BiCheckDouble } from "react-icons/bi"
 
 interface IProps {
     adminResponse: boolean;
-    adminName: string;
     adminMessage: string;
     adminMessageTimestamp: number;
 }
 
-const MessageAnswer: FC<IProps> = ({ adminResponse, adminName, adminMessage, adminMessageTimestamp }): JSX.Element => {
+const MessageAnswer: FC<IProps> = ({ adminResponse, adminMessage, adminMessageTimestamp }): JSX.Element => {
     return (
         <>
             {

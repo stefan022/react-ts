@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC} from 'react'
 
 import { MessageAnswer, MessageContent, MessageFrom, MessageTitle } from "../../../components"
 
@@ -26,7 +26,6 @@ const MessageSingleContainer: FC<IProps> = ({ adminResponse, adminName, title, t
                 <MessageContent message={message}/>
                 <MessageAnswer
                     adminResponse={adminResponse}
-                    adminName={adminName}
                     adminMessage={adminMessage}
                     adminMessageTimestamp={adminMessageTimestamp}
                 />

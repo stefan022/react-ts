@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC} from 'react'
 
 import { firstCapitalLatter } from '../../../../utils/helpers/capitalFirstLetter'
 

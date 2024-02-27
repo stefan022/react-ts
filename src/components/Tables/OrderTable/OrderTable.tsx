@@ -1,5 +1,3 @@
-import React from "react";
-
 const OrderTable = () => {
 	return (
 		<div className="relative overflow-x-auto shadow-md sm:rounded-lg">

@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import { FC, useState } from 'react'
 
 import { Banner, MessageContainer, MessagesSidebar, Spinner } from '../../components'
 import Container from '../../containers/Container/Container'

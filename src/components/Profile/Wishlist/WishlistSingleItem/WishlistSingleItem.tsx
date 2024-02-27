@@ -1,4 +1,4 @@
-import React, { FC, useContext, Context } from 'react'
+import { FC, useContext, Context } from 'react'
 
 import { RemoveFromWishlist, WishlistArticleName, WishlistDetails, WishlistImage, WishlistPrice, WishlistStatus } from "../../../../components"
 import DarkThemeContext from '../../../../context/ThemeContext';
@@ -39,8 +39,6 @@ const WishlistSingleItem: FC<IProps> = ({ wishlistId, articleId, image, articleN
             />
             <RemoveFromWishlist 
                 wishlistId={wishlistId} 
-                articleId={articleId} 
-                category={category}
                 darkTheme={darkTheme}
             />
         </div>

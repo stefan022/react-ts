@@ -1,4 +1,4 @@
-import React, { FC, useContext, Context } from 'react'
+import { FC, useContext, Context } from 'react'
 
 import { IAnswer } from '../../../../ts/interfaces/ISupport/IAnswer'
 import { timestampToLocalString } from '../../../../utils/helpers/timestampToLocalString';

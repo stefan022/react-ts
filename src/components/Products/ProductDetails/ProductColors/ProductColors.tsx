@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC} from 'react'
 
 import RoundColors from '../../RoundColors/RoundColors'
 import { TColors } from '../../../../ts/types/TColors'

@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState, Dispatch, SetStateAction } from 'react'
+import { FC, useEffect, useState, Dispatch, SetStateAction } from 'react'
 
 import { useAppDispatch } from '../../../hooks/useAppDispatch';
 import { UPDATE_SINGLE_ARTICLE } from '../../../features/slices/cartSlice';

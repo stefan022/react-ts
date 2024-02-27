@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import { FC, useState } from 'react'
 
 import { IReply } from '../../../ts/interfaces/IBlog/IReply/IReply';
 import { Spinner, VisibleLoadMore, VisibleReplies } from "../../../components"

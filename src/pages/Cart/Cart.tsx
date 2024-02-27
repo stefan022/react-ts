@@ -1,6 +1,6 @@
-import React, { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 
-import cartImage from "../../assets/cart.jpg";
+import cartImage from "../../assets/cart.webp";
 import { Banner, CartItems, CartServices, CartSummary, CartLength } from '../../components'
 import { Container } from '../../containers';
 import { useGetAllCartsQuery } from '../../features/API/cartAPI';

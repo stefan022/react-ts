@@ -1,4 +1,4 @@
-import React, { FC, useContext, Context } from 'react'
+import { FC, useContext, Context } from 'react'
 
 import { Link } from 'react-router-dom'
 import DarkThemeContext from '../../../context/ThemeContext';
@@ -7,7 +7,7 @@ import { Routes } from '../../../router/Routes';
 
 const OpenDashboard: FC = (): JSX.Element => {
     const token = localStorage.getItem("token");
-	const checkToken = token === process.env.REACT_APP_ADMIN_TOKEN ? true : false;
+	const checkToken = token === import.meta.env.VITE_ADMIN_TOKEN ? true : false;
 
 	const { darkTheme } = useContext(DarkThemeContext as Context<IDarkThemeContext>);
 

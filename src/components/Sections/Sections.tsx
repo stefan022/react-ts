@@ -1,4 +1,4 @@
-import React, { FC, MouseEventHandler, useContext, Context } from 'react'
+import { FC, MouseEventHandler, useContext, Context } from 'react'
 
 import { sectionsData } from './sectionsData'
 import { Link } from 'react-router-dom';

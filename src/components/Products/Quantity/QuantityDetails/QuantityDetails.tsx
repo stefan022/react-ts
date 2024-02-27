@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC} from 'react'
 
 import { IQuantity } from '../../../../ts/interfaces/IQuantity/IQuantity'
 import { QuantityDecrement, QuantityIncrement, QuantityOfArticle, QuantityWarningMessage } from "../../.."

@@ -1,4 +1,4 @@
-import React, { FC, MouseEventHandler, useContext, Context } from 'react'
+import { FC, MouseEventHandler, useContext, Context } from 'react'
 
 import { Routes } from '../../../../router/Routes'
 import { BsCartCheck } from 'react-icons/bs'

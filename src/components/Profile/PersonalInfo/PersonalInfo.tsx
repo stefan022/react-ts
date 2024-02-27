@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC} from 'react'
 
 import { IGetUser } from '../../../ts/interfaces/IUser/IGetUser'
 import { PersonalSingleInfo, PersonalSinceMember } from "../../../components"

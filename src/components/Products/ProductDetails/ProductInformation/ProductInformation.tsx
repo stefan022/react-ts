@@ -1,4 +1,4 @@
-import React, { FC, Dispatch, SetStateAction } from 'react'
+import { FC, Dispatch, SetStateAction } from 'react'
 
 import { Bookmark, ProductColors, ProductName, ProductPrice, ProductShortDesc, ProductStatus, Quantity, Stars } from "../../../../components"
 import { TColors } from '../../../../ts/types/TColors';

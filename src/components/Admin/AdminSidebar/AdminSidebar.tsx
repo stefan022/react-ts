@@ -1,6 +1,6 @@
-import React, { FC } from 'react'
+import { FC} from 'react'
 
-import logo from "../../../assets/logo.png";
+import logo from "../../../assets/logo.webp";
 import { adminSidebarData } from './adminSidebarData';
 import { Link } from 'react-router-dom';
 import { Routes } from '../../../router/Routes';
@@ -16,7 +16,7 @@ const AdminSidebar: FC<IProps> = ({ darkTheme }): JSX.Element => {
     return (
         <div className={ darkTheme ? "admin__sidebar-dark" : "admin__sidebar" }>
             <div className='admin__sidebar_image'>
-                <img src={logo} alt="logo.png" />
+                <img src={logo} alt="logo.webp" loading="lazy" />
             </div>
             <div>
                 {

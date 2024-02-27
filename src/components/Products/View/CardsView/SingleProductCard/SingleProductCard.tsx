@@ -1,4 +1,4 @@
-import React, { FC, useContext, Context } from 'react'
+import { FC, useContext, Context } from 'react'
 
 import { Link } from 'react-router-dom';
 import { Routes } from '../../../../../router/Routes';
@@ -36,7 +36,7 @@ const SingleProductCard: FC<IProps> = ({ articleId, articleName, brand, colors, 
                 <div className='h-3/5'>
                     <Link to={`${Routes.PRODUCTS}${productRoute}/${articleId}`}>
                         <div className='border-b border-b-gray-400 h-full bg-transparent'>
-                            <img className='w-full h-full p-2' src={images[0]} alt="" />
+                            <img className='w-full h-full p-2' src={images[0]} alt="img" loading="lazy"/>
                         </div>
                     </Link>
                 </div>

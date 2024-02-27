@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC} from 'react'
 
 import { IPost } from '../../../ts/interfaces/IBlog/IPost/IPost';
 import { SinglePost } from "../../../components"

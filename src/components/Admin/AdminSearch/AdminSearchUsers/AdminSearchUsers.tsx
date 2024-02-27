@@ -1,4 +1,4 @@
-import React, { FC, RefObject, Dispatch, SetStateAction, useEffect } from "react"
+import { FC, RefObject, Dispatch, SetStateAction, useEffect } from "react"
 
 import { debounce } from 'throttle-debounce';
 import { PAGINATION_RESET_TO_FIRST_PAGE } from '../../../../features/slices/paginationProductsSlice';

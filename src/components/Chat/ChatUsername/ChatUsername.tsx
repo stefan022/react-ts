@@ -1,10 +1,10 @@
-import React from 'react'
+import { FC } from 'react'
 
 // interface IProps {
 //     username: string;
 // }
 
-const ChatUsername = () => {
+const ChatUsername: FC = (): JSX.Element => {
     return (
         <div className='text-center py-4 border-b border-b-gray-400'>
             <p>$username</p>

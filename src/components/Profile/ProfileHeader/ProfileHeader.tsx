@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState, useContext, Context } from "react";
+import { FC, useEffect, useState, useContext, Context } from "react";
 
 import { OpenDashboard, ProfilePicture } from "../../../components"
 import { IGetUser } from "../../../ts/interfaces/IUser/IGetUser";

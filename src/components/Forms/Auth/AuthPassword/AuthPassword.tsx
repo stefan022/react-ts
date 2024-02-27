@@ -3,11 +3,10 @@ import React, { LegacyRef } from 'react'
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 interface IProps {
-    inputId: string;
     inputRef: LegacyRef<HTMLInputElement>;
 }
 
-const AuthPassword = ({ inputId, inputRef }: IProps) => {
+const AuthPassword = ({ inputRef }: IProps) => {
     const [passwordVisible, setPasswordVisible] = React.useState(false);
 
     const handleChangeVisible = () => setPasswordVisible(!passwordVisible);

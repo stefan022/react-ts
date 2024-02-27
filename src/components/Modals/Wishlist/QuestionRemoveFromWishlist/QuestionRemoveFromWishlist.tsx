@@ -1,17 +1,15 @@
-import React, { FC, MouseEventHandler } from 'react'
+import { FC, MouseEventHandler } from 'react'
 
 import { RiDeleteBin6Line } from 'react-icons/ri'
 
 interface IProps {
     wishlistId: number;
-    articleId: number;
-    category: string;
     handleCloseModal: MouseEventHandler<HTMLButtonElement>;
-    handleRemoveFromWishlist: (wId: number, artId: number, c: string) => void;
+    handleRemoveFromWishlist: (wId: number) => void;
     darkTheme: boolean;
 }
 
-const QuestionRemoveFromWishlist: FC<IProps> = ({ wishlistId, articleId, category, handleCloseModal, handleRemoveFromWishlist, darkTheme }): JSX.Element => {
+const QuestionRemoveFromWishlist: FC<IProps> = ({ wishlistId, handleCloseModal, handleRemoveFromWishlist, darkTheme }): JSX.Element => {
     return (
         <div className={`
                 ${ darkTheme ? "bg-gray-900" : "bg-white" }
@@ -37,7 +35,7 @@ const QuestionRemoveFromWishlist: FC<IProps> = ({ wishlistId, articleId, categor
                         ${ darkTheme ? "bg-red-600 hover:bg-red-700" : "bg-red-400 hover:bg-red-500" }
                          transition-all py-1 px-3 text-gray-100
                     `}
-                    onClick={() => handleRemoveFromWishlist(wishlistId, articleId, category)}
+                    onClick={() => handleRemoveFromWishlist(wishlistId)}
                 >
                     I'm sure
                 </button>

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC} from 'react'
 
 import { IReply } from '../../../ts/interfaces/IBlog/IReply/IReply';
 import { AddReply, Reply } from "../../../components"

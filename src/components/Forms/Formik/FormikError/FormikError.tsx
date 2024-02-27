@@ -1,5 +1,3 @@
-import React from "react"
-
 import { BsExclamationCircle } from "react-icons/bs";
 
 interface IProps {

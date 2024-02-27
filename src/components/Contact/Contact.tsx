@@ -1,4 +1,4 @@
-import React, { FC, useContext, Context } from 'react'
+import { FC, useContext, Context } from 'react'
 
 import { BiLogoGithub, BiLogoLinkedinSquare, BiLogoGmail } from "react-icons/bi";
 import { Link } from "react-router-dom";

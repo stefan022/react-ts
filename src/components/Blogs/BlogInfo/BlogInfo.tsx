@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC} from 'react'
 import { timeAgo } from '../../../utils/helpers/timeAgo';
 import { Blog } from '../../../ts/types/Blog/Blog';
 

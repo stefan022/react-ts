@@ -1,4 +1,4 @@
-import React, { FC, useContext, Context } from 'react'
+import { FC, useContext, Context } from 'react'
 
 import { Link } from 'react-router-dom'
 import { categoryWidthImage } from '../../../constants/categoryWidthImage';
@@ -30,7 +30,8 @@ const Category: FC<IProps> = ({ route, categoryName, image }): JSX.Element => {
                             ds
                         `} 
                         src={image} 
-                        alt="" 
+                        alt="img" 
+                        loading="lazy"
                     />
                 </div>
             </div>

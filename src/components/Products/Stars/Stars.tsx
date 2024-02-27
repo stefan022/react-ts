@@ -1,4 +1,4 @@
-import React, { FC, useContext, Context } from "react"
+import { FC, useContext, Context } from "react"
 
 import { AiFillStar } from "react-icons/ai";
 import { stars } from "../../../constants/stars";

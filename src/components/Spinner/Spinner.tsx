@@ -1,4 +1,4 @@
-import React, { FC, useContext, Context } from 'react'
+import { FC, useContext, Context } from 'react'
 
 import { RingLoader } from 'react-spinners'
 import DarkThemeContext from '../../context/ThemeContext'

@@ -1,4 +1,4 @@
-import React, { FC, useContext, Context } from 'react'
+import { FC, useContext, Context } from 'react'
 
 import { skillsData } from '../../pages/Home/skillsData';
 import DarkThemeContext from '../../context/ThemeContext';

@@ -1,4 +1,4 @@
-import React, { FC, MouseEventHandler } from 'react'
+import { FC, MouseEventHandler } from 'react'
 
 import { BiSolidCommentDetail } from 'react-icons/bi'
 import { Blog } from '../../../../ts/types/Blog/Blog';

@@ -1,4 +1,4 @@
-import React, { FC, useContext, Context, useState } from 'react'
+import { FC, useContext, Context, useState } from 'react'
 
 import { RiDeleteBin6Line } from 'react-icons/ri'
 import DarkThemeContext from '../../../context/ThemeContext';

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC} from 'react'
 
 import { ProductAdminReview, Stars } from "../../.."
 import { timestampToLocalString } from '../../../../utils/helpers/timestampToLocalString';

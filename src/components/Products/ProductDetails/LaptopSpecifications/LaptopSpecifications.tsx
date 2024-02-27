@@ -1,7 +1,6 @@
-import React, { FC } from 'react'
+import { FC} from 'react'
 
 import { ProductSingleSpecification, ProductSpecificationTitle } from "../../..";
-import { IScreen } from '../../../../ts/interfaces/IProduct/IScreen';
 
 interface IProps {
     screen: string;

@@ -1,8 +1,8 @@
-import React, { ReactNode, FC } from 'react'
+import { ReactNode, FC } from 'react'
 import Container from '../../containers/Container/Container'
 import { Banner, ProfileBody, ProfileHeader } from '../../components';
 
-import profile from "../../assets/profile.jpg";
+import profile from "../../assets/profile.webp";
 
 interface IProps {
     children?: ReactNode

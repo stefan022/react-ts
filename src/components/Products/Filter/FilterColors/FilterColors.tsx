@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC} from 'react'
 
 import { TColors } from '../../../../ts/types/TColors'
 import { useAppSelector } from '../../../../hooks/useAppSelector';

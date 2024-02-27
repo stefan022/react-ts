@@ -1,4 +1,4 @@
-import React, { useRef, FormEvent, useContext, Context } from "react";
+import { useRef, FormEvent, useContext, Context } from "react";
 
 import { Routes } from "../../../router/Routes";
 import { AuthForm, AuthField, AuthFormButton, AuthFormSwitch, AuthFormTitle, AuthGoogleButton, AuthOr, AuthPassword, AuthResetPasswordSwitch } from "../../../components";
@@ -43,7 +43,7 @@ const SignIn: React.FC<IProps> = ({ setLoading }): JSX.Element => {
 						setLoading(false);
 					});
             })
-            .catch((error) => {
+            .catch(() => {
                 toast.error("Invalid email address or password", { theme });
 				clearAuthFormFields(emailRef, passwordRef);
 				setLoading(false);
@@ -60,7 +60,6 @@ const SignIn: React.FC<IProps> = ({ setLoading }): JSX.Element => {
 				inputRef={emailRef}
 			/>
 			<AuthPassword
-				inputId="signInPassword"
 				inputRef={passwordRef}
 			/>
 			<AuthResetPasswordSwitch/>

@@ -1,8 +1,8 @@
-import React, { FC } from 'react'
+import { FC} from 'react'
 
 import { Banner, ChatButton, ChatField, ChatMessages, ChatSidebar, ChatStartTimestamp, ChatUsername } from '../../components'
 
-import chat from "../../assets/chat.jpg";
+import chat from "../../assets/chat.webp";
 import Container from '../../containers/Container/Container';
 
 const Chat: FC = (): JSX.Element => {

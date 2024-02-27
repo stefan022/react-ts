@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from 'react'
+import { FC, Fragment } from 'react'
 
 import { Link } from 'react-router-dom'
 import { IBannerNavigation } from '../../../ts/interfaces/IBanner/IBannerNavigation';

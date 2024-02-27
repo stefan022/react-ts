@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC} from 'react'
 
 import { CartArticleImage, CartArticleInfo, CartArticlePrice, CartArticleRemove, Quantity } from "../../../components"
 
@@ -11,11 +11,10 @@ interface IProps {
     rating: number;
     image: string;
     count: number;
-    quantity: number;
     price: number;
 }
 
-const CartSingleItem: FC<IProps> = ({ cartId, articleId, articleName, brand, category, rating, image, count, quantity, price }): JSX.Element => {
+const CartSingleItem: FC<IProps> = ({ cartId, articleId, articleName, brand, category, rating, image, count, price }): JSX.Element => {
     return (
         <>
             <div className='border border-gray w-full h-[175px] flex items-center justify-between'>

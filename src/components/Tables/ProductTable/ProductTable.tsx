@@ -1,4 +1,4 @@
-import React, { FC, useState, useRef } from "react";
+import { FC, useState, useRef } from "react";
 
 import { AdminSearch, AdminSort, NothingFound, Pagination, Spinner, TableHead, TableRows } from "../../../components"
 import { useAppSelector } from "../../../hooks/useAppSelector";

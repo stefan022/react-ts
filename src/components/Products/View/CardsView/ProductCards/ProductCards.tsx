@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import { FC, useState } from 'react'
 
 import { NothingFound, Pagination, SingleProductCard, Spinner } from "../../../..";
 import { RootState } from '../../../../../ts/types/RootState';

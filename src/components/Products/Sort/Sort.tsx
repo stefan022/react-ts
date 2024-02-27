@@ -1,4 +1,4 @@
-import React, { FC, ChangeEvent, useEffect, RefObject, useContext, Context } from 'react'
+import { FC, ChangeEvent, useEffect, RefObject, useContext, Context } from 'react'
 
 import { sortOptions } from '../../../constants/sortOptions';
 import { useAppDispatch } from '../../../hooks/useAppDispatch';

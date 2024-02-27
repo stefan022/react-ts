@@ -1,4 +1,4 @@
-import React, { FC, useContext, Context } from 'react'
+import { FC, useContext, Context } from 'react'
 
 import { BannerNavigation } from "../../components"
 import { IBannerNavigation } from '../../ts/interfaces/IBanner/IBannerNavigation';

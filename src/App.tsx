@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import { FC, useState } from 'react'
 
 import Router from './router/Router'
 import DarkThemeContext from './context/ThemeContext';

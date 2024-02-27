@@ -1,5 +1,3 @@
-import React from 'react'
-
 const AdminReviewSingleCard = () => {
     return (
         <div className='flex flex-col justify-between p-4 border border-gray-400 w-3/12'>

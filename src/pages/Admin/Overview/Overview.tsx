@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 import { BsBag } from "react-icons/bs";
 import { TfiWallet } from "react-icons/tfi";

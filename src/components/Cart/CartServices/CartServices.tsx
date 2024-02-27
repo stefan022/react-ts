@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { cartServicesData } from './cartServicesData'
 import { CartSingleService } from "../../../components"
 

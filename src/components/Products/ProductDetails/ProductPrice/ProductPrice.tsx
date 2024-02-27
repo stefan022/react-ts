@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC} from 'react'
 
 import { IoMdCheckmarkCircleOutline } from 'react-icons/io'
 import { calculationDiscount } from '../../../../utils/helpers/calculationDiscount'

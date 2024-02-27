@@ -1,7 +1,7 @@
-import React, { ChangeEvent, FC, useEffect, useState } from 'react'
+import { ChangeEvent, FC, useEffect, useState } from 'react'
 import { Banner, Filter, ProductsContainerSkeleton } from '../../../components'
 
-import laptopsImage from "../../../assets/laptops.png"
+import laptopsImage from "../../../assets/laptops.webp"
 import { useAppSelector } from '../../../hooks/useAppSelector';
 import { RootState } from '../../../ts/types/RootState';
 import { useAppDispatch } from '../../../hooks/useAppDispatch';

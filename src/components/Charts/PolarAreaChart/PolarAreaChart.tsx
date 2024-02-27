@@ -1,5 +1,3 @@
-import React from 'react'
-
 import ReactApexChart from 'react-apexcharts'
 import { polarAreaChartData } from '../data/polarAreaChartData'
 

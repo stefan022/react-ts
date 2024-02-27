@@ -1,4 +1,4 @@
-import React, { FC, MouseEventHandler } from 'react'
+import { FC, MouseEventHandler } from 'react'
 
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import './ModalBlogDelete.scss';

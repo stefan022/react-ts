@@ -1,4 +1,4 @@
-import React, { FC, MouseEventHandler } from 'react'
+import { FC, MouseEventHandler } from 'react'
 
 import { IPost } from '../../../ts/interfaces/IBlog/IPost/IPost';
 import { IComment } from '../../../ts/interfaces/IBlog/IComment/IComment';

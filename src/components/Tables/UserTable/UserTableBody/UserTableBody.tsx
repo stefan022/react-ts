@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC} from "react";
 
 import { IUser } from "../../../../ts/interfaces/IUser/IUser";
 import { UserTableBodyRow } from "../../../../components"

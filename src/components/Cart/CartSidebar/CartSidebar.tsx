@@ -1,4 +1,4 @@
-import React, { FC, Context, MouseEventHandler, useContext } from 'react'
+import { FC, Context, MouseEventHandler, useContext } from 'react'
 import CartSidebarContent from '../CartSidebarContent/CartSidebarContent';
 import DarkThemeContext from '../../../context/ThemeContext';
 import { IDarkThemeContext } from '../../../ts/interfaces/IDarkThemeContext/IDarkThemeContext';

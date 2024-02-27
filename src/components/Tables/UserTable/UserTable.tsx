@@ -1,4 +1,4 @@
-import React, { FC, useState, useRef } from "react";
+import { FC, useState, useRef } from "react";
 
 import { IUser } from "../../../ts/interfaces/IUser/IUser";
 import { UserTableHead, UserTableBody, AdminSearchUsers, Pagination, NothingFound, Spinner } from "../.."

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC} from 'react'
 
 import { IoMdNotificationsOutline } from 'react-icons/io'
 import { ThemeToggleSwitch, NavbarProfilePicture } from '../../../components'

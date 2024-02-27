@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react'
+import { FC, useRef } from 'react'
 
 import { CardsView, ListsView, ProductsSearch, Sort, View } from '../../components';
 import { useAppSelector } from '../../hooks/useAppSelector';

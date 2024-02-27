@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import { ReactNode } from 'react'
 import ProfileSidebar from '../ProfileSidebar/ProfileSidebar'
 import { ProfileInfo } from '../../../pages'
 

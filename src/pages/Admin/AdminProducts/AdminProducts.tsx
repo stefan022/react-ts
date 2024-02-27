@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC} from 'react'
 
 import { ProductTable } from '../../../components'
 import { Skeleton } from '@mui/material';

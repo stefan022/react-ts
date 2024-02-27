@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, useContext, Context } from 'react'
+import { FC, useState, useEffect, useContext, Context } from 'react'
 
 import { BsCamera } from "react-icons/bs";
 
@@ -62,7 +62,7 @@ const ProfilePicture: FC = (): JSX.Element => {
                         <div className='bg-white w-[100px] h-[100px] rounded-full text-center flex flex-col items-center justify-center'>
                             <BsCamera size={24} className='text-blue-500'/>
                         </div>
-                    ) : <img width={100} src={profilePicture} alt='img'/>
+                    ) : <img width={100} src={profilePicture} alt='img' loading="lazy"/>
                 }
                 <input 
                     id='profile-picture' 

@@ -1,4 +1,4 @@
-import React, { FC, useContext, Context } from 'react'
+import { FC, useContext, Context } from 'react'
 
 import { faqServicesData } from './faqServicesData'
 import "./FaqServices.scss"

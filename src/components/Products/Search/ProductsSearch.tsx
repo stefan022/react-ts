@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState, RefObject } from 'react'
+import { FC, useEffect, useState, RefObject } from 'react'
 import { debounce } from "throttle-debounce"
 import { useAppSelector } from '../../../hooks/useAppSelector';
 import { RootState } from '../../../ts/types/RootState';

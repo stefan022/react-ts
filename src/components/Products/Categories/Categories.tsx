@@ -1,13 +1,13 @@
-import React, { FC } from 'react'
+import { FC} from 'react'
 
 import { Routes } from '../../../router/Routes';
 import { Category } from '../../../components'
 
-import phones from "../../../assets/phones.png"
-import tablets from "../../../assets/tablets.png"
-import laptops from "../../../assets/laptops.png"
-import televisions from "../../../assets/televisions.png"
-import comingSoon from "../../../assets/coming-soon.png"
+import phones from "../../../assets/phones.webp"
+import tablets from "../../../assets/tablets.webp"
+import laptops from "../../../assets/laptops.webp"
+import televisions from "../../../assets/televisions.webp"
+import comingSoon from "../../../assets/coming-soon.webp"
 
 const Categories: FC = (): JSX.Element => {
     return (

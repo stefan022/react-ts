@@ -1,4 +1,4 @@
-import React, { FC, Dispatch, SetStateAction, useContext, Context } from "react";
+import { FC, Dispatch, SetStateAction, useContext, Context } from "react";
 
 import { AuthForm, AuthFormButton, FormikField, FormPassword, AuthFormSwitch, AuthFormTitle } from "../../../components";
 import { initialValues } from "../../../constants/initialValues";

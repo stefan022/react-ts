@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import { FC, useState } from "react";
 
 import Container from "../../containers/Container/Container";
 import { CartSidebar, CartOverlay, Logo, Navigation, ProfileDropdown, Sections } from "../../components";

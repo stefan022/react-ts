@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState, useContext, Context } from 'react'
+import { FC, useEffect, useState, useContext, Context } from 'react'
 
 import { useAddToCartMutation, useGetAllCartsQuery } from '../../../features/API/cartAPI';
 import { useAppSelector } from '../../../hooks/useAppSelector';

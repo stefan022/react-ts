@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react'
+import { FC, useEffect } from 'react'
 
 import { ProductDetails, Spinner } from "../../../../components"
 import { useParams } from 'react-router-dom';

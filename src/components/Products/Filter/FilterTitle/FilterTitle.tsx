@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC} from 'react'
 
 const FilterTitle: FC = (): JSX.Element => <h4>Filter</h4>
 

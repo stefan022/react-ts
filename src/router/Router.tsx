@@ -1,15 +1,14 @@
 import React from "react";
 
 import { BrowserRouter, Route, Routes as BrowserRoutes } from "react-router-dom";
-
-import { Home, Login, NotFound, Orders, Profile, Wishlist, Register, Settings, Products, Blogs, Faq, Support, Cart, Messages, Dashboard, Phones, Tablets, Laptops, Televisions, Others, Chat, Kanban, Calendar, Employees, Customers, AdminMessages, AdminProducts, AdminOrders, AdminReviews, NotAuthorized, ResetPassword, SinglePhone, SingleTablet, SingleLaptop, SingleTelevision } from "../pages";
 import { PrivateLayout, PublicLayout, AdminLayout } from "../layouts";
+import { Home, Login, NotFound, Orders, Profile, Wishlist, Register, Settings, Products, Blogs, Faq, Support, Cart, Messages, Dashboard, Phones, Tablets, Laptops, Televisions, Others, Chat, Kanban, Calendar, Employees, Customers, AdminMessages, AdminProducts, AdminOrders, AdminReviews, NotAuthorized, ResetPassword, SinglePhone, SingleTablet, SingleLaptop, SingleTelevision } from "../pages";
 import { Routes } from "./Routes";
 
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
-const Router = () => {
+const Router: React.FC = (): JSX.Element => {
 	return (
 		<BrowserRouter>
 			<ToastContainer/>

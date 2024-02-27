@@ -1,4 +1,4 @@
-import React, { FC, ChangeEventHandler, FocusEventHandler } from 'react'
+import { FC, ChangeEventHandler, FocusEventHandler } from 'react'
 
 import { FormikError } from "../../../../components"
 

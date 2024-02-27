@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 import { CartSingleItem, Spinner } from "../../../components"
 import { RootState } from '../../../ts/types/RootState'
@@ -26,7 +26,7 @@ const CartItems: FC = (): JSX.Element => {
             {
                 myCart.length > 0 ? (
                     myCart.map((cart) => {
-                        const { cartId, articleId, articleName, count, image, price, quantity, category, rating, brand } = cart;
+                        const { cartId, articleId, articleName, count, image, price, category, rating, brand } = cart;
 
                         return (
                             <CartSingleItem
@@ -39,7 +39,6 @@ const CartItems: FC = (): JSX.Element => {
                                 rating={rating}
                                 image={image}
                                 count={count}
-                                quantity={quantity}
                                 price={price}
                             />
                         )

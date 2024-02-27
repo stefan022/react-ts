@@ -1,4 +1,4 @@
-import React, { FC, Dispatch, SetStateAction, FormEvent, useRef, useContext, Context } from 'react'
+import { FC, Dispatch, SetStateAction, FormEvent, useRef, useContext, Context } from 'react'
 import { AuthField, AuthForm, AuthFormButton, AuthFormSwitch, AuthFormTitle, AuthOr } from '../../../../components'
 import { sendPasswordResetEmail } from 'firebase/auth';
 import { auth } from '../../../../firebase/config';

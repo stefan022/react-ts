@@ -1,4 +1,4 @@
-import React, { FC, Fragment, useContext, Context } from 'react'
+import { FC, Fragment, useContext, Context } from 'react'
 
 import { filterRatingsData } from './filterRatingsData'
 import { useAppSelector } from '../../../../hooks/useAppSelector';

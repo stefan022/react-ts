@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import { ReactNode } from 'react'
 import { NotAuthorized } from '../../pages';
 
 interface IProps {
@@ -8,7 +8,7 @@ interface IProps {
 const AdminLayout = ({ children }: IProps) => {
     const token = localStorage.getItem("token");
 
-    if (token === process.env.REACT_APP_ADMIN_TOKEN) {
+    if (token === import.meta.env.VITE_ADMIN_TOKEN) {
         return <div>{children}</div>
     }
 

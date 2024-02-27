@@ -1,4 +1,4 @@
-import React, { FC, MouseEventHandler } from 'react'
+import { FC, MouseEventHandler } from 'react'
 
 import { BiMoon } from "react-icons/bi"
 import { MdSunny } from "react-icons/md"

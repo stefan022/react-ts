@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 import { AiFillHeart } from 'react-icons/ai'
 import { Blog } from '../../../../ts/types/Blog/Blog';

@@ -1,4 +1,4 @@
-import React, { FC, useState, useContext, Context } from 'react'
+import { FC, useState, useContext, Context } from 'react'
 
 import { useDeleteFromCartMutation } from '../../../features/API/cartAPI';
 import { RemoveFromCart, Spinner } from "../../../components"

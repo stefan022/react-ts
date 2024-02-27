@@ -1,6 +1,6 @@
-import React, { Context, FC, useContext } from 'react'
+import { Context, FC, useContext } from 'react'
 
-import error404 from "../../assets/error404.png";
+import error404 from "../../assets/error404.webp";
 import { Link } from 'react-router-dom';
 import { Routes } from '../../router/Routes';
 import DarkThemeContext from '../../context/ThemeContext';
@@ -16,7 +16,7 @@ const NotFound: FC = (): JSX.Element => {
 
     return (
         <div className={notFound}>
-            <img width={300} src={error404} alt="error404.png"/>
+            <img width={300} src={error404} alt="error404.webp" loading="lazy"/>
             <h2 className='not-found__message'>
                 Sorry, page not found!
             </h2>

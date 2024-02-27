@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, useContext, Context } from 'react'
+import { FC, useState, useEffect, useContext, Context } from 'react'
 
 import { BiSolidBookmark } from 'react-icons/bi'
 import { useAddToWishlistMutation, useDeleteFromWishlistMutation, useGetAllFromWishlistQuery } from '../../../features/API/wishlistAPI';
@@ -45,7 +45,7 @@ const Bookmark: FC<IProps> = ({ articleId, articleName, price, status, category,
         // eslint-disable-next-line
     }, [wishlist, category]);
 
-    const handleBookmark = (c: string) => {
+    const handleBookmark = () => {
         setIsOpenModal(true);
 
         if (!bookmarked) {
@@ -53,7 +53,7 @@ const Bookmark: FC<IProps> = ({ articleId, articleName, price, status, category,
             addToWishlist({ articleId, articleName, category, price, status, userId, image: image as string });
 
             return;
-        };
+        }
         
         setBookmarked(false);
 
@@ -71,7 +71,7 @@ const Bookmark: FC<IProps> = ({ articleId, articleName, price, status, category,
                 fill={bookmarked ? "#60a5fa" : "#00000000"} 
                 stroke={bookmarked ? "#60a5fa" : "#c7cad1"} 
                 strokeWidth={1.5}
-                onClick={() => handleBookmark(category)}
+                onClick={handleBookmark}
             />
             <Modal
                 open={isOpenModal}

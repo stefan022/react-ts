@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, useContext, Context, ChangeEvent } from 'react'
+import { FC, useState, useEffect, useContext, Context, ChangeEvent } from 'react'
 
 import { priceMinAndMax } from '../../../../utils/helpers/priceMinAndMax';
 import { calculationDiscount } from '../../../../utils/helpers/calculationDiscount';

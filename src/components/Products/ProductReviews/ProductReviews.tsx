@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, useContext, Context } from 'react'
+import { FC, useState, useEffect, useContext, Context } from 'react'
 
 import { ReviewForm, ProductReviewsTitle, ProductSingleReview, Spinner } from "../.."
 import { useGetReviewsQuery } from '../../../features/API/reviewsAPI';

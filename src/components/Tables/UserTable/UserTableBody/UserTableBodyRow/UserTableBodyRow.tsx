@@ -1,4 +1,4 @@
-import React, { FC, useContext, Context } from 'react'
+import { FC, useContext, Context } from 'react'
 
 import { checkRole } from '../../../../../utils/helpers/checkRole';
 import DarkThemeContext from '../../../../../context/ThemeContext';

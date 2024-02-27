@@ -21,7 +21,7 @@ const Dnd: FC = (): JSX.Element => {
 				<DragDropContext
 					onDragEnd={(result) => onDragEnd(result, columns, setColumns)}
 				>
-					{Object.entries(columns).map(([columnId, column], index) => {
+					{Object.entries(columns).map(([columnId, column]) => {
 						return (
 							<div
                                 className="flex flex-col items-center"
