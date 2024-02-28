@@ -1,5 +1,5 @@
 # ElectroneX 
-Link: https://react-4w3im0i98-stefan022s-projects.vercel.app
+Link: https://react-ts-psi.vercel.app
 
 ## React + TypeScript + Vite
 
