@@ -1,5 +1,5 @@
 # ElectroneX 
-https://65de5b3089bee04c5955c436--fastidious-fairy-6b7478.netlify.app
+Link: https://react-4w3im0i98-stefan022s-projects.vercel.app
 
 ## React + TypeScript + Vite
 
